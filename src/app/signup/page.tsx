@@ -28,7 +28,7 @@ export default function SignupPage() {
       email,
       password,
       options: {
-        data: { parent_name: parentName },
+        data: { display_name: parentName },
         emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
     });

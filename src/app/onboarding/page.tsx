@@ -4,6 +4,7 @@ import { useApp } from '@/lib/store';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { getBandFromBirthDate, getBandShortLabel } from '@/lib/utils';
+import DateInput from '@/components/ui/DateInput';
 
 export default function OnboardingPage() {
   const { user, children, addChild, completeOnboarding } = useApp();
@@ -57,12 +58,7 @@ export default function OnboardingPage() {
         />
 
         <label className="block text-sm text-secondary mb-1.5">Date of birth</label>
-        <input
-          type="date"
-          value={birthDate}
-          onChange={e => setBirthDate(e.target.value)}
-          className="w-full border border-border rounded-xl px-4 py-3 text-foreground bg-card focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/30 mb-2"
-        />
+        <DateInput value={birthDate} onChange={setBirthDate} className="mb-2" />
 
         {previewBand && (
           <p className="text-xs text-muted mb-4 text-center">

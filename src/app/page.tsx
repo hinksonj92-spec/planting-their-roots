@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { DOMAIN_COLORS, DOMAIN_FULL_NAMES } from '@/lib/utils';
 import type { DomainCode } from '@/types';
 import Link from 'next/link';
+import DateInput from '@/components/ui/DateInput';
 
 const DOMAINS: DomainCode[] = ['LANG', 'MOTR', 'NUMR', 'SOCL', 'ROUT', 'SENS', 'INDP'];
 
@@ -81,12 +82,7 @@ export default function LandingPage() {
             autoFocus
           />
           <label className="block text-sm text-secondary mb-1.5">Date of birth</label>
-          <input
-            type="date"
-            value={birthDate}
-            onChange={e => setBirthDate(e.target.value)}
-            className="w-full border border-border rounded-xl px-4 py-3 text-foreground bg-card focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/30 mb-6"
-          />
+          <DateInput value={birthDate} onChange={setBirthDate} className="mb-6" />
           <button
             onClick={async () => {
               await addChild(childName.trim(), birthDate);

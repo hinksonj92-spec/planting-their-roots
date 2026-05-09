@@ -15,21 +15,40 @@ export interface Domain {
   sort_order: number;
 }
 
-// --- Family & Children ---
+// --- Profiles & Children ---
 
-export interface Family {
+export interface Profile {
   id: string;
-  email: string;
-  parent_name: string;
+  display_name: string;
   created_at: string;
 }
 
 export interface Child {
   id: string;
-  family_id: string;
+  created_by: string;
   name: string;
   birth_date: string;
   current_band: number;
+  current_week: number | null;
+  created_at: string;
+}
+
+export interface ChildAccess {
+  id: string;
+  user_id: string;
+  child_id: string;
+  role: 'creator' | 'parent' | 'viewer';
+  joined_at: string;
+}
+
+export interface InviteLink {
+  id: string;
+  child_id: string;
+  token: string;
+  created_by: string;
+  expires_at: string;
+  used_by: string | null;
+  used_at: string | null;
   created_at: string;
 }
 

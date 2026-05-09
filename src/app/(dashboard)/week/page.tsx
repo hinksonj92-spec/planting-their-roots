@@ -9,8 +9,8 @@ import { MomentSection } from '@/components/content/MomentSection';
 import type { DomainCode } from '@/types';
 
 export default function WeekPage() {
-  const { activeBand } = useApp();
-  const [currentWeek, setCurrentWeek] = useState(getCurrentWeekNumber);
+  const { activeBand, activeWeek } = useApp();
+  const [currentWeek, setCurrentWeek] = useState(activeWeek ?? getCurrentWeekNumber());
 
   const guide = getWeeklyGuide(activeBand, currentWeek);
   if (!guide) return <div className="py-8 text-center text-muted">No guide found for this week.</div>;

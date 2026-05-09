@@ -42,6 +42,7 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.pathname.startsWith('/milestones') ||
     request.nextUrl.pathname.startsWith('/reflection') ||
     request.nextUrl.pathname.startsWith('/child') ||
+    request.nextUrl.pathname.startsWith('/chat') ||
     request.nextUrl.pathname.startsWith('/settings');
 
   if (isProtectedRoute && !user) {
@@ -51,6 +52,9 @@ export async function middleware(request: NextRequest) {
   }
 
   // If logged in and hitting login/signup, redirect to home
+  // Invite routes are semi-protected (handled by the page itself)
+  const isInviteRoute = request.nextUrl.pathname.startsWith('/invite/');
+
   const isAuthRoute = request.nextUrl.pathname === '/login' ||
     request.nextUrl.pathname === '/signup';
 

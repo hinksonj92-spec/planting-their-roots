@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useApp } from '@/lib/store';
 import { getAgeString, getBandShortLabel, getBandLabel, DOMAIN_COLORS, DOMAIN_NAMES, DOMAIN_ICONS } from '@/lib/utils';
 import { getWeeklyGuide, getCurrentWeekNumber, getMilestones } from '@/lib/content';
@@ -11,11 +12,13 @@ import type { DomainCode } from '@/types';
 const ALL_DOMAINS: DomainCode[] = ['LANG', 'MOTR', 'NUMR', 'SOCL', 'ROUT', 'SENS', 'INDP'];
 
 export default function HomePage() {
-  const { parentName, activeChild, activeBand, isMilestoneComplete } = useApp();
+  const { parentName, activeChild, activeBand, activeWeek, setChildWeek, isMilestoneComplete } = useApp();
+  const [showWeekPicker, setShowWeekPicker] = useState(false);
 
   if (!activeChild) return null;
 
-  const currentWeek = getCurrentWeekNumber();
+  const suggestedWeek = getCurrentWeekNumber();
+  const currentWeek = activeWeek ?? suggestedWeek;
   const guide = getWeeklyGuide(activeBand, currentWeek);
   const allMilestones = getMilestones(activeBand);
 
@@ -44,6 +47,50 @@ export default function HomePage() {
           {activeChild.name} &middot; {getAgeString(activeChild.birth_date)} &middot; {getBandLabel(activeBand)}
         </p>
       </div>
+
+      {/* Week selection */}
+      <Card className="relative">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-xs text-muted uppercase tracking-wide mb-0.5">Current Week</p>
+            <p className="font-semibold text-foreground">Week {currentWeek} of 7</p>
+            {activeWeek === null && (
+              <p className="text-[10px] text-muted mt-0.5">Auto-rotating based on calendar</p>
+            )}
+            {activeWeek !== null && (
+              <p className="text-[10px] text-brand mt-0.5">Manually set &middot; <button onClick={() => setChildWeek(activeChild.id, null)} className="underline">reset to auto</button></p>
+            )}
+          </div>
+          <button
+            onClick={() => setShowWeekPicker(!showWeekPicker)}
+            className="text-xs text-brand font-medium hover:underline"
+          >
+            {showWeekPicker ? 'Done' : 'Change'}
+          </button>
+        </div>
+        {showWeekPicker && (
+          <div className="mt-3 pt-3 border-t border-border-light">
+            <p className="text-xs text-secondary mb-2">
+              PTR uses a 7-week rotating cycle. Each week focuses on a different developmental domain. We suggest Week {suggestedWeek} based on the calendar, but you can start wherever you like — the content builds on itself gently, not sequentially.
+            </p>
+            <div className="flex gap-2">
+              {[1, 2, 3, 4, 5, 6, 7].map(w => (
+                <button
+                  key={w}
+                  onClick={() => { setChildWeek(activeChild.id, w); setShowWeekPicker(false); }}
+                  className={`w-9 h-9 rounded-full text-sm font-semibold transition-all ${
+                    w === currentWeek
+                      ? 'bg-brand text-white'
+                      : 'bg-border-light text-secondary hover:bg-brand-light/50'
+                  }`}
+                >
+                  {w}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </Card>
 
       {/* This Week card */}
       {guide && (

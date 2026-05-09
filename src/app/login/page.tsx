@@ -33,7 +33,14 @@ export default function LoginPage() {
       return;
     }
 
-    router.push('/home');
+    // Check for pending invite token
+    const pendingInvite = typeof window !== 'undefined' ? sessionStorage.getItem('pending_invite') : null;
+    if (pendingInvite) {
+      sessionStorage.removeItem('pending_invite');
+      router.push(`/invite/${pendingInvite}`);
+    } else {
+      router.push('/home');
+    }
     router.refresh();
   }
 
