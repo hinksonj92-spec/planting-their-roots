@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useApp } from '@/lib/store';
+import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -73,7 +74,8 @@ export default function ChatPage() {
     <div className="flex flex-col h-[calc(100vh-8rem)]">
       {/* Header */}
       <div className="pb-3">
-        <h1 className="text-xl font-bold text-foreground">Ask PTR</h1>
+        <ChildSwitcher />
+        <h1 className="text-xl font-bold text-foreground mt-2">Ask PTR for {activeChild?.name || 'Your Child'}</h1>
         <p className="text-xs text-muted">
           Ask about {activeChild?.name || 'your child'}&apos;s weekly guides, milestones, daily moments, and more.
         </p>

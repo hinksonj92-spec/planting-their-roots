@@ -4,12 +4,13 @@ import { useState } from 'react';
 import { useApp } from '@/lib/store';
 import { getMilestones } from '@/lib/content';
 import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getBandShortLabel } from '@/lib/utils';
+import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 import type { DomainCode } from '@/types';
 
 const ALL_DOMAINS: DomainCode[] = ['LANG', 'MOTR', 'NUMR', 'SOCL', 'ROUT', 'SENS', 'INDP'];
 
 export default function MilestonesPage() {
-  const { activeBand, isMilestoneComplete, toggleMilestone } = useApp();
+  const { activeBand, activeChild, isMilestoneComplete, toggleMilestone } = useApp();
   const [activeDomain, setActiveDomain] = useState<DomainCode>('LANG');
   const allMilestones = getMilestones(activeBand);
 
@@ -25,7 +26,8 @@ export default function MilestonesPage() {
   return (
     <div className="py-4 space-y-4">
       <div>
-        <h1 className="text-xl font-bold text-foreground">Milestones</h1>
+        <ChildSwitcher />
+        <h1 className="text-xl font-bold text-foreground mt-2">Milestones for {activeChild?.name}</h1>
         <p className="text-secondary text-sm mt-0.5">
           {getBandShortLabel(activeBand)} &middot; Track what you observe
         </p>

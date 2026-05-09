@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useApp } from '@/lib/store';
 import { getWeeklyGuide, getDefaultPhase } from '@/lib/content';
 import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, cleanGuideTitle } from '@/lib/utils';
+import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 import type { DomainCode } from '@/types';
 
 export default function ReflectionPage() {
@@ -30,7 +31,8 @@ export default function ReflectionPage() {
   return (
     <div className="py-4 space-y-4">
       <div>
-        <h1 className="text-xl font-bold text-foreground">Reflection</h1>
+        <ChildSwitcher />
+        <h1 className="text-xl font-bold text-foreground mt-2">Reflection for {activeChild?.name}</h1>
         <p className="text-secondary text-sm mt-0.5">
           {DOMAIN_ICONS[domainCode]} {DOMAIN_FULL_NAMES[domainCode]}
         </p>

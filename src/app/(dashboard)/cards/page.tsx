@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useApp } from '@/lib/store';
 import { getMomentCards } from '@/lib/content';
+import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 import { DOMAIN_COLORS, DOMAIN_NAMES, DOMAIN_ICONS } from '@/lib/utils';
 import { SayThisBlock } from '@/components/content/SayThisBlock';
 import { DoThisBlock } from '@/components/content/DoThisBlock';
@@ -10,14 +11,15 @@ import { DomainBadge } from '@/components/ui/DomainBadge';
 import type { DomainCode } from '@/types';
 
 export default function CardsPage() {
-  const { activeBand } = useApp();
+  const { activeBand, activeChild } = useApp();
   const cards = getMomentCards(activeBand);
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
 
   return (
     <div className="py-4 space-y-4">
       <div>
-        <h1 className="text-xl font-bold text-foreground">Moment Cards</h1>
+        <ChildSwitcher />
+        <h1 className="text-xl font-bold text-foreground mt-2">Moment Cards for {activeChild?.name}</h1>
         <p className="text-secondary text-sm mt-0.5">
           Tap a card for the full script. Post where the action happens.
         </p>

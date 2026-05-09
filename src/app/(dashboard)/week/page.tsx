@@ -4,11 +4,12 @@ import { useState } from 'react';
 import { useApp } from '@/lib/store';
 import { getWeeklyGuide, getDefaultPhase } from '@/lib/content';
 import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getPhaseDomain, cleanGuideTitle } from '@/lib/utils';
+import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 import { MomentSection } from '@/components/content/MomentSection';
 import type { DomainCode } from '@/types';
 
 export default function WeekPage() {
-  const { activeBand, activeWeek } = useApp();
+  const { activeBand, activeChild, activeWeek } = useApp();
   const [currentPhase, setCurrentPhase] = useState(activeWeek ?? getDefaultPhase());
 
   const guide = getWeeklyGuide(activeBand, currentPhase);
@@ -19,6 +20,8 @@ export default function WeekPage() {
 
   return (
     <div className="py-4 space-y-4">
+      <ChildSwitcher />
+
       {/* Domain selector */}
       <div className="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1">
         {[1, 2, 3, 4, 5, 6, 7].map(p => {
@@ -54,7 +57,7 @@ export default function WeekPage() {
             {DOMAIN_ICONS[domainCode]} {DOMAIN_FULL_NAMES[domainCode]}
           </span>
         </div>
-        <h1 className="text-xl font-bold text-foreground">{cleanGuideTitle(guide.title)}</h1>
+        <h1 className="text-xl font-bold text-foreground">{cleanGuideTitle(guide.title)} for {activeChild?.name}</h1>
         <p className="text-secondary text-sm mt-1 italic">&ldquo;{guide.parent_frame}&rdquo;</p>
       </div>
 
