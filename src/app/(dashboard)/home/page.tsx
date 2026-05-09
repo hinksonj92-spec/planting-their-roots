@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useApp } from '@/lib/store';
-import { getAgeString, getBandShortLabel, getBandFromBirthDate, DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_NAMES } from '@/lib/utils';
-import { getWeeklyGuide, getCurrentWeekNumber, getMilestones } from '@/lib/content';
+import { getAgeString, getBandShortLabel, getBandFromBirthDate, DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getPhaseLabel, getPhaseDomain } from '@/lib/utils';
+import { getWeeklyGuide, getDefaultPhase, getMilestones } from '@/lib/content';
 import { Card } from '@/components/ui/Card';
 import Link from 'next/link';
 import type { DomainCode, Child } from '@/types';
@@ -26,9 +26,8 @@ function ChildCard({
   const [showWeekPicker, setShowWeekPicker] = useState(false);
 
   const band = getBandFromBirthDate(child.birth_date);
-  const suggestedWeek = getCurrentWeekNumber();
-  const currentWeek = child.current_week ?? suggestedWeek;
-  const guide = getWeeklyGuide(band, currentWeek);
+  const currentPhase = child.current_week ?? getDefaultPhase();
+  const guide = getWeeklyGuide(band, currentPhase);
   const allMilestones = getMilestones(band);
 
   // Milestone counts
@@ -52,8 +51,8 @@ function ChildCard({
     return { code, total, completed, pct: total > 0 ? Math.round((completed / total) * 100) : 0 };
   });
 
-  const domainCode = guide?.domain_code as DomainCode | undefined;
-  const color = domainCode ? DOMAIN_COLORS[domainCode] : '#7BAE7F';
+  const domainCode = (guide?.domain_code || getPhaseDomain(currentPhase)) as DomainCode;
+  const color = DOMAIN_COLORS[domainCode];
 
   return (
     <div className={`rounded-2xl border-2 transition-all ${
@@ -90,29 +89,24 @@ function ChildCard({
               <div className="w-1.5 shrink-0" style={{ backgroundColor: color }} />
               <div className="flex-1 p-3">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-medium text-muted uppercase tracking-wide">
-                    Week {currentWeek} of 7
-                  </span>
-                  <button
-                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowWeekPicker(!showWeekPicker); }}
-                    className="text-[10px] text-brand font-medium"
-                  >
-                    {showWeekPicker ? 'Done' : 'Change'}
-                  </button>
-                </div>
-                <p className="font-semibold text-foreground text-sm">{guide.title}</p>
-                <div className="flex items-center gap-1.5 mt-1.5">
                   <span
-                    className="text-[10px] px-1.5 py-0.5 rounded-full font-medium"
+                    className="text-[10px] px-1.5 py-0.5 rounded-full font-semibold"
                     style={{
                       backgroundColor: `color-mix(in srgb, ${color} 12%, white)`,
                       color: color,
                     }}
                   >
-                    {domainCode && DOMAIN_ICONS[domainCode]} {domainCode && DOMAIN_NAMES[domainCode]}
+                    {DOMAIN_ICONS[domainCode]} {currentPhase} — {DOMAIN_FULL_NAMES[domainCode]}
                   </span>
-                  <span className="text-[10px] text-muted">{guide.daily_moments.length} moments</span>
+                  <button
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowWeekPicker(!showWeekPicker); }}
+                    className="text-[10px] text-brand font-medium"
+                  >
+                    {showWeekPicker ? 'Done' : 'Switch'}
+                  </button>
                 </div>
+                <p className="font-semibold text-foreground text-sm mt-1">{guide.title}</p>
+                <span className="text-[10px] text-muted">{guide.daily_moments.length} daily moments</span>
               </div>
             </div>
           </div>
@@ -124,31 +118,30 @@ function ChildCard({
         <div className="px-4 pb-3">
           <div className="bg-background rounded-xl p-3 border border-border-light">
             <p className="text-[11px] text-secondary mb-2">
-              7-week rotating cycle. Each week = one domain. Start anywhere.
+              7 focus areas that cycle through all developmental domains. Pick any to start — they build gently, not sequentially.
             </p>
-            <div className="flex gap-1.5">
-              {[1, 2, 3, 4, 5, 6, 7].map(w => (
-                <button
-                  key={w}
-                  onClick={() => { onChangeWeek(w); setShowWeekPicker(false); }}
-                  className={`w-8 h-8 rounded-full text-xs font-semibold transition-all ${
-                    w === currentWeek
-                      ? 'bg-brand text-white'
-                      : 'bg-border-light text-secondary hover:bg-brand-light/50'
-                  }`}
-                >
-                  {w}
-                </button>
-              ))}
+            <div className="space-y-1">
+              {[1, 2, 3, 4, 5, 6, 7].map(p => {
+                const pDomain = getPhaseDomain(p);
+                const pColor = DOMAIN_COLORS[pDomain];
+                const isSelected = p === currentPhase;
+                return (
+                  <button
+                    key={p}
+                    onClick={() => { onChangeWeek(p); setShowWeekPicker(false); }}
+                    className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-left text-xs transition-all ${
+                      isSelected
+                        ? 'font-semibold'
+                        : 'text-secondary hover:bg-border-light/50'
+                    }`}
+                    style={isSelected ? { backgroundColor: `color-mix(in srgb, ${pColor} 12%, white)`, color: pColor } : {}}
+                  >
+                    <span className="w-4 text-center">{DOMAIN_ICONS[pDomain]}</span>
+                    <span>{p} — {DOMAIN_FULL_NAMES[pDomain]}</span>
+                  </button>
+                );
+              })}
             </div>
-            {child.current_week !== null && (
-              <button
-                onClick={() => { onChangeWeek(null); setShowWeekPicker(false); }}
-                className="text-[10px] text-brand mt-2 font-medium"
-              >
-                Reset to auto-rotation
-              </button>
-            )}
           </div>
         </div>
       )}

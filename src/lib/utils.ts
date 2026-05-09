@@ -83,3 +83,20 @@ export function getAgeString(birthDate: string): string {
 export function cn(...classes: (string | undefined | false | null)[]): string {
   return classes.filter(Boolean).join(' ');
 }
+
+// Phase number -> domain mapping (the 7-phase rotation)
+const PHASE_DOMAINS: DomainCode[] = ['LANG', 'MOTR', 'NUMR', 'SOCL', 'ROUT', 'SENS', 'INDP'];
+
+export function getPhaseDomain(phase: number): DomainCode {
+  return PHASE_DOMAINS[(phase - 1) % 7] || 'LANG';
+}
+
+export function getPhaseLabel(phase: number): string {
+  const domain = getPhaseDomain(phase);
+  return DOMAIN_FULL_NAMES[domain];
+}
+
+export function getPhaseShortLabel(phase: number): string {
+  const domain = getPhaseDomain(phase);
+  return DOMAIN_NAMES[domain];
+}

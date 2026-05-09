@@ -2,29 +2,47 @@
 
 import { useState } from 'react';
 import { useApp } from '@/lib/store';
-import { getWeeklyGuide, getCurrentWeekNumber } from '@/lib/content';
-import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES } from '@/lib/utils';
-import { WeekDots } from '@/components/ui/WeekDots';
+import { getWeeklyGuide, getDefaultPhase } from '@/lib/content';
+import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getPhaseDomain } from '@/lib/utils';
 import { MomentSection } from '@/components/content/MomentSection';
 import type { DomainCode } from '@/types';
 
 export default function WeekPage() {
   const { activeBand, activeWeek } = useApp();
-  const [currentWeek, setCurrentWeek] = useState(activeWeek ?? getCurrentWeekNumber());
+  const [currentPhase, setCurrentPhase] = useState(activeWeek ?? getDefaultPhase());
 
-  const guide = getWeeklyGuide(activeBand, currentWeek);
-  if (!guide) return <div className="py-8 text-center text-muted">No guide found for this week.</div>;
+  const guide = getWeeklyGuide(activeBand, currentPhase);
+  if (!guide) return <div className="py-8 text-center text-muted">No guide found.</div>;
 
   const domainCode = guide.domain_code as DomainCode;
   const color = DOMAIN_COLORS[domainCode];
 
   return (
     <div className="py-4 space-y-4">
+      {/* Domain selector */}
+      <div className="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1">
+        {[1, 2, 3, 4, 5, 6, 7].map(p => {
+          const pDomain = getPhaseDomain(p);
+          const pColor = DOMAIN_COLORS[pDomain];
+          const isSelected = p === currentPhase;
+          return (
+            <button
+              key={p}
+              onClick={() => setCurrentPhase(p)}
+              className={`shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium transition-all ${
+                isSelected ? 'text-white' : 'text-secondary bg-border-light hover:bg-border-light/70'
+              }`}
+              style={isSelected ? { backgroundColor: pColor } : {}}
+            >
+              <span>{DOMAIN_ICONS[pDomain]}</span>
+              <span className="whitespace-nowrap">{DOMAIN_FULL_NAMES[pDomain].split(' ')[0]}</span>
+            </button>
+          );
+        })}
+      </div>
+
       {/* Header */}
       <div>
-        <div className="flex items-center justify-between mb-3">
-          <WeekDots currentWeek={currentWeek} onSelect={setCurrentWeek} />
-        </div>
         <div className="flex items-center gap-2 mb-1">
           <span
             className="text-xs px-2.5 py-1 rounded-full font-semibold"
@@ -57,7 +75,7 @@ export default function WeekPage() {
       {/* Focus Items */}
       {guide.focus_items.length > 0 && (
         <div className="bg-card rounded-2xl border border-border p-4">
-          <h2 className="text-sm font-semibold text-foreground mb-2">This Week&apos;s Focus</h2>
+          <h2 className="text-sm font-semibold text-foreground mb-2">Focus Areas</h2>
           <ul className="space-y-1.5">
             {guide.focus_items.map((item, i) => (
               <li key={i} className="flex items-start gap-2 text-sm">
@@ -72,7 +90,7 @@ export default function WeekPage() {
       {/* Keep Doing */}
       {guide.keep_doing && (
         <div className="bg-brand-light/30 rounded-2xl p-4">
-          <h2 className="text-sm font-semibold text-brand-dark mb-1">Keep Doing (Every Week)</h2>
+          <h2 className="text-sm font-semibold text-brand-dark mb-1">Keep Doing (Always)</h2>
           <p className="text-sm text-secondary">{guide.keep_doing}</p>
         </div>
       )}

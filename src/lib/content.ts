@@ -25,13 +25,9 @@ export function getWeeklyGuide(band: number, weekNumber: number): WeeklyGuide | 
   return guides.find(g => g.band === band && g.week_number === weekNumber);
 }
 
-export function getCurrentWeekNumber(): number {
-  // 7-week rotation based on ISO week number
-  const now = new Date();
-  const start = new Date(now.getFullYear(), 0, 1);
-  const days = Math.floor((now.getTime() - start.getTime()) / (24 * 60 * 60 * 1000));
-  const isoWeek = Math.ceil((days + start.getDay() + 1) / 7);
-  return ((isoWeek - 1) % 7) + 1;
+export function getDefaultPhase(): number {
+  // New children start at phase 1 (Language Acquisition)
+  return 1;
 }
 
 // --- Moment Cards ---

@@ -2,14 +2,14 @@
 
 import { useState } from 'react';
 import { useApp } from '@/lib/store';
-import { getWeeklyGuide, getCurrentWeekNumber } from '@/lib/content';
+import { getWeeklyGuide, getDefaultPhase } from '@/lib/content';
 import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES } from '@/lib/utils';
 import type { DomainCode } from '@/types';
 
 export default function ReflectionPage() {
-  const { activeBand, activeChild } = useApp();
-  const currentWeek = getCurrentWeekNumber();
-  const guide = getWeeklyGuide(activeBand, currentWeek);
+  const { activeBand, activeChild, activeWeek } = useApp();
+  const currentPhase = activeWeek ?? getDefaultPhase();
+  const guide = getWeeklyGuide(activeBand, currentPhase);
 
   const [answers, setAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
 
@@ -30,7 +30,7 @@ export default function ReflectionPage() {
   return (
     <div className="py-4 space-y-4">
       <div>
-        <h1 className="text-xl font-bold text-foreground">Weekly Reflection</h1>
+        <h1 className="text-xl font-bold text-foreground">Reflection</h1>
         <p className="text-secondary text-sm mt-0.5">
           {guide.title} &middot; {DOMAIN_ICONS[domainCode]} {DOMAIN_FULL_NAMES[domainCode]}
         </p>
