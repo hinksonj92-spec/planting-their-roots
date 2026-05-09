@@ -27,23 +27,26 @@ export default function DateInput({ value, onChange, className = '' }: DateInput
     }
   }, [value]);
 
+  function formatDigits(digits: string): string {
+    let out = '';
+    for (let i = 0; i < digits.length && i < 8; i++) {
+      if (i === 2 || i === 4) out += '/';
+      out += digits[i];
+    }
+    return out;
+  }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const raw = e.target.value;
 
-    // Extract only digits from what the user typed
-    const digits = raw.replace(/\D/g, '');
-
-    // Build the formatted display string with auto-slashes
-    let formatted = '';
-    for (let i = 0; i < digits.length && i < 8; i++) {
-      if (i === 2 || i === 4) formatted += '/';
-      formatted += digits[i];
-    }
+    // Strip everything except digits
+    const digits = raw.replace(/\D/g, '').slice(0, 8);
+    const formatted = formatDigits(digits);
 
     setDisplay(formatted);
 
     // Once we have all 8 digits (MMDDYYYY), validate and emit
-    if (digits.length >= 8) {
+    if (digits.length === 8) {
       const mm = digits.slice(0, 2);
       const dd = digits.slice(2, 4);
       const yyyy = digits.slice(4, 8);
@@ -54,9 +57,17 @@ export default function DateInput({ value, onChange, className = '' }: DateInput
       if (month >= 1 && month <= 12 && day >= 1 && day <= 31 && year >= 1900 && year <= 2100) {
         onChange(`${yyyy}-${mm}-${dd}`);
       }
-    } else {
-      // Incomplete date — clear the parent value so the form stays disabled
-      if (value) onChange('');
+    } else if (value) {
+      // Incomplete — clear parent so form stays disabled
+      onChange('');
+    }
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    // Block non-digit keys (except navigation/control keys)
+    const allowed = ['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'Home', 'End'];
+    if (!allowed.includes(e.key) && !/^\d$/.test(e.key)) {
+      e.preventDefault();
     }
   }
 
@@ -69,6 +80,7 @@ export default function DateInput({ value, onChange, className = '' }: DateInput
       inputMode="numeric"
       value={display}
       onChange={handleChange}
+      onKeyDown={handleKeyDown}
       placeholder="MM/DD/YYYY"
       maxLength={10}
       className={`${baseClass} ${className}`}
