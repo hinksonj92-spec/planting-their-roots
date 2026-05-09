@@ -7,7 +7,7 @@ import rhythmSheets from '@/data/rhythm-sheets.json';
 import milestones from '@/data/milestones.json';
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_MODEL = 'gemini-2.5-flash';
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
 function buildSystemPrompt(band: number, childName: string): string {
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
         contents: geminiContents,
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 1024,
+          maxOutputTokens: 2048,
           topP: 0.9,
         },
         safetySettings: [
@@ -111,7 +111,10 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await response.json();
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    // Gemini 2.5 may return multiple parts (thinking + text); extract the text part
+    const parts = data?.candidates?.[0]?.content?.parts || [];
+    const textPart = parts.find((p: { text?: string; thought?: boolean }) => p.text && !p.thought);
+    const reply = textPart?.text || parts[parts.length - 1]?.text;
 
     if (!reply) {
       return NextResponse.json(
