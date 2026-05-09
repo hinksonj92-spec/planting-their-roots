@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useApp } from '@/lib/store';
 import { getWeeklyGuide, getDefaultPhase } from '@/lib/content';
-import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getPhaseDomain } from '@/lib/utils';
+import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getPhaseDomain, cleanGuideTitle } from '@/lib/utils';
 import { MomentSection } from '@/components/content/MomentSection';
 import type { DomainCode } from '@/types';
 
@@ -54,7 +54,7 @@ export default function WeekPage() {
             {DOMAIN_ICONS[domainCode]} {DOMAIN_FULL_NAMES[domainCode]}
           </span>
         </div>
-        <h1 className="text-xl font-bold text-foreground">{guide.title}</h1>
+        <h1 className="text-xl font-bold text-foreground">{cleanGuideTitle(guide.title)}</h1>
         <p className="text-secondary text-sm mt-1 italic">&ldquo;{guide.parent_frame}&rdquo;</p>
       </div>
 

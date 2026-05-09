@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useApp } from '@/lib/store';
-import { getAgeString, getBandShortLabel, getBandFromBirthDate, DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getPhaseLabel, getPhaseDomain } from '@/lib/utils';
+import { getAgeString, getBandShortLabel, getBandFromBirthDate, DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getPhaseDomain, cleanGuideTitle } from '@/lib/utils';
 import { getWeeklyGuide, getDefaultPhase, getMilestones } from '@/lib/content';
 import { Card } from '@/components/ui/Card';
 import Link from 'next/link';
@@ -105,8 +105,8 @@ function ChildCard({
                     {showWeekPicker ? 'Done' : 'Switch'}
                   </button>
                 </div>
-                <p className="font-semibold text-foreground text-sm mt-1">{guide.title}</p>
-                <span className="text-[10px] text-muted">{guide.daily_moments.length} daily moments</span>
+                <p className="text-secondary text-xs mt-1 italic leading-snug">&ldquo;{guide.parent_frame}&rdquo;</p>
+                <span className="text-[10px] text-muted mt-1 block">{guide.daily_moments.length} daily moments</span>
               </div>
             </div>
           </div>

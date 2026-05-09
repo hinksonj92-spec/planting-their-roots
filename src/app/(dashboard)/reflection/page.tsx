@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useApp } from '@/lib/store';
 import { getWeeklyGuide, getDefaultPhase } from '@/lib/content';
-import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES } from '@/lib/utils';
+import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, cleanGuideTitle } from '@/lib/utils';
 import type { DomainCode } from '@/types';
 
 export default function ReflectionPage() {
@@ -32,7 +32,7 @@ export default function ReflectionPage() {
       <div>
         <h1 className="text-xl font-bold text-foreground">Reflection</h1>
         <p className="text-secondary text-sm mt-0.5">
-          {guide.title} &middot; {DOMAIN_ICONS[domainCode]} {DOMAIN_FULL_NAMES[domainCode]}
+          {DOMAIN_ICONS[domainCode]} {DOMAIN_FULL_NAMES[domainCode]}
         </p>
       </div>
 

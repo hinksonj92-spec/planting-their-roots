@@ -80,6 +80,11 @@ export function getAgeString(birthDate: string): string {
   return years + (years === 1 ? ' year' : ' years') + ', ' + months + (months === 1 ? ' month' : ' months');
 }
 
+/** Strip "Week X: " prefix from guide titles since we show the domain label separately */
+export function cleanGuideTitle(title: string): string {
+  return title.replace(/^Week\s+\d+:\s*/i, '');
+}
+
 export function cn(...classes: (string | undefined | false | null)[]): string {
   return classes.filter(Boolean).join(' ');
 }
