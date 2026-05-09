@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* ============================================
+   Planting Their Roots — Design System
+   ============================================ */
+
+:root {
+  --ptr-brand: #497C59;
+  --ptr-brand-light: #E7F0E8;
+  --ptr-brand-dark: #3A5C3B;
+  --ptr-lang: #E07A5F;
+  --ptr-motr: #5B8FBE;
+  --ptr-numr: #D4A843;
+  --ptr-socl: #C97B84;
+  --ptr-rout: #7BAE7F;
+  --ptr-sens: #9B7653;
+  --ptr-indp: #4EADA3;
+  --ptr-bg: #FDFBF7;
+  --ptr-bg-card: #FFFFFF;
+  --ptr-text: #2D2D2D;
+  --ptr-text-secondary: #6B6B6B;
+  --ptr-text-muted: #9A9A9A;
+  --ptr-border: #E8E4DD;
+  --ptr-border-light: #F0EDE7;
+  --ptr-success: #4CAF50;
+  --ptr-warning: #FF9800;
+  --background: var(--ptr-bg);
+  --foreground: var(--ptr-text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--ptr-brand);
+  --color-brand-light: var(--ptr-brand-light);
+  --color-brand-dark: var(--ptr-brand-dark);
+  --color-lang: var(--ptr-lang);
+  --color-motr: var(--ptr-motr);
+  --color-numr: var(--ptr-numr);
+  --color-socl: var(--ptr-socl);
+  --color-rout: var(--ptr-rout);
+  --color-sens: var(--ptr-sens);
+  --color-indp: var(--ptr-indp);
+  --color-card: var(--ptr-bg-card);
+  --color-secondary: var(--ptr-text-secondary);
+  --color-muted: var(--ptr-text-muted);
+  --color-border: var(--ptr-border);
+  --color-border-light: var(--ptr-border-light);
+  --color-success: var(--ptr-success);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+.domain-lang { color: var(--ptr-lang); }
+.domain-motr { color: var(--ptr-motr); }
+.domain-numr { color: var(--ptr-numr); }
+.domain-socl { color: var(--ptr-socl); }
+.domain-rout { color: var(--ptr-rout); }
+.domain-sens { color: var(--ptr-sens); }
+.domain-indp { color: var(--ptr-indp); }
+.bg-domain-lang { background-color: var(--ptr-lang); }
+.bg-domain-motr { background-color: var(--ptr-motr); }
+.bg-domain-numr { background-color: var(--ptr-numr); }
+.bg-domain-socl { background-color: var(--ptr-socl); }
+.bg-domain-rout { background-color: var(--ptr-rout); }
+.bg-domain-sens { background-color: var(--ptr-sens); }
+.bg-domain-indp { background-color: var(--ptr-indp); }
+.bg-domain-lang-light { background-color: color-mix(in srgb, var(--ptr-lang) 12%, white); }
+.bg-domain-motr-light { background-color: color-mix(in srgb, var(--ptr-motr) 12%, white); }
+.bg-domain-numr-light { background-color: color-mix(in srgb, var(--ptr-numr) 12%, white); }
+.bg-domain-socl-light { background-color: color-mix(in srgb, var(--ptr-socl) 12%, white); }
+.bg-domain-rout-light { background-color: color-mix(in srgb, var(--ptr-rout) 12%, white); }
+.bg-domain-sens-light { background-color: color-mix(in srgb, var(--ptr-sens) 12%, white); }
+.bg-domain-indp-light { background-color: color-mix(in srgb, var(--ptr-indp) 12%, white); }
+.border-domain-lang { border-color: var(--ptr-lang); }
+.border-domain-motr { border-color: var(--ptr-motr); }
+.border-domain-numr { border-color: var(--ptr-numr); }
+.border-domain-socl { border-color: var(--ptr-socl); }
+.border-domain-rout { border-color: var(--ptr-rout); }
+.border-domain-sens { border-color: var(--ptr-sens); }
+.border-domain-indp { border-color: var(--ptr-indp); }

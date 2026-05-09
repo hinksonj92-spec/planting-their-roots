@@ -1,0 +1,814 @@
+[
+  {
+    "band": 1,
+    "domain_code": "LANG",
+    "description": "Cooing and vowel sounds (aaah, oooh)",
+    "typical_range": "2-3 months",
+    "sort_order": 0
+  },
+  {
+    "band": 1,
+    "domain_code": "LANG",
+    "description": "Babbling with consonant-vowel combos (ba-ba, ma-ma, da-da)",
+    "typical_range": "6-8 months",
+    "sort_order": 1
+  },
+  {
+    "band": 1,
+    "domain_code": "LANG",
+    "description": "Responds to their own name (turns head, looks up)",
+    "typical_range": "6-9 months",
+    "sort_order": 2
+  },
+  {
+    "band": 1,
+    "domain_code": "LANG",
+    "description": "Understands simple words (no, mama, daddy, bottle)",
+    "typical_range": "9-12 months",
+    "sort_order": 3
+  },
+  {
+    "band": 1,
+    "domain_code": "LANG",
+    "description": "First intentional words (consistent word-object pairing)",
+    "typical_range": "10-14 months",
+    "sort_order": 4
+  },
+  {
+    "band": 1,
+    "domain_code": "MOTR",
+    "description": "Head control during tummy time (lifts and holds head steady)",
+    "typical_range": "3-4 months",
+    "sort_order": 5
+  },
+  {
+    "band": 1,
+    "domain_code": "MOTR",
+    "description": "Rolling over (front to back or back to front)",
+    "typical_range": "4-6 months",
+    "sort_order": 6
+  },
+  {
+    "band": 1,
+    "domain_code": "MOTR",
+    "description": "Sitting independently without support",
+    "typical_range": "6-8 months",
+    "sort_order": 7
+  },
+  {
+    "band": 1,
+    "domain_code": "MOTR",
+    "description": "Crawling (any style \u2014 army crawl, hands-and-knees, scooting)",
+    "typical_range": "8-10 months",
+    "sort_order": 8
+  },
+  {
+    "band": 1,
+    "domain_code": "MOTR",
+    "description": "Pulling to stand using furniture",
+    "typical_range": "9-11 months",
+    "sort_order": 9
+  },
+  {
+    "band": 1,
+    "domain_code": "MOTR",
+    "description": "Pincer grip \u2014 picking up small objects with thumb and forefinger",
+    "typical_range": "9-12 months",
+    "sort_order": 10
+  },
+  {
+    "band": 1,
+    "domain_code": "MOTR",
+    "description": "First steps (wide range is normal)",
+    "typical_range": "10-15 months",
+    "sort_order": 11
+  },
+  {
+    "band": 1,
+    "domain_code": "NUMR",
+    "description": "Tracks a moving object with eyes (visual tracking)",
+    "typical_range": "2-4 months",
+    "sort_order": 12
+  },
+  {
+    "band": 1,
+    "domain_code": "NUMR",
+    "description": "Searches for a hidden object (object permanence beginning)",
+    "typical_range": "6-9 months",
+    "sort_order": 13
+  },
+  {
+    "band": 1,
+    "domain_code": "NUMR",
+    "description": "Responds to \"peek-a-boo\" with anticipation",
+    "typical_range": "6-10 months",
+    "sort_order": 14
+  },
+  {
+    "band": 1,
+    "domain_code": "NUMR",
+    "description": "Reacts to quantity words in context (more, all done)",
+    "typical_range": "9-12 months",
+    "sort_order": 15
+  },
+  {
+    "band": 1,
+    "domain_code": "SOCL",
+    "description": "Social smile (smiles in response to a face or voice)",
+    "typical_range": "2-3 months",
+    "sort_order": 16
+  },
+  {
+    "band": 1,
+    "domain_code": "SOCL",
+    "description": "Laughs out loud",
+    "typical_range": "3-5 months",
+    "sort_order": 17
+  },
+  {
+    "band": 1,
+    "domain_code": "SOCL",
+    "description": "Shows stranger awareness (cautious or fussy with unfamiliar people)",
+    "typical_range": "6-9 months",
+    "sort_order": 18
+  },
+  {
+    "band": 1,
+    "domain_code": "SOCL",
+    "description": "Social referencing (looks at parent's face to gauge a new situation)",
+    "typical_range": "8-12 months",
+    "sort_order": 19
+  },
+  {
+    "band": 1,
+    "domain_code": "SOCL",
+    "description": "Responds to \"no\" (pauses, looks at you, may test again)",
+    "typical_range": "8-10 months",
+    "sort_order": 20
+  },
+  {
+    "band": 1,
+    "domain_code": "SOCL",
+    "description": "Shows clear attachment (reaches for caregiver, fusses when caregiver leaves)",
+    "typical_range": "6-12 months",
+    "sort_order": 21
+  },
+  {
+    "band": 1,
+    "domain_code": "ROUT",
+    "description": "Begins to anticipate routine steps (gets excited at bib, calms at bath)",
+    "typical_range": "4-8 months",
+    "sort_order": 22
+  },
+  {
+    "band": 1,
+    "domain_code": "ROUT",
+    "description": "Settles into a consistent sleep-wake pattern",
+    "typical_range": "3-6 months",
+    "sort_order": 23
+  },
+  {
+    "band": 1,
+    "domain_code": "ROUT",
+    "description": "Accepts consistent mealtime structure (sits in highchair, begins and ends)",
+    "typical_range": "6-10 months",
+    "sort_order": 24
+  },
+  {
+    "band": 1,
+    "domain_code": "ROUT",
+    "description": "Shows signs of recognizing the bedtime sequence",
+    "typical_range": "4-8 months",
+    "sort_order": 25
+  },
+  {
+    "band": 1,
+    "domain_code": "SENS",
+    "description": "Turns toward sounds (voice, rattle, music)",
+    "typical_range": "2-4 months",
+    "sort_order": 26
+  },
+  {
+    "band": 1,
+    "domain_code": "SENS",
+    "description": "Explores objects by mouthing",
+    "typical_range": "3-6 months",
+    "sort_order": 27
+  },
+  {
+    "band": 1,
+    "domain_code": "SENS",
+    "description": "Reaches for and grasps objects of different textures",
+    "typical_range": "4-7 months",
+    "sort_order": 28
+  },
+  {
+    "band": 1,
+    "domain_code": "SENS",
+    "description": "Shows interest in the outdoors (looks around, reaches for leaves/grass)",
+    "typical_range": "4-8 months",
+    "sort_order": 29
+  },
+  {
+    "band": 1,
+    "domain_code": "SENS",
+    "description": "Explores objects by banging, shaking, dropping, and mouthing",
+    "typical_range": "6-12 months",
+    "sort_order": 30
+  },
+  {
+    "band": 1,
+    "domain_code": "INDP",
+    "description": "Holds own bottle or assists with feeding",
+    "typical_range": "5-8 months",
+    "sort_order": 31
+  },
+  {
+    "band": 1,
+    "domain_code": "INDP",
+    "description": "Brings finger food to mouth independently",
+    "typical_range": "6-9 months",
+    "sort_order": 32
+  },
+  {
+    "band": 1,
+    "domain_code": "INDP",
+    "description": "Shows preference by reaching for one object over another",
+    "typical_range": "5-9 months",
+    "sort_order": 33
+  },
+  {
+    "band": 1,
+    "domain_code": "INDP",
+    "description": "Participates in dressing (pushes arm through sleeve, pulls at sock)",
+    "typical_range": "8-12 months",
+    "sort_order": 34
+  },
+  {
+    "band": 1,
+    "domain_code": "INDP",
+    "description": "Tries to hold cup or spoon",
+    "typical_range": "8-12 months",
+    "sort_order": 35
+  },
+  {
+    "band": 2,
+    "domain_code": "LANG",
+    "description": "Vocabulary of 50+ words",
+    "typical_range": "15\u201318 months",
+    "sort_order": 0
+  },
+  {
+    "band": 2,
+    "domain_code": "LANG",
+    "description": "Vocabulary of 200+ words",
+    "typical_range": "22\u201326 months",
+    "sort_order": 1
+  },
+  {
+    "band": 2,
+    "domain_code": "LANG",
+    "description": "Two-word combinations (\"more milk,\" \"daddy go\")",
+    "typical_range": "18\u201324 months",
+    "sort_order": 2
+  },
+  {
+    "band": 2,
+    "domain_code": "LANG",
+    "description": "Simple sentences (\"I want juice,\" \"Where's my bear?\")",
+    "typical_range": "24\u201330 months",
+    "sort_order": 3
+  },
+  {
+    "band": 2,
+    "domain_code": "LANG",
+    "description": "Follows two-step instructions (\"Get your shoes and bring them to me\")",
+    "typical_range": "24\u201330 months",
+    "sort_order": 4
+  },
+  {
+    "band": 2,
+    "domain_code": "LANG",
+    "description": "Uses \"no\" with intention (not just imitation)",
+    "typical_range": "14\u201320 months",
+    "sort_order": 5
+  },
+  {
+    "band": 2,
+    "domain_code": "LANG",
+    "description": "Asks \"what's that?\" frequently",
+    "typical_range": "18\u201326 months",
+    "sort_order": 6
+  },
+  {
+    "band": 2,
+    "domain_code": "MOTR",
+    "description": "Walking confidently",
+    "typical_range": "13\u201318 months",
+    "sort_order": 7
+  },
+  {
+    "band": 2,
+    "domain_code": "MOTR",
+    "description": "Running",
+    "typical_range": "18\u201324 months",
+    "sort_order": 8
+  },
+  {
+    "band": 2,
+    "domain_code": "MOTR",
+    "description": "Climbing stairs with support",
+    "typical_range": "18\u201324 months",
+    "sort_order": 9
+  },
+  {
+    "band": 2,
+    "domain_code": "MOTR",
+    "description": "Kicking a ball",
+    "typical_range": "20\u201324 months",
+    "sort_order": 10
+  },
+  {
+    "band": 2,
+    "domain_code": "MOTR",
+    "description": "Stacking 4\u20136 blocks",
+    "typical_range": "18\u201324 months",
+    "sort_order": 11
+  },
+  {
+    "band": 2,
+    "domain_code": "MOTR",
+    "description": "Scribbling with a crayon",
+    "typical_range": "15\u201318 months",
+    "sort_order": 12
+  },
+  {
+    "band": 2,
+    "domain_code": "MOTR",
+    "description": "Using a spoon independently",
+    "typical_range": "15\u201318 months",
+    "sort_order": 13
+  },
+  {
+    "band": 2,
+    "domain_code": "MOTR",
+    "description": "Pulling off simple clothing items",
+    "typical_range": "18\u201324 months",
+    "sort_order": 14
+  },
+  {
+    "band": 2,
+    "domain_code": "NUMR",
+    "description": "Recites counting sequence (even inaccurately)",
+    "typical_range": "22\u201326 months",
+    "sort_order": 15
+  },
+  {
+    "band": 2,
+    "domain_code": "NUMR",
+    "description": "Identifies 2\u20133 colors by name",
+    "typical_range": "24\u201330 months",
+    "sort_order": 16
+  },
+  {
+    "band": 2,
+    "domain_code": "NUMR",
+    "description": "Sorts objects by one attribute (color or shape)",
+    "typical_range": "24\u201330 months",
+    "sort_order": 17
+  },
+  {
+    "band": 2,
+    "domain_code": "NUMR",
+    "description": "Understands \"more\" and \"one more\"",
+    "typical_range": "20\u201324 months",
+    "sort_order": 18
+  },
+  {
+    "band": 2,
+    "domain_code": "NUMR",
+    "description": "Matches shapes to holes (shape sorter)",
+    "typical_range": "18\u201324 months",
+    "sort_order": 19
+  },
+  {
+    "band": 2,
+    "domain_code": "SOCL",
+    "description": "Uses emotion words (happy, sad, mad, scared)",
+    "typical_range": "24\u201330 months",
+    "sort_order": 20
+  },
+  {
+    "band": 2,
+    "domain_code": "SOCL",
+    "description": "Can be redirected from a tantrum within minutes",
+    "typical_range": "24\u201330 months",
+    "sort_order": 21
+  },
+  {
+    "band": 2,
+    "domain_code": "SOCL",
+    "description": "Shows empathy (pats a crying friend, brings a blanket)",
+    "typical_range": "20\u201324 months",
+    "sort_order": 22
+  },
+  {
+    "band": 2,
+    "domain_code": "SOCL",
+    "description": "Parallel play (playing alongside other children)",
+    "typical_range": "18\u201324 months",
+    "sort_order": 23
+  },
+  {
+    "band": 2,
+    "domain_code": "SOCL",
+    "description": "Interactive play (playing with, not just near, others)",
+    "typical_range": "24\u201330 months",
+    "sort_order": 24
+  },
+  {
+    "band": 2,
+    "domain_code": "SOCL",
+    "description": "Tolerates brief waiting (30 sec\u20131 min) with verbal support",
+    "typical_range": "24\u201330 months",
+    "sort_order": 25
+  },
+  {
+    "band": 2,
+    "domain_code": "ROUT",
+    "description": "Anticipates next step in daily routine without prompting",
+    "typical_range": "18\u201324 months",
+    "sort_order": 26
+  },
+  {
+    "band": 2,
+    "domain_code": "ROUT",
+    "description": "Participates in cleanup with help",
+    "typical_range": "18\u201324 months",
+    "sort_order": 27
+  },
+  {
+    "band": 2,
+    "domain_code": "ROUT",
+    "description": "Carries plate/cup to table or counter as part of routine",
+    "typical_range": "20\u201326 months",
+    "sort_order": 28
+  },
+  {
+    "band": 2,
+    "domain_code": "ROUT",
+    "description": "Follows bedtime routine with minimal resistance most nights",
+    "typical_range": "20\u201328 months",
+    "sort_order": 29
+  },
+  {
+    "band": 2,
+    "domain_code": "ROUT",
+    "description": "Understands \"first ___, then ___\" sequencing",
+    "typical_range": "22\u201328 months",
+    "sort_order": 30
+  },
+  {
+    "band": 2,
+    "domain_code": "SENS",
+    "description": "Names weather conditions (sunny, rainy, cold)",
+    "typical_range": "22\u201328 months",
+    "sort_order": 31
+  },
+  {
+    "band": 2,
+    "domain_code": "SENS",
+    "description": "Explores new textures willingly (mud, sand, water, grass)",
+    "typical_range": "14\u201320 months",
+    "sort_order": 32
+  },
+  {
+    "band": 2,
+    "domain_code": "SENS",
+    "description": "Points to and names outdoor objects (tree, bird, cloud)",
+    "typical_range": "18\u201326 months",
+    "sort_order": 33
+  },
+  {
+    "band": 2,
+    "domain_code": "SENS",
+    "description": "Shows cause-and-effect understanding in play (drop \u2192 splash)",
+    "typical_range": "16\u201322 months",
+    "sort_order": 34
+  },
+  {
+    "band": 2,
+    "domain_code": "SENS",
+    "description": "Tolerates varied weather for outdoor play",
+    "typical_range": "14\u201324 months",
+    "sort_order": 35
+  },
+  {
+    "band": 2,
+    "domain_code": "INDP",
+    "description": "Pulls off socks and simple clothing",
+    "typical_range": "16\u201320 months",
+    "sort_order": 36
+  },
+  {
+    "band": 2,
+    "domain_code": "INDP",
+    "description": "Attempts to put on clothing (even incorrectly)",
+    "typical_range": "20\u201326 months",
+    "sort_order": 37
+  },
+  {
+    "band": 2,
+    "domain_code": "INDP",
+    "description": "Feeds self with spoon with moderate mess",
+    "typical_range": "15\u201320 months",
+    "sort_order": 38
+  },
+  {
+    "band": 2,
+    "domain_code": "INDP",
+    "description": "Carries objects to help with household tasks",
+    "typical_range": "16\u201322 months",
+    "sort_order": 39
+  },
+  {
+    "band": 2,
+    "domain_code": "INDP",
+    "description": "Makes a choice between two options",
+    "typical_range": "16\u201322 months",
+    "sort_order": 40
+  },
+  {
+    "band": 2,
+    "domain_code": "INDP",
+    "description": "Attempts to pour from small pitcher",
+    "typical_range": "22\u201328 months",
+    "sort_order": 41
+  },
+  {
+    "band": 2,
+    "domain_code": "INDP",
+    "description": "Shows awareness of wet/dry (toileting readiness signal)",
+    "typical_range": "22\u201330 months",
+    "sort_order": 42
+  },
+  {
+    "band": 3,
+    "domain_code": "LANG",
+    "description": "Speaks in full sentences of 4-6+ words",
+    "typical_range": "30-36 months",
+    "sort_order": 0
+  },
+  {
+    "band": 3,
+    "domain_code": "LANG",
+    "description": "Can retell a simple story in rough sequence",
+    "typical_range": "36-48 months",
+    "sort_order": 1
+  },
+  {
+    "band": 3,
+    "domain_code": "LANG",
+    "description": "Follows three-step instructions without repetition",
+    "typical_range": "36-48 months",
+    "sort_order": 2
+  },
+  {
+    "band": 3,
+    "domain_code": "LANG",
+    "description": "Asks \"why?\" \"how?\" and \"what if?\" questions",
+    "typical_range": "30-48 months",
+    "sort_order": 3
+  },
+  {
+    "band": 3,
+    "domain_code": "LANG",
+    "description": "Uses social language (please, thank you) without prompting most of the time",
+    "typical_range": "36-48 months",
+    "sort_order": 4
+  },
+  {
+    "band": 3,
+    "domain_code": "LANG",
+    "description": "Can describe an experience to someone who was not there",
+    "typical_range": "36-48 months",
+    "sort_order": 5
+  },
+  {
+    "band": 3,
+    "domain_code": "MOTR",
+    "description": "Dresses self with minimal help (except laces)",
+    "typical_range": "36-48 months",
+    "sort_order": 6
+  },
+  {
+    "band": 3,
+    "domain_code": "MOTR",
+    "description": "Draws recognizable shapes (circle, cross, square)",
+    "typical_range": "36-48 months",
+    "sort_order": 7
+  },
+  {
+    "band": 3,
+    "domain_code": "MOTR",
+    "description": "Cuts with scissors along a line (roughly)",
+    "typical_range": "36-48 months",
+    "sort_order": 8
+  },
+  {
+    "band": 3,
+    "domain_code": "MOTR",
+    "description": "Hops on one foot",
+    "typical_range": "36-48 months",
+    "sort_order": 9
+  },
+  {
+    "band": 3,
+    "domain_code": "MOTR",
+    "description": "Catches a large ball from close range",
+    "typical_range": "36-48 months",
+    "sort_order": 10
+  },
+  {
+    "band": 3,
+    "domain_code": "MOTR",
+    "description": "Holds crayon/pencil approaching tripod grip (not fist)",
+    "typical_range": "36-48 months",
+    "sort_order": 11
+  },
+  {
+    "band": 3,
+    "domain_code": "NUMR",
+    "description": "Counts to 10 with reliable one-to-one correspondence",
+    "typical_range": "36-48 months",
+    "sort_order": 12
+  },
+  {
+    "band": 3,
+    "domain_code": "NUMR",
+    "description": "Answers \"how many?\" correctly for small sets (up to 5)",
+    "typical_range": "36-48 months",
+    "sort_order": 13
+  },
+  {
+    "band": 3,
+    "domain_code": "NUMR",
+    "description": "Names 6+ colors",
+    "typical_range": "36-48 months",
+    "sort_order": 14
+  },
+  {
+    "band": 3,
+    "domain_code": "NUMR",
+    "description": "Identifies basic shapes (circle, square, triangle, rectangle)",
+    "typical_range": "36-48 months",
+    "sort_order": 15
+  },
+  {
+    "band": 3,
+    "domain_code": "NUMR",
+    "description": "Can extend a simple AB pattern",
+    "typical_range": "36-48 months",
+    "sort_order": 16
+  },
+  {
+    "band": 3,
+    "domain_code": "NUMR",
+    "description": "Understands \"more,\" \"less,\" \"same,\" \"bigger,\" \"smaller\"",
+    "typical_range": "30-36 months",
+    "sort_order": 17
+  },
+  {
+    "band": 3,
+    "domain_code": "SOCL",
+    "description": "Can wait 2-5 minutes without emotional collapse",
+    "typical_range": "36-48 months",
+    "sort_order": 18
+  },
+  {
+    "band": 3,
+    "domain_code": "SOCL",
+    "description": "Can articulate want vs. need with examples (even imperfectly)",
+    "typical_range": "42-48 months",
+    "sort_order": 19
+  },
+  {
+    "band": 3,
+    "domain_code": "SOCL",
+    "description": "Recovers from disappointment within minutes",
+    "typical_range": "36-48 months",
+    "sort_order": 20
+  },
+  {
+    "band": 3,
+    "domain_code": "SOCL",
+    "description": "Stops an activity when told \"stop\" within seconds",
+    "typical_range": "36-48 months",
+    "sort_order": 21
+  },
+  {
+    "band": 3,
+    "domain_code": "SOCL",
+    "description": "Takes turns with peers with minimal adult intervention",
+    "typical_range": "36-48 months",
+    "sort_order": 22
+  },
+  {
+    "band": 3,
+    "domain_code": "SOCL",
+    "description": "Uses emotion words spontaneously (\"I'm frustrated\")",
+    "typical_range": "36-48 months",
+    "sort_order": 23
+  },
+  {
+    "band": 3,
+    "domain_code": "ROUT",
+    "description": "Follows daily routine with decreasing prompting",
+    "typical_range": "36-48 months",
+    "sort_order": 24
+  },
+  {
+    "band": 3,
+    "domain_code": "ROUT",
+    "description": "Can refer to visual schedule and say \"what comes next\"",
+    "typical_range": "36-48 months",
+    "sort_order": 25
+  },
+  {
+    "band": 3,
+    "domain_code": "ROUT",
+    "description": "Owns one chore and completes it without being asked (most days)",
+    "typical_range": "36-48 months",
+    "sort_order": 26
+  },
+  {
+    "band": 3,
+    "domain_code": "ROUT",
+    "description": "Cleans up before transitions (with occasional reminders)",
+    "typical_range": "36-48 months",
+    "sort_order": 27
+  },
+  {
+    "band": 3,
+    "domain_code": "SENS",
+    "description": "Can report daily weather accurately",
+    "typical_range": "30-48 months",
+    "sort_order": 28
+  },
+  {
+    "band": 3,
+    "domain_code": "SENS",
+    "description": "Observes and describes natural objects with detail",
+    "typical_range": "36-48 months",
+    "sort_order": 29
+  },
+  {
+    "band": 3,
+    "domain_code": "SENS",
+    "description": "Draws from observation (nature journaling)",
+    "typical_range": "36-48 months",
+    "sort_order": 30
+  },
+  {
+    "band": 3,
+    "domain_code": "SENS",
+    "description": "Asks questions about the natural world (\"why does...?\")",
+    "typical_range": "30-48 months",
+    "sort_order": 31
+  },
+  {
+    "band": 3,
+    "domain_code": "INDP",
+    "description": "Does everything physically capable of independently",
+    "typical_range": "36-48 months",
+    "sort_order": 32
+  },
+  {
+    "band": 3,
+    "domain_code": "INDP",
+    "description": "Participates in real kitchen tasks (cracking eggs, spreading, pouring)",
+    "typical_range": "36-48 months",
+    "sort_order": 33
+  },
+  {
+    "band": 3,
+    "domain_code": "INDP",
+    "description": "Tries to solve problems before asking for help",
+    "typical_range": "36-48 months",
+    "sort_order": 34
+  },
+  {
+    "band": 3,
+    "domain_code": "INDP",
+    "description": "Completes tasks start to finish without abandoning midway",
+    "typical_range": "36-48 months",
+    "sort_order": 35
+  },
+  {
+    "band": 3,
+    "domain_code": "INDP",
+    "description": "Full self-care independence (toileting, hand washing, dressing, eating)",
+    "typical_range": "36-48 months",
+    "sort_order": 36
+  }
+]

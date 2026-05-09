@@ -1,0 +1,139 @@
+[
+  {
+    "band": 1,
+    "sections": [
+      {
+        "time_of_day": "MORNING",
+        "items": [
+          "Baby wakes \u2014 greet them warmly, make eye contact before picking up",
+          "Diaper change \u2014 narrate every step, let baby kick and move freely",
+          "Get dressed \u2014 name clothes, offer choices if possible, let baby \"help\"",
+          "Feed \u2014 sit together, name the food, let baby self-feed what they can",
+          "Tummy time \u2014 a few minutes on the floor after the feed settles",
+          "Floor play \u2014 toys within reach, you nearby, baby chooses what to explore"
+        ],
+        "what_is_built": "Language (narration), Motor (tummy time, grasping), Independence (self-feeding, choices), Routine (same sequence daily)"
+      },
+      {
+        "time_of_day": "MIDDAY",
+        "items": [
+          "Feed \u2014 same routine: bib on, sit down, eat, hands wiped, bib off, done",
+          "Outside time \u2014 feel the air, name what you see and hear, touch natural things",
+          "Floor play \u2014 different toys or different room, baby leads the exploration",
+          "Nap \u2014 consistent place, consistent wind-down, baby's body learns the rhythm",
+          "Wake and diaper \u2014 narrate it, give baby a moment to stretch and move"
+        ],
+        "what_is_built": "Sensory (outdoor exploration), Numeracy (counting, spatial words during play), Social-Emotional (security through consistency), Routine (predictable midday flow)"
+      },
+      {
+        "time_of_day": "EVENING",
+        "items": [
+          "Feed \u2014 dinner together at the table when possible, even if baby is small",
+          "Bath time \u2014 warm water, sensory play, name body parts and sensations",
+          "Pajamas \u2014 let baby participate in dressing, name what you are doing",
+          "Read-aloud \u2014 one board book minimum, baby holds and touches it",
+          "Song \u2014 same song every night, the final signal before sleep",
+          "Bed \u2014 same closing words, same place, lights off"
+        ],
+        "what_is_built": "Routine (the bedtime sequence is the most important routine you will ever build), Language (read-aloud, narration), Social-Emotional (the safety of consistent endings)"
+      }
+    ],
+    "weekly_checkin": [
+      "What is my baby doing now that they were not doing last week?",
+      "Which part of our rhythm is strongest?",
+      "Which part keeps falling apart?",
+      "What did I enjoy most this week?"
+    ]
+  },
+  {
+    "band": 2,
+    "sections": [
+      {
+        "time_of_day": "MORNING",
+        "items": [
+          "Wake up. Check the weather together from the window.",
+          "Diaper change or potty (if ready). Child pulls pants up/down.",
+          "Get dressed. Child does as much as they can. Two choices, they pick.",
+          "Breakfast at the table. Child carries plate. Uses utensil. Pours from small pitcher.",
+          "Child carries plate to counter when done. Wipes face with cloth.",
+          "Morning outside time \u2014 long if possible. Walk, run, explore, collect, observe."
+        ],
+        "what_is_built": "*What is being built:"
+      },
+      {
+        "time_of_day": "MIDDAY",
+        "items": [
+          "Come inside. Shoes by the door. Wash hands.",
+          "Lunch at the table. Name the food. Count the pieces. Practice \"please\" and \"thank you.\"",
+          "Cleanup: child helps wipe table, carries plate.",
+          "Diaper change or potty.",
+          "Play time \u2014 child chooses the activity. Cleanup before switching.",
+          "Read-aloud or book time (quiet, seated, 10-15 minutes).",
+          "Nap or rest time (consistent location, consistent routine)."
+        ],
+        "what_is_built": "*What is being built:"
+      },
+      {
+        "time_of_day": "EVENING",
+        "items": [
+          "Wake from nap. Snack at the table.",
+          "Afternoon outside time or active indoor play.",
+          "Help with one real household task: watering plants, wiping surfaces, sorting laundry, sweeping.",
+          "Dinner at the table with family. Conversation. Name emotions from the day.",
+          "Bath time. Child undresses, climbs in, washes self (you finish).",
+          "Pajamas. Child puts them on (you help with hard parts).",
+          "Brush teeth. Child brushes first, you finish.",
+          "One book. Read-aloud together.",
+          "Bed. Same words every night. Lights out."
+        ],
+        "what_is_built": "*What is being built:"
+      }
+    ],
+    "weekly_checkin": []
+  },
+  {
+    "band": 3,
+    "sections": [
+      {
+        "time_of_day": "MORNING",
+        "items": [
+          "**Wake up** \u2014 child gets up, uses the bathroom, brushes teeth independently",
+          "**Get dressed** \u2014 child checks weather, selects clothes, dresses fully (help only with laces or difficult fasteners)",
+          "**Make bed** \u2014 every morning, without exception. Not perfect \u2014 done",
+          "**Breakfast** \u2014 child helps prepare or prepares own simple meal, pours own drink, sits at the table",
+          "**Clear place** \u2014 plate to sink, wipe spot, push in chair",
+          "**Chore** \u2014 the child's owned chore, done without being asked",
+          "**Morning read-aloud** \u2014 10-15 minutes, followed by narration (\"Tell me what happened\")"
+        ],
+        "what_is_built": "Self-directed routine (IC1.1-A1 Part 1), chore ownership (IC1.1-A1 Part 2), task completion (IC1.1-A1 Part 2), narration practice"
+      },
+      {
+        "time_of_day": "MIDDAY",
+        "items": [
+          "**Outside time** \u2014 one hour minimum. Nature observation, gross motor activity, or nature journaling",
+          "**Free play / activities** \u2014 child-directed. Cleanup between activities \u2014 no reminders if possible",
+          "**Practical life** \u2014 real contribution: kitchen helping, gardening, laundry, sweeping, animal care",
+          "**Lunch** \u2014 child helps prepare, serves self, clears place independently",
+          "**Quiet time / rest** \u2014 30-60 minutes. Books, drawing, or rest. Not screens. The capacity to be quiet and occupied without a screen is a Phase 1 readiness indicator",
+          "**Second read-aloud** \u2014 followed by narration. \"Tell it back to me in your own words.\""
+        ],
+        "what_is_built": "Sustained outdoor engagement, independence through practical life, cleanup-before-transition (IC1.1-A1 Part 3), narration skill"
+      },
+      {
+        "time_of_day": "EVENING",
+        "items": [
+          "**Afternoon activity** \u2014 play, errands, or outdoor time",
+          "**Dinner preparation** \u2014 child participates in real cooking tasks",
+          "**Dinner** \u2014 family table. Conversation. Child describes their day to someone who was not present for all of it",
+          "**Cleanup** \u2014 child clears own place and helps with one dinner cleanup task",
+          "**Bath** \u2014 child manages independently (parent present for safety)",
+          "**Bedtime read-aloud** \u2014 third read-aloud of the day, followed by narration",
+          "**Daily review** \u2014 \"What went well today? What was hard? What will you do better tomorrow?\"",
+          "**Bedtime routine** \u2014 consistent, predictable, non-negotiable. Same sequence every night"
+        ],
+        "what_is_built": "Narration to absent audience (key Phase 1 skill), reflective self-assessment (IC1.1-A1 Part 5), full self-care independence, bedtime routine as anchor"
+      }
+    ],
+    "weekly_checkin": []
+  }
+]

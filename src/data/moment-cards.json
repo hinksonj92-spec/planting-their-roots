@@ -1,0 +1,583 @@
+[
+  {
+    "band": 1,
+    "moment_name": "Diaper Changes",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "INDP"
+    ],
+    "say_this": "I'm going to change your diaper now. I'm lifting your legs \u2014 up they go. Feel that? Cool wipe. And here's the clean one. One snap, two snaps \u2014 all done. You're all fresh.",
+    "do_this": [
+      "Narrate each step as you do it \u2014 name body parts, objects, sensations",
+      "Let baby kick freely with the diaper off for a minute",
+      "Pause before picking baby up \u2014 tell them what is about to happen",
+      "Let baby hold the clean diaper or pull at their shirt"
+    ],
+    "what_this_builds": "Language through narration, body awareness, the experience of being a participant in their own care",
+    "post_at": "Changing table",
+    "closing_line": ""
+  },
+  {
+    "band": 1,
+    "moment_name": "Mealtime",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SENS",
+      "INDP"
+    ],
+    "say_this": "Time to eat! Here's one piece of banana, two pieces. It's soft and yellow. Can you pick it up? You got it! That's a big bite. Want more? One more piece.",
+    "do_this": [
+      "Let baby self-feed with finger foods \u2014 the mess is the learning",
+      "Name foods, colors, textures, and temperatures as you serve them",
+      "Count food pieces as you put them on the tray",
+      "Start and end every meal the same way: bib on, sit down, eat, clean up, bib off"
+    ],
+    "what_this_builds": "Self-feeding skills, food vocabulary, counting in context, the concept of mealtimes as structured routine",
+    "post_at": "Kitchen or highchair area",
+    "closing_line": ""
+  },
+  {
+    "band": 1,
+    "moment_name": "Tummy Time",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "SOCL",
+      "SENS"
+    ],
+    "say_this": "Tummy time! Can you push up? Look how strong you are. Can you reach that toy? Stretch! You're working so hard. It's right there. You almost got it.",
+    "do_this": [
+      "Get down on the floor at baby's eye level",
+      "Place a toy just out of easy reach \u2014 close enough to be possible",
+      "Do not rescue immediately if baby fusses \u2014 effort-fussing is not distress",
+      "Narrate their movements: \"You're lifting your head! You're reaching!\""
+    ],
+    "what_this_builds": "Neck, shoulder, and core strength, frustration tolerance, the experience of effort leading to reward",
+    "post_at": "Main play area or nursery floor",
+    "closing_line": ""
+  },
+  {
+    "band": 1,
+    "moment_name": "Floor Play",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SENS",
+      "INDP"
+    ],
+    "say_this": "Which one do you want? You pick. Oh, you chose the rattle! Shake it \u2014 hear that sound? Now try this one. It's different. Heavy. Can you pass it to your other hand?",
+    "do_this": [
+      "Lay out several objects and let baby choose \u2014 do not direct their play",
+      "Offer objects of different sizes, textures, and weights",
+      "When baby drops something, wait before picking it up \u2014 let them figure out where it went",
+      "Step back and observe before engaging \u2014 follow their lead"
+    ],
+    "what_this_builds": "Grasping, reaching, object exploration, self-directed play, the habit of choosing for themselves",
+    "post_at": "Main play area",
+    "closing_line": ""
+  },
+  {
+    "band": 1,
+    "moment_name": "Outside Time",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SENS"
+    ],
+    "say_this": "Feel that wind! It's cool today. Listen \u2014 hear the birds? I see a big tree. And a little flower. Look up \u2014 the sky is blue. Feel the grass. It's soft and a little wet.",
+    "do_this": [
+      "Go outside every day, in every weather that is safe",
+      "Let baby touch natural things: grass, bark, leaves, stones, dirt",
+      "Name what you see, hear, and feel \u2014 build vocabulary for the physical world",
+      "Count things you pass: birds, trees, cars, flowers"
+    ],
+    "what_this_builds": "Sensory awareness of the natural world, environmental vocabulary, the foundation of observation",
+    "post_at": "Front door or coat hooks",
+    "closing_line": ""
+  },
+  {
+    "band": 1,
+    "moment_name": "Bath Time",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SENS",
+      "INDP"
+    ],
+    "say_this": "Bath time! Feel the warm water. Let's wash your tummy. Now your arms. Splash! You made a splash. Can you kick? Big kicks! Let's count your toes \u2014 one, two, three, four, five.",
+    "do_this": [
+      "Name body parts as you wash them",
+      "Let baby kick, splash, and move freely in the water",
+      "Use cups for pouring \u2014 narrate \"full\" and \"empty\"",
+      "Let baby hold the washcloth and try to \"wash\" themselves"
+    ],
+    "what_this_builds": "Body part vocabulary, water awareness, motor practice against resistance, self-care participation",
+    "post_at": "Bathroom wall near tub",
+    "closing_line": ""
+  },
+  {
+    "band": 1,
+    "moment_name": "Bedtime Routine",
+    "domains_tagged": [
+      "LANG",
+      "SOCL",
+      "ROUT",
+      "INDP"
+    ],
+    "say_this": "Pajamas on. Now our book. Then our song. Then sleep. Same as always. You know this. I love you. Goodnight. See you in the morning.",
+    "do_this": [
+      "Follow the exact same sequence every night: pajamas, book, song, goodnight words, lights off",
+      "Do not skip steps \u2014 shorten if needed, but keep the order",
+      "Use the same closing words every single night",
+      "If baby fusses, stay calm and stay with the routine \u2014 the routine is the soothing"
+    ],
+    "what_this_builds": "The most important routine of the day, the nervous system's ability to anticipate sleep, trust that endings are safe",
+    "post_at": "Nursery wall near crib or rocker",
+    "closing_line": ""
+  },
+  {
+    "band": 1,
+    "moment_name": "Read-Aloud",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SOCL"
+    ],
+    "say_this": "Let's read! Look at this picture \u2014 that's a bear. A big brown bear. Can you touch the bear? And what's on this page? One, two, three stars. Can you help turn the page? Pull!",
+    "do_this": [
+      "Hold baby in your lap with the book where they can see and touch it",
+      "Point to pictures and name them \u2014 pause on each page",
+      "Let baby turn pages, grab at pictures, mouth the book corners",
+      "Read at least one book a day \u2014 even on the worst days, even if it is the same book again"
+    ],
+    "what_this_builds": "The habit of reading, print awareness, vocabulary, the association between books and closeness and safety",
+    "post_at": "Reading chair or bedside",
+    "closing_line": "You are not reading to a baby who does not understand. You are building a brain that will."
+  },
+  {
+    "band": 2,
+    "moment_name": "Diaper Change",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "ROUT",
+      "INDP"
+    ],
+    "say_this": "Time to change your diaper. Can you walk here? Thank you. Can you pull your pants down? Pull \u2014 you're doing it. I'm going to take this one off. It's wet. Now a clean, dry one. Can you pull your pants back up? Up, up \u2014 you did it. All clean.",
+    "do_this": [
+      "Let them walk to the changing area (not carry them)",
+      "Ask them to pull pants down and up \u2014 help only after they try",
+      "Narrate each step: \"I'm lifting, I'm wiping, here's the clean one\"",
+      "Count toes or name body parts while changing"
+    ],
+    "what_this_builds": "Body awareness, participation in self-care, motor independence, language through narration.",
+    "post_at": "changing table",
+    "closing_line": ""
+  },
+  {
+    "band": 2,
+    "moment_name": "Getting Dressed",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "INDP"
+    ],
+    "say_this": "Time to get dressed. Do you want the red shirt or the blue shirt? You picked blue! Can you put it on? Pull it over your head. Arms through \u2014 one arm, two arms. Now pants. Step in \u2014 one leg, two legs. Pull up! You got dressed.",
+    "do_this": [
+      "Offer two choices \u2014 both acceptable. They decide.",
+      "Let them dress themselves \u2014 accept backwards and inside-out",
+      "Name colors and count items: \"One sock, two socks\"",
+      "Talk them through the motions: \"Grab, pull, push, step\"",
+      "Only help after they try and ask (or show real frustration)"
+    ],
+    "what_this_builds": "Decision-making, fine motor progression, self-dressing identity, color and counting practice.",
+    "post_at": "bedroom or dresser",
+    "closing_line": ""
+  },
+  {
+    "band": 2,
+    "moment_name": "Mealtime",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SOCL",
+      "ROUT",
+      "INDP"
+    ],
+    "say_this": "What's on your plate? Let's name everything. Can you use your fork to poke the chicken? Try scooping the rice with your spoon. Do you want more? Say 'more, please.' Thank you! When you're all done, carry your plate to the counter.",
+    "do_this": [
+      "Name every food: color, texture, taste, temperature",
+      "Utensil practice at every meal \u2014 expect mess, do not take over",
+      "Count food items: \"One, two, three strawberries\"",
+      "Model and expect \"please\" and \"thank you\" at every exchange",
+      "Child carries own plate to counter after every meal",
+      "If they spill, hand them a cloth \u2014 they clean it"
+    ],
+    "what_this_builds": "Vocabulary, self-feeding, counting, social language, contribution to the meal routine.",
+    "post_at": "kitchen or dining area",
+    "closing_line": ""
+  },
+  {
+    "band": 2,
+    "moment_name": "Outside / Nature",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SENS",
+      "INDP"
+    ],
+    "say_this": "Let's go outside! What's the weather? Feel the air \u2014 warm or cold? Look at that tree. Touch the bark \u2014 rough! Can you run to the fence? Now let's count the rocks. One, two, three. What else do you see? A bird! Where did it fly?",
+    "do_this": [
+      "Check weather together before going out. Name it.",
+      "Touch everything safe: bark, leaves, rocks, grass, mud, water",
+      "Name what you see, hear, smell, feel",
+      "Run, jump, kick, climb, carry \u2014 let them move",
+      "Count natural objects. Compare sizes. Find shapes.",
+      "Let them lead the walk and choose the path"
+    ],
+    "what_this_builds": "Environmental awareness, nature vocabulary, gross motor confidence, sensory engagement, counting in context.",
+    "post_at": "front door or coat area",
+    "closing_line": ""
+  },
+  {
+    "band": 2,
+    "moment_name": "Play Time",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SOCL",
+      "INDP"
+    ],
+    "say_this": "What do you want to play with? You choose. Show me what you're making. A tower! How many blocks is that? One, two, three, four. Four blocks tall! Uh oh, it fell. That's frustrating. Do you want to try again? You're figuring it out.",
+    "do_this": [
+      "Let them choose the activity and lead the play",
+      "Narrate what they do, but do not direct it",
+      "Count, sort, name colors during play \u2014 weave it in naturally",
+      "When they struggle, wait 30 seconds before helping",
+      "Name their emotions: \"You're frustrated,\" \"You're proud\"",
+      "Cleanup before switching to the next activity \u2014 every time"
+    ],
+    "what_this_builds": "Self-directed play, problem-solving, frustration tolerance, math and language through natural play.",
+    "post_at": "play area",
+    "closing_line": ""
+  },
+  {
+    "band": 2,
+    "moment_name": "Bath Time",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SENS",
+      "INDP"
+    ],
+    "say_this": "Bath time! Can you undress yourself? Now climb in \u2014 hold the side. Feel the water \u2014 warm! Here's the soap. Can you wash your arms? Rub, rub, rub. Now squeeze the sponge \u2014 squeeze hard! Let's pour water. How many pours to fill the cup? One, two, three \u2014 full!",
+    "do_this": [
+      "Let them undress and climb in (with spotting)",
+      "They wash their own body \u2014 you do hair and missed spots",
+      "Pour, squeeze, splash \u2014 fine motor and sensory exploration",
+      "Count pours, name body parts, describe temperatures",
+      "Explore sink/float with different objects",
+      "They climb out and try to dry themselves"
+    ],
+    "what_this_builds": "Self-care independence, sensory vocabulary, fine motor (pouring, squeezing), body-part naming, water physics.",
+    "post_at": "bathroom",
+    "closing_line": ""
+  },
+  {
+    "band": 2,
+    "moment_name": "Bedtime Routine",
+    "domains_tagged": [
+      "LANG",
+      "SOCL",
+      "ROUT",
+      "INDP"
+    ],
+    "say_this": "Bedtime routine! What's first? Pajamas \u2014 you put them on. Now teeth \u2014 you brush first, I'll finish. Now one book. You pick. Let's read. What do you see on this page? Good night. I love you. Same thing tomorrow.",
+    "do_this": [
+      "Same sequence every night \u2014 no variation, no negotiation",
+      "They do pajamas (you help with hard parts)",
+      "They brush teeth first (you finish)",
+      "They choose the book (from two options or from the shelf)",
+      "They turn pages during read-aloud",
+      "Same closing words every single night"
+    ],
+    "what_this_builds": "The non-negotiable bedtime anchor, self-care progression, reading engagement, emotional security through predictability.",
+    "post_at": "bedroom door",
+    "closing_line": ""
+  },
+  {
+    "band": 2,
+    "moment_name": "Read-Aloud",
+    "domains_tagged": [
+      "LANG",
+      "NUMR",
+      "SOCL",
+      "SENS"
+    ],
+    "say_this": "Let's look at this page. What do you see? A cat! What color is the cat? Orange! How many birds are on the tree? One, two \u2014 two birds. How does this character feel? She looks happy. Why do you think she's happy? What do you think happens next?",
+    "do_this": [
+      "Point and name. Then ask them to point and name.",
+      "Count objects on each page",
+      "Ask \"how does he/she feel?\" \u2014 build empathy through story",
+      "On familiar books, pause and let them fill in the word",
+      "Ask open-ended questions: \"What do you see?\" not \"Is that a dog?\"",
+      "Let them hold the book and turn pages"
+    ],
+    "what_this_builds": "Vocabulary explosion, narrative engagement, counting, emotion recognition, prediction, the habit of reading.",
+    "post_at": "reading spot (couch, bed, chair)",
+    "closing_line": ""
+  },
+  {
+    "band": 2,
+    "moment_name": "Transitions / Cleanup",
+    "domains_tagged": [
+      "LANG",
+      "SOCL",
+      "ROUT",
+      "INDP"
+    ],
+    "say_this": "We're almost done. In two minutes, it's time to clean up. Okay \u2014 time. Put the blocks in the box. You do it. I know you want to keep playing. I understand. We clean up before we start the next thing. Thank you for helping. The floor is clear. What's next?",
+    "do_this": [
+      "Give a 2-minute warning before every transition",
+      "They clean up \u2014 you can help, but they do the majority",
+      "\"First ___, then ___\" language for every transition",
+      "Name their feelings about stopping: \"I know you're disappointed\"",
+      "Hold the rule: nothing new starts until the old thing is put away",
+      "Praise the effort: \"You cleaned your own space.\""
+    ],
+    "what_this_builds": "Transition tolerance, task completion, routine ownership, emotional flexibility, the habit of finishing before starting.",
+    "post_at": "main living/play area",
+    "closing_line": ""
+  },
+  {
+    "band": 2,
+    "moment_name": "Tantrum / Meltdown",
+    "domains_tagged": [
+      "LANG",
+      "SOCL",
+      "ROUT"
+    ],
+    "say_this": "You're really upset. I see that. You're angry because [name the reason]. I understand. That IS hard. I'm right here. You're safe. When you're ready, we can [next step]. The answer is still [the limit]. I love you and the answer is still [the limit].",
+    "do_this": [
+      "Stay calm. Your calm is the lesson. Breathe.",
+      "Name the emotion: \"You're angry.\" \"You're frustrated.\" \"You're disappointed.\"",
+      "Validate the feeling: \"I understand. That IS hard.\"",
+      "Hold the limit: Do not cave. Do not negotiate. Do not lecture.",
+      "Stay physically present. Get low. Do not tower over them.",
+      "Do not say \"calm down.\" Do not say \"you're okay.\" (They are not okay \u2014 name what is true.)",
+      "Wait. It will pass. When it does: \"That was a big feeling. You got through it.\"",
+      "Then return to whatever the routine requires \u2014 the meltdown does not cancel the expectation."
+    ],
+    "what_this_builds": "Emotional regulation through co-regulation, the knowledge that feelings are survivable, trust that the adult will stay calm and present, the separation of emotion from outcome.",
+    "post_at": "wherever you need it most",
+    "closing_line": "Print and post where the action happens. Replace when worn."
+  },
+  {
+    "band": 3,
+    "moment_name": "Getting Dressed",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "ROUT",
+      "INDP"
+    ],
+    "say_this": "Check the weather. What do you need to wear? Go to your drawer, pick everything out, and get dressed. The whole thing \u2014 shirt, pants, socks, shoes. Come find me when you're completely ready. If something is tricky, try it yourself first.",
+    "do_this": [
+      "Child checks weather and decides what to wear independently",
+      "Child retrieves and puts on all clothing without help (except laces)",
+      "If something is backwards, ask \"Does that feel right?\" before fixing",
+      "Do not enter the room \u2014 let them manage the full sequence alone"
+    ],
+    "what_this_builds": "Self-care independence, fine motor (fasteners), decision-making, self-assessment",
+    "post_at": "child's bedroom or closet",
+    "closing_line": ""
+  },
+  {
+    "band": 3,
+    "moment_name": "Mealtime",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "INDP"
+    ],
+    "say_this": "How many people are eating? Get that many plates, forks, and napkins. Pour your own drink. After you eat, clear your plate, wipe your spot, push in your chair. Tell me about your day while we eat \u2014 what happened first? Then what?",
+    "do_this": [
+      "Child sets the table using one-to-one correspondence (one item per person)",
+      "Child pours own drink from a small pitcher and serves self",
+      "Conversation at the table: narration of the day, storytelling, vocabulary expansion",
+      "Child clears own place completely after eating \u2014 no reminders"
+    ],
+    "what_this_builds": "Practical life competence, one-to-one correspondence, narrative language, routine ownership",
+    "post_at": "kitchen or dining area",
+    "closing_line": ""
+  },
+  {
+    "band": 3,
+    "moment_name": "Outside / Nature Time",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SENS"
+    ],
+    "say_this": "What do you see? Describe it to me \u2014 use three words. Why do you think that bird is doing that? Let's draw what we find. Look closely at this leaf \u2014 what do you notice about it? How is it different from that one?",
+    "do_this": [
+      "Spend at least one hour outside. Nature observation, physical play, or nature journaling",
+      "Ask open-ended questions: \"What do you notice? Why do you think? What's different?\"",
+      "Nature journaling: draw one thing from observation \u2014 focus on detail, not artistic quality",
+      "Collect, count, sort, compare: sticks by length, rocks by size, leaves by shape"
+    ],
+    "what_this_builds": "Observation skills, descriptive vocabulary, scientific curiosity, gross motor confidence",
+    "post_at": "front door or coat area",
+    "closing_line": ""
+  },
+  {
+    "band": 3,
+    "moment_name": "Play Time",
+    "domains_tagged": [
+      "LANG",
+      "MOTR",
+      "NUMR",
+      "SOCL"
+    ],
+    "say_this": "Tell me about what you're building. What's the story? ... That's interesting. What happens next? ... If it's hard, try it yourself first. I'll help if you really need it, but give it a try. ... When you're done, clean up before you start the next thing.",
+    "do_this": [
+      "Ask your child to narrate their play \u2014 who, what, where, why",
+      "When they encounter difficulty, wait before helping. Ask: \"What could you try?\"",
+      "Cleanup between activities: non-negotiable, with decreasing reminders",
+      "Notice sustained engagement: 15-20 minutes on one activity is excellent"
+    ],
+    "what_this_builds": "Narrative language, problem-solving, sustained attention, cleanup habit",
+    "post_at": "play area or living room",
+    "closing_line": ""
+  },
+  {
+    "band": 3,
+    "moment_name": "Practical Life / Chores",
+    "domains_tagged": [
+      "MOTR",
+      "NUMR",
+      "ROUT",
+      "INDP"
+    ],
+    "say_this": "What's your chore? When does it need to be done? I'm not going to remind you \u2014 you own this. When it's done, come tell me. If you're not sure how, try it first. If you really need help, ask.",
+    "do_this": [
+      "Child has one owned chore: they notice it needs doing and do it without prompting",
+      "Real contribution: setting table, watering plants, feeding pets, wiping surfaces, sweeping",
+      "Emphasize completion: start to finish, including putting away any tools used",
+      "When finished, child reports: \"I'm done.\" This is the beginning of accountability"
+    ],
+    "what_this_builds": "Initiative, task ownership, accountability, real-world contribution",
+    "post_at": "kitchen or chore area",
+    "closing_line": ""
+  },
+  {
+    "band": 3,
+    "moment_name": "Bath Time",
+    "domains_tagged": [
+      "LANG",
+      "SOCL",
+      "SENS",
+      "INDP"
+    ],
+    "say_this": "Do the whole bath yourself. Wash body, wash hair, rinse. Tell me about your day while you're in there \u2014 what made you happy? What was hard? What are you proud of? When you're done, dry off, hang up the towel, pajamas on.",
+    "do_this": [
+      "Child manages entire bath independently (parent present for safety)",
+      "Use bath time for daily emotional check-in: happy, hard, proud",
+      "Introduce feeling words beyond basics: proud, disappointed, frustrated, grateful, nervous",
+      "Full post-bath routine: dry, towel hung, pajamas, teeth brushed \u2014 all independent"
+    ],
+    "what_this_builds": "Self-care mastery, emotional vocabulary, reflective habit, full independence",
+    "post_at": "bathroom",
+    "closing_line": ""
+  },
+  {
+    "band": 3,
+    "moment_name": "Bedtime Routine",
+    "domains_tagged": [
+      "LANG",
+      "SOCL",
+      "ROUT"
+    ],
+    "say_this": "What's the bedtime routine? Tell me the steps. ... Good. Now do them. Pajamas, teeth, pick a book, get in bed. Same every night. No negotiations. When I come in, you should be ready.",
+    "do_this": [
+      "Child states the bedtime routine before executing it",
+      "Child manages the physical preparation independently: pajamas, teeth, book selection",
+      "The routine is the same every night \u2014 consistency is the mechanism",
+      "If the child resists or stalls, name-validate-hold: \"I know you don't want to go to bed. Bedtime is bedtime.\""
+    ],
+    "what_this_builds": "Routine ownership, consistency, self-directed preparation, emotional regulation during transitions",
+    "post_at": "child's bedroom",
+    "closing_line": ""
+  },
+  {
+    "band": 3,
+    "moment_name": "Read-Aloud / Narration",
+    "domains_tagged": [
+      "LANG",
+      "NUMR",
+      "SOCL"
+    ],
+    "say_this": "Look at the cover. What do you think this story is about? ... Let's find out. [Read.] ... Now tell it to me. What happened at the beginning? Then what? How did it end? ... Was there a part you liked best? Why? ... What would you have done if you were that character?",
+    "do_this": [
+      "Read aloud 2-3 times per day. At least one should be followed by narration",
+      "After reading, ask: \"Now you tell me the story.\" Accept whatever they give",
+      "Do not correct or quiz. If the retelling is short, ask one question: \"What else happened?\"",
+      "Over weeks, narrations will naturally grow longer and more detailed. Track the trend"
+    ],
+    "what_this_builds": "Listening comprehension, narrative retelling, story structure, vocabulary, the narration habit",
+    "post_at": "reading nook or child's bedroom",
+    "closing_line": ""
+  },
+  {
+    "band": 3,
+    "moment_name": "Transitions / Cleanup",
+    "domains_tagged": [
+      "SOCL",
+      "ROUT",
+      "INDP"
+    ],
+    "say_this": "We're switching. What do you need to do first? ... Right \u2014 clean up. Everything back where it belongs. I'm not going to remind you again. When it's done, we move on.",
+    "do_this": [
+      "One warning, one time call, then expect action",
+      "Child identifies what needs to be cleaned up and where it goes",
+      "No repeated reminders. If they stall: \"The next activity starts when cleanup is finished. I'll wait.\"",
+      "When they transition cleanly, name it: \"You cleaned up and moved on without a single reminder.\""
+    ],
+    "what_this_builds": "Transition management, cleanup habit, self-regulation, response to time cues",
+    "post_at": "main living area",
+    "closing_line": ""
+  },
+  {
+    "band": 3,
+    "moment_name": "Tantrum / Meltdown",
+    "domains_tagged": [
+      "LANG",
+      "SOCL",
+      "ROUT"
+    ],
+    "say_this": "You're really [angry/frustrated/disappointed]. I can see that. It's okay to feel that way. It is not okay to [hit/throw/scream]. You can say 'I'm angry.' You can take a deep breath. When you're ready, we'll figure out what to do next. I'm right here.",
+    "do_this": [
+      "Name the emotion. Validate it. Hold the boundary. Do not cave, lecture, or punish",
+      "Stay calm. Your regulation is the model \u2014 they are borrowing your nervous system",
+      "Wait. Do not rush recovery. They need to feel the feeling and come through the other side",
+      "After recovery, reconnect: \"You were really upset. You calmed down. That's hard to do. What happened?\""
+    ],
+    "what_this_builds": "Emotional regulation, recovery from distress, the separation of feeling from action, resilience",
+    "post_at": "wherever you need it most",
+    "closing_line": "Print, tear out, and post where the action happens."
+  }
+]
