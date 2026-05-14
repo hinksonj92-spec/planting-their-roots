@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import type { Child, ChildMilestone, ChildAccess, InviteLink } from '@/types';
-import { getBandFromBirthDate } from '@/lib/utils';
+import { getBandFromBirthDate, isValidBirthDate } from '@/lib/utils';
 import { getMilestones } from '@/lib/content';
 import { createClient } from '@/lib/supabase';
 import type { User } from '@supabase/supabase-js';
@@ -286,6 +286,9 @@ export function AppProvider({ children: reactChildren }: { children: React.React
   }, [user, supabase]);
 
   const addChild = useCallback(async (name: string, birthDate: string) => {
+    if (!isValidBirthDate(birthDate)) {
+      throw new Error('Birth date cannot be in the future.');
+    }
     const band = getBandFromBirthDate(birthDate);
 
     if (user) {
@@ -352,6 +355,9 @@ export function AppProvider({ children: reactChildren }: { children: React.React
   }, [user, supabase]);
 
   const editChild = useCallback(async (id: string, name: string, birthDate: string) => {
+    if (!isValidBirthDate(birthDate)) {
+      throw new Error('Birth date cannot be in the future.');
+    }
     const band = getBandFromBirthDate(birthDate);
     if (user) {
       const { error } = await supabase
@@ -494,8 +500,9 @@ export function AppProvider({ children: reactChildren }: { children: React.React
   }, [user, supabase]);
 
   const isGuideComplete = useCallback((guideKey: string) => {
-    return !!state.completedGuides[guideKey];
-  }, [state.completedGuides]);
+    const fullKey = `${state.activeChildId}-${guideKey}`;
+    return !!state.completedGuides[fullKey];
+  }, [state.activeChildId, state.completedGuides]);
 
   const completeOnboarding = useCallback(() => {
     setState(s => ({ ...s, isOnboarded: true }));

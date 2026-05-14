@@ -72,7 +72,10 @@ export function getBandShortLabel(band: number): string {
 export function getBandFromBirthDate(birthDate: string): number {
   const birth = new Date(birthDate);
   const now = new Date();
-  const ageMonths = (now.getFullYear() - birth.getFullYear()) * 12 + (now.getMonth() - birth.getMonth());
+  const ageMonths = (now.getFullYear() - birth.getFullYear()) * 12 +
+    (now.getMonth() - birth.getMonth()) +
+    (now.getDate() < birth.getDate() ? -1 : 0); // Account for day-of-month
+  if (ageMonths < 0) return 1; // Future date — treat as newborn
   if (ageMonths >= 48) return 0; // Graduated from Phase 0
   if (ageMonths < 12) return 1;
   if (ageMonths < 30) return 2;
@@ -82,12 +85,25 @@ export function getBandFromBirthDate(birthDate: string): number {
 export function getAgeString(birthDate: string): string {
   const birth = new Date(birthDate);
   const now = new Date();
-  const ageMonths = (now.getFullYear() - birth.getFullYear()) * 12 + (now.getMonth() - birth.getMonth());
-  if (ageMonths < 12) return ageMonths + ' months';
+  const ageMonths = (now.getFullYear() - birth.getFullYear()) * 12 +
+    (now.getMonth() - birth.getMonth()) +
+    (now.getDate() < birth.getDate() ? -1 : 0); // Account for day-of-month
+  if (ageMonths < 0) return 'Not yet born';
+  if (ageMonths < 1) return 'Newborn';
+  if (ageMonths < 12) return ageMonths + (ageMonths === 1 ? ' month' : ' months');
   const years = Math.floor(ageMonths / 12);
   const months = ageMonths % 12;
   if (months === 0) return years + (years === 1 ? ' year' : ' years');
   return years + (years === 1 ? ' year' : ' years') + ', ' + months + (months === 1 ? ' month' : ' months');
+}
+
+/** Validate birth date: must be today or in the past */
+export function isValidBirthDate(dateStr: string): boolean {
+  const date = new Date(dateStr);
+  if (isNaN(date.getTime())) return false;
+  const today = new Date();
+  today.setHours(23, 59, 59, 999); // Allow today
+  return date <= today;
 }
 
 /** Strip "Week X: " prefix from guide titles since we show the domain label separately */

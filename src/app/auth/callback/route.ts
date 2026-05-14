@@ -4,7 +4,9 @@ import { NextResponse } from 'next/server';
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get('code');
-  const next = searchParams.get('next') ?? '/home';
+  // Validate redirect target — must be a relative path, no protocol or double slashes
+  const rawNext = searchParams.get('next') ?? '/home';
+  const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/home';
 
   if (code) {
     const supabase = await createServerSupabaseClient();

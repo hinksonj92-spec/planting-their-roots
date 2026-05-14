@@ -144,11 +144,19 @@ export async function POST(request: NextRequest) {
       systemPrompt = buildSystemPrompt(band || 2, childName || 'your child');
     }
 
+    // Cap conversation history to last 30 messages to stay within token limits.
+    // The system prompt + content data can be 10-20k tokens; Gemini 2.5 Flash
+    // has a large context but we want fast responses and low cost.
+    const MAX_HISTORY = 30;
+    const recentMessages = messages.length > MAX_HISTORY
+      ? messages.slice(-MAX_HISTORY)
+      : messages;
+
     // Build Gemini conversation format
     const geminiContents = [
       { role: 'user', parts: [{ text: systemPrompt }] },
       { role: 'model', parts: [{ text: `Hi! I'm your Evergreen Homeschool assistant. I'm here to help with ${childrenArray && childrenArray.length > 1 ? 'your children\'s' : (childName || 'your child') + '\'s'} developmental journey. What would you like to know?` }] },
-      ...messages.map((m: { role: string; content: string }) => ({
+      ...recentMessages.map((m: { role: string; content: string }) => ({
         role: m.role === 'assistant' ? 'model' : 'user',
         parts: [{ text: m.content }],
       })),
