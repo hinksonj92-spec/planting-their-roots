@@ -54,7 +54,7 @@ export default function LoginPage() {
         </div>
 
         <h1 className="text-xl font-bold text-foreground text-center mb-1">Welcome back</h1>
-        <p className="text-secondary text-center text-sm mb-6">Log in to Planting Their Roots</p>
+        <p className="text-secondary text-center text-sm mb-6">Log in to Evergreen Homeschool</p>
 
         {(error || callbackError) && (
           <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3 mb-4">

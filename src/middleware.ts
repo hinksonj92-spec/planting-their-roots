@@ -43,6 +43,7 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.pathname.startsWith('/reflection') ||
     request.nextUrl.pathname.startsWith('/child') ||
     request.nextUrl.pathname.startsWith('/chat') ||
+    request.nextUrl.pathname.startsWith('/curriculum') ||
     request.nextUrl.pathname.startsWith('/settings');
 
   if (isProtectedRoute && !user) {

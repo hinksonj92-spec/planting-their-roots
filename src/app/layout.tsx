@@ -8,13 +8,13 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Planting Their Roots",
-  description: "Phase 0: Building the foundation from birth to first light",
+  title: "Evergreen Homeschool",
+  description: "The complete homeschool formation system — ages 0 to 18",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Planting Their Roots",
+    title: "Evergreen Homeschool",
   },
 };
 

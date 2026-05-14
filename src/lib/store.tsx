@@ -41,7 +41,7 @@ interface AppContextType extends AppState {
   reset: () => void;
 }
 
-const STORAGE_KEY = 'ptr-app-state';
+const STORAGE_KEY = 'evergreen-app-state';
 
 const defaultState: AppState = {
   parentName: '',

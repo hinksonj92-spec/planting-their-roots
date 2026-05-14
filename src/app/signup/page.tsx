@@ -73,7 +73,7 @@ export default function SignupPage() {
         </div>
 
         <h1 className="text-xl font-bold text-foreground text-center mb-1">Create your account</h1>
-        <p className="text-secondary text-center text-sm mb-6">Join Planting Their Roots</p>
+        <p className="text-secondary text-center text-sm mb-6">Join Evergreen Homeschool</p>
 
         <div className="flex flex-wrap justify-center gap-1.5 mb-6">
           {DOMAINS.map(code => (

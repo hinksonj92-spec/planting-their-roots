@@ -213,7 +213,7 @@ export default function HomePage() {
       </div>
 
       {/* Quick actions */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-3 gap-3">
         <Link href="/cards">
           <Card className="text-center py-5">
             <div className="text-2xl mb-1">🃏</div>
@@ -226,6 +226,13 @@ export default function HomePage() {
             <div className="text-2xl mb-1">🔄</div>
             <p className="text-sm font-medium text-foreground">Daily Rhythm</p>
             <p className="text-xs text-muted mt-0.5">Your day&apos;s flow</p>
+          </Card>
+        </Link>
+        <Link href="/curriculum">
+          <Card className="text-center py-5">
+            <div className="text-2xl mb-1">📚</div>
+            <p className="text-sm font-medium text-foreground">Curriculum</p>
+            <p className="text-xs text-muted mt-0.5">All phases & pillars</p>
           </Card>
         </Link>
       </div>

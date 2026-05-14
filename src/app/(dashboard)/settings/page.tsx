@@ -26,7 +26,7 @@ export default function SettingsPage() {
       <Card>
         <p className="text-sm font-semibold text-foreground mb-1">About</p>
         <p className="text-sm text-secondary">
-          Planting Their Roots is Phase 0 of Perpetual Sovereignty — a developmental formation guide for ages 0-4 that builds the human substrate your child needs for everything that comes next.
+          Evergreen Homeschool: Planting Roots is Phase 0 — a developmental formation guide for ages 0-4 that builds the human substrate your child needs for everything that comes next.
         </p>
       </Card>
       <button

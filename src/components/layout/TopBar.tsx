@@ -12,9 +12,9 @@ export function TopBar() {
       <div className="max-w-lg mx-auto flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-full bg-brand flex items-center justify-center">
-            <span className="text-white text-xs font-bold">P</span>
+            <span className="text-white text-xs font-bold">E</span>
           </div>
-          <span className="font-semibold text-sm text-foreground">Planting Their Roots</span>
+          <span className="font-semibold text-sm text-foreground">Evergreen</span>
         </div>
         {activeChild && (
           <Link href="/child" className="flex items-center gap-2 text-sm text-secondary hover:text-foreground transition-colors">

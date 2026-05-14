@@ -75,7 +75,7 @@ export default function ChatPage() {
       {/* Header */}
       <div className="pb-3">
         <ChildSwitcher />
-        <h1 className="text-xl font-bold text-foreground mt-2">Ask PTR for {activeChild?.name || 'Your Child'}</h1>
+        <h1 className="text-xl font-bold text-foreground mt-2">Ask EH for {activeChild?.name || 'Your Child'}</h1>
         <p className="text-xs text-muted">
           Ask about {activeChild?.name || 'your child'}&apos;s weekly guides, milestones, daily moments, and more.
         </p>
@@ -89,7 +89,7 @@ export default function ChatPage() {
               <span className="text-2xl">🌱</span>
             </div>
             <p className="text-sm text-secondary mb-4">
-              I know everything about {activeChild?.name || 'your child'}&apos;s PTR content. Try asking:
+              I know everything about {activeChild?.name || 'your child'}&apos;s Planting Roots content. Try asking:
             </p>
             <div className="space-y-2 max-w-xs mx-auto">
               {SUGGESTED_QUESTIONS.map((q, i) => (
@@ -146,7 +146,7 @@ export default function ChatPage() {
           type="text"
           value={input}
           onChange={e => setInput(e.target.value)}
-          placeholder="Ask about PTR content..."
+          placeholder="Ask about Planting Roots content..."
           disabled={loading}
           className="flex-1 border border-border rounded-xl px-4 py-2.5 text-sm bg-card focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/30 disabled:opacity-50"
           autoFocus

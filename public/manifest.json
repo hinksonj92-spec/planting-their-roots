@@ -1,7 +1,7 @@
 {
-  "name": "Planting Their Roots",
-  "short_name": "PTR",
-  "description": "Phase 0: Developmental formation guide for ages 0-4",
+  "name": "Evergreen Homeschool",
+  "short_name": "Evergreen",
+  "description": "The complete homeschool formation system — ages 0 to 18",
   "start_url": "/home",
   "display": "standalone",
   "background_color": "#FDFBF7",

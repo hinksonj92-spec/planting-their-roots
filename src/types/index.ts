@@ -1,5 +1,5 @@
 // ============================================
-// Planting Their Roots — Type Definitions
+// Evergreen Homeschool — Type Definitions
 // ============================================
 
 // --- Developmental Domains ---

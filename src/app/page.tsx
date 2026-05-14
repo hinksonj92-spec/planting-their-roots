@@ -105,12 +105,12 @@ export default function LandingPage() {
       <div className="w-16 h-16 rounded-full bg-brand flex items-center justify-center mb-6">
         <span className="text-3xl">🌱</span>
       </div>
-      <h1 className="text-2xl font-bold text-foreground text-center mb-2">Planting Their Roots</h1>
+      <h1 className="text-2xl font-bold text-foreground text-center mb-2">Evergreen Homeschool</h1>
       <p className="text-secondary text-center mb-2 max-w-sm">
-        The developmental formation guide for ages 0–4.
+        The complete formation system for ages 0–18.
       </p>
       <p className="text-muted text-center text-sm mb-8 max-w-xs">
-        Seven domains. Three bands. One goal: build the human substrate your child needs for everything that comes next.
+        Four phases. Twenty-four pillars. One mission: raise sovereign, capable human beings.
       </p>
 
       <div className="flex flex-wrap justify-center gap-2 mb-8 max-w-xs">

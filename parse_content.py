@@ -9,7 +9,7 @@ import re
 import os
 from pathlib import Path
 
-CONTENT_DIR = Path("/sessions/blissful-dazzling-mccarthy/mnt/Perpetual Sovereignty/content/phase-0")
+CONTENT_DIR = Path("/sessions/blissful-dazzling-mccarthy/mnt/Evergreen Homeschool/content/phase-0")
 OUTPUT_DIR = Path("/sessions/blissful-dazzling-mccarthy/mnt/outputs/planting-their-roots/src/data")
 
 BAND_DIRS = {
