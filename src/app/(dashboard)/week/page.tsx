@@ -6,11 +6,14 @@ import { getWeeklyGuide, getDefaultPhase } from '@/lib/content';
 import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getPhaseDomain, cleanGuideTitle } from '@/lib/utils';
 import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 import { MomentSection } from '@/components/content/MomentSection';
+import { GraduatedState } from '@/components/content/GraduatedState';
 import type { DomainCode } from '@/types';
 
 export default function WeekPage() {
-  const { activeBand, activeChild, activeWeek } = useApp();
+  const { activeBand, activeChild, activeWeek, isGraduated } = useApp();
   const [currentPhase, setCurrentPhase] = useState(activeWeek ?? getDefaultPhase());
+
+  if (isGraduated) return <div className="py-4"><ChildSwitcher /><GraduatedState /></div>;
 
   const guide = getWeeklyGuide(activeBand, currentPhase);
   if (!guide) return <div className="py-8 text-center text-muted">No guide found.</div>;

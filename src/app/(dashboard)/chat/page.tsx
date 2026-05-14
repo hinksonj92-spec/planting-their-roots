@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useApp } from '@/lib/store';
-import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
+import { getBandFromBirthDate, getAgeString, getBandShortLabel } from '@/lib/utils';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -17,18 +17,62 @@ const SUGGESTED_QUESTIONS = [
 ];
 
 export default function ChatPage() {
-  const { activeChild, activeBand } = useApp();
+  const { activeChild, children } = useApp();
+
+  // Multi-child selection: set of selected child IDs
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(
+    new Set(activeChild ? [activeChild.id] : [])
+  );
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Sync active child when it changes
+  useEffect(() => {
+    if (activeChild && selectedIds.size === 0) {
+      setSelectedIds(new Set([activeChild.id]));
+    }
+  }, [activeChild]); // eslint-disable-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  function toggleChild(childId: string) {
+    setSelectedIds(prev => {
+      const next = new Set(prev);
+      if (next.has(childId)) {
+        // Don't allow deselecting the last one
+        if (next.size > 1) next.delete(childId);
+      } else {
+        next.add(childId);
+      }
+      return next;
+    });
+  }
+
+  function toggleAll() {
+    if (selectedIds.size === children.length) {
+      // Deselect all except active
+      setSelectedIds(new Set(activeChild ? [activeChild.id] : [children[0]?.id].filter(Boolean)));
+    } else {
+      setSelectedIds(new Set(children.map(c => c.id)));
+    }
+  }
+
+  const selectedChildren = children.filter(c => selectedIds.has(c.id));
+  const allSelected = selectedIds.size === children.length;
+
+  // Build display name for header
+  const headerName = selectedChildren.length === 1
+    ? selectedChildren[0].name
+    : selectedChildren.length === children.length
+      ? 'All Children'
+      : selectedChildren.map(c => c.name).join(' & ');
 
   async function sendMessage(text: string) {
     if (!text.trim() || loading) return;
@@ -40,13 +84,23 @@ export default function ChatPage() {
     setLoading(true);
 
     try {
+      // Build children array for the API
+      const childrenPayload = selectedChildren.map(c => ({
+        name: c.name,
+        band: getBandFromBirthDate(c.birth_date),
+        age: getAgeString(c.birth_date),
+      }));
+
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           messages: updatedMessages,
-          band: activeBand,
-          childName: activeChild?.name || 'your child',
+          // Backward compatible: still send band/childName for single child
+          band: childrenPayload[0]?.band ?? 2,
+          childName: childrenPayload[0]?.name ?? 'your child',
+          // New: multi-child array
+          children: childrenPayload,
         }),
       });
 
@@ -72,12 +126,48 @@ export default function ChatPage() {
 
   return (
     <div className="flex flex-col h-[calc(100vh-8rem)]">
-      {/* Header */}
+      {/* Header with multi-child selector */}
       <div className="pb-3">
-        <ChildSwitcher />
-        <h1 className="text-xl font-bold text-foreground mt-2">Ask EH for {activeChild?.name || 'Your Child'}</h1>
-        <p className="text-xs text-muted">
-          Ask about {activeChild?.name || 'your child'}&apos;s weekly guides, milestones, daily moments, and more.
+        <h1 className="text-xl font-bold text-foreground">Ask EH</h1>
+
+        {/* Child selector chips */}
+        {children.length > 1 && (
+          <div className="flex gap-1.5 overflow-x-auto mt-2 pb-1 -mx-1 px-1 scrollbar-hide">
+            <button
+              onClick={toggleAll}
+              className={`shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                allSelected
+                  ? 'bg-brand text-white'
+                  : 'bg-card border border-border text-secondary hover:border-brand/30'
+              }`}
+            >
+              All Children
+            </button>
+            {children.map(child => {
+              const isSelected = selectedIds.has(child.id);
+              const band = getBandFromBirthDate(child.birth_date);
+              return (
+                <button
+                  key={child.id}
+                  onClick={() => toggleChild(child.id)}
+                  className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    isSelected
+                      ? 'bg-brand text-white'
+                      : 'bg-card border border-border text-secondary hover:border-brand/30'
+                  }`}
+                >
+                  <span>{child.name}</span>
+                  <span className={`text-[10px] ${isSelected ? 'text-white/70' : 'text-muted'}`}>
+                    {getBandShortLabel(band)}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        <p className="text-xs text-muted mt-1">
+          Ask about {headerName}&apos;s weekly guides, milestones, daily moments, and more.
         </p>
       </div>
 
@@ -89,7 +179,7 @@ export default function ChatPage() {
               <span className="text-2xl">🌱</span>
             </div>
             <p className="text-sm text-secondary mb-4">
-              I know everything about {activeChild?.name || 'your child'}&apos;s Planting Roots content. Try asking:
+              I know everything about {headerName}&apos;s Planting Roots content. Try asking:
             </p>
             <div className="space-y-2 max-w-xs mx-auto">
               {SUGGESTED_QUESTIONS.map((q, i) => (

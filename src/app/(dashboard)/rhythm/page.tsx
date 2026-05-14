@@ -4,6 +4,7 @@ import { useApp } from '@/lib/store';
 import { getRhythmSheet } from '@/lib/content';
 import { getBandShortLabel } from '@/lib/utils';
 import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
+import { GraduatedState } from '@/components/content/GraduatedState';
 
 const TIME_ICONS: Record<string, string> = {
   MORNING: '🌅',
@@ -18,10 +19,13 @@ const TIME_LABELS: Record<string, string> = {
 };
 
 export default function RhythmPage() {
-  const { activeBand, activeChild } = useApp();
-  const rhythm = getRhythmSheet(activeBand);
+  const { activeBand, activeChild, isGraduated } = useApp();
 
-  if (!rhythm || !activeChild) return <div className="py-8 text-center text-muted">No rhythm sheet found.</div>;
+  if (!activeChild) return <div className="py-8 text-center text-muted">No rhythm sheet found.</div>;
+  if (isGraduated) return <div className="py-4"><ChildSwitcher /><GraduatedState /></div>;
+
+  const rhythm = getRhythmSheet(activeBand);
+  if (!rhythm) return <div className="py-8 text-center text-muted">No rhythm sheet found.</div>;
 
   return (
     <div className="py-4 space-y-4">

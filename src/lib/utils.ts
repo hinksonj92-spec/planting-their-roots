@@ -1,12 +1,14 @@
 import { DomainCode } from '@/types';
 
 const BAND_LABELS: Record<number, string> = {
-  1: 'Infant (0-12 months)',
-  2: 'Toddler (12-30 months)',
-  3: 'Pre-Phase 1 (30-48 months)',
+  0: 'Graduated (4+ years)',
+  1: 'Infant (0–12 months)',
+  2: 'Toddler (1–2 years)',
+  3: 'Pre-Phase 1 (2–4 years)',
 };
 
 const BAND_SHORT_LABELS: Record<number, string> = {
+  0: 'Graduated',
   1: 'Infant',
   2: 'Toddler',
   3: 'Pre-Phase 1',
@@ -60,10 +62,18 @@ export function getBandShortLabel(band: number): string {
   return BAND_SHORT_LABELS[band] || 'Unknown';
 }
 
+/**
+ * Returns the content band for Phase 0 (Planting Roots).
+ * Band 1: Infant (0–12 months)
+ * Band 2: Toddler (12–30 months)
+ * Band 3: Pre-Phase 1 (30–48 months)
+ * Band 0: Graduated — child is 4+ and has aged out of Phase 0 content
+ */
 export function getBandFromBirthDate(birthDate: string): number {
   const birth = new Date(birthDate);
   const now = new Date();
   const ageMonths = (now.getFullYear() - birth.getFullYear()) * 12 + (now.getMonth() - birth.getMonth());
+  if (ageMonths >= 48) return 0; // Graduated from Phase 0
   if (ageMonths < 12) return 1;
   if (ageMonths < 30) return 2;
   return 3;

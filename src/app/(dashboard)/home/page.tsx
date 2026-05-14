@@ -32,9 +32,10 @@ function Phase0Card({
   const [showWeekPicker, setShowWeekPicker] = useState(false);
 
   const band = getBandFromBirthDate(child.birth_date);
+  const graduated = band === 0;
   const currentPhase = child.current_week ?? getDefaultPhase();
-  const guide = getWeeklyGuide(band, currentPhase);
-  const allMilestones = getMilestones(band);
+  const guide = graduated ? null : getWeeklyGuide(band, currentPhase);
+  const allMilestones = graduated ? getMilestones(3) : getMilestones(band); // Show band 3 milestones for graduated to preserve progress display
 
   const totalMilestones = allMilestones.length;
   let completedMilestones = 0;
@@ -70,14 +71,30 @@ function Phase0Card({
               <h2 className="font-bold text-foreground text-lg truncate">{child.name}</h2>
               {isActive && <span className="text-[10px] bg-brand text-white px-1.5 py-0.5 rounded-full font-medium shrink-0">Active</span>}
             </div>
-            <p className="text-sm text-secondary">{getAgeString(child.birth_date)} &middot; {getBandShortLabel(band)}</p>
+            <p className="text-sm text-secondary">{getAgeString(child.birth_date)}{!graduated && <> &middot; {getBandShortLabel(band)}</>}</p>
           </div>
-          <span className="text-xs px-2 py-1 rounded-full bg-brand-light text-brand-dark font-medium">Planting Roots</span>
+          {graduated ? (
+            <span className="text-xs px-2 py-1 rounded-full bg-amber-50 text-amber-700 font-medium">Graduated</span>
+          ) : (
+            <span className="text-xs px-2 py-1 rounded-full bg-brand-light text-brand-dark font-medium">Planting Roots</span>
+          )}
         </div>
       </button>
 
-      {/* Current focus */}
-      {guide && (
+      {/* Current focus — or graduated message */}
+      {graduated ? (
+        <Link href="/curriculum" onClick={onSelect} className="block px-4 pb-3">
+          <div className="rounded-xl overflow-hidden border border-border-light bg-amber-50/50 p-3">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-lg">🌳</span>
+              <span className="text-xs font-semibold text-amber-700">Ready for the next phase</span>
+            </div>
+            <p className="text-xs text-secondary">
+              {child.name} has graduated from Planting Roots. Explore the full curriculum.
+            </p>
+          </div>
+        </Link>
+      ) : guide && (
         <Link href="/week" onClick={onSelect} className="block px-4 pb-3">
           <div className="rounded-xl overflow-hidden border border-border-light">
             <div className="flex items-stretch">
@@ -103,7 +120,7 @@ function Phase0Card({
       )}
 
       {/* Week picker */}
-      {showWeekPicker && (
+      {!graduated && showWeekPicker && (
         <div className="px-4 pb-3">
           <div className="bg-background rounded-xl p-3 border border-border-light">
             <p className="text-[11px] text-secondary mb-2">

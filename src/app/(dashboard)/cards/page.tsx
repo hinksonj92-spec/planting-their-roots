@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useApp } from '@/lib/store';
 import { getMomentCards } from '@/lib/content';
 import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
+import { GraduatedState } from '@/components/content/GraduatedState';
 import { DOMAIN_COLORS, DOMAIN_NAMES, DOMAIN_ICONS } from '@/lib/utils';
 import { SayThisBlock } from '@/components/content/SayThisBlock';
 import { DoThisBlock } from '@/components/content/DoThisBlock';
@@ -11,9 +12,12 @@ import { DomainBadge } from '@/components/ui/DomainBadge';
 import type { DomainCode } from '@/types';
 
 export default function CardsPage() {
-  const { activeBand, activeChild } = useApp();
-  const cards = getMomentCards(activeBand);
+  const { activeBand, activeChild, isGraduated } = useApp();
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+
+  if (isGraduated) return <div className="py-4"><ChildSwitcher /><GraduatedState /></div>;
+
+  const cards = getMomentCards(activeBand);
 
   return (
     <div className="py-4 space-y-4">

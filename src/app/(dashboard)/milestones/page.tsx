@@ -5,13 +5,17 @@ import { useApp } from '@/lib/store';
 import { getMilestones } from '@/lib/content';
 import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getBandShortLabel } from '@/lib/utils';
 import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
+import { GraduatedState } from '@/components/content/GraduatedState';
 import type { DomainCode } from '@/types';
 
 const ALL_DOMAINS: DomainCode[] = ['LANG', 'MOTR', 'NUMR', 'SOCL', 'ROUT', 'SENS', 'INDP'];
 
 export default function MilestonesPage() {
-  const { activeBand, activeChild, isMilestoneComplete, toggleMilestone } = useApp();
+  const { activeBand, activeChild, isGraduated, isMilestoneComplete, toggleMilestone } = useApp();
   const [activeDomain, setActiveDomain] = useState<DomainCode>('LANG');
+
+  if (isGraduated) return <div className="py-4"><ChildSwitcher /><GraduatedState /></div>;
+
   const allMilestones = getMilestones(activeBand);
 
   const domainMilestones = allMilestones.filter(m => m.domain_code === activeDomain);

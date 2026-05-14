@@ -89,7 +89,13 @@ function LoginForm() {
           </button>
         </form>
 
-        <p className="text-center text-sm text-muted mt-6">
+        <div className="text-center mt-4">
+          <Link href="/reset-password" className="text-sm text-brand font-medium hover:underline">
+            Forgot password?
+          </Link>
+        </div>
+
+        <p className="text-center text-sm text-muted mt-4">
           Don&apos;t have an account?{' '}
           <Link href="/signup" className="text-brand font-medium hover:underline">Sign up</Link>
         </p>

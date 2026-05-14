@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import type { Child, ChildMilestone, ChildAccess, InviteLink } from '@/types';
 import { getBandFromBirthDate } from '@/lib/utils';
 import { getMilestones } from '@/lib/content';
@@ -21,10 +21,13 @@ interface AppContextType extends AppState {
   user: User | null;
   activeChild: Child | null;
   activeBand: number;
+  isGraduated: boolean;
   activeWeek: number | null;
   loading: boolean;
   setParentName: (name: string) => void;
   addChild: (name: string, birthDate: string) => Promise<void>;
+  editChild: (id: string, name: string, birthDate: string) => Promise<void>;
+  removeChild: (id: string) => Promise<void>;
   setActiveChild: (id: string) => void;
   setChildWeek: (childId: string, week: number | null) => void;
   toggleMilestone: (milestoneId: string) => void;
@@ -79,6 +82,10 @@ export function AppProvider({ children: reactChildren }: { children: React.React
   const [loading, setLoading] = useState(false); // Not loading — show content immediately
 
   const supabase = createClient();
+
+  // Track explicit sign-out so we don't nuke state on spontaneous
+  // SIGNED_OUT events (e.g., tab visibility change + token refresh failure)
+  const signOutRequested = useRef(false);
 
   // Initialize: check auth state, load data
   useEffect(() => {
@@ -238,8 +245,15 @@ export function AppProvider({ children: reactChildren }: { children: React.React
           setLoading(false);
         } else if (event === 'SIGNED_OUT') {
           setUser(null);
-          setState(defaultState);
-          saveLocalState(defaultState);
+          // Only nuke local state if the user explicitly signed out.
+          // Spontaneous SIGNED_OUT events (tab switch, token refresh failure)
+          // should NOT destroy children/milestones/onboarding state — the
+          // dashboard layout falls back to local state via hasAccess check.
+          if (signOutRequested.current) {
+            signOutRequested.current = false;
+            setState(defaultState);
+            saveLocalState(defaultState);
+          }
         }
       }
     );
@@ -258,6 +272,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
 
   const activeChild = state.children.find(c => c.id === state.activeChildId) || null;
   const activeBand: number = activeChild ? getBandFromBirthDate(activeChild.birth_date) : 2;
+  const isGraduated: boolean = activeBand === 0;
   const activeWeek: number | null = activeChild?.current_week ?? null;
 
   const setParentName = useCallback((name: string) => {
@@ -331,6 +346,61 @@ export function AppProvider({ children: reactChildren }: { children: React.React
         activeChildId: s.activeChildId || id,
       }));
     }
+  }, [user, supabase]);
+
+  const editChild = useCallback(async (id: string, name: string, birthDate: string) => {
+    const band = getBandFromBirthDate(birthDate);
+    if (user) {
+      const { error } = await supabase
+        .from('children')
+        .update({ name, birth_date: birthDate, current_band: band })
+        .eq('id', id);
+      if (error) {
+        console.error('Failed to update child:', error);
+        throw new Error(error.message);
+      }
+    }
+    setState(s => ({
+      ...s,
+      children: s.children.map(c =>
+        c.id === id ? { ...c, name, birth_date: birthDate, current_band: band } : c
+      ),
+    }));
+  }, [user, supabase]);
+
+  const removeChild = useCallback(async (id: string) => {
+    if (user) {
+      // Delete in order: milestone_progress, completed_guides, invite_links, child_access, children
+      await supabase.from('milestone_progress').delete().eq('child_id', id);
+      await supabase.from('completed_guides').delete().eq('child_id', id);
+      await supabase.from('invite_links').delete().eq('child_id', id);
+      await supabase.from('child_access').delete().eq('child_id', id);
+      const { error } = await supabase.from('children').delete().eq('id', id);
+      if (error) {
+        console.error('Failed to remove child:', error);
+        throw new Error(error.message);
+      }
+    }
+    setState(s => {
+      const remaining = s.children.filter(c => c.id !== id);
+      // Clean up milestone progress and completed guides for this child
+      const milestoneProgress = { ...s.milestoneProgress };
+      const completedGuides = { ...s.completedGuides };
+      for (const key of Object.keys(milestoneProgress)) {
+        if (key.startsWith(id + '-')) delete milestoneProgress[key];
+      }
+      for (const key of Object.keys(completedGuides)) {
+        if (key.startsWith(id + '-')) delete completedGuides[key];
+      }
+      return {
+        ...s,
+        children: remaining,
+        childAccess: s.childAccess.filter(a => a.child_id !== id),
+        activeChildId: s.activeChildId === id ? (remaining[0]?.id || null) : s.activeChildId,
+        milestoneProgress,
+        completedGuides,
+      };
+    });
   }, [user, supabase]);
 
   const setActiveChild = useCallback((id: string) => {
@@ -574,7 +644,10 @@ export function AppProvider({ children: reactChildren }: { children: React.React
   }, [state.childAccess]);
 
   const signOut = useCallback(async () => {
+    signOutRequested.current = true;
     await supabase.auth.signOut();
+    // State nuke is handled by onAuthStateChange SIGNED_OUT handler
+    // when signOutRequested is true. Belt-and-suspenders:
     setState(defaultState);
     setUser(null);
     if (typeof window !== 'undefined') localStorage.removeItem(STORAGE_KEY);
@@ -604,10 +677,13 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       user,
       activeChild,
       activeBand,
+      isGraduated,
       activeWeek,
       loading,
       setParentName,
       addChild,
+      editChild,
+      removeChild,
       setActiveChild,
       setChildWeek,
       toggleMilestone,
