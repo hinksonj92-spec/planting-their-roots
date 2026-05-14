@@ -190,40 +190,40 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     }
 
     // Strategy: local state is already loaded (see useState initializers above).
-    // Use getUser() (direct API call) instead of getSession() which hangs in
-    // supabase-js v2.105+. getUser() works because middleware already refreshed
-    // the auth cookies server-side.
+    // Now using standard createClient (localStorage-based) instead of
+    // createBrowserClient (cookie-based SSR client that deadlocks).
+    // getSession() works correctly with localStorage-based auth.
 
-    async function tryGetUser() {
+    async function tryInit() {
       try {
-        console.log('[EH] Calling getUser()...');
-        const { data: { user: authUser }, error } = await supabase.auth.getUser();
+        console.log('[EH] Calling getSession()...');
+        const { data: { session }, error } = await supabase.auth.getSession();
         if (error) {
-          console.log('[EH] getUser error:', error.message);
+          console.warn('[EH] getSession error:', error.message);
           return;
         }
         if (!mounted) return;
-        if (authUser) {
-          console.log('[EH] User found:', authUser.id);
-          setUser(authUser);
-          await loadFromSupabase(authUser.id);
-          console.log('[EH] Supabase data loaded');
+        if (session?.user) {
+          console.log('[EH] Session found for user:', session.user.id);
+          setUser(session.user);
+          await loadFromSupabase(session.user.id);
+          console.log('[EH] Supabase data loaded successfully');
         } else {
-          console.log('[EH] No authenticated user');
+          console.log('[EH] No active session');
         }
       } catch (err) {
-        console.warn('[EH] getUser failed:', err);
+        console.warn('[EH] Auth init failed:', err);
       }
     }
 
-    // Race against timeout — never block UI for more than 5s
+    // Race against timeout — never block UI for more than 8s
     let resolved = false;
-    const initPromise = tryGetUser().then(() => { resolved = true; });
+    const initPromise = tryInit().then(() => { resolved = true; });
     const timeoutId = setTimeout(() => {
       if (!resolved && mounted) {
-        console.warn('[EH] Auth init timed out after 5s, keeping local state');
+        console.warn('[EH] Auth init timed out after 8s, keeping local state');
       }
-    }, 5000);
+    }, 8000);
     initPromise.finally(() => clearTimeout(timeoutId));
 
     // Listen for future auth changes (sign in, sign out)
@@ -239,6 +239,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
         } else if (event === 'SIGNED_OUT') {
           setUser(null);
           setState(defaultState);
+          saveLocalState(defaultState);
         }
       }
     );
