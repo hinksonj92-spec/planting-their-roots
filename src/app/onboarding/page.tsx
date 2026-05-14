@@ -12,6 +12,7 @@ export default function OnboardingPage() {
   const [childName, setChildName] = useState('');
   const [birthDate, setBirthDate] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (!user) {
@@ -23,8 +24,6 @@ export default function OnboardingPage() {
   }, [user, children.length, router]);
 
   if (!user || children.length > 0) return null;
-
-  const [error, setError] = useState('');
 
   async function handleSubmit() {
     if (!childName.trim() || !birthDate) return;

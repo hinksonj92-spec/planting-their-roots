@@ -28,17 +28,24 @@ export default function LandingPage() {
   const [birthDate, setBirthDate] = useState('');
 
   useEffect(() => {
-    // If already set up, go to dashboard
-    if ((user || isOnboarded) && children.length > 0) {
-      router.replace('/home');
+    if (hasAuth && user) {
+      // Authenticated: go to dashboard or onboarding
+      if (children.length > 0) {
+        router.replace('/home');
+      } else {
+        router.replace('/onboarding');
+      }
+      return;
     }
-    // If authenticated but no children, go to onboarding
-    if (hasAuth && user && children.length === 0) {
-      router.replace('/onboarding');
+    // Local-only: if already set up, go to dashboard
+    if (!hasAuth && isOnboarded && children.length > 0) {
+      router.replace('/home');
     }
   }, [user, isOnboarded, children.length, router, hasAuth]);
 
-  if ((user || isOnboarded) && children.length > 0) return null;
+  // If authenticated, don't show landing page at all
+  if (hasAuth && user) return null;
+  if (!hasAuth && isOnboarded && children.length > 0) return null;
 
   // --- Local-only onboarding (no Supabase) ---
   if (!hasAuth && step === 1) {
