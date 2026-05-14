@@ -1,10 +1,10 @@
 // ============================================
-// Planting Their Roots — Service Worker
+// Evergreen Homeschool — Service Worker
 // Caches app shell + static content for offline use
 // ============================================
 
-const CACHE_NAME = 'ptr-v1';
-const CONTENT_CACHE = 'ptr-content-v1';
+const CACHE_NAME = 'evergreen-v2';
+const CONTENT_CACHE = 'evergreen-content-v2';
 
 // App shell files to precache
 const APP_SHELL = [
