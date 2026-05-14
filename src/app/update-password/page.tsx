@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
 
@@ -8,9 +8,21 @@ export default function UpdatePasswordPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [checking, setChecking] = useState(true);
   const [error, setError] = useState('');
   const router = useRouter();
   const supabase = createClient();
+
+  // Guard: redirect to login if no session (user must arrive via reset email link)
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      if (!data.user) {
+        router.replace('/login');
+      } else {
+        setChecking(false);
+      }
+    });
+  }, [supabase, router]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -41,6 +53,14 @@ export default function UpdatePasswordPage() {
 
     router.push('/home');
     router.refresh();
+  }
+
+  if (checking) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="w-6 h-6 border-2 border-brand border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
   }
 
   return (

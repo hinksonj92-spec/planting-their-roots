@@ -22,7 +22,7 @@ export function BottomNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex flex-col items-center gap-0.5 px-3 py-2 rounded-xl transition-colors min-w-[64px] ${
+              className={`flex flex-col items-center gap-0.5 px-3 py-2.5 rounded-xl transition-colors min-w-[64px] min-h-[44px] ${
                 isActive
                   ? 'text-brand'
                   : 'text-muted hover:text-secondary'

@@ -89,7 +89,12 @@
         "what_is_built": "*What is being built:"
       }
     ],
-    "weekly_checkin": []
+    "weekly_checkin": [
+      "What new words or phrases is my toddler using?",
+      "Which part of our rhythm felt most natural this week?",
+      "Where did I see the most resistance or frustration?",
+      "What moment made me smile this week?"
+    ]
   },
   {
     "band": 3,
@@ -134,6 +139,11 @@
         "what_is_built": "Narration to absent audience (key Phase 1 skill), reflective self-assessment (IC1.1-A1 Part 5), full self-care independence, bedtime routine as anchor"
       }
     ],
-    "weekly_checkin": []
+    "weekly_checkin": [
+      "What new skill or interest is my child exploring?",
+      "Which routines are my child starting to own independently?",
+      "Where do I still need to step in more than expected?",
+      "What surprised me about my child this week?"
+    ]
   }
 ]

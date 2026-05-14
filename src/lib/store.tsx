@@ -246,6 +246,14 @@ export function AppProvider({ children: reactChildren }: { children: React.React
           setLoading(true);
           try { await loadFromSupabase(session.user.id); } catch {}
           setLoading(false);
+          // Process pending invite token (stored by /invite/[token] page)
+          if (typeof window !== 'undefined') {
+            const pendingInvite = sessionStorage.getItem('pending_invite');
+            if (pendingInvite) {
+              sessionStorage.removeItem('pending_invite');
+              window.location.href = `/invite/${pendingInvite}`;
+            }
+          }
         } else if (event === 'SIGNED_OUT') {
           setUser(null);
           // Only nuke local state if the user explicitly signed out.
@@ -379,11 +387,21 @@ export function AppProvider({ children: reactChildren }: { children: React.React
 
   const removeChild = useCallback(async (id: string) => {
     if (user) {
-      // Delete in order: milestone_progress, completed_guides, invite_links, child_access, children
-      await supabase.from('milestone_progress').delete().eq('child_id', id);
-      await supabase.from('completed_guides').delete().eq('child_id', id);
-      await supabase.from('invite_links').delete().eq('child_id', id);
-      await supabase.from('child_access').delete().eq('child_id', id);
+      // Delete in FK-dependency order. Check each step so partial failure
+      // doesn't silently leave orphaned rows (no client-side transactions).
+      const steps = [
+        supabase.from('milestone_progress').delete().eq('child_id', id),
+        supabase.from('completed_guides').delete().eq('child_id', id),
+        supabase.from('invite_links').delete().eq('child_id', id),
+        supabase.from('child_access').delete().eq('child_id', id),
+      ];
+      for (const step of steps) {
+        const { error: stepErr } = await step;
+        if (stepErr) {
+          console.error('Cascade delete step failed:', stepErr);
+          throw new Error(`Failed to remove child data: ${stepErr.message}`);
+        }
+      }
       const { error } = await supabase.from('children').delete().eq('id', id);
       if (error) {
         console.error('Failed to remove child:', error);

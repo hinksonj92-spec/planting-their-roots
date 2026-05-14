@@ -29,7 +29,8 @@ function LoginForm() {
     setLoading(false);
 
     if (signInError) {
-      setError(signInError.message);
+      // Normalize error to avoid leaking whether email exists
+      setError('Invalid email or password.');
       return;
     }
 

@@ -10,7 +10,18 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = 'gemini-2.5-flash';
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
-function buildSystemPrompt(band: number, childName: string): string {
+/** Sanitize child name for safe embedding in the system prompt */
+function sanitizeName(name: string): string {
+  // Strip control chars, limit length, remove quotes/backticks that could break prompt framing
+  return name
+    .replace(/[\x00-\x1F\x7F]/g, '')  // control chars
+    .replace(/[`"]/g, "'")             // neutralize quote injection
+    .slice(0, 50)                       // cap length
+    .trim() || 'your child';
+}
+
+function buildSystemPrompt(band: number, rawChildName: string): string {
+  const childName = sanitizeName(rawChildName);
   // Band 0 = graduated (4+ years). Include all band content so chat has full context.
   const isGraduated = band === 0;
   const bands = isGraduated ? [1, 2, 3] : [band];
@@ -77,9 +88,10 @@ function buildMultiChildPrompt(children: { name: string; band: number; age: stri
   const bandRhythm = rhythmSheets.filter((r: Record<string, unknown>) => allBands.includes(r.band as number));
 
   const childDescriptions = children.map(c => {
-    if (c.band === 0) return `- ${c.name} (${c.age}, graduated from Phase 0)`;
+    const name = sanitizeName(c.name);
+    if (c.band === 0) return `- ${name} (${c.age}, graduated from Phase 0)`;
     const bandLabel = c.band === 1 ? 'Infant' : c.band === 2 ? 'Toddler' : 'Pre-Phase 1';
-    return `- ${c.name} (${c.age}, Band ${c.band} — ${bandLabel})`;
+    return `- ${name} (${c.age}, Band ${c.band} — ${bandLabel})`;
   }).join('\n');
 
   return `You are the Evergreen Homeschool parenting assistant for Planting Roots (Phase 0) — a developmental formation guide for ages 0-4.

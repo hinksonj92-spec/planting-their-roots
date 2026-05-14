@@ -125,7 +125,7 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-8rem)]">
+    <div className="flex flex-col h-[calc(100dvh-8rem)]">
       {/* Header with multi-child selector */}
       <div className="pb-3">
         <h1 className="text-xl font-bold text-foreground">Ask EH</h1>
@@ -166,7 +166,7 @@ export default function ChatPage() {
           </div>
         )}
 
-        <p className="text-xs text-muted mt-1">
+        <p className="text-xs text-muted mt-1 truncate">
           Ask about {headerName}&apos;s weekly guides, milestones, daily moments, and more.
         </p>
       </div>

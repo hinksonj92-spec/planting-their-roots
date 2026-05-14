@@ -17,8 +17,8 @@ export function TopBar() {
           <span className="font-semibold text-sm text-foreground">Evergreen</span>
         </div>
         {activeChild && (
-          <Link href="/child" className="flex items-center gap-2 text-sm text-secondary hover:text-foreground transition-colors">
-            <span>{activeChild.name}</span>
+          <Link href="/child" className="flex items-center gap-2 text-sm text-secondary hover:text-foreground transition-colors max-w-[50%]">
+            <span className="truncate">{activeChild.name}</span>
             <span className="text-xs bg-brand-light text-brand-dark px-2 py-0.5 rounded-full font-medium">
               {getBandShortLabel(activeBand)}
             </span>

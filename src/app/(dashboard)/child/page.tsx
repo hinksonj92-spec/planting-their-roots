@@ -279,12 +279,16 @@ export default function ChildPage() {
               </button>
             )}
             <button
-              onClick={() => {
+              onClick={async () => {
                 if (newName.trim() && newBirth) {
-                  addChild(newName.trim(), newBirth);
-                  setShowAdd(false);
-                  setNewName('');
-                  setNewBirth('');
+                  try {
+                    await addChild(newName.trim(), newBirth);
+                    setShowAdd(false);
+                    setNewName('');
+                    setNewBirth('');
+                  } catch (err) {
+                    alert(err instanceof Error ? err.message : 'Failed to add child.');
+                  }
                 }
               }}
               disabled={!newName.trim() || !newBirth}
