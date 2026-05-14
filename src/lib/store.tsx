@@ -72,10 +72,11 @@ function saveLocalState(state: AppState) {
 const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children: reactChildren }: { children: React.ReactNode }) {
-  const [state, setState] = useState<AppState>(defaultState);
+  // Load local state IMMEDIATELY — no waiting for Supabase
+  const [state, setState] = useState<AppState>(() => loadLocalState());
   const [user, setUser] = useState<User | null>(null);
-  const [loaded, setLoaded] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(true);  // Start loaded — local state is ready
+  const [loading, setLoading] = useState(false); // Not loading — show content immediately
 
   const supabase = createClient();
 
@@ -188,47 +189,73 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       }
     }
 
-    // Use onAuthStateChange as the SOLE auth initialization.
-    // DO NOT call getSession() separately — in supabase-js v2.105+,
-    // concurrent getSession + onAuthStateChange causes an internal lock deadlock.
-    let initResolved = false;
+    // Strategy: local state is already loaded (see useState initializers above).
+    // Try to upgrade to Supabase auth in the background. If Supabase works,
+    // replace local state with server data. If it fails/times out, local state
+    // is already showing — user never sees a blank/loading screen.
 
+    // Check for auth cookies before even touching the Supabase client.
+    // If no auth cookies exist, skip Supabase entirely (avoids hanging).
+    const hasAuthCookies = document.cookie.includes('sb-') && document.cookie.includes('auth-token');
+    console.log('[EH] Auth cookies present:', hasAuthCookies);
+
+    if (!hasAuthCookies) {
+      console.log('[EH] No auth cookies, skipping Supabase init');
+      // Still set up listener for future sign-ins
+      const { data: { subscription } } = supabase.auth.onAuthStateChange(
+        async (event, session) => {
+          if (!mounted) return;
+          if (event === 'SIGNED_IN' && session?.user) {
+            setUser(session.user);
+            setLoading(true);
+            try { await loadFromSupabase(session.user.id); } catch {}
+            setLoading(false);
+          } else if (event === 'SIGNED_OUT') {
+            setUser(null);
+            setState(defaultState);
+          }
+        }
+      );
+      return () => { mounted = false; subscription.unsubscribe(); };
+    }
+
+    // Has auth cookies — try to load from Supabase with timeout
+    console.log('[EH] Has auth cookies, attempting Supabase init...');
+    let supabaseLoaded = false;
+
+    async function trySupabaseInit() {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!mounted) return;
+        if (session?.user) {
+          console.log('[EH] Session found, loading user data...');
+          setUser(session.user);
+          await loadFromSupabase(session.user.id);
+          supabaseLoaded = true;
+          console.log('[EH] Supabase data loaded');
+        } else {
+          console.log('[EH] No valid session despite cookies');
+        }
+      } catch (err) {
+        console.warn('[EH] Supabase init failed:', err);
+      }
+    }
+
+    // Race against timeout
+    const initPromise = trySupabaseInit();
+    const timeoutId = setTimeout(() => {
+      if (!supabaseLoaded && mounted) {
+        console.warn('[EH] Supabase init timed out after 5s, keeping local state');
+      }
+    }, 5000);
+
+    initPromise.finally(() => clearTimeout(timeoutId));
+
+    // Listen for future auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        console.log('[EH] onAuthStateChange:', event, { hasSession: !!session });
         if (!mounted) return;
-
-        if (event === 'INITIAL_SESSION') {
-          // First event — equivalent to getSession() but without the deadlock
-          try {
-            if (session?.user) {
-              setUser(session.user);
-              console.log('[EH] User found, loading data from Supabase...');
-              const loadPromise = loadFromSupabase(session.user.id);
-              const timeout = new Promise<'timeout'>((r) => setTimeout(() => r('timeout'), 5000));
-              const result = await Promise.race([loadPromise, timeout]);
-              if (result === 'timeout') {
-                console.warn('[EH] Supabase data load timed out, falling back to local');
-                if (mounted) setState(loadLocalState());
-              } else {
-                console.log('[EH] Supabase data loaded successfully');
-              }
-            } else {
-              console.log('[EH] No session, using localStorage');
-              setState(loadLocalState());
-            }
-          } catch (err) {
-            console.warn('[EH] Init error, falling back to local:', err);
-            if (mounted) setState(loadLocalState());
-          } finally {
-            if (!initResolved) {
-              initResolved = true;
-              setLoaded(true);
-              setLoading(false);
-              console.log('[EH] Init complete');
-            }
-          }
-        } else if (event === 'SIGNED_IN' && session?.user) {
+        if (event === 'SIGNED_IN' && session?.user) {
           setUser(session.user);
           setLoading(true);
           try { await loadFromSupabase(session.user.id); } catch {}
@@ -240,20 +267,9 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       }
     );
 
-    // Safety timeout: if INITIAL_SESSION never fires (shouldn't happen, but guard against it)
-    const safetyTimeout = setTimeout(() => {
-      if (!initResolved) {
-        console.warn('[EH] Safety timeout — INITIAL_SESSION never fired, forcing loaded');
-        initResolved = true;
-        setState(loadLocalState());
-        setLoaded(true);
-        setLoading(false);
-      }
-    }, 4000);
-
     return () => {
       mounted = false;
-      clearTimeout(safetyTimeout);
+      clearTimeout(timeoutId);
       subscription.unsubscribe();
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
