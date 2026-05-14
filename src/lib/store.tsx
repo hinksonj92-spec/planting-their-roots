@@ -84,93 +84,108 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     let mounted = true;
 
     async function loadFromSupabase(userId: string) {
-      // Load profile
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', userId)
-        .single();
-
-      // Load child access rows for this user
-      const { data: accessRows } = await supabase
-        .from('child_access')
-        .select('*')
-        .eq('user_id', userId);
-
-      const childIds = (accessRows || []).map((a: Record<string, unknown>) => a.child_id as string);
-
-      // Load children the user has access to
-      let kids: Child[] = [];
-      if (childIds.length > 0) {
-        const { data: childData } = await supabase
-          .from('children')
+      try {
+        // Load profile
+        const { data: profile, error: profileErr } = await supabase
+          .from('profiles')
           .select('*')
-          .in('id', childIds)
-          .order('created_at');
+          .eq('id', userId)
+          .single();
 
-        kids = (childData || []).map((k: Record<string, unknown>) => ({
-          id: k.id as string,
-          created_by: k.created_by as string,
-          name: k.name as string,
-          birth_date: k.birth_date as string,
-          current_band: k.current_band as number,
-          current_week: (k.current_week as number) ?? null,
-          created_at: k.created_at as string,
+        if (profileErr) console.warn('Profile load failed:', profileErr.message);
+
+        // Load child access rows for this user
+        const { data: accessRows, error: accessErr } = await supabase
+          .from('child_access')
+          .select('*')
+          .eq('user_id', userId);
+
+        if (accessErr) console.warn('Child access load failed:', accessErr.message);
+
+        const childIds = (accessRows || []).map((a: Record<string, unknown>) => a.child_id as string);
+
+        // Load children the user has access to
+        let kids: Child[] = [];
+        if (childIds.length > 0) {
+          const { data: childData, error: childErr } = await supabase
+            .from('children')
+            .select('*')
+            .in('id', childIds)
+            .order('created_at');
+
+          if (childErr) console.warn('Children load failed:', childErr.message);
+
+          kids = (childData || []).map((k: Record<string, unknown>) => ({
+            id: k.id as string,
+            created_by: k.created_by as string,
+            name: k.name as string,
+            birth_date: k.birth_date as string,
+            current_band: k.current_band as number,
+            current_week: (k.current_week as number) ?? null,
+            created_at: k.created_at as string,
+          }));
+        }
+
+        // Load milestone progress for all children
+        let milestoneProgress: Record<string, ChildMilestone> = {};
+        if (childIds.length > 0) {
+          const { data: progress, error: progressErr } = await supabase
+            .from('milestone_progress')
+            .select('*')
+            .in('child_id', childIds);
+
+          if (progressErr) console.warn('Milestone progress load failed:', progressErr.message);
+
+          for (const p of (progress || [])) {
+            const key = `${p.child_id}-${p.milestone_key}`;
+            milestoneProgress[key] = {
+              id: p.id,
+              child_id: p.child_id,
+              milestone_id: p.milestone_key,
+              observed_date: p.observed_date,
+              notes: p.notes,
+            };
+          }
+        }
+
+        // Load completed guides
+        let completedGuides: Record<string, boolean> = {};
+        if (childIds.length > 0) {
+          const { data: guides, error: guidesErr } = await supabase
+            .from('completed_guides')
+            .select('*')
+            .in('child_id', childIds);
+
+          if (guidesErr) console.warn('Completed guides load failed:', guidesErr.message);
+
+          for (const g of (guides || [])) {
+            completedGuides[`${g.child_id}-${g.guide_key}`] = true;
+          }
+        }
+
+        if (!mounted) return;
+
+        const mappedAccess: ChildAccess[] = (accessRows || []).map((a: Record<string, unknown>) => ({
+          id: a.id as string,
+          user_id: a.user_id as string,
+          child_id: a.child_id as string,
+          role: a.role as 'creator' | 'parent' | 'viewer',
+          joined_at: a.joined_at as string,
         }));
+
+        setState({
+          parentName: profile?.display_name || 'Parent',
+          children: kids,
+          childAccess: mappedAccess,
+          activeChildId: kids.length > 0 ? kids[0].id : null,
+          milestoneProgress,
+          completedGuides,
+          isOnboarded: kids.length > 0,
+        });
+      } catch (err) {
+        console.warn('loadFromSupabase failed:', err);
+        if (mounted) setState(loadLocalState());
       }
-
-      // Load milestone progress for all children
-      let milestoneProgress: Record<string, ChildMilestone> = {};
-      if (childIds.length > 0) {
-        const { data: progress } = await supabase
-          .from('milestone_progress')
-          .select('*')
-          .in('child_id', childIds);
-
-        for (const p of (progress || [])) {
-          const key = `${p.child_id}-${p.milestone_key}`;
-          milestoneProgress[key] = {
-            id: p.id,
-            child_id: p.child_id,
-            milestone_id: p.milestone_key,
-            observed_date: p.observed_date,
-            notes: p.notes,
-          };
-        }
-      }
-
-      // Load completed guides
-      let completedGuides: Record<string, boolean> = {};
-      if (childIds.length > 0) {
-        const { data: guides } = await supabase
-          .from('completed_guides')
-          .select('*')
-          .in('child_id', childIds);
-
-        for (const g of (guides || [])) {
-          completedGuides[`${g.child_id}-${g.guide_key}`] = true;
-        }
-      }
-
-      if (!mounted) return;
-
-      const mappedAccess: ChildAccess[] = (accessRows || []).map((a: Record<string, unknown>) => ({
-        id: a.id as string,
-        user_id: a.user_id as string,
-        child_id: a.child_id as string,
-        role: a.role as 'creator' | 'parent' | 'viewer',
-        joined_at: a.joined_at as string,
-      }));
-
-      setState({
-        parentName: profile?.display_name || 'Parent',
-        children: kids,
-        childAccess: mappedAccess,
-        activeChildId: kids.length > 0 ? kids[0].id : null,
-        milestoneProgress,
-        completedGuides,
-        isOnboarded: kids.length > 0,
-      });
     }
 
     async function init() {
@@ -187,7 +202,16 @@ export function AppProvider({ children: reactChildren }: { children: React.React
           setState(loadLocalState());
         } else if (session?.user) {
           setUser(session.user);
-          await loadFromSupabase(session.user.id);
+          // Timeout: if Supabase data loading takes >8s, fall back to local
+          const loadPromise = loadFromSupabase(session.user.id);
+          const timeoutPromise = new Promise<'timeout'>((resolve) =>
+            setTimeout(() => resolve('timeout'), 8000)
+          );
+          const result = await Promise.race([loadPromise, timeoutPromise]);
+          if (result === 'timeout') {
+            console.warn('Supabase data load timed out, falling back to local');
+            if (mounted) setState(loadLocalState());
+          }
         } else {
           // No auth — use localStorage fallback
           setState(loadLocalState());
