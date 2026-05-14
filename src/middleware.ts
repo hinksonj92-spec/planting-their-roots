@@ -52,14 +52,13 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // If logged in and hitting login/signup, redirect to home
-  // Invite routes are semi-protected (handled by the page itself)
-  const isInviteRoute = request.nextUrl.pathname.startsWith('/invite/');
-
+  // If logged in and hitting landing/login/signup, redirect to home
   const isAuthRoute = request.nextUrl.pathname === '/login' ||
     request.nextUrl.pathname === '/signup';
 
-  if (isAuthRoute && user) {
+  const isLandingPage = request.nextUrl.pathname === '/';
+
+  if ((isAuthRoute || isLandingPage) && user) {
     const url = request.nextUrl.clone();
     url.pathname = '/home';
     return NextResponse.redirect(url);

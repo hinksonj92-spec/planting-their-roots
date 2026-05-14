@@ -3,8 +3,8 @@
 // Caches app shell + static content for offline use
 // ============================================
 
-const CACHE_NAME = 'evergreen-v2';
-const CONTENT_CACHE = 'evergreen-content-v2';
+const CACHE_NAME = 'evergreen-v3';
+const CONTENT_CACHE = 'evergreen-content-v3';
 
 // App shell files to precache
 const APP_SHELL = [
