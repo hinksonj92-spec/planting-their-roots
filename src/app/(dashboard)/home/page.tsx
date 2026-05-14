@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useApp } from '@/lib/store';
 import {
   getAgeString, getBandShortLabel, getBandFromBirthDate,
@@ -9,6 +9,8 @@ import {
 } from '@/lib/utils';
 import { getWeeklyGuide, getDefaultPhase, getMilestones } from '@/lib/content';
 import { getDomains, getStats, phaseToTier } from '@/lib/curriculum';
+import { DailyMomentPrompt } from '@/components/DailyMomentPrompt';
+import { startReminderInterval, isRemindersEnabled } from '@/lib/reminders';
 import Link from 'next/link';
 import type { DomainCode, Child } from '@/types';
 
@@ -279,7 +281,23 @@ function WelcomeState() {
 // ── Main Home Page ─────────────────────────────────────────────────────
 
 export default function HomePage() {
-  const { parentName, children, activeChild, milestoneProgress, setActiveChild, setChildWeek } = useApp();
+  const { parentName, children, activeChild, activeBand, activeWeek, milestoneProgress, setActiveChild, setChildWeek } = useApp();
+
+  // Active child's guide for daily moment prompt
+  const currentPhase = activeWeek ?? getDefaultPhase();
+  const activeGuide = activeBand > 0 ? getWeeklyGuide(activeBand, currentPhase) : null;
+  const activeDomainCode = (activeGuide?.domain_code || 'LANG') as DomainCode;
+
+  // Start browser notification reminders if enabled
+  useEffect(() => {
+    if (!activeChild || !activeGuide) return;
+    const cleanup = startReminderInterval(() => {
+      if (!activeGuide.daily_moments?.length) return null;
+      const m = activeGuide.daily_moments[Math.floor(Math.random() * activeGuide.daily_moments.length)];
+      return { childName: activeChild.name, momentName: m.moment_name, sayThis: m.say_this };
+    });
+    return cleanup;
+  }, [activeChild, activeGuide]);
 
   // No children yet — show welcome with add-child CTA
   if (!activeChild || children.length === 0) {
@@ -304,6 +322,15 @@ export default function HomePage() {
           }
         </p>
       </div>
+
+      {/* Time-aware daily moment prompt for Phase 0 kids */}
+      {activeGuide && activeGuide.daily_moments?.length > 0 && getEvergreenPhase(activeChild.birth_date) === 0 && (
+        <DailyMomentPrompt
+          childName={activeChild.name}
+          moments={activeGuide.daily_moments}
+          domainCode={activeDomainCode}
+        />
+      )}
 
       {/* Per-child cards — phase-aware */}
       <div className="space-y-4">
