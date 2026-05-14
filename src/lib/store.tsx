@@ -189,45 +189,65 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     }
 
     async function init() {
+      console.log('[EH] init() starting');
       try {
-        // Use getSession (reads from cookies, no network request) instead of
-        // getUser (makes API call that was timing out). Middleware already
-        // validates the session server-side for security.
-        const { data: { session }, error } = await supabase.auth.getSession();
+        console.log('[EH] calling getSession...');
+        const sessionResult = await Promise.race([
+          supabase.auth.getSession(),
+          new Promise<null>((resolve) => setTimeout(() => resolve(null), 5000))
+        ]);
 
-        if (!mounted) return;
+        if (!mounted) { console.log('[EH] unmounted during getSession'); return; }
 
-        if (error) {
-          console.warn('Session check failed, falling back to local:', error.message);
+        if (!sessionResult) {
+          console.warn('[EH] getSession timed out after 5s, falling back to local');
           setState(loadLocalState());
-        } else if (session?.user) {
-          setUser(session.user);
-          // Timeout: if Supabase data loading takes >8s, fall back to local
-          const loadPromise = loadFromSupabase(session.user.id);
-          const timeoutPromise = new Promise<'timeout'>((resolve) =>
-            setTimeout(() => resolve('timeout'), 8000)
-          );
-          const result = await Promise.race([loadPromise, timeoutPromise]);
-          if (result === 'timeout') {
-            console.warn('Supabase data load timed out, falling back to local');
-            if (mounted) setState(loadLocalState());
-          }
         } else {
-          // No auth — use localStorage fallback
-          setState(loadLocalState());
+          const { data: { session }, error } = sessionResult as Awaited<ReturnType<typeof supabase.auth.getSession>>;
+          console.log('[EH] getSession result:', { hasSession: !!session, error: error?.message });
+
+          if (error) {
+            console.warn('[EH] Session check failed:', error.message);
+            setState(loadLocalState());
+          } else if (session?.user) {
+            setUser(session.user);
+            console.log('[EH] Loading data from Supabase for user:', session.user.id);
+            const loadPromise = loadFromSupabase(session.user.id);
+            const timeoutPromise = new Promise<'timeout'>((resolve) =>
+              setTimeout(() => resolve('timeout'), 5000)
+            );
+            const result = await Promise.race([loadPromise, timeoutPromise]);
+            if (result === 'timeout') {
+              console.warn('[EH] Supabase data load timed out, falling back to local');
+              if (mounted) setState(loadLocalState());
+            } else {
+              console.log('[EH] Supabase data loaded successfully');
+            }
+          } else {
+            console.log('[EH] No session, using localStorage');
+            setState(loadLocalState());
+          }
         }
       } catch (err) {
-        console.warn('Auth init error, falling back to local:', err);
+        console.warn('[EH] Auth init error, falling back to local:', err);
         if (mounted) setState(loadLocalState());
       } finally {
-        if (mounted) {
-          setLoaded(true);
-          setLoading(false);
-        }
+        console.log('[EH] init() finally block, mounted:', mounted);
+        // ALWAYS mark as loaded even if unmounted — prevents permanent Loading screen
+        setLoaded(true);
+        setLoading(false);
       }
     }
 
-    init();
+    // Hard safety timeout: guarantee loading resolves within 6 seconds no matter what
+    const safetyTimeout = setTimeout(() => {
+      console.warn('[EH] Safety timeout hit — forcing loaded state');
+      setLoaded(true);
+      setLoading(false);
+      setState(prev => prev.children.length > 0 ? prev : loadLocalState());
+    }, 6000);
+
+    init().finally(() => clearTimeout(safetyTimeout));
 
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
