@@ -174,20 +174,30 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     }
 
     async function init() {
-      const { data: { user: currentUser } } = await supabase.auth.getUser();
+      try {
+        const { data: { user: currentUser }, error } = await supabase.auth.getUser();
 
-      if (!mounted) return;
+        if (!mounted) return;
 
-      if (currentUser) {
-        setUser(currentUser);
-        await loadFromSupabase(currentUser.id);
-      } else {
-        // No auth — use localStorage fallback
-        setState(loadLocalState());
+        if (error) {
+          console.warn('Auth check failed, falling back to local:', error.message);
+          setState(loadLocalState());
+        } else if (currentUser) {
+          setUser(currentUser);
+          await loadFromSupabase(currentUser.id);
+        } else {
+          // No auth — use localStorage fallback
+          setState(loadLocalState());
+        }
+      } catch (err) {
+        console.warn('Auth init error, falling back to local:', err);
+        if (mounted) setState(loadLocalState());
+      } finally {
+        if (mounted) {
+          setLoaded(true);
+          setLoading(false);
+        }
       }
-
-      setLoaded(true);
-      setLoading(false);
     }
 
     init();
