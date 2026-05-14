@@ -369,6 +369,13 @@ export default function HomePage() {
                   <p className="text-[10px] text-muted">Track progress</p>
                 </div>
               </Link>
+              <Link href="/rhythm-print" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+                <span className="text-xl">🖨️</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Print Rhythm</p>
+                  <p className="text-[10px] text-muted">Printable sheet</p>
+                </div>
+              </Link>
             </>
           ) : (
             <>

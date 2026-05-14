@@ -5,6 +5,7 @@ import { useApp } from '@/lib/store';
 import { getWeeklyGuide, getDefaultPhase } from '@/lib/content';
 import { DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, cleanGuideTitle } from '@/lib/utils';
 import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
+import Link from 'next/link';
 import type { DomainCode } from '@/types';
 
 export default function ReflectionPage() {
@@ -64,6 +65,14 @@ export default function ReflectionPage() {
           Your child does not need a perfect week. They need a present parent.
         </p>
       </div>
+
+      <Link
+        href="/rhythm-print"
+        className="flex items-center justify-center gap-2 p-3 rounded-xl border border-border text-sm text-secondary hover:border-brand/30 hover:text-foreground transition-colors"
+      >
+        <span>🖨️</span>
+        Print this week&apos;s rhythm sheet
+      </Link>
     </div>
   );
 }
