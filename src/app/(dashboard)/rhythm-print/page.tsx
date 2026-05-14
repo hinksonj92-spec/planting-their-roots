@@ -154,10 +154,12 @@ export default function RhythmPrintPage() {
               {DOMAIN_ICONS[domainCode]} Daily Moments — {DOMAIN_FULL_NAMES[domainCode]}
             </h2>
             <div className="grid grid-cols-1 gap-1.5">
-              {guide.daily_moments.map((moment: string, i: number) => (
+              {guide.daily_moments.map((moment, i) => (
                 <div key={i} className="flex items-start gap-2 text-sm">
                   <span className="w-4 h-4 rounded border border-border shrink-0 mt-0.5" />
-                  <span className="text-foreground">{moment}</span>
+                  <span className="text-foreground">
+                    <strong>{moment.moment_name}:</strong> {moment.say_this}
+                  </span>
                 </div>
               ))}
             </div>
