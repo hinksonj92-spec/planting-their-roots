@@ -13,14 +13,26 @@ import { createClient as createSupabaseClient, type SupabaseClient } from '@supa
 //
 // Safe for a single-tab SPA — no concurrent tab contention to protect against.
 if (typeof window !== 'undefined' && navigator.locks) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (navigator as any).locks = {
-    request: async (_name: string, optionsOrFn: any, maybeFn?: any) => {
-      const fn = typeof optionsOrFn === 'function' ? optionsOrFn : maybeFn;
-      return fn();
-    },
-    query: async () => ({ held: [], pending: [] }),
-  };
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const noopLocks = {
+      request: async (_name: string, optionsOrFn: any, maybeFn?: any) => {
+        const fn = typeof optionsOrFn === 'function' ? optionsOrFn : maybeFn;
+        return fn();
+      },
+      query: async () => ({ held: [], pending: [] }),
+    };
+    // navigator.locks may be read-only (getter-only) in some browsers,
+    // so use Object.defineProperty to force-override it.
+    Object.defineProperty(navigator, 'locks', {
+      value: noopLocks,
+      writable: true,
+      configurable: true,
+    });
+  } catch {
+    // If the property is truly immutable, fall back gracefully —
+    // the auth.lock option in createClient will handle it instead.
+  }
 }
 
 // Singleton browser client — multiple GoTrueClient instances on the same
