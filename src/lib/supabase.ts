@@ -29,20 +29,10 @@ let client: SupabaseClient | null = null;
 
 export function createClient(): SupabaseClient {
   if (!client) {
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-
-    // Guard against SSG/SSR prerendering where env vars may be missing.
-    // Return a dummy client that won't crash the build — all real auth
-    // calls happen client-side behind 'use client' boundaries.
-    if (!url || url.includes('placeholder')) {
-      client = createSupabaseClient(
-        'https://placeholder.supabase.co',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder',
-      );
-    } else {
-      client = createSupabaseClient(url, key);
-    }
+    client = createSupabaseClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    );
   }
   return client;
 }
