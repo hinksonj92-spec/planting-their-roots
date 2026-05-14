@@ -175,7 +175,15 @@ export function AppProvider({ children: reactChildren }: { children: React.React
 
     async function init() {
       try {
-        const { data: { user: currentUser }, error } = await supabase.auth.getUser();
+        // Race getUser against a timeout to prevent infinite loading
+        const authResult = await Promise.race([
+          supabase.auth.getUser(),
+          new Promise<{ data: { user: null }; error: { message: string } }>((resolve) =>
+            setTimeout(() => resolve({ data: { user: null }, error: { message: 'Auth check timed out' } }), 5000)
+          ),
+        ]);
+
+        const { data: { user: currentUser }, error } = authResult;
 
         if (!mounted) return;
 
