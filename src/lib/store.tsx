@@ -175,24 +175,19 @@ export function AppProvider({ children: reactChildren }: { children: React.React
 
     async function init() {
       try {
-        // Race getUser against a timeout to prevent infinite loading
-        const authResult = await Promise.race([
-          supabase.auth.getUser(),
-          new Promise<{ data: { user: null }; error: { message: string } }>((resolve) =>
-            setTimeout(() => resolve({ data: { user: null }, error: { message: 'Auth check timed out' } }), 5000)
-          ),
-        ]);
-
-        const { data: { user: currentUser }, error } = authResult;
+        // Use getSession (reads from cookies, no network request) instead of
+        // getUser (makes API call that was timing out). Middleware already
+        // validates the session server-side for security.
+        const { data: { session }, error } = await supabase.auth.getSession();
 
         if (!mounted) return;
 
         if (error) {
-          console.warn('Auth check failed, falling back to local:', error.message);
+          console.warn('Session check failed, falling back to local:', error.message);
           setState(loadLocalState());
-        } else if (currentUser) {
-          setUser(currentUser);
-          await loadFromSupabase(currentUser.id);
+        } else if (session?.user) {
+          setUser(session.user);
+          await loadFromSupabase(session.user.id);
         } else {
           // No auth — use localStorage fallback
           setState(loadLocalState());
