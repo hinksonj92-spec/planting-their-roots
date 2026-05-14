@@ -23,7 +23,7 @@ function MilestoneItem({
   domainCode: DomainCode;
 }) {
   const {
-    user, activeChild,
+    user, activeChild, isViewerForActiveChild,
     isMilestoneComplete, toggleMilestone,
     getMilestonePhoto, getMilestoneNote,
     saveMilestonePhoto, saveMilestoneNote,
@@ -69,8 +69,8 @@ function MilestoneItem({
   return (
     <div className="bg-card rounded-xl border border-border overflow-hidden">
       <button
-        onClick={() => { toggleMilestone(milestoneId); if (!isComplete) setExpanded(true); }}
-        className="w-full flex items-start gap-3 p-3 text-left transition-all hover:border-brand/20"
+        onClick={() => { if (!isViewerForActiveChild) { toggleMilestone(milestoneId); if (!isComplete) setExpanded(true); } }}
+        className={`w-full flex items-start gap-3 p-3 text-left transition-all ${isViewerForActiveChild ? 'cursor-default' : 'hover:border-brand/20'}`}
       >
         <div
           className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center shrink-0 mt-0.5 transition-all ${
@@ -109,7 +109,7 @@ function MilestoneItem({
             onClick={() => setExpanded(!expanded)}
             className="w-full px-3 py-2 flex items-center justify-between text-xs text-secondary hover:text-foreground transition-colors"
           >
-            <span>{expanded ? 'Hide details' : 'Add photo or note'}</span>
+            <span>{expanded ? 'Hide details' : (isViewerForActiveChild ? 'View details' : 'Add photo or note')}</span>
             <svg
               className={`w-3.5 h-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`}
               fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
@@ -129,14 +129,16 @@ function MilestoneItem({
                       alt={`${description} milestone`}
                       className="w-full rounded-lg object-cover max-h-48"
                     />
-                    <button
-                      onClick={() => saveMilestonePhoto(milestoneId, null)}
-                      className="absolute top-2 right-2 w-6 h-6 bg-black/50 text-white rounded-full flex items-center justify-center text-xs hover:bg-black/70"
-                    >
-                      ×
-                    </button>
+                    {!isViewerForActiveChild && (
+                      <button
+                        onClick={() => saveMilestonePhoto(milestoneId, null)}
+                        className="absolute top-2 right-2 w-6 h-6 bg-black/50 text-white rounded-full flex items-center justify-center text-xs hover:bg-black/70"
+                      >
+                        ×
+                      </button>
+                    )}
                   </div>
-                ) : (
+                ) : !isViewerForActiveChild ? (
                   <div>
                     <input
                       ref={fileInputRef}
@@ -161,7 +163,7 @@ function MilestoneItem({
                       )}
                     </button>
                   </div>
-                )}
+                ) : null}
               </div>
 
               {/* Note section */}
@@ -193,14 +195,21 @@ function MilestoneItem({
                     </div>
                   </div>
                 ) : note ? (
-                  <button
-                    onClick={startEditNote}
-                    className="w-full text-left p-2 rounded-lg bg-background text-sm text-secondary hover:bg-border-light/50 transition-colors"
-                  >
-                    <span className="text-xs text-muted block mb-0.5">Note:</span>
-                    {note}
-                  </button>
-                ) : (
+                  isViewerForActiveChild ? (
+                    <div className="w-full text-left p-2 rounded-lg bg-background text-sm text-secondary">
+                      <span className="text-xs text-muted block mb-0.5">Note:</span>
+                      {note}
+                    </div>
+                  ) : (
+                    <button
+                      onClick={startEditNote}
+                      className="w-full text-left p-2 rounded-lg bg-background text-sm text-secondary hover:bg-border-light/50 transition-colors"
+                    >
+                      <span className="text-xs text-muted block mb-0.5">Note:</span>
+                      {note}
+                    </button>
+                  )
+                ) : !isViewerForActiveChild ? (
                   <button
                     onClick={startEditNote}
                     className="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-dashed border-border-light text-xs text-secondary hover:border-brand/30 hover:text-foreground transition-colors"
@@ -208,7 +217,7 @@ function MilestoneItem({
                     <span>📝</span>
                     <span>Add a note</span>
                   </button>
-                )}
+                ) : null}
               </div>
             </div>
           )}
@@ -219,7 +228,7 @@ function MilestoneItem({
 }
 
 export default function MilestonesPage() {
-  const { activeBand, activeChild, isGraduated } = useApp();
+  const { activeBand, activeChild, isGraduated, isViewerForActiveChild } = useApp();
   const [activeDomain, setActiveDomain] = useState<DomainCode>('LANG');
 
   if (isGraduated) return <div className="py-4"><ChildSwitcher /><GraduatedState /></div>;
@@ -233,9 +242,18 @@ export default function MilestonesPage() {
         <ChildSwitcher />
         <h1 className="text-xl font-bold text-foreground mt-2">Milestones for {activeChild?.name}</h1>
         <p className="text-secondary text-sm mt-0.5">
-          {getBandShortLabel(activeBand)} &middot; Track what you observe
+          {getBandShortLabel(activeBand)} &middot; {isViewerForActiveChild ? 'Viewing progress' : 'Track what you observe'}
         </p>
       </div>
+
+      {isViewerForActiveChild && (
+        <div className="rounded-xl bg-blue-50 border border-blue-100 p-3 flex items-center gap-2">
+          <span className="text-sm">👀</span>
+          <p className="text-xs text-blue-700">
+            You&apos;re viewing {activeChild?.name}&apos;s milestones as a caregiver. Only parents can mark or edit milestones.
+          </p>
+        </div>
+      )}
 
       {/* Domain selector (horizontal scroll) */}
       <DomainSelector

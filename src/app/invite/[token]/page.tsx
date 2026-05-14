@@ -2,14 +2,17 @@
 
 import { useEffect, useState } from 'react';
 import { useApp } from '@/lib/store';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 export default function InviteAcceptPage() {
   const { user, acceptInvite, loading } = useApp();
   const router = useRouter();
   const params = useParams();
+  const searchParams = useSearchParams();
   const token = params.token as string;
+  const roleParam = searchParams.get('role');
+  const inviteRole: 'parent' | 'viewer' = roleParam === 'viewer' ? 'viewer' : 'parent';
 
   const [status, setStatus] = useState<'loading' | 'success' | 'error' | 'needs_auth'>('loading');
   const [message, setMessage] = useState('');
@@ -28,7 +31,7 @@ export default function InviteAcceptPage() {
     }
 
     async function processInvite() {
-      const result = await acceptInvite(token);
+      const result = await acceptInvite(token, inviteRole);
       if (result.success) {
         setStatus('success');
         setChildName(result.childName || 'your child');
@@ -89,7 +92,9 @@ export default function InviteAcceptPage() {
           </div>
           <h1 className="text-xl font-bold text-foreground mb-2">You&apos;re connected!</h1>
           <p className="text-secondary text-sm mb-6">
-            You now have access to {childName}&apos;s developmental journey. Welcome to the team.
+            You now have {inviteRole === 'viewer' ? 'viewing' : 'full'} access to {childName}&apos;s developmental journey.
+            {inviteRole === 'viewer' && ' You can view progress but cannot make changes.'}
+            {inviteRole === 'parent' && ' Welcome to the team.'}
           </p>
           <button
             onClick={() => router.push('/home')}

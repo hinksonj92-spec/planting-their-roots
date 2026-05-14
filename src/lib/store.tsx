@@ -40,9 +40,10 @@ interface AppContextType extends AppState {
   markGuideComplete: (guideKey: string) => void;
   isGuideComplete: (guideKey: string) => boolean;
   completeOnboarding: () => void;
-  createInviteLink: (childId: string) => Promise<InviteLink | null>;
+  createInviteLink: (childId: string, role?: 'parent' | 'viewer') => Promise<InviteLink | null>;
   getInviteLinks: (childId: string) => Promise<InviteLink[]>;
-  acceptInvite: (token: string) => Promise<{ success: boolean; childName?: string; error?: string }>;
+  acceptInvite: (token: string, role?: 'parent' | 'viewer') => Promise<{ success: boolean; childName?: string; error?: string }>;
+  isViewerForActiveChild: boolean;
   getRoleForChild: (childId: string) => 'creator' | 'parent' | 'viewer' | null;
   signOut: () => Promise<void>;
   reset: () => void;
@@ -640,7 +641,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     }));
   }, [user, supabase]);
 
-  const acceptInvite = useCallback(async (token: string): Promise<{ success: boolean; childName?: string; error?: string }> => {
+  const acceptInvite = useCallback(async (token: string, role: 'parent' | 'viewer' = 'parent'): Promise<{ success: boolean; childName?: string; error?: string }> => {
     if (!user) return { success: false, error: 'You must be signed in to accept an invite.' };
 
     // Look up the invite link
@@ -677,7 +678,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     // Grant access
     const { error: accessErr } = await supabase
       .from('child_access')
-      .insert({ user_id: user.id, child_id: invite.child_id, role: 'parent' });
+      .insert({ user_id: user.id, child_id: invite.child_id, role });
 
     if (accessErr) {
       return { success: false, error: 'Failed to grant access.' };
@@ -711,7 +712,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
         id: crypto.randomUUID(),
         user_id: user.id,
         child_id: childData.id,
-        role: 'parent',
+        role,
         joined_at: new Date().toISOString(),
       };
 
@@ -735,6 +736,10 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     const access = state.childAccess.find(a => a.child_id === childId);
     return access?.role ?? null;
   }, [state.childAccess]);
+
+  const isViewerForActiveChild = state.activeChildId
+    ? getRoleForChild(state.activeChildId) === 'viewer'
+    : false;
 
   const signOut = useCallback(async () => {
     signOutRequested.current = true;
@@ -792,6 +797,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       createInviteLink,
       getInviteLinks,
       acceptInvite,
+      isViewerForActiveChild,
       getRoleForChild,
       signOut,
       reset,
