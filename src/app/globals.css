@@ -90,3 +90,14 @@ body {
 .border-domain-rout { border-color: var(--eh-rout); }
 .border-domain-sens { border-color: var(--eh-sens); }
 .border-domain-indp { border-color: var(--eh-indp); }
+
+/* Prose styling for rendered markdown in packet content */
+.prose-packet p { margin-bottom: 0.5rem; }
+.prose-packet h2 { margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9375rem; color: var(--eh-text); }
+.prose-packet h3 { margin-top: 0.75rem; margin-bottom: 0.375rem; font-weight: 600; font-size: 0.875rem; color: var(--eh-text); }
+.prose-packet h4 { margin-top: 0.5rem; margin-bottom: 0.25rem; font-weight: 600; font-size: 0.8125rem; color: var(--eh-text-secondary); }
+.prose-packet ul, .prose-packet ol { margin-top: 0.25rem; margin-bottom: 0.5rem; }
+.prose-packet li { line-height: 1.5; }
+.prose-packet strong { font-weight: 600; color: var(--eh-text); }
+.prose-packet em { font-style: italic; }
+.prose-packet code { font-size: 0.8125rem; background: var(--eh-border-light); padding: 0.125rem 0.25rem; border-radius: 0.25rem; }
