@@ -75,11 +75,13 @@ function saveLocalState(state: AppState) {
 const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children: reactChildren }: { children: React.ReactNode }) {
-  // Always start with defaultState for SSR hydration consistency.
-  // localStorage is loaded in useEffect below to avoid React error #418.
-  const [state, setState] = useState<AppState>(defaultState);
+  // Load local state IMMEDIATELY — no waiting for Supabase.
+  // This may cause a React hydration mismatch warning (#418) but
+  // suppressHydrationWarning on html/body handles it. Deferring to
+  // useEffect breaks the dashboard layout's hasAccess check.
+  const [state, setState] = useState<AppState>(() => loadLocalState());
   const [user, setUser] = useState<User | null>(null);
-  const [hydrated, setHydrated] = useState(false);
+  const [loaded, setLoaded] = useState(true);  // Start loaded — local state is ready
   const [loading, setLoading] = useState(false);
 
   const supabase = createClient();
@@ -87,12 +89,6 @@ export function AppProvider({ children: reactChildren }: { children: React.React
   // Track explicit sign-out so we don't nuke state on spontaneous
   // SIGNED_OUT events (e.g., tab visibility change + token refresh failure)
   const signOutRequested = useRef(false);
-
-  // Hydrate from localStorage on mount (client-only) to avoid SSR mismatch
-  useEffect(() => {
-    setState(loadLocalState());
-    setHydrated(true);
-  }, []);
 
   // Initialize: check auth state, load data
   useEffect(() => {
@@ -274,8 +270,8 @@ export function AppProvider({ children: reactChildren }: { children: React.React
 
   // Save to localStorage as fallback (always, for offline support)
   useEffect(() => {
-    if (hydrated) saveLocalState(state);
-  }, [state, hydrated]);
+    if (loaded) saveLocalState(state);
+  }, [state, loaded]);
 
   const activeChild = state.children.find(c => c.id === state.activeChildId) || null;
   const activeBand: number = activeChild ? getBandFromBirthDate(activeChild.birth_date) : 2;
@@ -665,7 +661,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     if (typeof window !== 'undefined') localStorage.removeItem(STORAGE_KEY);
   }, []);
 
-  if (!hydrated) {
+  if (!loaded) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
