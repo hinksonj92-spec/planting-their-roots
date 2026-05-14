@@ -14,6 +14,11 @@ import { createClient as createSupabaseClient, type SupabaseClient } from '@supa
 // contention to protect against.
 let client: SupabaseClient | null = null;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const noOpLock = async (_name: string, _acquireTimeout: number, fn: () => Promise<any>) => {
+  return fn();
+};
+
 export function createClient(): SupabaseClient {
   if (!client) {
     client = createSupabaseClient(
@@ -21,9 +26,7 @@ export function createClient(): SupabaseClient {
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
       {
         auth: {
-          lock: async (_name: string, _acquireTimeout: number, fn: () => Promise<unknown>) => {
-            return fn();
-          },
+          lock: noOpLock,
         },
       }
     );
