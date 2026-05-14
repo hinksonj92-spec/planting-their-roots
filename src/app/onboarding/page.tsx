@@ -7,7 +7,7 @@ import { getBandFromBirthDate, getBandShortLabel } from '@/lib/utils';
 import DateInput from '@/components/ui/DateInput';
 
 export default function OnboardingPage() {
-  const { user, children, addChild, completeOnboarding } = useApp();
+  const { user, loading, children, addChild, completeOnboarding } = useApp();
   const router = useRouter();
   const [childName, setChildName] = useState('');
   const [birthDate, setBirthDate] = useState('');
@@ -15,14 +15,19 @@ export default function OnboardingPage() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    // Don't redirect until store has loaded
+    if (loading) return;
+
     if (!user) {
       router.replace('/login');
     }
     if (children.length > 0) {
       router.replace('/home');
     }
-  }, [user, children.length, router]);
+  }, [loading, user, children.length, router]);
 
+  // Show nothing while loading
+  if (loading) return null;
   if (!user || children.length > 0) return null;
 
   async function handleSubmit() {

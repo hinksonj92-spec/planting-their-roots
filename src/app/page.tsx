@@ -17,7 +17,7 @@ function isSupabaseConfigured(): boolean {
 }
 
 export default function LandingPage() {
-  const { user, isOnboarded, children, setParentName, addChild, completeOnboarding } = useApp();
+  const { user, loading, isOnboarded, children, setParentName, addChild, completeOnboarding } = useApp();
   const router = useRouter();
   const hasAuth = isSupabaseConfigured();
 
@@ -28,6 +28,9 @@ export default function LandingPage() {
   const [birthDate, setBirthDate] = useState('');
 
   useEffect(() => {
+    // Don't make redirect decisions until store has loaded
+    if (loading) return;
+
     if (hasAuth && user) {
       // Authenticated: go to dashboard or onboarding
       if (children.length > 0) {
@@ -41,7 +44,10 @@ export default function LandingPage() {
     if (!hasAuth && isOnboarded && children.length > 0) {
       router.replace('/home');
     }
-  }, [user, isOnboarded, children.length, router, hasAuth]);
+  }, [loading, user, isOnboarded, children.length, router, hasAuth]);
+
+  // Show nothing while loading (prevents flash of landing page for logged-in users)
+  if (loading) return null;
 
   // If authenticated, don't show landing page at all
   if (hasAuth && user) return null;
