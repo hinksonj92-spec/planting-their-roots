@@ -2,15 +2,21 @@
 
 import { useState } from 'react';
 import { useApp } from '@/lib/store';
-import { getAgeString, getBandShortLabel, getBandFromBirthDate, DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES, getPhaseDomain, cleanGuideTitle } from '@/lib/utils';
+import {
+  getAgeString, getBandShortLabel, getBandFromBirthDate,
+  DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES,
+  getPhaseDomain, getEvergreenPhase, getEvergreenPhaseLabel, getEvergreenPhaseAges,
+} from '@/lib/utils';
 import { getWeeklyGuide, getDefaultPhase, getMilestones } from '@/lib/content';
-import { Card } from '@/components/ui/Card';
+import { getDomains, getStats, phaseToTier } from '@/lib/curriculum';
 import Link from 'next/link';
 import type { DomainCode, Child } from '@/types';
 
 const ALL_DOMAINS: DomainCode[] = ['LANG', 'MOTR', 'NUMR', 'SOCL', 'ROUT', 'SENS', 'INDP'];
 
-function ChildCard({
+// ── Phase 0 Child Card (ages 0-4) ──────────────────────────────────────
+
+function Phase0Card({
   child,
   isActive,
   milestoneProgress,
@@ -30,7 +36,6 @@ function ChildCard({
   const guide = getWeeklyGuide(band, currentPhase);
   const allMilestones = getMilestones(band);
 
-  // Milestone counts
   const totalMilestones = allMilestones.length;
   let completedMilestones = 0;
   for (const m of allMilestones) {
@@ -39,7 +44,6 @@ function ChildCard({
   }
   const milestonePct = totalMilestones > 0 ? Math.round((completedMilestones / totalMilestones) * 100) : 0;
 
-  // Per-domain progress (compact)
   const domainProgress = ALL_DOMAINS.map(code => {
     const dm = allMilestones.filter(m => m.domain_code === code);
     const total = dm.length;
@@ -55,33 +59,24 @@ function ChildCard({
   const color = DOMAIN_COLORS[domainCode];
 
   return (
-    <div className={`rounded-2xl border-2 transition-all ${
-      isActive ? 'border-brand shadow-sm' : 'border-border'
-    }`}>
-      {/* Child header — tap to activate */}
-      <button
-        onClick={onSelect}
-        className="w-full text-left p-4 pb-3"
-      >
+    <div className={`rounded-2xl border-2 transition-all ${isActive ? 'border-brand shadow-sm' : 'border-border'}`}>
+      <button onClick={onSelect} className="w-full text-left p-4 pb-3">
         <div className="flex items-center gap-3">
-          <div className={`w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-lg ${
-            isActive ? 'bg-brand' : 'bg-muted'
-          }`}>
+          <div className={`w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-lg ${isActive ? 'bg-brand' : 'bg-muted'}`}>
             {child.name[0].toUpperCase()}
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
               <h2 className="font-bold text-foreground text-lg truncate">{child.name}</h2>
-              {isActive && (
-                <span className="text-[10px] bg-brand text-white px-1.5 py-0.5 rounded-full font-medium shrink-0">Active</span>
-              )}
+              {isActive && <span className="text-[10px] bg-brand text-white px-1.5 py-0.5 rounded-full font-medium shrink-0">Active</span>}
             </div>
             <p className="text-sm text-secondary">{getAgeString(child.birth_date)} &middot; {getBandShortLabel(band)}</p>
           </div>
+          <span className="text-xs px-2 py-1 rounded-full bg-brand-light text-brand-dark font-medium">Planting Roots</span>
         </div>
       </button>
 
-      {/* This week focus */}
+      {/* Current focus */}
       {guide && (
         <Link href="/week" onClick={onSelect} className="block px-4 pb-3">
           <div className="rounded-xl overflow-hidden border border-border-light">
@@ -89,19 +84,13 @@ function ChildCard({
               <div className="w-1.5 shrink-0" style={{ backgroundColor: color }} />
               <div className="flex-1 p-3">
                 <div className="flex items-center justify-between mb-1">
-                  <span
-                    className="text-[10px] px-1.5 py-0.5 rounded-full font-semibold"
-                    style={{
-                      backgroundColor: `color-mix(in srgb, ${color} 12%, white)`,
-                      color: color,
-                    }}
-                  >
+                  <span className="text-[10px] px-1.5 py-0.5 rounded-full font-semibold"
+                    style={{ backgroundColor: `color-mix(in srgb, ${color} 12%, white)`, color }}>
                     {DOMAIN_ICONS[domainCode]} {currentPhase} — {DOMAIN_FULL_NAMES[domainCode]}
                   </span>
                   <button
                     onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowWeekPicker(!showWeekPicker); }}
-                    className="text-[10px] text-brand font-medium"
-                  >
+                    className="text-[10px] text-brand font-medium">
                     {showWeekPicker ? 'Done' : 'Switch'}
                   </button>
                 </div>
@@ -113,12 +102,12 @@ function ChildCard({
         </Link>
       )}
 
-      {/* Week picker (expandable) */}
+      {/* Week picker */}
       {showWeekPicker && (
         <div className="px-4 pb-3">
           <div className="bg-background rounded-xl p-3 border border-border-light">
             <p className="text-[11px] text-secondary mb-2">
-              7 focus areas that cycle through all developmental domains. Pick any to start — they build gently, not sequentially.
+              7 focus areas cycling through developmental domains. Pick any to start.
             </p>
             <div className="space-y-1">
               {[1, 2, 3, 4, 5, 6, 7].map(p => {
@@ -126,16 +115,12 @@ function ChildCard({
                 const pColor = DOMAIN_COLORS[pDomain];
                 const isSelected = p === currentPhase;
                 return (
-                  <button
-                    key={p}
+                  <button key={p}
                     onClick={() => { onChangeWeek(p); setShowWeekPicker(false); }}
                     className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-left text-xs transition-all ${
-                      isSelected
-                        ? 'font-semibold'
-                        : 'text-secondary hover:bg-border-light/50'
+                      isSelected ? 'font-semibold' : 'text-secondary hover:bg-border-light/50'
                     }`}
-                    style={isSelected ? { backgroundColor: `color-mix(in srgb, ${pColor} 12%, white)`, color: pColor } : {}}
-                  >
+                    style={isSelected ? { backgroundColor: `color-mix(in srgb, ${pColor} 12%, white)`, color: pColor } : {}}>
                     <span className="w-4 text-center">{DOMAIN_ICONS[pDomain]}</span>
                     <span>{p} — {DOMAIN_FULL_NAMES[pDomain]}</span>
                   </button>
@@ -146,30 +131,21 @@ function ChildCard({
         </div>
       )}
 
-      {/* Milestone progress bar */}
+      {/* Milestone progress */}
       <div className="px-4 pb-3">
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-[11px] text-muted">Milestones</span>
           <span className="text-[11px] font-semibold text-foreground">{completedMilestones}/{totalMilestones}</span>
         </div>
         <div className="h-1.5 bg-border-light rounded-full overflow-hidden mb-2">
-          <div
-            className="h-full bg-brand rounded-full transition-all duration-500"
-            style={{ width: `${milestonePct}%` }}
-          />
+          <div className="h-full bg-brand rounded-full transition-all duration-500" style={{ width: `${milestonePct}%` }} />
         </div>
-        {/* Domain dots */}
         <div className="flex gap-1">
           {domainProgress.map(d => (
-            <div key={d.code} className="flex-1 flex items-center gap-1">
-              <div
-                className="h-1 flex-1 rounded-full"
-                style={{
-                  backgroundColor: d.pct > 0
-                    ? `color-mix(in srgb, ${DOMAIN_COLORS[d.code]} ${Math.max(d.pct, 20)}%, #e5e7eb)`
-                    : '#e5e7eb',
-                }}
-              />
+            <div key={d.code} className="flex-1">
+              <div className="h-1 rounded-full" style={{
+                backgroundColor: d.pct > 0 ? `color-mix(in srgb, ${DOMAIN_COLORS[d.code]} ${Math.max(d.pct, 20)}%, #e5e7eb)` : '#e5e7eb',
+              }} />
             </div>
           ))}
         </div>
@@ -178,10 +154,124 @@ function ChildCard({
   );
 }
 
+// ── Phase 1-3 Child Card (ages 5-18) ──────────────────────────────────
+
+function CurriculumCard({
+  child,
+  isActive,
+  onSelect,
+}: {
+  child: Child;
+  isActive: boolean;
+  onSelect: () => void;
+}) {
+  const evPhase = getEvergreenPhase(child.birth_date);
+  const phaseLabel = getEvergreenPhaseLabel(evPhase);
+  const phaseAges = getEvergreenPhaseAges(evPhase);
+  const tier = phaseToTier(evPhase);
+  const domains = getDomains();
+  const stats = getStats();
+
+  return (
+    <div className={`rounded-2xl border-2 transition-all ${isActive ? 'border-brand shadow-sm' : 'border-border'}`}>
+      <button onClick={onSelect} className="w-full text-left p-4 pb-3">
+        <div className="flex items-center gap-3">
+          <div className={`w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-lg ${isActive ? 'bg-brand' : 'bg-muted'}`}>
+            {child.name[0].toUpperCase()}
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2">
+              <h2 className="font-bold text-foreground text-lg truncate">{child.name}</h2>
+              {isActive && <span className="text-[10px] bg-brand text-white px-1.5 py-0.5 rounded-full font-medium shrink-0">Active</span>}
+            </div>
+            <p className="text-sm text-secondary">{getAgeString(child.birth_date)}</p>
+          </div>
+          <span className="text-xs px-2 py-1 rounded-full bg-brand-light text-brand-dark font-medium">{phaseLabel}</span>
+        </div>
+      </button>
+
+      {/* Phase overview */}
+      <div className="px-4 pb-3">
+        <div className="rounded-xl border border-border-light p-3">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-semibold text-foreground">{phaseLabel}</span>
+            <span className="text-[10px] text-muted">{phaseAges} &middot; Tier {tier}</span>
+          </div>
+          <p className="text-xs text-secondary mb-3">
+            {stats.total_packets} packets across {stats.total_pillars} pillars and {domains.length} domains
+          </p>
+
+          {/* Domain summary */}
+          <div className="space-y-1.5">
+            {domains.map(d => (
+              <Link
+                key={d.id}
+                href={`/curriculum`}
+                className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-border-light/50 transition-colors"
+              >
+                <span className="text-sm">{d.icon}</span>
+                <span className="text-xs text-foreground flex-1">{d.name}</span>
+                <span className="text-[10px] text-muted">{d.pillars.length} pillars</span>
+                <svg className="w-3 h-3 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Welcome State (no children) ────────────────────────────────────────
+
+function WelcomeState() {
+  return (
+    <div className="py-8 text-center space-y-6">
+      <div>
+        <div className="w-16 h-16 rounded-full bg-brand mx-auto flex items-center justify-center mb-4">
+          <span className="text-3xl">🌱</span>
+        </div>
+        <h1 className="text-xl font-bold text-foreground">Welcome to Evergreen Homeschool</h1>
+        <p className="text-secondary text-sm mt-2 max-w-sm mx-auto">
+          The complete formation system for ages 0-18. Four phases. Twenty-four pillars. One mission: raise sovereign, capable human beings.
+        </p>
+      </div>
+
+      <Link
+        href="/child"
+        className="inline-flex items-center gap-2 bg-brand text-white px-6 py-3 rounded-xl font-medium text-sm hover:bg-brand-dark transition-colors"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+        </svg>
+        Add Your First Child
+      </Link>
+
+      <div className="pt-4 border-t border-border max-w-sm mx-auto">
+        <p className="text-xs text-muted mb-3">Or explore the curriculum first</p>
+        <Link href="/curriculum" className="text-sm text-brand font-medium">
+          Browse All 24 Pillars →
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+// ── Main Home Page ─────────────────────────────────────────────────────
+
 export default function HomePage() {
   const { parentName, children, activeChild, milestoneProgress, setActiveChild, setChildWeek } = useApp();
 
-  if (!activeChild || children.length === 0) return null;
+  // No children yet — show welcome
+  if (!activeChild || children.length === 0) {
+    return (
+      <div className="py-4">
+        <WelcomeState />
+      </div>
+    );
+  }
 
   return (
     <div className="py-4 space-y-5">
@@ -192,50 +282,122 @@ export default function HomePage() {
         </h1>
         <p className="text-secondary text-sm mt-0.5">
           {children.length === 1
-            ? `Tracking ${children[0].name}'s development`
+            ? `Tracking ${children[0].name}'s formation`
             : `Tracking ${children.length} children`
           }
         </p>
       </div>
 
-      {/* Per-child cards */}
+      {/* Per-child cards — phase-aware */}
       <div className="space-y-4">
-        {children.map(child => (
-          <ChildCard
-            key={child.id}
-            child={child}
-            isActive={child.id === activeChild.id}
-            milestoneProgress={milestoneProgress}
-            onSelect={() => setActiveChild(child.id)}
-            onChangeWeek={(week) => setChildWeek(child.id, week)}
-          />
-        ))}
+        {children.map(child => {
+          const evPhase = getEvergreenPhase(child.birth_date);
+          const isActive = child.id === activeChild.id;
+
+          if (evPhase === 0) {
+            return (
+              <Phase0Card
+                key={child.id}
+                child={child}
+                isActive={isActive}
+                milestoneProgress={milestoneProgress}
+                onSelect={() => setActiveChild(child.id)}
+                onChangeWeek={(week) => setChildWeek(child.id, week)}
+              />
+            );
+          }
+
+          return (
+            <CurriculumCard
+              key={child.id}
+              child={child}
+              isActive={isActive}
+              onSelect={() => setActiveChild(child.id)}
+            />
+          );
+        })}
       </div>
 
       {/* Quick actions */}
-      <div className="grid grid-cols-3 gap-3">
-        <Link href="/cards">
-          <Card className="text-center py-5">
-            <div className="text-2xl mb-1">🃏</div>
-            <p className="text-sm font-medium text-foreground">Moment Cards</p>
-            <p className="text-xs text-muted mt-0.5">Quick reference</p>
-          </Card>
-        </Link>
-        <Link href="/rhythm">
-          <Card className="text-center py-5">
-            <div className="text-2xl mb-1">🔄</div>
-            <p className="text-sm font-medium text-foreground">Daily Rhythm</p>
-            <p className="text-xs text-muted mt-0.5">Your day&apos;s flow</p>
-          </Card>
-        </Link>
-        <Link href="/curriculum">
-          <Card className="text-center py-5">
-            <div className="text-2xl mb-1">📚</div>
-            <p className="text-sm font-medium text-foreground">Curriculum</p>
-            <p className="text-xs text-muted mt-0.5">All phases & pillars</p>
-          </Card>
-        </Link>
+      <div className="space-y-2">
+        <h2 className="text-sm font-semibold text-foreground">Quick Actions</h2>
+        <div className="grid grid-cols-2 gap-3">
+          {getEvergreenPhase(activeChild.birth_date) === 0 ? (
+            <>
+              <Link href="/cards" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+                <span className="text-xl">🃏</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Moment Cards</p>
+                  <p className="text-[10px] text-muted">Quick reference</p>
+                </div>
+              </Link>
+              <Link href="/rhythm" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+                <span className="text-xl">🔄</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Daily Rhythm</p>
+                  <p className="text-[10px] text-muted">Your day&apos;s flow</p>
+                </div>
+              </Link>
+              <Link href="/week" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+                <span className="text-xl">📋</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Weekly Guide</p>
+                  <p className="text-[10px] text-muted">Focus &amp; activities</p>
+                </div>
+              </Link>
+              <Link href="/milestones" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+                <span className="text-xl">✅</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Milestones</p>
+                  <p className="text-[10px] text-muted">Track progress</p>
+                </div>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href="/curriculum" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+                <span className="text-xl">📚</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Curriculum</p>
+                  <p className="text-[10px] text-muted">Pillars &amp; packets</p>
+                </div>
+              </Link>
+              <Link href="/chat" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+                <span className="text-xl">💬</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Ask EH</p>
+                  <p className="text-[10px] text-muted">Get guidance</p>
+                </div>
+              </Link>
+              <Link href="/milestones" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+                <span className="text-xl">✅</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Progress</p>
+                  <p className="text-[10px] text-muted">Track mastery</p>
+                </div>
+              </Link>
+              <Link href="/settings" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+                <span className="text-xl">⚙️</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Settings</p>
+                  <p className="text-[10px] text-muted">Family &amp; children</p>
+                </div>
+              </Link>
+            </>
+          )}
+        </div>
       </div>
+
+      {/* Add child shortcut */}
+      <Link
+        href="/child"
+        className="flex items-center justify-center gap-2 p-3 rounded-xl border border-dashed border-border text-sm text-muted hover:text-brand hover:border-brand/30 transition-colors"
+      >
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+        </svg>
+        Add Another Child
+      </Link>
     </div>
   );
 }

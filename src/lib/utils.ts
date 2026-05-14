@@ -105,3 +105,41 @@ export function getPhaseShortLabel(phase: number): string {
   const domain = getPhaseDomain(phase);
   return DOMAIN_NAMES[domain];
 }
+
+/**
+ * Determine which Evergreen phase a child belongs to based on birth date.
+ * Phase 0: Planting Roots (ages 0-4)
+ * Phase 1: Stretching Branches (ages 5-10) → Tier A
+ * Phase 2: Weathering Storms (ages 11-14) → Tier B
+ * Phase 3: Standing Ground (ages 15-18) → Tier C
+ */
+export function getEvergreenPhase(birthDate: string): number {
+  const birth = new Date(birthDate);
+  const now = new Date();
+  const ageYears = now.getFullYear() - birth.getFullYear() -
+    (now.getMonth() < birth.getMonth() || (now.getMonth() === birth.getMonth() && now.getDate() < birth.getDate()) ? 1 : 0);
+  if (ageYears < 5) return 0;
+  if (ageYears < 11) return 1;
+  if (ageYears < 15) return 2;
+  return 3;
+}
+
+export function getEvergreenPhaseLabel(phase: number): string {
+  switch (phase) {
+    case 0: return 'Planting Roots';
+    case 1: return 'Stretching Branches';
+    case 2: return 'Weathering Storms';
+    case 3: return 'Standing Ground';
+    default: return 'Stretching Branches';
+  }
+}
+
+export function getEvergreenPhaseAges(phase: number): string {
+  switch (phase) {
+    case 0: return 'Ages 0-4';
+    case 1: return 'Ages 5-10';
+    case 2: return 'Ages 11-14';
+    case 3: return 'Ages 15-18';
+    default: return '';
+  }
+}
