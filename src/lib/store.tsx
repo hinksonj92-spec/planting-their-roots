@@ -188,75 +188,50 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       }
     }
 
-    async function init() {
-      console.log('[EH] init() starting');
-      try {
-        console.log('[EH] calling getSession...');
-        const sessionResult = await Promise.race([
-          supabase.auth.getSession(),
-          new Promise<null>((resolve) => setTimeout(() => resolve(null), 5000))
-        ]);
+    // Use onAuthStateChange as the SOLE auth initialization.
+    // DO NOT call getSession() separately — in supabase-js v2.105+,
+    // concurrent getSession + onAuthStateChange causes an internal lock deadlock.
+    let initResolved = false;
 
-        if (!mounted) { console.log('[EH] unmounted during getSession'); return; }
-
-        if (!sessionResult) {
-          console.warn('[EH] getSession timed out after 5s, falling back to local');
-          setState(loadLocalState());
-        } else {
-          const { data: { session }, error } = sessionResult as Awaited<ReturnType<typeof supabase.auth.getSession>>;
-          console.log('[EH] getSession result:', { hasSession: !!session, error: error?.message });
-
-          if (error) {
-            console.warn('[EH] Session check failed:', error.message);
-            setState(loadLocalState());
-          } else if (session?.user) {
-            setUser(session.user);
-            console.log('[EH] Loading data from Supabase for user:', session.user.id);
-            const loadPromise = loadFromSupabase(session.user.id);
-            const timeoutPromise = new Promise<'timeout'>((resolve) =>
-              setTimeout(() => resolve('timeout'), 5000)
-            );
-            const result = await Promise.race([loadPromise, timeoutPromise]);
-            if (result === 'timeout') {
-              console.warn('[EH] Supabase data load timed out, falling back to local');
-              if (mounted) setState(loadLocalState());
-            } else {
-              console.log('[EH] Supabase data loaded successfully');
-            }
-          } else {
-            console.log('[EH] No session, using localStorage');
-            setState(loadLocalState());
-          }
-        }
-      } catch (err) {
-        console.warn('[EH] Auth init error, falling back to local:', err);
-        if (mounted) setState(loadLocalState());
-      } finally {
-        console.log('[EH] init() finally block, mounted:', mounted);
-        // ALWAYS mark as loaded even if unmounted — prevents permanent Loading screen
-        setLoaded(true);
-        setLoading(false);
-      }
-    }
-
-    // Hard safety timeout: guarantee loading resolves within 6 seconds no matter what
-    const safetyTimeout = setTimeout(() => {
-      console.warn('[EH] Safety timeout hit — forcing loaded state');
-      setLoaded(true);
-      setLoading(false);
-      setState(prev => prev.children.length > 0 ? prev : loadLocalState());
-    }, 6000);
-
-    init().finally(() => clearTimeout(safetyTimeout));
-
-    // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
+        console.log('[EH] onAuthStateChange:', event, { hasSession: !!session });
         if (!mounted) return;
-        if (event === 'SIGNED_IN' && session?.user) {
+
+        if (event === 'INITIAL_SESSION') {
+          // First event — equivalent to getSession() but without the deadlock
+          try {
+            if (session?.user) {
+              setUser(session.user);
+              console.log('[EH] User found, loading data from Supabase...');
+              const loadPromise = loadFromSupabase(session.user.id);
+              const timeout = new Promise<'timeout'>((r) => setTimeout(() => r('timeout'), 5000));
+              const result = await Promise.race([loadPromise, timeout]);
+              if (result === 'timeout') {
+                console.warn('[EH] Supabase data load timed out, falling back to local');
+                if (mounted) setState(loadLocalState());
+              } else {
+                console.log('[EH] Supabase data loaded successfully');
+              }
+            } else {
+              console.log('[EH] No session, using localStorage');
+              setState(loadLocalState());
+            }
+          } catch (err) {
+            console.warn('[EH] Init error, falling back to local:', err);
+            if (mounted) setState(loadLocalState());
+          } finally {
+            if (!initResolved) {
+              initResolved = true;
+              setLoaded(true);
+              setLoading(false);
+              console.log('[EH] Init complete');
+            }
+          }
+        } else if (event === 'SIGNED_IN' && session?.user) {
           setUser(session.user);
           setLoading(true);
-          await loadFromSupabase(session.user.id);
+          try { await loadFromSupabase(session.user.id); } catch {}
           setLoading(false);
         } else if (event === 'SIGNED_OUT') {
           setUser(null);
@@ -265,8 +240,20 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       }
     );
 
+    // Safety timeout: if INITIAL_SESSION never fires (shouldn't happen, but guard against it)
+    const safetyTimeout = setTimeout(() => {
+      if (!initResolved) {
+        console.warn('[EH] Safety timeout — INITIAL_SESSION never fired, forcing loaded');
+        initResolved = true;
+        setState(loadLocalState());
+        setLoaded(true);
+        setLoading(false);
+      }
+    }, 4000);
+
     return () => {
       mounted = false;
+      clearTimeout(safetyTimeout);
       subscription.unsubscribe();
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
