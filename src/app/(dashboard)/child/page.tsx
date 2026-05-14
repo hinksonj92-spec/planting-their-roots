@@ -12,7 +12,8 @@ export default function ChildPage() {
     activeChild, children, parentName, setActiveChild,
     addChild, reset, user, createInviteLink, getInviteLinks, getRoleForChild,
   } = useApp();
-  const [showAdd, setShowAdd] = useState(false);
+  // Show add form by default when no children exist (first-time setup)
+  const [showAdd, setShowAdd] = useState(children.length === 0);
   const [newName, setNewName] = useState('');
   const [newBirth, setNewBirth] = useState('');
 
@@ -21,8 +22,6 @@ export default function ChildPage() {
   const [inviteLinks, setInviteLinks] = useState<InviteLink[]>([]);
   const [inviteLoading, setInviteLoading] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
-
-  if (!activeChild) return null;
 
   async function handleCreateInvite(childId: string) {
     setInviteLoading(true);
@@ -63,18 +62,31 @@ export default function ChildPage() {
     <div className="py-4 space-y-5">
       <h1 className="text-xl font-bold text-foreground">Family</h1>
 
+      {/* First-time setup message */}
+      {children.length === 0 && (
+        <div className="text-center py-4">
+          <div className="w-14 h-14 rounded-full bg-brand mx-auto flex items-center justify-center mb-3">
+            <span className="text-2xl">🌱</span>
+          </div>
+          <h2 className="text-lg font-bold text-foreground mb-1">Welcome! Let&apos;s get started.</h2>
+          <p className="text-sm text-secondary">Add your first child to begin their learning journey.</p>
+        </div>
+      )}
+
       {/* Parent info */}
-      <Card>
-        <p className="text-sm text-muted">Parent</p>
-        <p className="font-semibold text-foreground">{parentName}</p>
-      </Card>
+      {children.length > 0 && (
+        <Card>
+          <p className="text-sm text-muted">Parent</p>
+          <p className="font-semibold text-foreground">{parentName}</p>
+        </Card>
+      )}
 
       {/* Children list */}
-      <div>
+      {children.length > 0 && <div>
         <h2 className="font-semibold text-foreground mb-3">Children</h2>
         <div className="space-y-2">
           {children.map(child => {
-            const isActive = child.id === activeChild.id;
+            const isActive = child.id === activeChild?.id;
             const band = getBandFromBirthDate(child.birth_date);
             const role = getRoleForChild(child.id);
             const showingInvites = inviteChildId === child.id;
@@ -168,7 +180,7 @@ export default function ChildPage() {
             );
           })}
         </div>
-      </div>
+      </div>}
 
       {/* Add child */}
       {!showAdd ? (
@@ -180,7 +192,9 @@ export default function ChildPage() {
         </button>
       ) : (
         <Card>
-          <h3 className="font-semibold text-foreground mb-3">Add Child</h3>
+          <h3 className="font-semibold text-foreground mb-3">
+            {children.length === 0 ? 'Add Your First Child' : 'Add Child'}
+          </h3>
           <input
             type="text"
             value={newName}
@@ -192,12 +206,14 @@ export default function ChildPage() {
           <label className="block text-xs text-muted mb-1">Date of birth</label>
           <DateInput value={newBirth} onChange={setNewBirth} className="text-sm px-3 py-2 mb-3" />
           <div className="flex gap-2">
-            <button
-              onClick={() => { setShowAdd(false); setNewName(''); setNewBirth(''); }}
-              className="flex-1 border border-border rounded-xl py-2 text-sm text-secondary hover:bg-border-light transition-colors"
-            >
-              Cancel
-            </button>
+            {children.length > 0 && (
+              <button
+                onClick={() => { setShowAdd(false); setNewName(''); setNewBirth(''); }}
+                className="flex-1 border border-border rounded-xl py-2 text-sm text-secondary hover:bg-border-light transition-colors"
+              >
+                Cancel
+              </button>
+            )}
             <button
               onClick={() => {
                 if (newName.trim() && newBirth) {
@@ -210,7 +226,7 @@ export default function ChildPage() {
               disabled={!newName.trim() || !newBirth}
               className="flex-1 bg-brand text-white rounded-xl py-2 text-sm font-semibold hover:bg-brand-dark transition-colors disabled:opacity-40"
             >
-              Add
+              {children.length === 0 ? 'Start Planting' : 'Add'}
             </button>
           </div>
         </Card>

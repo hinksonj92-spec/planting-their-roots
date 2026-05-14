@@ -261,7 +261,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
 
       if (error || !newChild) {
         console.error('Failed to add child:', error);
-        return;
+        throw new Error(error?.message || 'Failed to create child record');
       }
 
       // Insert creator access row

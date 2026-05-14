@@ -24,12 +24,21 @@ export default function OnboardingPage() {
 
   if (!user || children.length > 0) return null;
 
+  const [error, setError] = useState('');
+
   async function handleSubmit() {
     if (!childName.trim() || !birthDate) return;
     setSubmitting(true);
-    await addChild(childName.trim(), birthDate);
-    completeOnboarding();
-    router.push('/home');
+    setError('');
+    try {
+      await addChild(childName.trim(), birthDate);
+      completeOnboarding();
+      router.push('/home');
+    } catch (err) {
+      console.error('Onboarding error:', err);
+      setError(err instanceof Error ? err.message : 'Failed to add child. Please try again.');
+      setSubmitting(false);
+    }
   }
 
   const previewBand = birthDate ? getBandShortLabel(getBandFromBirthDate(birthDate)) : null;
@@ -64,6 +73,10 @@ export default function OnboardingPage() {
           <p className="text-xs text-muted mb-4 text-center">
             Band: <span className="font-semibold text-brand">{previewBand}</span>
           </p>
+        )}
+
+        {error && (
+          <p className="text-sm text-red-600 text-center mb-2">{error}</p>
         )}
 
         <button

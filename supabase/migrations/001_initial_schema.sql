@@ -40,7 +40,8 @@ alter table public.children enable row level security;
 create policy "Users can read children they have access to"
   on public.children for select
   using (
-    id in (select child_id from public.child_access where user_id = auth.uid())
+    created_by = auth.uid()
+    or id in (select child_id from public.child_access where user_id = auth.uid())
   );
 
 create policy "Users can insert children"
