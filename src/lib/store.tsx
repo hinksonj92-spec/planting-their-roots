@@ -190,71 +190,47 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     }
 
     // Strategy: local state is already loaded (see useState initializers above).
-    // Try to upgrade to Supabase auth in the background. If Supabase works,
-    // replace local state with server data. If it fails/times out, local state
-    // is already showing — user never sees a blank/loading screen.
+    // Use getUser() (direct API call) instead of getSession() which hangs in
+    // supabase-js v2.105+. getUser() works because middleware already refreshed
+    // the auth cookies server-side.
 
-    // Check for auth cookies before even touching the Supabase client.
-    // If no auth cookies exist, skip Supabase entirely (avoids hanging).
-    const hasAuthCookies = document.cookie.includes('sb-') && document.cookie.includes('auth-token');
-    console.log('[EH] Auth cookies present:', hasAuthCookies);
-
-    if (!hasAuthCookies) {
-      console.log('[EH] No auth cookies, skipping Supabase init');
-      // Still set up listener for future sign-ins
-      const { data: { subscription } } = supabase.auth.onAuthStateChange(
-        async (event, session) => {
-          if (!mounted) return;
-          if (event === 'SIGNED_IN' && session?.user) {
-            setUser(session.user);
-            setLoading(true);
-            try { await loadFromSupabase(session.user.id); } catch {}
-            setLoading(false);
-          } else if (event === 'SIGNED_OUT') {
-            setUser(null);
-            setState(defaultState);
-          }
-        }
-      );
-      return () => { mounted = false; subscription.unsubscribe(); };
-    }
-
-    // Has auth cookies — try to load from Supabase with timeout
-    console.log('[EH] Has auth cookies, attempting Supabase init...');
-    let supabaseLoaded = false;
-
-    async function trySupabaseInit() {
+    async function tryGetUser() {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        console.log('[EH] Calling getUser()...');
+        const { data: { user: authUser }, error } = await supabase.auth.getUser();
+        if (error) {
+          console.log('[EH] getUser error:', error.message);
+          return;
+        }
         if (!mounted) return;
-        if (session?.user) {
-          console.log('[EH] Session found, loading user data...');
-          setUser(session.user);
-          await loadFromSupabase(session.user.id);
-          supabaseLoaded = true;
+        if (authUser) {
+          console.log('[EH] User found:', authUser.id);
+          setUser(authUser);
+          await loadFromSupabase(authUser.id);
           console.log('[EH] Supabase data loaded');
         } else {
-          console.log('[EH] No valid session despite cookies');
+          console.log('[EH] No authenticated user');
         }
       } catch (err) {
-        console.warn('[EH] Supabase init failed:', err);
+        console.warn('[EH] getUser failed:', err);
       }
     }
 
-    // Race against timeout
-    const initPromise = trySupabaseInit();
+    // Race against timeout — never block UI for more than 5s
+    let resolved = false;
+    const initPromise = tryGetUser().then(() => { resolved = true; });
     const timeoutId = setTimeout(() => {
-      if (!supabaseLoaded && mounted) {
-        console.warn('[EH] Supabase init timed out after 5s, keeping local state');
+      if (!resolved && mounted) {
+        console.warn('[EH] Auth init timed out after 5s, keeping local state');
       }
     }, 5000);
-
     initPromise.finally(() => clearTimeout(timeoutId));
 
-    // Listen for future auth changes
+    // Listen for future auth changes (sign in, sign out)
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         if (!mounted) return;
+        console.log('[EH] Auth event:', event);
         if (event === 'SIGNED_IN' && session?.user) {
           setUser(session.user);
           setLoading(true);

@@ -29,40 +29,11 @@ export async function middleware(request: NextRequest) {
     },
   });
 
-  // Refresh the session
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  // Protected routes: redirect to /login if not authenticated
-  const isProtectedRoute = request.nextUrl.pathname.startsWith('/home') ||
-    request.nextUrl.pathname.startsWith('/week') ||
-    request.nextUrl.pathname.startsWith('/cards') ||
-    request.nextUrl.pathname.startsWith('/rhythm') ||
-    request.nextUrl.pathname.startsWith('/milestones') ||
-    request.nextUrl.pathname.startsWith('/reflection') ||
-    request.nextUrl.pathname.startsWith('/child') ||
-    request.nextUrl.pathname.startsWith('/chat') ||
-    request.nextUrl.pathname.startsWith('/curriculum') ||
-    request.nextUrl.pathname.startsWith('/settings');
-
-  if (isProtectedRoute && !user) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/login';
-    return NextResponse.redirect(url);
-  }
-
-  // If logged in and hitting landing/login/signup, redirect to home
-  const isAuthRoute = request.nextUrl.pathname === '/login' ||
-    request.nextUrl.pathname === '/signup';
-
-  const isLandingPage = request.nextUrl.pathname === '/';
-
-  if ((isAuthRoute || isLandingPage) && user) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/home';
-    return NextResponse.redirect(url);
-  }
+  // Refresh the session (keeps cookies up to date)
+  // This is the ONLY job of middleware — no redirects.
+  // Client-side routing handles all auth-based navigation to avoid
+  // redirect loops between server (getUser works) and client (getSession hangs).
+  await supabase.auth.getUser();
 
   return supabaseResponse;
 }
