@@ -140,6 +140,7 @@ export interface ChildMilestone {
   milestone_id: string;
   observed_date: string | null;
   notes: string | null;
+  photo_url: string | null;
 }
 
 export interface WeeklyReflection {

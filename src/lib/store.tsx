@@ -32,6 +32,10 @@ interface AppContextType extends AppState {
   setChildWeek: (childId: string, week: number | null) => void;
   toggleMilestone: (milestoneId: string) => void;
   isMilestoneComplete: (milestoneId: string) => boolean;
+  getMilestonePhoto: (milestoneId: string) => string | null;
+  getMilestoneNote: (milestoneId: string) => string | null;
+  saveMilestonePhoto: (milestoneId: string, photoUrl: string | null) => void;
+  saveMilestoneNote: (milestoneId: string, note: string | null) => void;
   getMilestoneCount: (band: number, domainCode?: string) => { total: number; completed: number };
   markGuideComplete: (guideKey: string) => void;
   isGuideComplete: (guideKey: string) => boolean;
@@ -158,7 +162,8 @@ export function AppProvider({ children: reactChildren }: { children: React.React
               child_id: p.child_id,
               milestone_id: p.milestone_key,
               observed_date: p.observed_date,
-              notes: p.notes,
+              notes: p.notes || null,
+              photo_url: p.photo_url || null,
             };
           }
         }
@@ -482,6 +487,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
           milestone_id: milestoneId,
           observed_date: observedDate,
           notes: null,
+          photo_url: null,
         };
         if (user && s.activeChildId) {
           supabase.from('milestone_progress')
@@ -501,6 +507,52 @@ export function AppProvider({ children: reactChildren }: { children: React.React
     const key = `${state.activeChildId}-${milestoneId}`;
     return !!state.milestoneProgress[key]?.observed_date;
   }, [state.activeChildId, state.milestoneProgress]);
+
+  const getMilestonePhoto = useCallback((milestoneId: string) => {
+    const key = `${state.activeChildId}-${milestoneId}`;
+    return state.milestoneProgress[key]?.photo_url || null;
+  }, [state.activeChildId, state.milestoneProgress]);
+
+  const getMilestoneNote = useCallback((milestoneId: string) => {
+    const key = `${state.activeChildId}-${milestoneId}`;
+    return state.milestoneProgress[key]?.notes || null;
+  }, [state.activeChildId, state.milestoneProgress]);
+
+  const saveMilestonePhoto = useCallback((milestoneId: string, photoUrl: string | null) => {
+    setState(s => {
+      const key = `${s.activeChildId}-${milestoneId}`;
+      const existing = s.milestoneProgress[key];
+      if (!existing) return s;
+      const updated = { ...s.milestoneProgress };
+      updated[key] = { ...existing, photo_url: photoUrl };
+      if (user && s.activeChildId) {
+        supabase.from('milestone_progress')
+          .update({ photo_url: photoUrl })
+          .eq('child_id', s.activeChildId)
+          .eq('milestone_key', milestoneId)
+          .then(() => {});
+      }
+      return { ...s, milestoneProgress: updated };
+    });
+  }, [user, supabase]);
+
+  const saveMilestoneNote = useCallback((milestoneId: string, note: string | null) => {
+    setState(s => {
+      const key = `${s.activeChildId}-${milestoneId}`;
+      const existing = s.milestoneProgress[key];
+      if (!existing) return s;
+      const updated = { ...s.milestoneProgress };
+      updated[key] = { ...existing, notes: note };
+      if (user && s.activeChildId) {
+        supabase.from('milestone_progress')
+          .update({ notes: note })
+          .eq('child_id', s.activeChildId)
+          .eq('milestone_key', milestoneId)
+          .then(() => {});
+      }
+      return { ...s, milestoneProgress: updated };
+    });
+  }, [user, supabase]);
 
   const getMilestoneCount = useCallback((band: number, domainCode?: string) => {
     const allMilestones = getMilestones(band);
@@ -729,6 +781,10 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       setChildWeek,
       toggleMilestone,
       isMilestoneComplete,
+      getMilestonePhoto,
+      getMilestoneNote,
+      saveMilestonePhoto,
+      saveMilestoneNote,
       getMilestoneCount,
       markGuideComplete,
       isGuideComplete,
