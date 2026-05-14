@@ -90,6 +90,10 @@ export function AppProvider({ children: reactChildren }: { children: React.React
   // SIGNED_OUT events (e.g., tab visibility change + token refresh failure)
   const signOutRequested = useRef(false);
 
+  // Track whether initial data has loaded (from localStorage or Supabase).
+  // Used to avoid flashing a loading spinner on tab-switch token refreshes.
+  const hasInitialData = useRef(state.children.length > 0 || state.isOnboarded);
+
   // Initialize: check auth state, load data
   useEffect(() => {
     let mounted = true;
@@ -243,9 +247,13 @@ export function AppProvider({ children: reactChildren }: { children: React.React
         console.log('[EH] Auth event:', event);
         if (event === 'SIGNED_IN' && session?.user) {
           setUser(session.user);
-          setLoading(true);
+          // Only show loading spinner if we don't have local state yet.
+          // On tab-switch token refresh, local state is already valid —
+          // don't flash a loading screen while we re-fetch from Supabase.
+          const needsLoading = !hasInitialData.current;
+          if (needsLoading) setLoading(true);
           try { await loadFromSupabase(session.user.id); } catch {}
-          setLoading(false);
+          if (needsLoading) setLoading(false);
           // Process pending invite token (stored by /invite/[token] page)
           if (typeof window !== 'undefined') {
             const pendingInvite = sessionStorage.getItem('pending_invite');
@@ -275,6 +283,11 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       subscription.unsubscribe();
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Keep the ref in sync with state changes
+  useEffect(() => {
+    hasInitialData.current = state.children.length > 0 || state.isOnboarded;
+  }, [state.children, state.isOnboarded]);
 
   // Save to localStorage as fallback (always, for offline support)
   useEffect(() => {

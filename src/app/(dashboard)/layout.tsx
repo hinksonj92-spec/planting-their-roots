@@ -14,16 +14,22 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   // Allow access if authenticated OR if onboarded locally (no Supabase)
   const hasAccess = user || (isOnboarded && kids.length > 0);
 
+  // Only block on loading if we don't already have local state.
+  // When the user switches tabs and comes back, Supabase may fire
+  // SIGNED_IN (token refresh) which sets loading=true temporarily.
+  // We should NOT flash a loading screen when valid local state exists.
+  const showLoading = !hasAccess && loading;
+
   useEffect(() => {
-    if (loading) return;
+    if (loading || showLoading) return;
     if (!hasAccess && !redirecting) {
       setRedirecting(true);
       // Use window.location for hard redirect to avoid client router issues
       window.location.href = '/';
     }
-  }, [hasAccess, loading, redirecting]);
+  }, [hasAccess, loading, showLoading, redirecting]);
 
-  if (loading || !hasAccess) {
+  if (showLoading || (!hasAccess && !redirecting)) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
