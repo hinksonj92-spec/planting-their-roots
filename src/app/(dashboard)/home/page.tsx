@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useApp } from '@/lib/store';
+import { useRouter } from 'next/navigation';
 import {
   getAgeString, getBandShortLabel, getBandFromBirthDate,
   DOMAIN_COLORS, DOMAIN_ICONS, DOMAIN_FULL_NAMES,
@@ -262,9 +263,17 @@ function WelcomeState() {
 // ── Main Home Page ─────────────────────────────────────────────────────
 
 export default function HomePage() {
-  const { parentName, children, activeChild, milestoneProgress, setActiveChild, setChildWeek } = useApp();
+  const { user, parentName, children, activeChild, loading, milestoneProgress, setActiveChild, setChildWeek } = useApp();
+  const router = useRouter();
 
-  // No children yet — show welcome
+  // Redirect authenticated users with no children to onboarding
+  useEffect(() => {
+    if (!loading && user && children.length === 0) {
+      router.replace('/onboarding');
+    }
+  }, [loading, user, children.length, router]);
+
+  // No children yet — show welcome (fallback while redirecting, or for local-only mode)
   if (!activeChild || children.length === 0) {
     return (
       <div className="py-4">
