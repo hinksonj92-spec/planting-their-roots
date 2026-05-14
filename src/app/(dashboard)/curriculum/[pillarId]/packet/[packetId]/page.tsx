@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useState, useEffect } from 'react';
+import { use, useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getPacket, getPillar, getDomain } from '@/lib/curriculum';
 import { renderMarkdown } from '@/lib/markdown';
@@ -120,7 +120,7 @@ function BookList({ books, category }: { books: BookEntry[]; category: string })
   );
 }
 
-export default function PacketPage({ params }: { params: Promise<{ pillarId: string; packetId: string }> }) {
+function PacketContent({ params }: { params: Promise<{ pillarId: string; packetId: string }> }) {
   const { pillarId, packetId } = use(params);
   const searchParams = useSearchParams();
   const tier = searchParams.get('tier') || 'A';
@@ -427,5 +427,13 @@ export default function PacketPage({ params }: { params: Promise<{ pillarId: str
         </>
       )}
     </div>
+  );
+}
+
+export default function PacketPage({ params }: { params: Promise<{ pillarId: string; packetId: string }> }) {
+  return (
+    <Suspense fallback={<div className="py-8 text-center"><div className="w-6 h-6 border-2 border-brand border-t-transparent rounded-full animate-spin mx-auto" /></div>}>
+      <PacketContent params={params} />
+    </Suspense>
   );
 }

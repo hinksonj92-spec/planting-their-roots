@@ -1,12 +1,12 @@
 'use client';
 
-import { use } from 'react';
+import { use, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getPillar, getPacketsForPillar, getDomain } from '@/lib/curriculum';
 import { useApp } from '@/lib/store';
 import Link from 'next/link';
 
-export default function PillarPage({ params }: { params: Promise<{ pillarId: string }> }) {
+function PillarContent({ params }: { params: Promise<{ pillarId: string }> }) {
   const { pillarId } = use(params);
   const searchParams = useSearchParams();
   const tier = searchParams.get('tier') || 'A';
@@ -119,5 +119,13 @@ export default function PillarPage({ params }: { params: Promise<{ pillarId: str
         })}
       </div>
     </div>
+  );
+}
+
+export default function PillarPage({ params }: { params: Promise<{ pillarId: string }> }) {
+  return (
+    <Suspense fallback={<div className="py-8 text-center"><div className="w-6 h-6 border-2 border-brand border-t-transparent rounded-full animate-spin mx-auto" /></div>}>
+      <PillarContent params={params} />
+    </Suspense>
   );
 }
