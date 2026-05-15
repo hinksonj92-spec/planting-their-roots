@@ -9,15 +9,21 @@ import { DOMAIN_COLORS, DOMAIN_NAMES, DOMAIN_ICONS } from '@/lib/utils';
 import { SayThisBlock } from '@/components/content/SayThisBlock';
 import { DoThisBlock } from '@/components/content/DoThisBlock';
 import { DomainBadge } from '@/components/ui/DomainBadge';
+import {
+  type Location, getAvailableLocationsForCards, getCardsForLocation, getMomentCardLocations, LOCATIONS,
+} from '@/lib/locations';
 import type { DomainCode } from '@/types';
 
 export default function CardsPage() {
   const { activeBand, activeChild, isGraduated } = useApp();
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+  const [activeLocation, setActiveLocation] = useState<Location | null>(null);
 
   if (isGraduated) return <div className="py-4"><ChildSwitcher /><GraduatedState /></div>;
 
-  const cards = getMomentCards(activeBand);
+  const allCards = getMomentCards(activeBand);
+  const availableLocations = getAvailableLocationsForCards(allCards);
+  const cards = activeLocation ? getCardsForLocation(allCards, activeLocation) : allCards;
 
   return (
     <div className="py-4 space-y-4">
@@ -28,6 +34,42 @@ export default function CardsPage() {
           Tap a card for the full script. Post where the action happens.
         </p>
       </div>
+
+      {/* Location filter */}
+      {availableLocations.length > 1 && (
+        <div className="flex gap-1.5 overflow-x-auto pb-0.5 -mx-1 px-1">
+          <button
+            onClick={() => { setActiveLocation(null); setExpandedIdx(null); }}
+            className={`shrink-0 flex items-center gap-1 text-[11px] px-2.5 py-1.5 rounded-full border transition-colors ${
+              !activeLocation
+                ? 'border-brand bg-brand-light/40 text-brand-dark font-semibold'
+                : 'border-border text-secondary hover:border-brand/30'
+            }`}
+          >
+            All ({allCards.length})
+          </button>
+          {availableLocations.map(loc => {
+            const count = getCardsForLocation(allCards, loc.id).length;
+            return (
+              <button
+                key={loc.id}
+                onClick={() => {
+                  setActiveLocation(activeLocation === loc.id ? null : loc.id);
+                  setExpandedIdx(null);
+                }}
+                className={`shrink-0 flex items-center gap-1 text-[11px] px-2.5 py-1.5 rounded-full border transition-colors ${
+                  activeLocation === loc.id
+                    ? 'border-brand bg-brand-light/40 text-brand-dark font-semibold'
+                    : 'border-border text-secondary hover:border-brand/30'
+                }`}
+              >
+                <span className="text-xs">{loc.icon}</span>
+                {loc.label} ({count})
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       <div className="space-y-3">
         {cards.map((card, idx) => {
@@ -51,9 +93,15 @@ export default function CardsPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-foreground text-sm">{card.moment_name}</h3>
-                  {card.post_at && (
-                    <p className="text-xs text-muted">Post at: {card.post_at}</p>
-                  )}
+                  {card.post_at && (() => {
+                    const locs = getMomentCardLocations(card);
+                    const locMeta = LOCATIONS.find(l => l.id === locs[0]);
+                    return (
+                      <p className="text-xs text-muted">
+                        {locMeta ? `${locMeta.icon} ` : ''}{card.post_at}
+                      </p>
+                    );
+                  })()}
                 </div>
                 <svg
                   className={`w-5 h-5 text-muted transition-transform ${isExpanded ? 'rotate-180' : ''}`}

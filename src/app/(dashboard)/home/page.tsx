@@ -13,6 +13,10 @@ import { getCurrentPacketInfo, getProgressStats, getDomainProgress, viewPacket }
 import { startReminderInterval, isRemindersEnabled } from '@/lib/reminders';
 import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 import Link from 'next/link';
+import {
+  type Location, LOCATIONS, getMomentsForLocation, getDailyMomentLocations,
+  getAvailableLocationsForMoments,
+} from '@/lib/locations';
 import type { DomainCode, DailyMoment, Child } from '@/types';
 
 const ALL_DOMAINS: DomainCode[] = ['LANG', 'MOTR', 'NUMR', 'SOCL', 'ROUT', 'SENS', 'INDP'];
@@ -78,6 +82,7 @@ function HeroMomentCard({
   timeOfDay,
   otherMoments,
   onPickMoment,
+  activeLocation,
 }: {
   childName: string;
   moment: DailyMoment;
@@ -86,7 +91,10 @@ function HeroMomentCard({
   timeOfDay: TimeOfDay;
   otherMoments: DailyMoment[];
   onPickMoment: (m: DailyMoment) => void;
+  activeLocation: Location | null;
 }) {
+  const momentLocations = getDailyMomentLocations(moment);
+  const locationMeta = LOCATIONS.filter(l => momentLocations.includes(l.id));
   const [showSteps, setShowSteps] = useState(false);
   const [didIt, setDidIt] = useState<'yes' | 'skipped' | 'modified' | null>(null);
 
@@ -113,9 +121,16 @@ function HeroMomentCard({
             Try this now with {childName}
           </span>
         </div>
-        <span className="text-[10px] text-muted">
-          {DOMAIN_ICONS[domainCode]} {DOMAIN_FULL_NAMES[domainCode]}
-        </span>
+        <div className="flex items-center gap-2">
+          {locationMeta.length > 0 && locationMeta[0].id !== 'anywhere' && (
+            <span className="text-[10px] text-muted">
+              {locationMeta[0].icon} {locationMeta[0].label}
+            </span>
+          )}
+          <span className="text-[10px] text-muted">
+            {DOMAIN_ICONS[domainCode]} {DOMAIN_FULL_NAMES[domainCode]}
+          </span>
+        </div>
       </div>
 
       {/* Main moment content */}
@@ -528,6 +543,7 @@ export default function HomePage() {
   const { parentName, children, activeChild, activeBand, activeWeek, milestoneProgress, setActiveChild, setChildWeek } = useApp();
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('morning');
   const [pickedMoment, setPickedMoment] = useState<DailyMoment | null>(null);
+  const [activeLocation, setActiveLocation] = useState<Location | null>(null);
 
   const currentPhase = activeWeek ?? getDefaultPhase();
   const activeGuide = activeBand > 0 ? getWeeklyGuide(activeBand, currentPhase) : null;
@@ -538,9 +554,10 @@ export default function HomePage() {
     setTimeOfDay(getTimeOfDay());
   }, []);
 
-  // Reset picked moment when child changes
+  // Reset picked moment and location when child changes
   useEffect(() => {
     setPickedMoment(null);
+    setActiveLocation(null);
   }, [activeChild?.id]);
 
   // Browser notification reminders
@@ -565,12 +582,18 @@ export default function HomePage() {
   const isGraduated = activeBand === 0;
   const hasMoments = activeGuide && activeGuide.daily_moments?.length > 0 && isPhase0 && !isGraduated;
 
-  // Get time-filtered moments
+  // Get time-filtered moments, then optionally filter by location
   const timeMoments = hasMoments ? getMomentsForTime(activeGuide.daily_moments, timeOfDay) : [];
-  const heroMoment = pickedMoment || timeMoments[0] || (hasMoments ? activeGuide.daily_moments[0] : null);
+  const filteredMoments = activeLocation
+    ? getMomentsForLocation(timeMoments, activeLocation)
+    : timeMoments;
+  const heroMoment = pickedMoment || filteredMoments[0] || timeMoments[0] || (hasMoments ? activeGuide.daily_moments[0] : null);
   const otherMoments = heroMoment
-    ? timeMoments.filter(m => m.moment_name !== heroMoment.moment_name).slice(0, 3)
+    ? filteredMoments.filter(m => m.moment_name !== heroMoment.moment_name).slice(0, 3)
     : [];
+
+  // Available locations for the current time's moments
+  const availableLocations = hasMoments ? getAvailableLocationsForMoments(timeMoments) : [];
 
   // Subtitle for greeting
   const greetingSubtitle = isPhase0 && activeGuide
@@ -599,6 +622,39 @@ export default function HomePage() {
       {/* Child switcher — only if multiple children */}
       {children.length > 1 && <ChildSwitcher />}
 
+      {/* Location filter — Phase 0 only, when moments available */}
+      {hasMoments && availableLocations.length > 1 && (
+        <div className="flex gap-1.5 overflow-x-auto pb-0.5 -mx-1 px-1">
+          <button
+            onClick={() => { setActiveLocation(null); setPickedMoment(null); }}
+            className={`shrink-0 flex items-center gap-1 text-[11px] px-2.5 py-1.5 rounded-full border transition-colors ${
+              !activeLocation
+                ? 'border-brand bg-brand-light/40 text-brand-dark font-semibold'
+                : 'border-border text-secondary hover:border-brand/30'
+            }`}
+          >
+            All
+          </button>
+          {availableLocations.map(loc => (
+            <button
+              key={loc.id}
+              onClick={() => {
+                setActiveLocation(activeLocation === loc.id ? null : loc.id);
+                setPickedMoment(null);
+              }}
+              className={`shrink-0 flex items-center gap-1 text-[11px] px-2.5 py-1.5 rounded-full border transition-colors ${
+                activeLocation === loc.id
+                  ? 'border-brand bg-brand-light/40 text-brand-dark font-semibold'
+                  : 'border-border text-secondary hover:border-brand/30'
+              }`}
+            >
+              <span className="text-xs">{loc.icon}</span>
+              {loc.label}
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* HERO: What to do right now */}
       {heroMoment ? (
         <HeroMomentCard
@@ -609,6 +665,7 @@ export default function HomePage() {
           timeOfDay={timeOfDay}
           otherMoments={otherMoments}
           onPickMoment={setPickedMoment}
+          activeLocation={activeLocation}
         />
       ) : isOlderKid ? (
         <OlderKidHero child={activeChild} phase={evergreenPhase} />
