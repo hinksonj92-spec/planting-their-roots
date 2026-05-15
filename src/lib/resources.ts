@@ -150,9 +150,18 @@ function parseEntry(
   const lowerSet = new Set([...AUDIENCE_TAGS, ...PACING_TAGS, ...MODE_TAGS]);
   const displayTags = tags.filter(t => !lowerSet.has(t.toLowerCase()));
 
+  // If parsing stripped everything (e.g. title was just "[For Mentor]"),
+  // use the author as title, or fall back to the raw entry title
+  let title = cleanTitle;
+  if (!title && entry.author) {
+    title = entry.author;
+  } else if (!title) {
+    title = entry.title; // last resort — show raw
+  }
+
   return {
-    title: cleanTitle || entry.title, // fallback to raw if parsing empties it
-    author: entry.author || '',
+    title,
+    author: (title === entry.author) ? '' : (entry.author || ''), // avoid duplicating author as both title and author
     audience: parseAudience(tags, entry.audience),
     category: classifyCategory(tags),
     tags: displayTags,
