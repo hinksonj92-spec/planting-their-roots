@@ -9,36 +9,233 @@ import {
 } from '@/lib/utils';
 import { getWeeklyGuide, getDefaultPhase, getMilestones } from '@/lib/content';
 import { getDomains, getStats, phaseToTier } from '@/lib/curriculum';
-import { DailyMomentPrompt } from '@/components/DailyMomentPrompt';
 import { startReminderInterval, isRemindersEnabled } from '@/lib/reminders';
+import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 import Link from 'next/link';
-import type { DomainCode, Child } from '@/types';
+import type { DomainCode, DailyMoment, Child } from '@/types';
 
 const ALL_DOMAINS: DomainCode[] = ['LANG', 'MOTR', 'NUMR', 'SOCL', 'ROUT', 'SENS', 'INDP'];
 
-// ── Phase 0 Child Card (ages 0-4) ──────────────────────────────────────
+// ── Time-of-day helpers ───────────────────────────────────────────────
 
-function Phase0Card({
+type TimeOfDay = 'morning' | 'midday' | 'evening';
+
+function getTimeOfDay(): TimeOfDay {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'morning';
+  if (hour < 17) return 'midday';
+  return 'evening';
+}
+
+function getGreeting(timeOfDay: TimeOfDay, name: string): string {
+  switch (timeOfDay) {
+    case 'morning': return `Good morning, ${name}`;
+    case 'midday': return `Good afternoon, ${name}`;
+    case 'evening': return `Good evening, ${name}`;
+  }
+}
+
+function getTimeIcon(timeOfDay: TimeOfDay): string {
+  switch (timeOfDay) {
+    case 'morning': return '🌅';
+    case 'midday': return '☀️';
+    case 'evening': return '🌙';
+  }
+}
+
+function getMomentsForTime(moments: DailyMoment[], timeOfDay: TimeOfDay): DailyMoment[] {
+  const morningKeywords = ['wake', 'morning', 'diaper', 'dress', 'breakfast', 'tummy'];
+  const middayKeywords = ['lunch', 'nap', 'play', 'walk', 'outside', 'explore', 'read', 'book', 'art', 'music'];
+  const eveningKeywords = ['dinner', 'bath', 'bed', 'evening', 'night', 'sleep', 'story', 'goodnight', 'wind'];
+
+  const keywords = timeOfDay === 'morning' ? morningKeywords
+    : timeOfDay === 'midday' ? middayKeywords
+    : eveningKeywords;
+
+  const matched = moments.filter(m =>
+    keywords.some(k => m.moment_name.toLowerCase().includes(k))
+  );
+
+  if (matched.length === 0) {
+    const sorted = [...moments].sort((a, b) => a.sort_order - b.sort_order);
+    const third = Math.ceil(sorted.length / 3);
+    if (timeOfDay === 'morning') return sorted.slice(0, third);
+    if (timeOfDay === 'midday') return sorted.slice(third, third * 2);
+    return sorted.slice(third * 2);
+  }
+
+  return matched;
+}
+
+// ── Hero: "Do This Now" card ──────────────────────────────────────────
+
+function HeroMomentCard({
+  childName,
+  moment,
+  domainCode,
+  color,
+  timeOfDay,
+  otherMoments,
+  onPickMoment,
+}: {
+  childName: string;
+  moment: DailyMoment;
+  domainCode: DomainCode;
+  color: string;
+  timeOfDay: TimeOfDay;
+  otherMoments: DailyMoment[];
+  onPickMoment: (m: DailyMoment) => void;
+}) {
+  const [showSteps, setShowSteps] = useState(false);
+  const [didIt, setDidIt] = useState<'yes' | 'skipped' | 'modified' | null>(null);
+
+  // Reset state when moment changes
+  useEffect(() => {
+    setShowSteps(false);
+    setDidIt(null);
+  }, [moment.moment_name]);
+
+  const preview = moment.say_this.length > 140
+    ? moment.say_this.slice(0, 140).replace(/\s+\S*$/, '') + '...'
+    : moment.say_this;
+
+  return (
+    <div className="rounded-2xl overflow-hidden border border-border">
+      {/* Top band with time + domain */}
+      <div
+        className="px-4 py-2.5 flex items-center justify-between"
+        style={{ backgroundColor: `color-mix(in srgb, ${color} 10%, white)` }}
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-base">{getTimeIcon(timeOfDay)}</span>
+          <span className="text-xs font-semibold" style={{ color }}>
+            Try this now with {childName}
+          </span>
+        </div>
+        <span className="text-[10px] text-muted">
+          {DOMAIN_ICONS[domainCode]} {DOMAIN_FULL_NAMES[domainCode]}
+        </span>
+      </div>
+
+      {/* Main moment content */}
+      <div className="p-4">
+        <h2 className="text-lg font-bold text-foreground mb-1">{moment.moment_name}</h2>
+        <p className="text-sm text-secondary leading-relaxed italic">
+          &ldquo;{preview}&rdquo;
+        </p>
+
+        {/* Action buttons row */}
+        <div className="flex gap-2 mt-3">
+          <button
+            onClick={() => setShowSteps(!showSteps)}
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-medium transition-colors border"
+            style={showSteps
+              ? { backgroundColor: `color-mix(in srgb, ${color} 10%, white)`, borderColor: color, color }
+              : { borderColor: '#e5e5e5' }
+            }
+          >
+            <span>🎯</span>
+            {showSteps ? 'Hide Steps' : `Show Steps (${moment.do_this.length})`}
+          </button>
+          <Link
+            href="/week"
+            className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-medium text-muted border border-border hover:border-brand/30 hover:text-foreground transition-colors"
+          >
+            💬 Full Script
+          </Link>
+        </div>
+
+        {/* Steps panel */}
+        {showSteps && (
+          <div className="mt-3 space-y-2">
+            {moment.do_this.map((step, i) => (
+              <div key={i} className="flex items-start gap-2.5 text-sm text-secondary">
+                <span
+                  className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white shrink-0 mt-0.5"
+                  style={{ backgroundColor: color }}
+                >
+                  {i + 1}
+                </span>
+                <span className="leading-relaxed">{step}</span>
+              </div>
+            ))}
+            {moment.what_this_builds && (
+              <p className="text-xs text-muted italic mt-2 pl-7">
+                Builds: {moment.what_this_builds}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Daily check-in: did you do this? */}
+        {!didIt ? (
+          <div className="mt-4 pt-3 border-t border-border-light">
+            <p className="text-xs text-muted mb-2">Did you do this moment?</p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setDidIt('yes')}
+                className="flex-1 py-2 rounded-xl text-xs font-medium bg-brand-light text-brand-dark hover:bg-brand hover:text-white transition-colors"
+              >
+                Yes!
+              </button>
+              <button
+                onClick={() => setDidIt('modified')}
+                className="flex-1 py-2 rounded-xl text-xs font-medium border border-border text-secondary hover:border-brand/30 hover:text-foreground transition-colors"
+              >
+                Modified it
+              </button>
+              <button
+                onClick={() => setDidIt('skipped')}
+                className="flex-1 py-2 rounded-xl text-xs font-medium border border-border text-secondary hover:border-brand/30 hover:text-foreground transition-colors"
+              >
+                Skipped
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="mt-4 pt-3 border-t border-border-light text-center">
+            <p className="text-xs text-muted">
+              {didIt === 'yes' && '🌟 Great job! Every moment counts.'}
+              {didIt === 'modified' && '👍 Making it your own is part of the process.'}
+              {didIt === 'skipped' && '💚 No worries — tomorrow is a fresh start.'}
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Other moments for this time of day */}
+      {otherMoments.length > 0 && (
+        <div className="px-4 pb-3 border-t border-border-light pt-3">
+          <p className="text-[10px] text-muted mb-2">Also try:</p>
+          <div className="flex flex-wrap gap-1.5">
+            {otherMoments.map((m, i) => (
+              <button
+                key={i}
+                onClick={() => onPickMoment(m)}
+                className="text-[11px] px-2.5 py-1 rounded-full border border-border-light text-secondary hover:border-brand/30 hover:text-foreground transition-colors"
+              >
+                {m.moment_name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Compact child info strip ──────────────────────────────────────────
+
+function ChildInfoStrip({
   child,
-  isActive,
   milestoneProgress,
-  onSelect,
-  onChangeWeek,
 }: {
   child: Child;
-  isActive: boolean;
   milestoneProgress: Record<string, { observed_date: string | null }>;
-  onSelect: () => void;
-  onChangeWeek: (week: number | null) => void;
 }) {
-  const [showWeekPicker, setShowWeekPicker] = useState(false);
-
   const band = getBandFromBirthDate(child.birth_date);
   const graduated = band === 0;
-  const currentPhase = child.current_week ?? getDefaultPhase();
-  const guide = graduated ? null : getWeeklyGuide(band, currentPhase);
-  const allMilestones = graduated ? getMilestones(3) : getMilestones(band); // Show band 3 milestones for graduated to preserve progress display
-
+  const allMilestones = graduated ? getMilestones(3) : getMilestones(band);
   const totalMilestones = allMilestones.length;
   let completedMilestones = 0;
   for (const m of allMilestones) {
@@ -58,187 +255,74 @@ function Phase0Card({
     return { code, total, completed, pct: total > 0 ? Math.round((completed / total) * 100) : 0 };
   });
 
-  const domainCode = (guide?.domain_code || getPhaseDomain(currentPhase)) as DomainCode;
-  const color = DOMAIN_COLORS[domainCode];
-
   return (
-    <div className={`rounded-2xl border-2 transition-all ${isActive ? 'border-brand shadow-sm' : 'border-border'}`}>
-      <button onClick={onSelect} className="w-full text-left p-4 pb-3">
-        <div className="flex items-center gap-3">
-          <div className={`w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-lg ${isActive ? 'bg-brand' : 'bg-muted'}`}>
-            {child.name[0].toUpperCase()}
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <h2 className="font-bold text-foreground text-lg truncate">{child.name}</h2>
-              {isActive && <span className="text-[10px] bg-brand text-white px-1.5 py-0.5 rounded-full font-medium shrink-0">Active</span>}
-            </div>
-            <p className="text-sm text-secondary">{getAgeString(child.birth_date)}{!graduated && <> &middot; {getBandShortLabel(band)}</>}</p>
-          </div>
-          {graduated ? (
-            <span className="text-xs px-2 py-1 rounded-full bg-amber-50 text-amber-700 font-medium">Graduated</span>
-          ) : (
-            <span className="text-xs px-2 py-1 rounded-full bg-brand-light text-brand-dark font-medium">Planting Roots</span>
-          )}
-        </div>
-      </button>
-
-      {/* Current focus — or graduated message */}
-      {graduated ? (
-        <Link href="/curriculum" onClick={onSelect} className="block px-4 pb-3">
-          <div className="rounded-xl overflow-hidden border border-border-light bg-amber-50/50 p-3">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-lg">🌳</span>
-              <span className="text-xs font-semibold text-amber-700">Ready for the next phase</span>
-            </div>
-            <p className="text-xs text-secondary">
-              {child.name} has graduated from Planting Roots. Explore the full curriculum.
-            </p>
-          </div>
-        </Link>
-      ) : guide && (
-        <Link href="/week" onClick={onSelect} className="block px-4 pb-3">
-          <div className="rounded-xl overflow-hidden border border-border-light">
-            <div className="flex items-stretch">
-              <div className="w-1.5 shrink-0" style={{ backgroundColor: color }} />
-              <div className="flex-1 p-3">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] px-1.5 py-0.5 rounded-full font-semibold"
-                    style={{ backgroundColor: `color-mix(in srgb, ${color} 12%, white)`, color }}>
-                    {DOMAIN_ICONS[domainCode]} {currentPhase} — {DOMAIN_FULL_NAMES[domainCode]}
-                  </span>
-                  <button
-                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowWeekPicker(!showWeekPicker); }}
-                    className="text-[10px] text-brand font-medium">
-                    {showWeekPicker ? 'Done' : 'Switch'}
-                  </button>
-                </div>
-                <p className="text-secondary text-xs mt-1 italic leading-snug">&ldquo;{guide.parent_frame}&rdquo;</p>
-                <span className="text-[10px] text-muted mt-1 block">{guide.daily_moments.length} daily moments</span>
-              </div>
-            </div>
-          </div>
-        </Link>
-      )}
-
-      {/* Week picker */}
-      {!graduated && showWeekPicker && (
-        <div className="px-4 pb-3">
-          <div className="bg-background rounded-xl p-3 border border-border-light">
-            <p className="text-[11px] text-secondary mb-2">
-              7 focus areas cycling through developmental domains. Pick any to start.
-            </p>
-            <div className="space-y-1">
-              {[1, 2, 3, 4, 5, 6, 7].map(p => {
-                const pDomain = getPhaseDomain(p);
-                const pColor = DOMAIN_COLORS[pDomain];
-                const isSelected = p === currentPhase;
-                return (
-                  <button key={p}
-                    onClick={() => { onChangeWeek(p); setShowWeekPicker(false); }}
-                    className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-left text-xs transition-all ${
-                      isSelected ? 'font-semibold' : 'text-secondary hover:bg-border-light/50'
-                    }`}
-                    style={isSelected ? { backgroundColor: `color-mix(in srgb, ${pColor} 12%, white)`, color: pColor } : {}}>
-                    <span className="w-4 text-center">{DOMAIN_ICONS[pDomain]}</span>
-                    <span>{p} — {DOMAIN_FULL_NAMES[pDomain]}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Milestone progress */}
-      <div className="px-4 pb-3">
-        <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[11px] text-muted">Milestones</span>
-          <span className="text-[11px] font-semibold text-foreground">{completedMilestones}/{totalMilestones}</span>
-        </div>
-        <div className="h-1.5 bg-border-light rounded-full overflow-hidden mb-2">
-          <div className="h-full bg-brand rounded-full transition-all duration-500" style={{ width: `${milestonePct}%` }} />
-        </div>
-        <div className="flex gap-1">
-          {domainProgress.map(d => (
-            <div key={d.code} className="flex-1">
-              <div className="h-1 rounded-full" style={{
-                backgroundColor: d.pct > 0 ? `color-mix(in srgb, ${DOMAIN_COLORS[d.code]} ${Math.max(d.pct, 20)}%, #e5e7eb)` : '#e5e7eb',
-              }} />
-            </div>
-          ))}
-        </div>
+    <Link href="/milestones" className="block rounded-xl border border-border p-3 hover:border-brand/30 transition-colors">
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-xs font-semibold text-foreground">
+          {child.name}&apos;s Milestones
+        </span>
+        <span className="text-[10px] text-muted">{completedMilestones}/{totalMilestones}</span>
       </div>
-    </div>
+      <div className="h-1.5 bg-border-light rounded-full overflow-hidden mb-2">
+        <div className="h-full bg-brand rounded-full transition-all duration-500" style={{ width: `${milestonePct}%` }} />
+      </div>
+      <div className="flex gap-1">
+        {domainProgress.map(d => (
+          <div key={d.code} className="flex-1">
+            <div className="h-1 rounded-full" style={{
+              backgroundColor: d.pct > 0 ? `color-mix(in srgb, ${DOMAIN_COLORS[d.code]} ${Math.max(d.pct, 20)}%, #e5e7eb)` : '#e5e7eb',
+            }} />
+          </div>
+        ))}
+      </div>
+    </Link>
   );
 }
 
-// ── Phase 1-3 Child Card (ages 5-18) ──────────────────────────────────
+// ── Quick Nav (2x2 grid, compact) ─────────────────────────────────────
 
-function CurriculumCard({
-  child,
-  isActive,
-  onSelect,
-}: {
-  child: Child;
-  isActive: boolean;
-  onSelect: () => void;
-}) {
-  const evPhase = getEvergreenPhase(child.birth_date);
-  const phaseLabel = getEvergreenPhaseLabel(evPhase);
-  const phaseAges = getEvergreenPhaseAges(evPhase);
-  const tier = phaseToTier(evPhase);
-  const domains = getDomains();
-  const stats = getStats();
+function QuickNav({ isPhase0 }: { isPhase0: boolean }) {
+  if (isPhase0) {
+    return (
+      <div className="grid grid-cols-4 gap-2">
+        <Link href="/week" className="flex flex-col items-center gap-1 p-2.5 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+          <span className="text-lg">📋</span>
+          <span className="text-[10px] text-secondary font-medium">Guide</span>
+        </Link>
+        <Link href="/cards" className="flex flex-col items-center gap-1 p-2.5 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+          <span className="text-lg">🃏</span>
+          <span className="text-[10px] text-secondary font-medium">Cards</span>
+        </Link>
+        <Link href="/rhythm" className="flex flex-col items-center gap-1 p-2.5 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+          <span className="text-lg">🔄</span>
+          <span className="text-[10px] text-secondary font-medium">Rhythm</span>
+        </Link>
+        <Link href="/milestones" className="flex flex-col items-center gap-1 p-2.5 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+          <span className="text-lg">✅</span>
+          <span className="text-[10px] text-secondary font-medium">Milestones</span>
+        </Link>
+      </div>
+    );
+  }
 
   return (
-    <div className={`rounded-2xl border-2 transition-all ${isActive ? 'border-brand shadow-sm' : 'border-border'}`}>
-      <button onClick={onSelect} className="w-full text-left p-4 pb-3">
-        <div className="flex items-center gap-3">
-          <div className={`w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-lg ${isActive ? 'bg-brand' : 'bg-muted'}`}>
-            {child.name[0].toUpperCase()}
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <h2 className="font-bold text-foreground text-lg truncate">{child.name}</h2>
-              {isActive && <span className="text-[10px] bg-brand text-white px-1.5 py-0.5 rounded-full font-medium shrink-0">Active</span>}
-            </div>
-            <p className="text-sm text-secondary">{getAgeString(child.birth_date)}</p>
-          </div>
-          <span className="text-xs px-2 py-1 rounded-full bg-brand-light text-brand-dark font-medium">{phaseLabel}</span>
-        </div>
-      </button>
-
-      {/* Phase overview */}
-      <div className="px-4 pb-3">
-        <div className="rounded-xl border border-border-light p-3">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-semibold text-foreground">{phaseLabel}</span>
-            <span className="text-[10px] text-muted">{phaseAges} &middot; Tier {tier}</span>
-          </div>
-          <p className="text-xs text-secondary mb-3">
-            {stats.total_packets} packets across {stats.total_pillars} pillars and {domains.length} domains
-          </p>
-
-          {/* Domain summary */}
-          <div className="space-y-1.5">
-            {domains.map(d => (
-              <Link
-                key={d.id}
-                href={`/curriculum`}
-                className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-border-light/50 transition-colors"
-              >
-                <span className="text-sm">{d.icon}</span>
-                <span className="text-xs text-foreground flex-1">{d.name}</span>
-                <span className="text-[10px] text-muted">{d.pillars.length} pillars</span>
-                <svg className="w-3 h-3 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
+    <div className="grid grid-cols-4 gap-2">
+      <Link href="/curriculum" className="flex flex-col items-center gap-1 p-2.5 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+        <span className="text-lg">📚</span>
+        <span className="text-[10px] text-secondary font-medium">Curriculum</span>
+      </Link>
+      <Link href="/chat" className="flex flex-col items-center gap-1 p-2.5 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+        <span className="text-lg">💬</span>
+        <span className="text-[10px] text-secondary font-medium">Ask EH</span>
+      </Link>
+      <Link href="/milestones" className="flex flex-col items-center gap-1 p-2.5 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+        <span className="text-lg">✅</span>
+        <span className="text-[10px] text-secondary font-medium">Progress</span>
+      </Link>
+      <Link href="/settings" className="flex flex-col items-center gap-1 p-2.5 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
+        <span className="text-lg">⚙️</span>
+        <span className="text-[10px] text-secondary font-medium">Settings</span>
+      </Link>
     </div>
   );
 }
@@ -278,17 +362,54 @@ function WelcomeState() {
   );
 }
 
+// ── Graduated Hero (replaces moment card for graduated kids) ──────────
+
+function GraduatedHero({ child }: { child: Child }) {
+  return (
+    <Link href="/curriculum" className="block rounded-2xl border border-border overflow-hidden">
+      <div className="px-4 py-3 bg-amber-50/50">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-lg">🌳</span>
+          <span className="text-sm font-semibold text-amber-700">
+            {child.name} has graduated from Planting Roots
+          </span>
+        </div>
+        <p className="text-xs text-secondary">
+          Ready for the next phase. Explore the full curriculum to continue their formation journey.
+        </p>
+      </div>
+      <div className="px-4 py-3 flex items-center justify-between">
+        <span className="text-xs font-medium text-brand">Explore Curriculum</span>
+        <svg className="w-4 h-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    </Link>
+  );
+}
+
 // ── Main Home Page ─────────────────────────────────────────────────────
 
 export default function HomePage() {
   const { parentName, children, activeChild, activeBand, activeWeek, milestoneProgress, setActiveChild, setChildWeek } = useApp();
+  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('morning');
+  const [pickedMoment, setPickedMoment] = useState<DailyMoment | null>(null);
 
-  // Active child's guide for daily moment prompt
   const currentPhase = activeWeek ?? getDefaultPhase();
   const activeGuide = activeBand > 0 ? getWeeklyGuide(activeBand, currentPhase) : null;
   const activeDomainCode = (activeGuide?.domain_code || 'LANG') as DomainCode;
+  const color = DOMAIN_COLORS[activeDomainCode];
 
-  // Start browser notification reminders if enabled
+  useEffect(() => {
+    setTimeOfDay(getTimeOfDay());
+  }, []);
+
+  // Reset picked moment when child changes
+  useEffect(() => {
+    setPickedMoment(null);
+  }, [activeChild?.id]);
+
+  // Browser notification reminders
   useEffect(() => {
     if (!activeChild || !activeGuide) return;
     const cleanup = startReminderInterval(() => {
@@ -299,152 +420,74 @@ export default function HomePage() {
     return cleanup;
   }, [activeChild, activeGuide]);
 
-  // No children yet — show welcome with add-child CTA
+  // No children — welcome
   if (!activeChild || children.length === 0) {
-    return (
-      <div className="py-4">
-        <WelcomeState />
-      </div>
-    );
+    return <div className="py-4"><WelcomeState /></div>;
   }
 
+  const isPhase0 = getEvergreenPhase(activeChild.birth_date) === 0;
+  const isGraduated = activeBand === 0;
+  const hasMoments = activeGuide && activeGuide.daily_moments?.length > 0 && isPhase0 && !isGraduated;
+
+  // Get time-filtered moments
+  const timeMoments = hasMoments ? getMomentsForTime(activeGuide.daily_moments, timeOfDay) : [];
+  const heroMoment = pickedMoment || timeMoments[0] || (hasMoments ? activeGuide.daily_moments[0] : null);
+  const otherMoments = heroMoment
+    ? timeMoments.filter(m => m.moment_name !== heroMoment.moment_name).slice(0, 3)
+    : [];
+
   return (
-    <div className="py-4 space-y-5">
-      {/* Greeting */}
-      <div>
-        <h1 className="text-xl font-bold text-foreground">
-          Hi, {parentName || 'there'}
-        </h1>
-        <p className="text-secondary text-sm mt-0.5">
-          {children.length === 1
-            ? `Tracking ${children[0].name}'s formation`
-            : `Tracking ${children.length} children`
-          }
-        </p>
+    <div className="py-4 space-y-4">
+      {/* Greeting — compact */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-lg font-bold text-foreground">
+            {getGreeting(timeOfDay, parentName || 'there')}
+          </h1>
+          <p className="text-xs text-muted mt-0.5">
+            {activeGuide
+              ? `Phase ${currentPhase} · ${DOMAIN_ICONS[activeDomainCode]} ${DOMAIN_FULL_NAMES[activeDomainCode]}`
+              : isGraduated ? 'Graduated from Planting Roots' : ''}
+          </p>
+        </div>
+        <span className="text-2xl">{getTimeIcon(timeOfDay)}</span>
       </div>
 
-      {/* Time-aware daily moment prompt for Phase 0 kids */}
-      {activeGuide && activeGuide.daily_moments?.length > 0 && getEvergreenPhase(activeChild.birth_date) === 0 && (
-        <DailyMomentPrompt
+      {/* Child switcher — only if multiple children */}
+      {children.length > 1 && <ChildSwitcher />}
+
+      {/* HERO: What to do right now */}
+      {heroMoment ? (
+        <HeroMomentCard
           childName={activeChild.name}
-          moments={activeGuide.daily_moments}
+          moment={heroMoment}
           domainCode={activeDomainCode}
+          color={color}
+          timeOfDay={timeOfDay}
+          otherMoments={otherMoments}
+          onPickMoment={setPickedMoment}
+        />
+      ) : isGraduated ? (
+        <GraduatedHero child={activeChild} />
+      ) : null}
+
+      {/* Quick nav — compact icon strip */}
+      <QuickNav isPhase0={isPhase0} />
+
+      {/* Milestone progress — below the fold */}
+      {isPhase0 && (
+        <ChildInfoStrip
+          child={activeChild}
+          milestoneProgress={milestoneProgress}
         />
       )}
 
-      {/* Per-child cards — phase-aware */}
-      <div className="space-y-4">
-        {children.map(child => {
-          const evPhase = getEvergreenPhase(child.birth_date);
-          const isActive = child.id === activeChild.id;
-
-          if (evPhase === 0) {
-            return (
-              <Phase0Card
-                key={child.id}
-                child={child}
-                isActive={isActive}
-                milestoneProgress={milestoneProgress}
-                onSelect={() => setActiveChild(child.id)}
-                onChangeWeek={(week) => setChildWeek(child.id, week)}
-              />
-            );
-          }
-
-          return (
-            <CurriculumCard
-              key={child.id}
-              child={child}
-              isActive={isActive}
-              onSelect={() => setActiveChild(child.id)}
-            />
-          );
-        })}
-      </div>
-
-      {/* Quick actions */}
-      <div className="space-y-2">
-        <h2 className="text-sm font-semibold text-foreground">Quick Actions</h2>
-        <div className="grid grid-cols-2 gap-3">
-          {getEvergreenPhase(activeChild.birth_date) === 0 ? (
-            <>
-              <Link href="/cards" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
-                <span className="text-xl">🃏</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Moment Cards</p>
-                  <p className="text-[10px] text-muted">Quick reference</p>
-                </div>
-              </Link>
-              <Link href="/rhythm" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
-                <span className="text-xl">🔄</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Daily Rhythm</p>
-                  <p className="text-[10px] text-muted">Your day&apos;s flow</p>
-                </div>
-              </Link>
-              <Link href="/week" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
-                <span className="text-xl">📋</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Weekly Guide</p>
-                  <p className="text-[10px] text-muted">Focus &amp; activities</p>
-                </div>
-              </Link>
-              <Link href="/milestones" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
-                <span className="text-xl">✅</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Milestones</p>
-                  <p className="text-[10px] text-muted">Track progress</p>
-                </div>
-              </Link>
-              <Link href="/rhythm-print" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
-                <span className="text-xl">🖨️</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Print Rhythm</p>
-                  <p className="text-[10px] text-muted">Printable sheet</p>
-                </div>
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link href="/curriculum" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
-                <span className="text-xl">📚</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Curriculum</p>
-                  <p className="text-[10px] text-muted">Pillars &amp; packets</p>
-                </div>
-              </Link>
-              <Link href="/chat" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
-                <span className="text-xl">💬</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Ask EH</p>
-                  <p className="text-[10px] text-muted">Get guidance</p>
-                </div>
-              </Link>
-              <Link href="/milestones" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
-                <span className="text-xl">✅</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Progress</p>
-                  <p className="text-[10px] text-muted">Track mastery</p>
-                </div>
-              </Link>
-              <Link href="/settings" className="flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-brand/30 transition-colors">
-                <span className="text-xl">⚙️</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Settings</p>
-                  <p className="text-[10px] text-muted">Family &amp; children</p>
-                </div>
-              </Link>
-            </>
-          )}
-        </div>
-      </div>
-
-      {/* Add child shortcut */}
+      {/* Add child — subtle */}
       <Link
         href="/child"
-        className="flex items-center justify-center gap-2 p-3 rounded-xl border border-dashed border-border text-sm text-muted hover:text-brand hover:border-brand/30 transition-colors"
+        className="flex items-center justify-center gap-2 p-2.5 rounded-xl border border-dashed border-border text-xs text-muted hover:text-brand hover:border-brand/30 transition-colors"
       >
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
         </svg>
         Add Another Child
