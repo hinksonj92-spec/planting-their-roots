@@ -31,6 +31,7 @@ export interface Child {
   current_band: number;
   current_week: number | null;
   created_at: string;
+  kid_pin?: string;  // 4-digit PIN for kid login (ages 5+)
 }
 
 export interface ChildAccess {

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useApp } from '@/lib/store';
-import { getAgeString, getBandLabel, getBandFromBirthDate } from '@/lib/utils';
+import { getAgeString, getBandLabel, getBandFromBirthDate, getEvergreenPhase } from '@/lib/utils';
 import { Card } from '@/components/ui/Card';
 import DateInput from '@/components/ui/DateInput';
 import type { InviteLink } from '@/types';
@@ -10,7 +10,7 @@ import type { InviteLink } from '@/types';
 export default function ChildPage() {
   const {
     activeChild, children, parentName, setActiveChild,
-    addChild, editChild, removeChild, reset, user, createInviteLink, getInviteLinks, getRoleForChild,
+    addChild, editChild, removeChild, reset, user, createInviteLink, getInviteLinks, getRoleForChild, setChildPin,
   } = useApp();
   // Show add form by default when no children exist (first-time setup)
   const [showAdd, setShowAdd] = useState(children.length === 0);
@@ -21,6 +21,10 @@ export default function ChildPage() {
   const [editingChildId, setEditingChildId] = useState<string | null>(null);
   const [editName, setEditName] = useState('');
   const [editBirth, setEditBirth] = useState('');
+
+  // PIN state
+  const [pinChildId, setPinChildId] = useState<string | null>(null);
+  const [pinValue, setPinValue] = useState('');
 
   // Invite link state
   const [inviteChildId, setInviteChildId] = useState<string | null>(null);
@@ -195,7 +199,71 @@ export default function ChildPage() {
                         {showingInvites ? 'Hide invites' : 'Share Access'}
                       </button>
                     )}
+                    {getEvergreenPhase(child.birth_date) > 0 && (role === 'creator' || !role) && (
+                      <button
+                        onClick={() => {
+                          if (pinChildId === child.id) {
+                            setPinChildId(null);
+                          } else {
+                            setPinChildId(child.id);
+                            setPinValue(child.kid_pin || '');
+                          }
+                        }}
+                        className="text-xs text-brand font-medium hover:underline"
+                      >
+                        {child.kid_pin ? 'Change PIN' : 'Set Login PIN'}
+                      </button>
+                    )}
                   </div>
+                )}
+
+                {/* PIN setup panel */}
+                {pinChildId === child.id && (
+                  <Card className="ml-4">
+                    <h4 className="text-sm font-semibold text-foreground mb-2">Kid Login PIN for {child.name}</h4>
+                    <p className="text-xs text-muted mb-3">
+                      Set a 4-digit PIN so {child.name} can log in at <span className="font-mono">/kid</span> and see their own simplified dashboard.
+                    </p>
+                    <div className="flex gap-2 mb-3">
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        maxLength={4}
+                        value={pinValue}
+                        onChange={e => {
+                          const v = e.target.value.replace(/\D/g, '').slice(0, 4);
+                          setPinValue(v);
+                        }}
+                        placeholder="4-digit PIN"
+                        className="flex-1 border border-border rounded-xl px-3 py-2 text-sm bg-background focus:outline-none focus:border-brand text-center tracking-[0.3em] font-mono"
+                      />
+                      <button
+                        onClick={() => {
+                          if (pinValue.length === 4) {
+                            setChildPin(child.id, pinValue);
+                            setPinChildId(null);
+                          }
+                        }}
+                        disabled={pinValue.length !== 4}
+                        className="bg-brand text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-brand-dark transition-colors disabled:opacity-40"
+                      >
+                        Save
+                      </button>
+                    </div>
+                    {child.kid_pin && (
+                      <button
+                        onClick={() => {
+                          setChildPin(child.id, null);
+                          setPinChildId(null);
+                          setPinValue('');
+                        }}
+                        className="text-xs text-red-500 font-medium hover:underline"
+                      >
+                        Remove PIN
+                      </button>
+                    )}
+                  </Card>
                 )}
 
                 {/* Invite links panel */}

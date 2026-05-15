@@ -43,6 +43,7 @@ interface AppContextType extends AppState {
   createInviteLink: (childId: string, role?: 'parent' | 'viewer') => Promise<InviteLink | null>;
   getInviteLinks: (childId: string) => Promise<InviteLink[]>;
   acceptInvite: (token: string, role?: 'parent' | 'viewer') => Promise<{ success: boolean; childName?: string; error?: string }>;
+  setChildPin: (childId: string, pin: string | null) => void;
   isViewerForActiveChild: boolean;
   getRoleForChild: (childId: string) => 'creator' | 'parent' | 'viewer' | null;
   signOut: () => Promise<void>;
@@ -403,6 +404,16 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       ),
     }));
   }, [user, supabase]);
+
+  const setChildPin = useCallback((childId: string, pin: string | null) => {
+    // PIN is stored in localStorage only — not in Supabase (no child accounts)
+    setState(s => ({
+      ...s,
+      children: s.children.map(c =>
+        c.id === childId ? { ...c, kid_pin: pin || undefined } : c
+      ),
+    }));
+  }, []);
 
   const removeChild = useCallback(async (id: string) => {
     if (user) {
@@ -797,6 +808,7 @@ export function AppProvider({ children: reactChildren }: { children: React.React
       createInviteLink,
       getInviteLinks,
       acceptInvite,
+      setChildPin,
       isViewerForActiveChild,
       getRoleForChild,
       signOut,
