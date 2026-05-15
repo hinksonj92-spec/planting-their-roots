@@ -10,6 +10,7 @@ import {
 import { getWeeklyGuide, getDefaultPhase, getMilestones } from '@/lib/content';
 import { getDomains, getStats, phaseToTier, getPacket } from '@/lib/curriculum';
 import { getCurrentPacketInfo, getProgressStats, getDomainProgress, viewPacket } from '@/lib/curriculum-progress';
+import { getPrereqDashboard, getNextRecommended } from '@/lib/prereq-engine';
 import { startReminderInterval, isRemindersEnabled } from '@/lib/reminders';
 import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 import Link from 'next/link';
@@ -464,19 +465,28 @@ function OlderKidHero({ child, phase }: { child: Child; phase: number }) {
         </Link>
       </div>
 
-      {/* Overall progress footer */}
-      {stats.total > 0 && (
-        <div className="px-4 pb-3 border-t border-border-light pt-2">
-          <div className="flex items-center justify-between">
-            <span className="text-[10px] text-muted">
-              Overall: {stats.completed}/{stats.total} packets completed
-            </span>
-            <span className="text-[10px] font-medium" style={{ color: info.domainColor }}>
-              {stats.pct}%
-            </span>
+      {/* Prereq-aware progress footer */}
+      {stats.total > 0 && (() => {
+        const tier = phase === 1 ? 'A' : phase === 2 ? 'B' : 'C';
+        const prereqDash = getPrereqDashboard(child.id, tier);
+        return (
+          <div className="px-4 pb-3 border-t border-border-light pt-2 space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] text-muted">
+                {prereqDash.completedCount} completed · {prereqDash.inProgressCount} in progress · {prereqDash.unlockedCount} available
+              </span>
+              <span className="text-[10px] font-medium" style={{ color: info.domainColor }}>
+                {prereqDash.completionPct}%
+              </span>
+            </div>
+            {prereqDash.lockedCount > 0 && (
+              <p className="text-[10px] text-muted">
+                🔒 {prereqDash.lockedCount} packets locked — complete prerequisites to unlock
+              </p>
+            )}
           </div>
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 }

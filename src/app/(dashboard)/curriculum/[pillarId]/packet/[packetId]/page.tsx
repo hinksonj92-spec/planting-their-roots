@@ -4,6 +4,7 @@ import { use, useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getPacket, getPillar, getDomain } from '@/lib/curriculum';
 import { viewPacket, getPacketStatus, togglePacketComplete, type PacketStatus } from '@/lib/curriculum-progress';
+import { isPacketUnlocked, getPacketLockStatus, getNewlyUnlockedBy, type PrereqCheck, type LockStatus } from '@/lib/prereq-engine';
 import { getPacketResources, resourceSummary, RESOURCE_CATEGORY_META, type CategorisedResources, type ParsedResource } from '@/lib/resources';
 import { renderMarkdown } from '@/lib/markdown';
 import { useApp } from '@/lib/store';
@@ -175,13 +176,21 @@ function PacketContentView({ params }: { params: Promise<{ pillarId: string; pac
   const [contentLoading, setContentLoading] = useState(true);
   const [contentError, setContentError] = useState(false);
   const [packetStatus, setPacketStatus] = useState<PacketStatus>('not_started');
+  const [prereqCheck, setPrereqCheck] = useState<PrereqCheck | null>(null);
+  const [lockStatus, setLockStatus] = useState<LockStatus>('unlocked');
 
-  // Track that user viewed this packet
+  // Check prerequisites and track view
   useEffect(() => {
     if (activeChild && packetId) {
       const pid = decodeURIComponent(packetId);
-      viewPacket(activeChild.id, pid);
+      const check = isPacketUnlocked(activeChild.id, pid);
+      setPrereqCheck(check);
+      setLockStatus(getPacketLockStatus(activeChild.id, pid));
       setPacketStatus(getPacketStatus(activeChild.id, pid));
+      // Only record view if unlocked
+      if (check.unlocked) {
+        viewPacket(activeChild.id, pid);
+      }
     }
   }, [activeChild, packetId]);
 
@@ -265,6 +274,55 @@ function PacketContentView({ params }: { params: Promise<{ pillarId: string; pac
           <p className="text-xs text-muted mt-1">{packet.tier_detail}</p>
         )}
       </div>
+
+      {/* Locked banner */}
+      {lockStatus === 'locked' && prereqCheck && (
+        <div className="p-4 rounded-xl bg-border-light/50 border border-border">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-lg">🔒</span>
+            <p className="text-sm font-semibold text-foreground">This packet is locked</p>
+          </div>
+          <p className="text-xs text-secondary mb-3">
+            Complete the prerequisites below to unlock this packet.
+          </p>
+          {/* Progress bar */}
+          <div className="w-full h-2 bg-border rounded-full overflow-hidden mb-2">
+            <div
+              className="h-full bg-brand rounded-full transition-all"
+              style={{ width: `${prereqCheck.progressPct}%` }}
+            />
+          </div>
+          <p className="text-[10px] text-muted mb-3">
+            {prereqCheck.satisfied.length} of {prereqCheck.satisfied.length + prereqCheck.missing.length} prerequisites completed ({prereqCheck.progressPct}%)
+          </p>
+          {prereqCheck.missing.length > 0 && (
+            <div className="space-y-1.5">
+              <p className="text-[10px] text-muted uppercase font-semibold tracking-wide">Still needed:</p>
+              {prereqCheck.missing.map(pre => {
+                const prePacket = getPacket(pre);
+                return (
+                  <Link
+                    key={pre}
+                    href={prePacket ? `/curriculum/${encodeURIComponent(prePacket.pillar_id)}/packet/${encodeURIComponent(pre)}?tier=${tier}` : '#'}
+                    className="flex items-center gap-2 p-2 rounded-lg bg-card border border-border hover:border-brand/30 transition-colors"
+                  >
+                    <span className="text-xs">📋</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs font-medium text-foreground truncate">
+                        {prePacket?.title || pre}
+                      </p>
+                      <p className="text-[10px] text-muted font-mono">{pre}</p>
+                    </div>
+                    <svg className="w-3 h-3 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Loading state for full content */}
       {contentLoading && (
@@ -475,13 +533,15 @@ function PacketContentView({ params }: { params: Promise<{ pillarId: string; pac
             </div>
           )}
           {/* Mark Complete / Undo toggle */}
-          {activeChild && (
-            <div className="pt-2">
+          {activeChild && lockStatus !== 'locked' && (
+            <div className="pt-2 space-y-3">
               <button
                 onClick={() => {
                   const pid = decodeURIComponent(packetId);
+                  const wasCompleted = packetStatus === 'completed';
                   const next = togglePacketComplete(activeChild.id, pid);
                   setPacketStatus(next);
+                  setLockStatus(next === 'completed' ? 'completed' : 'in_progress');
                 }}
                 className={`w-full py-3 rounded-xl font-semibold text-sm transition-colors ${
                   packetStatus === 'completed'
@@ -491,6 +551,30 @@ function PacketContentView({ params }: { params: Promise<{ pillarId: string; pac
               >
                 {packetStatus === 'completed' ? '✓ Completed — tap to undo' : 'Mark as Complete'}
               </button>
+
+              {/* Show what completing this unlocks */}
+              {packetStatus !== 'completed' && (() => {
+                const pid = decodeURIComponent(packetId);
+                const willUnlock = getNewlyUnlockedBy(activeChild.id, pid, tier);
+                if (willUnlock.length === 0) return null;
+                return (
+                  <div className="p-3 rounded-xl bg-brand-light/20 border border-brand/10">
+                    <p className="text-xs font-medium text-brand-dark mb-1.5">
+                      Completing this unlocks {willUnlock.length} packet{willUnlock.length > 1 ? 's' : ''}:
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                      {willUnlock.slice(0, 5).map(p => (
+                        <span key={p.id} className="text-[10px] px-2 py-0.5 rounded-full bg-brand-light text-brand-dark font-mono">
+                          {p.id}
+                        </span>
+                      ))}
+                      {willUnlock.length > 5 && (
+                        <span className="text-[10px] text-brand-dark">+{willUnlock.length - 5} more</span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           )}
         </>

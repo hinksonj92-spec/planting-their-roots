@@ -1,8 +1,9 @@
 'use client';
 
-import { use, Suspense } from 'react';
+import { use, useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getPillar, getPacketsForPillar, getDomain } from '@/lib/curriculum';
+import { getPacketLockStatus, isPacketUnlocked, type LockStatus } from '@/lib/prereq-engine';
 import { useApp } from '@/lib/store';
 import Link from 'next/link';
 
@@ -26,12 +27,35 @@ function PillarContent({ params }: { params: Promise<{ pillarId: string }> }) {
 
   const packets = getPacketsForPillar(pillar.id, tier);
 
+  // Track lock status for each packet (client-side only)
+  const [lockStatuses, setLockStatuses] = useState<Record<string, LockStatus>>({});
+
+  useEffect(() => {
+    if (!activeChild) return;
+    const statuses: Record<string, LockStatus> = {};
+    for (const p of packets) {
+      statuses[p.id] = getPacketLockStatus(activeChild.id, p.id);
+    }
+    setLockStatuses(statuses);
+  }, [activeChild, packets.length]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Group packets by focus
   const focusGroups: Record<string, typeof packets> = {};
   for (const packet of packets) {
     const key = packet.focus_id || 'other';
     if (!focusGroups[key]) focusGroups[key] = [];
     focusGroups[key].push(packet);
+  }
+
+  // Status icon helper
+  function statusIcon(status: LockStatus): string {
+    switch (status) {
+      case 'completed': return '✅';
+      case 'in_progress': return '📖';
+      case 'unlocked': return '🔓';
+      case 'locked': return '🔒';
+      default: return '';
+    }
   }
 
   return (
@@ -79,40 +103,62 @@ function PillarContent({ params }: { params: Promise<{ pillarId: string }> }) {
                 {focusName}
               </h2>
               <div className="space-y-2">
-                {focusPackets.map(packet => (
-                  <Link
-                    key={packet.id}
-                    href={`/curriculum/${encodeURIComponent(pillar.id)}/packet/${encodeURIComponent(packet.id)}?tier=${tier}`}
-                    className="block p-3 rounded-xl border border-border hover:border-brand/30 transition-colors"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <p className="text-sm font-medium text-foreground">{packet.title}</p>
-                        <p className="text-xs text-muted mt-0.5 font-mono">{packet.id}</p>
-                      </div>
-                      <svg className="w-4 h-4 text-muted mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                    {packet.competence_markers.length > 0 && (
-                      <p className="text-xs text-secondary mt-1.5 line-clamp-2">
-                        {packet.competence_markers[0]}
-                      </p>
-                    )}
-                    {packet.prerequisites.length > 0 && (
-                      <div className="flex gap-1 mt-1.5 flex-wrap">
-                        {packet.prerequisites.slice(0, 3).map(pre => (
-                          <span key={pre} className="text-[10px] px-1.5 py-0.5 bg-border-light rounded font-mono text-muted">
-                            {pre}
-                          </span>
-                        ))}
-                        {packet.prerequisites.length > 3 && (
-                          <span className="text-[10px] text-muted">+{packet.prerequisites.length - 3} more</span>
+                {focusPackets.map(packet => {
+                  const ls = activeChild ? lockStatuses[packet.id] : undefined;
+                  const isLocked = ls === 'locked';
+
+                  return (
+                    <Link
+                      key={packet.id}
+                      href={isLocked ? '#' : `/curriculum/${encodeURIComponent(pillar.id)}/packet/${encodeURIComponent(packet.id)}?tier=${tier}`}
+                      onClick={isLocked ? (e: React.MouseEvent) => e.preventDefault() : undefined}
+                      className={`block p-3 rounded-xl border transition-colors ${
+                        isLocked
+                          ? 'border-border bg-border-light/30 opacity-60 cursor-not-allowed'
+                          : ls === 'completed'
+                            ? 'border-brand/30 bg-brand-light/10 hover:border-brand/50'
+                            : ls === 'in_progress'
+                              ? 'border-brand/40 hover:border-brand/60'
+                              : 'border-border hover:border-brand/30'
+                      }`}
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-2 flex-1 min-w-0">
+                          {ls && (
+                            <span className="text-sm mt-0.5 shrink-0" title={ls}>{statusIcon(ls)}</span>
+                          )}
+                          <div className="min-w-0">
+                            <p className={`text-sm font-medium ${isLocked ? 'text-muted' : 'text-foreground'}`}>{packet.title}</p>
+                            <p className="text-xs text-muted mt-0.5 font-mono">{packet.id}</p>
+                          </div>
+                        </div>
+                        {!isLocked && (
+                          <svg className="w-4 h-4 text-muted mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          </svg>
                         )}
                       </div>
-                    )}
-                  </Link>
-                ))}
+                      {!isLocked && packet.competence_markers.length > 0 && (
+                        <p className="text-xs text-secondary mt-1.5 line-clamp-2 pl-7">
+                          {packet.competence_markers[0]}
+                        </p>
+                      )}
+                      {isLocked && packet.prerequisites.length > 0 && (
+                        <div className="flex gap-1 mt-1.5 flex-wrap pl-7">
+                          <span className="text-[10px] text-muted">Requires:</span>
+                          {packet.prerequisites.slice(0, 3).map(pre => (
+                            <span key={pre} className="text-[10px] px-1.5 py-0.5 bg-border-light rounded font-mono text-muted">
+                              {pre}
+                            </span>
+                          ))}
+                          {packet.prerequisites.length > 3 && (
+                            <span className="text-[10px] text-muted">+{packet.prerequisites.length - 3} more</span>
+                          )}
+                        </div>
+                      )}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           );

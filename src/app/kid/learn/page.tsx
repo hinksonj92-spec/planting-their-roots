@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useKidSession } from '@/lib/kid-session';
 import { getPacket, getDomains, getPillarsForDomain, phaseToTier } from '@/lib/curriculum';
 import { viewPacket, togglePacketComplete, getPacketStatus, getProgressStats, type PacketStatus } from '@/lib/curriculum-progress';
+import { isPacketUnlocked, getPacketLockStatus } from '@/lib/prereq-engine';
 import { getPacketResources, type ParsedResource } from '@/lib/resources';
 import { renderMarkdown } from '@/lib/markdown';
 import { getEvergreenPhase } from '@/lib/utils';
