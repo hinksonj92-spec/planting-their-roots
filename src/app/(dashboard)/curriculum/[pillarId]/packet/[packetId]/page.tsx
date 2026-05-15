@@ -3,7 +3,10 @@
 import { use, useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getPacket, getPillar, getDomain } from '@/lib/curriculum';
+import { viewPacket, getPacketStatus, togglePacketComplete, type PacketStatus } from '@/lib/curriculum-progress';
+import { getPacketResources, resourceSummary, RESOURCE_CATEGORY_META, type CategorisedResources, type ParsedResource } from '@/lib/resources';
 import { renderMarkdown } from '@/lib/markdown';
+import { useApp } from '@/lib/store';
 import Link from 'next/link';
 
 // Types for the full packet content loaded from JSON
@@ -83,19 +86,56 @@ function Section({ title, icon, children, defaultOpen = false }: {
   );
 }
 
-// Book list renderer
-function BookList({ books, category }: { books: BookEntry[]; category: string }) {
-  if (!books || books.length === 0) return null;
+// Categorised resource list renderer
+function ResourceList({ resources, label }: { resources: ParsedResource[]; label: string }) {
+  if (!resources || resources.length === 0) return null;
 
-  const categoryColors: Record<string, string> = {
+  const priorityColors: Record<string, string> = {
     required: 'bg-brand-light text-brand-dark',
     suggested: 'bg-border-light text-secondary',
     supplementary: 'bg-border-light text-muted',
   };
 
   return (
+    <div className="mb-4 last:mb-0">
+      <p className="text-xs font-semibold text-foreground mb-2">{label}</p>
+      <div className="space-y-2">
+        {resources.map((r, i) => (
+          <div key={i} className="flex gap-2 items-start">
+            <span className="text-xs mt-0.5">
+              {r.audience === 'mentor' ? '👤' : RESOURCE_CATEGORY_META[r.category].icon}
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm text-foreground">{r.title}</p>
+              {r.author && (
+                <p className="text-xs text-muted">{r.author}</p>
+              )}
+              <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${priorityColors[r.priority] || ''}`}>
+                  {r.priority}
+                </span>
+                <span className="text-[10px] text-muted italic">
+                  {r.audience === 'mentor' ? 'For mentor' : 'For student'}
+                </span>
+                {r.mode && (
+                  <span className="text-[10px] text-muted">· {r.mode}</span>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Legacy flat book list (fallback)
+function BookList({ books, category }: { books: BookEntry[]; category: string }) {
+  if (!books || books.length === 0) return null;
+
+  return (
     <div className="mb-3 last:mb-0">
-      <span className={`text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-full ${categoryColors[category] || ''}`}>
+      <span className="text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-full bg-border-light text-secondary">
         {category}
       </span>
       <div className="mt-2 space-y-2">
@@ -120,10 +160,11 @@ function BookList({ books, category }: { books: BookEntry[]; category: string })
   );
 }
 
-function PacketContent({ params }: { params: Promise<{ pillarId: string; packetId: string }> }) {
+function PacketContentView({ params }: { params: Promise<{ pillarId: string; packetId: string }> }) {
   const { pillarId, packetId } = use(params);
   const searchParams = useSearchParams();
   const tier = searchParams.get('tier') || 'A';
+  const { activeChild } = useApp();
 
   const packet = getPacket(decodeURIComponent(packetId));
   const pillar = getPillar(decodeURIComponent(pillarId));
@@ -133,6 +174,16 @@ function PacketContent({ params }: { params: Promise<{ pillarId: string; packetI
   const [fullContent, setFullContent] = useState<PacketContent | null>(null);
   const [contentLoading, setContentLoading] = useState(true);
   const [contentError, setContentError] = useState(false);
+  const [packetStatus, setPacketStatus] = useState<PacketStatus>('not_started');
+
+  // Track that user viewed this packet
+  useEffect(() => {
+    if (activeChild && packetId) {
+      const pid = decodeURIComponent(packetId);
+      viewPacket(activeChild.id, pid);
+      setPacketStatus(getPacketStatus(activeChild.id, pid));
+    }
+  }, [activeChild, packetId]);
 
   useEffect(() => {
     const pid = decodeURIComponent(packetId);
@@ -167,6 +218,17 @@ function PacketContent({ params }: { params: Promise<{ pillarId: string; packetI
     fullContent.books.required.length > 0 ||
     fullContent.books.suggested.length > 0 ||
     fullContent.books.supplementary.length > 0
+  );
+
+  // Parse resources into categories
+  const categorised = fullContent?.books ? getPacketResources(fullContent.books) : null;
+  const hasCategorisedResources = categorised && (
+    categorised.books.length > 0 ||
+    categorised.videos.length > 0 ||
+    categorised.audio.length > 0 ||
+    categorised.supplies.length > 0 ||
+    categorised.references.length > 0 ||
+    categorised.activities.length > 0
   );
 
   return (
@@ -241,8 +303,32 @@ function PacketContent({ params }: { params: Promise<{ pillarId: string; packetI
             </Section>
           )}
 
-          {/* Books & Resources */}
-          {hasBooks && (
+          {/* Books & Resources — categorised */}
+          {hasCategorisedResources && categorised && (
+            <Section title="Books & Resources" icon="📚" defaultOpen={true}>
+              {categorised.books.length > 0 && (
+                <ResourceList resources={categorised.books} label={`${RESOURCE_CATEGORY_META.book.icon} Books (${categorised.books.length})`} />
+              )}
+              {categorised.videos.length > 0 && (
+                <ResourceList resources={categorised.videos} label={`${RESOURCE_CATEGORY_META.video.icon} Videos (${categorised.videos.length})`} />
+              )}
+              {categorised.audio.length > 0 && (
+                <ResourceList resources={categorised.audio} label={`${RESOURCE_CATEGORY_META.audio.icon} Audio (${categorised.audio.length})`} />
+              )}
+              {categorised.supplies.length > 0 && (
+                <ResourceList resources={categorised.supplies} label={`${RESOURCE_CATEGORY_META.supply.icon} Supplies (${categorised.supplies.length})`} />
+              )}
+              {categorised.references.length > 0 && (
+                <ResourceList resources={categorised.references} label={`${RESOURCE_CATEGORY_META.reference.icon} References (${categorised.references.length})`} />
+              )}
+              {categorised.activities.length > 0 && (
+                <ResourceList resources={categorised.activities} label={`${RESOURCE_CATEGORY_META.activity.icon} Activities (${categorised.activities.length})`} />
+              )}
+            </Section>
+          )}
+
+          {/* Fallback: old flat book list if categorisation produced nothing */}
+          {hasBooks && !hasCategorisedResources && (
             <Section title="Books & Resources" icon="📚">
               <BookList books={fullContent.books.required} category="required" />
               <BookList books={fullContent.books.suggested} category="suggested" />
@@ -388,6 +474,25 @@ function PacketContent({ params }: { params: Promise<{ pillarId: string; packetI
               </div>
             </div>
           )}
+          {/* Mark Complete / Undo toggle */}
+          {activeChild && (
+            <div className="pt-2">
+              <button
+                onClick={() => {
+                  const pid = decodeURIComponent(packetId);
+                  const next = togglePacketComplete(activeChild.id, pid);
+                  setPacketStatus(next);
+                }}
+                className={`w-full py-3 rounded-xl font-semibold text-sm transition-colors ${
+                  packetStatus === 'completed'
+                    ? 'bg-card border border-border text-secondary hover:text-foreground'
+                    : 'bg-brand text-white hover:bg-brand-dark'
+                }`}
+              >
+                {packetStatus === 'completed' ? '✓ Completed — tap to undo' : 'Mark as Complete'}
+              </button>
+            </div>
+          )}
         </>
       )}
 
@@ -433,7 +538,7 @@ function PacketContent({ params }: { params: Promise<{ pillarId: string; packetI
 export default function PacketPage({ params }: { params: Promise<{ pillarId: string; packetId: string }> }) {
   return (
     <Suspense fallback={<div className="py-8 text-center"><div className="w-6 h-6 border-2 border-brand border-t-transparent rounded-full animate-spin mx-auto" /></div>}>
-      <PacketContent params={params} />
+      <PacketContentView params={params} />
     </Suspense>
   );
 }

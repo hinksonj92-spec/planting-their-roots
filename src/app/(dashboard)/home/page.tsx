@@ -8,7 +8,8 @@ import {
   getPhaseDomain, getEvergreenPhase, getEvergreenPhaseLabel, getEvergreenPhaseAges,
 } from '@/lib/utils';
 import { getWeeklyGuide, getDefaultPhase, getMilestones } from '@/lib/content';
-import { getDomains, getStats, phaseToTier } from '@/lib/curriculum';
+import { getDomains, getStats, phaseToTier, getPacket } from '@/lib/curriculum';
+import { getCurrentPacketInfo, getProgressStats, getDomainProgress, viewPacket } from '@/lib/curriculum-progress';
 import { startReminderInterval, isRemindersEnabled } from '@/lib/reminders';
 import { ChildSwitcher } from '@/components/ui/ChildSwitcher';
 import Link from 'next/link';
@@ -362,6 +363,139 @@ function WelcomeState() {
   );
 }
 
+// ── Older Kid Hero (Phase 1-3 "open and go" card) ────────────────────
+
+function OlderKidHero({ child, phase }: { child: Child; phase: number }) {
+  const info = getCurrentPacketInfo(child.id, phase, (id) => {
+    const p = getPacket(id);
+    return p ? { title: p.title, pillar_id: p.pillar_id, pillar_name: p.pillar_name, tier: p.tier } : undefined;
+  });
+  const stats = getProgressStats(child.id, phase);
+
+  if (!info) {
+    // All packets completed — celebration state
+    return (
+      <div className="rounded-2xl border border-border overflow-hidden">
+        <div className="px-4 py-5 text-center">
+          <span className="text-3xl block mb-2">🏆</span>
+          <p className="text-sm font-semibold text-foreground mb-1">
+            {child.name} has completed all {stats.total} packets!
+          </p>
+          <p className="text-xs text-secondary">
+            Every packet at this tier is done. Amazing work.
+          </p>
+          <Link href="/curriculum" className="inline-block mt-3 text-xs font-medium text-brand hover:underline">
+            Review Curriculum →
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const isResume = info.status === 'in_progress';
+
+  return (
+    <div className="rounded-2xl border border-border overflow-hidden">
+      {/* Domain / pillar header */}
+      <div
+        className="px-4 py-3 flex items-center justify-between"
+        style={{ backgroundColor: `${info.domainColor}10` }}
+      >
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="text-lg">{info.domainIcon}</span>
+          <div className="min-w-0">
+            <p className="text-xs font-semibold truncate" style={{ color: info.domainColor }}>
+              {info.pillarId} — {info.pillarName}
+            </p>
+            <p className="text-[10px] text-muted">
+              {info.domainName} · Tier {info.tier}
+            </p>
+          </div>
+        </div>
+        <span className="text-[10px] text-muted shrink-0 ml-2">
+          {info.packetIndex}/{info.totalInPillar}
+        </span>
+      </div>
+
+      {/* Packet content */}
+      <div className="p-4">
+        <p className="text-sm font-semibold text-foreground mb-1">{info.packetTitle}</p>
+        <p className="text-xs text-muted font-mono mb-3">{info.packetId}</p>
+
+        {/* Progress bar for this pillar */}
+        <div className="flex items-center gap-2 mb-4">
+          <div className="flex-1 h-1.5 bg-border-light rounded-full overflow-hidden">
+            <div
+              className="h-full rounded-full transition-all duration-500"
+              style={{
+                width: `${Math.round(((info.packetIndex - 1) / info.totalInPillar) * 100)}%`,
+                backgroundColor: info.domainColor,
+              }}
+            />
+          </div>
+          <span className="text-[10px] text-muted">{Math.round(((info.packetIndex - 1) / info.totalInPillar) * 100)}%</span>
+        </div>
+
+        {/* CTA */}
+        <Link
+          href={`/curriculum/${encodeURIComponent(info.pillarId)}/packet/${encodeURIComponent(info.packetId)}?tier=${info.tier}`}
+          className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm text-white transition-colors"
+          style={{ backgroundColor: info.domainColor }}
+        >
+          {isResume ? 'Continue Lesson' : 'Start Lesson'}
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </Link>
+      </div>
+
+      {/* Overall progress footer */}
+      {stats.total > 0 && (
+        <div className="px-4 pb-3 border-t border-border-light pt-2">
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] text-muted">
+              Overall: {stats.completed}/{stats.total} packets completed
+            </span>
+            <span className="text-[10px] font-medium" style={{ color: info.domainColor }}>
+              {stats.pct}%
+            </span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Curriculum Progress Strip (older kids) ───────────────────────────
+
+function CurriculumProgressStrip({ child, phase }: { child: Child; phase: number }) {
+  const domainProg = getDomainProgress(child.id, phase);
+  const stats = getProgressStats(child.id, phase);
+
+  return (
+    <Link href="/curriculum" className="block rounded-xl border border-border p-3 hover:border-brand/30 transition-colors">
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-xs font-semibold text-foreground">
+          Curriculum Progress
+        </span>
+        <span className="text-[10px] text-muted">{stats.completed}/{stats.total} packets</span>
+      </div>
+      <div className="h-1.5 bg-border-light rounded-full overflow-hidden mb-2">
+        <div className="h-full bg-brand rounded-full transition-all duration-500" style={{ width: `${stats.pct}%` }} />
+      </div>
+      <div className="flex gap-1">
+        {domainProg.map(d => (
+          <div key={d.domainId} className="flex-1" title={`${d.domainName}: ${d.completed}/${d.total}`}>
+            <div className="h-1 rounded-full" style={{
+              backgroundColor: d.pct > 0 ? `color-mix(in srgb, ${d.domainColor} ${Math.max(d.pct, 20)}%, #e5e7eb)` : '#e5e7eb',
+            }} />
+          </div>
+        ))}
+      </div>
+    </Link>
+  );
+}
+
 // ── Graduated Hero (replaces moment card for graduated kids) ──────────
 
 function GraduatedHero({ child }: { child: Child }) {
@@ -425,7 +559,9 @@ export default function HomePage() {
     return <div className="py-4"><WelcomeState /></div>;
   }
 
-  const isPhase0 = getEvergreenPhase(activeChild.birth_date) === 0;
+  const evergreenPhase = getEvergreenPhase(activeChild.birth_date);
+  const isPhase0 = evergreenPhase === 0;
+  const isOlderKid = evergreenPhase > 0;
   const isGraduated = activeBand === 0;
   const hasMoments = activeGuide && activeGuide.daily_moments?.length > 0 && isPhase0 && !isGraduated;
 
@@ -436,6 +572,15 @@ export default function HomePage() {
     ? timeMoments.filter(m => m.moment_name !== heroMoment.moment_name).slice(0, 3)
     : [];
 
+  // Subtitle for greeting
+  const greetingSubtitle = isPhase0 && activeGuide
+    ? `Phase ${currentPhase} · ${DOMAIN_ICONS[activeDomainCode]} ${DOMAIN_FULL_NAMES[activeDomainCode]}`
+    : isPhase0 && isGraduated
+    ? 'Graduated from Planting Roots'
+    : isOlderKid
+    ? `${getEvergreenPhaseLabel(evergreenPhase)} · Ages ${getEvergreenPhaseAges(evergreenPhase)}`
+    : '';
+
   return (
     <div className="py-4 space-y-4">
       {/* Greeting — compact */}
@@ -444,11 +589,9 @@ export default function HomePage() {
           <h1 className="text-lg font-bold text-foreground">
             {getGreeting(timeOfDay, parentName || 'there')}
           </h1>
-          <p className="text-xs text-muted mt-0.5">
-            {activeGuide
-              ? `Phase ${currentPhase} · ${DOMAIN_ICONS[activeDomainCode]} ${DOMAIN_FULL_NAMES[activeDomainCode]}`
-              : isGraduated ? 'Graduated from Planting Roots' : ''}
-          </p>
+          {greetingSubtitle && (
+            <p className="text-xs text-muted mt-0.5">{greetingSubtitle}</p>
+          )}
         </div>
         <span className="text-2xl">{getTimeIcon(timeOfDay)}</span>
       </div>
@@ -467,6 +610,8 @@ export default function HomePage() {
           otherMoments={otherMoments}
           onPickMoment={setPickedMoment}
         />
+      ) : isOlderKid ? (
+        <OlderKidHero child={activeChild} phase={evergreenPhase} />
       ) : isGraduated ? (
         <GraduatedHero child={activeChild} />
       ) : null}
@@ -474,12 +619,15 @@ export default function HomePage() {
       {/* Quick nav — compact icon strip */}
       <QuickNav isPhase0={isPhase0} />
 
-      {/* Milestone progress — below the fold */}
-      {isPhase0 && (
+      {/* Progress strip — context-appropriate */}
+      {isPhase0 && !isGraduated && (
         <ChildInfoStrip
           child={activeChild}
           milestoneProgress={milestoneProgress}
         />
+      )}
+      {isOlderKid && (
+        <CurriculumProgressStrip child={activeChild} phase={evergreenPhase} />
       )}
 
       {/* Add child — subtle */}
