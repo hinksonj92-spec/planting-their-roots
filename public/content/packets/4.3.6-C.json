@@ -1,1 +1,141 @@
-{"id": "4.3.6-C", "title": "Complex Operations Under Real Conditions", "pillar_id": "4.3", "pillar_name": "Leadership, Responsibility & Mission Execution", "sub_domain_id": "4.3.6", "sub_domain_name": "Mission Planning & Execution", "tier": "C", "tier_detail": "C (~ages 14+)", "domain": "Domain 4 — Operational & Social Mastery", "prerequisites": ["4.3.6-B", "4.3.3-C", "4.3.1-C"], "books": {"required": [{"audience": "student", "title": "[For Student]", "author": "Alfred Lansing"}, {"audience": "student", "title": "[For Student]", "author": "Atul Gawande"}], "suggested": [{"audience": "student", "title": "[For Student]", "author": "Robert Coram"}, {"audience": "student", "title": "[For Student]", "author": "Eliyahu Goldratt"}], "supplementary": [{"audience": "mentor", "title": "[For Mentor]", "author": "Stanley McChrystal"}]}, "competence_markers": [{"description": "The student can plan and execute a complex, multi-week project involving multiple people", "assessment_type": "behavioral"}, {"description": "They develop contingency plans and deploy them when needed", "assessment_type": "behavioral"}, {"description": "They lead execution through sustained friction without degradation", "assessment_type": "behavioral"}, {"description": "They balance planning and improvisation appropriately", "assessment_type": "behavioral"}, {"description": "The project produces a real, measurable outcome", "assessment_type": "behavioral"}, {"description": "The after-action review is rigorous and honest", "assessment_type": "behavioral"}], "narration_prompts": [{"prompt": "Present the plan for a complex project you are executing.", "detail": "Walk through the objective, workstreams, dependencies, timeline, resource allocation, and contingency plans."}, {"prompt": "Describe the friction you have encountered in execution.", "detail": "What obstacles appeared? How did you adapt? What worked and what did not?"}, {"prompt": "Give an example of when you improvised within the structure of a plan.", "detail": "What triggered the improvisation? How did you maintain coherence with the overall objective?"}, {"prompt": "Describe your contingency planning for a current project.", "detail": "What are the most likely failure points? What is the plan for each?"}, {"prompt": "Conduct a comprehensive after-action review of a completed complex project.", "detail": "Cover planning, execution, team coordination, friction management, and leadership. Be specific about what worked, what failed, and why."}], "cross_connections": [{"target_id": "IC2-C", "target_name": "Discipline", "description": "Execution discipline under sustained pressure is IC2's ultimate test"}, {"target_id": "4.3.3-C", "target_name": "Team Dynamics", "description": "Complex execution requires advanced team coordination"}, {"target_id": "4.3.2-C", "target_name": "Decision-Making", "description": "Execution under friction requires continuous real-time decisions"}, {"target_id": "4.1.4", "target_name": "Entrepreneurship", "description": "Business creation is sustained mission execution over months and years"}, {"target_id": "2.2", "target_name": "Trades", "description": "Physical build projects of significant scale test planning and execution simultaneously"}, {"target_id": "4.3.8-C", "target_name": "Applied Leadership Capstone", "description": "The capstone may embed mission planning and execution as its core"}], "content": {"why_this_matters": "At Standing Ground, you plan and execute at a scale that tests everything simultaneously: multiple workstreams, multiple people, extended timelines, genuine uncertainty, and real consequences for success or failure. This is not a class project. It is the operational test of whether you can convert a complex goal into a real outcome under conditions where everything takes longer than planned, costs more than budgeted, and encounters problems you did not anticipate.\n\nThe relationship between planning and execution at Standing Ground is more nuanced than \"plan then execute.\" The best operators are both disciplined planners and skilled improvisers. The plan creates structure. Improvisation fills the gaps. The operator who can only plan is rigid. The operator who can only improvise is chaotic. Competence is both — and knowing when each is needed.", "what_this_develops": "1. **Complex project planning** — multiple workstreams, multiple people, extended timelines, genuine uncertainty\n2. **Contingency planning** — identifying likely failure points and developing responses before they occur\n3. **Leading execution** — coordinating others' work while maintaining momentum through friction\n4. **Friction management** — sustaining progress despite continuous unexpected obstacles\n5. **The relationship between planning and improvisation** — knowing when to follow the plan and when to depart from it\n6. **Mission-critical execution** — projects where the outcome genuinely matters and failure has real consequences", "core_content": "### Part 1: Complex Projects — Multiple Moving Parts\n\nA Standing Ground project is not a single person executing a single plan. It is multiple workstreams, multiple people, and multiple dependencies, all operating simultaneously over weeks or months. The complexity is not just additive — it is multiplicative. Each additional workstream and each additional person creates new dependencies, new communication requirements, and new failure points.\n\nPlanning a complex project requires thinking at multiple levels simultaneously. At the strategic level: what is the objective, and what are the major phases? At the operational level: what are the workstreams, and how do they relate to each other? At the tactical level: what are the specific tasks, assignments, and timelines?\n\nThe plan document for a complex project includes: the objective (specific and measurable), the major phases, the workstreams within each phase, the dependencies between workstreams, the resource requirements and allocation, the timeline with milestones, and the communication plan (who reports to whom, how often, about what).\n\nThe plan is not a script. It is a framework for decision-making. When conditions change — and they will — the framework tells you what to adjust and what to protect. The objective stays fixed unless the project itself needs to change direction. The phases and workstreams adjust based on reality. The timelines flex based on actual progress.\n\n### Part 2: Contingency Planning — Before It Goes Wrong\n\nFor every significant plan, identify the two to three most likely failure points. For each one, answer: \"What do we do if this happens?\"\n\nThe contingency plan is developed before the failure occurs, not in the moment of failure. In the moment, you are stressed, pressed for time, and emotionally reactive. Decisions made under those conditions are worse than decisions made calmly in advance. The contingency plan gives you a pre-thought response that you can execute immediately when the problem appears.\n\nContingencies should cover the most likely failures, not every possible failure. If your project depends on a key person, what happens if they cannot participate? If your timeline depends on a delivery, what happens if it is late? If your approach depends on an assumption, what happens if the assumption is wrong?\n\nThe pre-mortem (from 4.3.2) is the tool: before execution begins, assume the project has failed. What is the most likely reason? That reason is where your contingency plan goes.\n\n### Part 3: Leading Execution Through Friction\n\nFriction is the gap between the plan and reality. Everything takes longer than planned. Everything costs more than budgeted. Every task encounters obstacles that were not anticipated. People are late. Materials are wrong. The weather does not cooperate. A dependency that was supposed to be resolved is not.\n\nThis is not a sign that the plan was bad. It is the nature of execution in the real world. The skill is not avoiding friction — that is impossible. The skill is maintaining progress despite friction. Steady, persistent forward movement through continuous small obstacles.\n\nLeading execution through friction requires operational patience — the ability to solve the same category of problem for the third time this week without frustration degrading your judgment. It requires adaptive discipline — adjusting the plan continuously while maintaining the structure that keeps everyone aligned. And it requires energy management — protecting your capacity to lead through a long operation, not burning through everything in the first crisis.\n\nThe operators who perform best under sustained friction are not the most brilliant planners. They are the most persistent executors — the people who keep pushing, keep solving, keep adjusting, day after day, when the excitement of the plan has been replaced by the grind of execution.\n\n### Part 4: Plan and Improvise\n\nThere is a tension in execution between planning and improvisation that most people resolve by choosing one or the other. The pure planner sticks to the plan even when reality has made it obsolete. The pure improviser abandons the plan the moment anything unexpected happens and operates on instinct.\n\nBoth approaches fail. The pure planner executes a plan that no longer matches reality. The pure improviser makes a series of locally reasonable decisions that have no coherence — each individual choice makes sense, but the aggregate produces chaos because there is no guiding structure.\n\nThe competent operator does both: they plan rigorously and then improvise within the structure the plan provides. The plan establishes the objective, the phases, the major milestones, and the coordination framework. Within that structure, the operator improvises — making real-time decisions about how to accomplish each phase, adapting to obstacles, seizing unexpected opportunities.\n\nThe OODA loop — Observe, Orient, Decide, Act — describes this process at the tactical level. You observe what is happening. You orient — interpret what you observe in the context of your objective and plan. You decide — choose the response. You act. Then you observe the result of your action and cycle again. The operator who cycles through OODA faster and more accurately than the situation is changing stays ahead of the friction.\n\n### Part 5: When the Outcome Matters\n\nThe projects in this packet should have genuine stakes. Not simulated stakes. Genuine ones: the outcome matters to you, to your team, to your community, or to the real-world goal you are pursuing.\n\nMission-critical execution demands everything the previous packets have built: clear objectives, thorough planning, competent delegation, constant communication, adaptive replanning, emotional regulation under pressure, team coordination through friction, and the leadership character to hold the standard when exhaustion and frustration make lowering it attractive.\n\nThis may be part of your Multi-Year Creation Project, a community service effort, a real business operation, or a field exercise with genuine consequences. The specific domain matters less than the scale and the stakes: it must be complex enough to test simultaneous planning, coordination, and execution, and the outcome must matter enough that failure is consequential, not theoretical.\n\nThe after-action review of a mission-critical project is one of the most important learning experiences in this entire pillar. Conducted rigorously and honestly, it tells you — and the people who will evaluate your readiness — exactly where your planning, execution, and leadership capacity stands.", "formative_practices": ""}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### 1. Complex Planning Quality\n**Developing well:** Plans are comprehensive — clear objectives, decomposed workstreams, identified dependencies, realistic timelines with buffers, contingency plans for likely failure points. Plans are documented and shared.\n\n**Developing slowly:** Plans are incomplete, unrealistic, or absent. The student begins complex projects without adequate planning. Contingency planning does not occur.\n\n### 2. Execution Under Friction\n**Developing well:** When obstacles appear, the student adapts — replanning, reallocating, solving problems — while maintaining forward progress and team cohesion. Friction is treated as normal, not as a crisis.\n\n**Developing slowly:** Friction produces paralysis (unable to adapt), panic (abandoning the plan entirely), or blame (attributing all problems to circumstances or people). Progress stalls under adversity.\n\n### 3. Mission-Critical Delivery\n**Developing well:** The project produces a real, measurable outcome. The outcome is evaluated against the original objective. The student can articulate what was delivered, what was not, and why.\n\n**Developing slowly:** Projects are incomplete, significantly below standard, or produce outputs that do not match the stated objective.", "common_pitfalls": "", "narration_evaluation": ""}}
+{
+  "id": "4.3.6-C",
+  "title": "Complex Operations Under Real Conditions",
+  "pillar_id": "4.3",
+  "pillar_name": "Leadership, Responsibility & Mission Execution",
+  "sub_domain_id": "4.3.6",
+  "sub_domain_name": "Mission Planning & Execution",
+  "tier": "C",
+  "tier_detail": "C (~ages 14+)",
+  "domain": "Domain 4 — Operational & Social Mastery",
+  "prerequisites": [
+    "4.3.6-B",
+    "4.3.3-C",
+    "4.3.1-C"
+  ],
+  "books": {
+    "required": [
+      {
+        "audience": "student",
+        "title": "[For Student] Endurance: Shackleton's Incredible Voyage",
+        "author": "Alfred Lansing"
+      },
+      {
+        "audience": "student",
+        "title": "[For Student] The Checklist Manifesto",
+        "author": "Atul Gawande"
+      }
+    ],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[For Student] Boyd: The Fighter Pilot Who Changed the Art of War",
+        "author": "Robert Coram"
+      },
+      {
+        "audience": "student",
+        "title": "[For Student] The Goal",
+        "author": "Eliyahu Goldratt"
+      }
+    ],
+    "supplementary": [
+      {
+        "audience": "mentor",
+        "title": "[For Mentor] Team of Teams",
+        "author": "Stanley McChrystal"
+      }
+    ]
+  },
+  "competence_markers": [
+    {
+      "description": "The student can plan and execute a complex, multi-week project involving multiple people",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "They develop contingency plans and deploy them when needed",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "They lead execution through sustained friction without degradation",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "They balance planning and improvisation appropriately",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The project produces a real, measurable outcome",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The after-action review is rigorous and honest",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [
+    {
+      "prompt": "Present the plan for a complex project you are executing.",
+      "detail": "Walk through the objective, workstreams, dependencies, timeline, resource allocation, and contingency plans."
+    },
+    {
+      "prompt": "Describe the friction you have encountered in execution.",
+      "detail": "What obstacles appeared? How did you adapt? What worked and what did not?"
+    },
+    {
+      "prompt": "Give an example of when you improvised within the structure of a plan.",
+      "detail": "What triggered the improvisation? How did you maintain coherence with the overall objective?"
+    },
+    {
+      "prompt": "Describe your contingency planning for a current project.",
+      "detail": "What are the most likely failure points? What is the plan for each?"
+    },
+    {
+      "prompt": "Conduct a comprehensive after-action review of a completed complex project.",
+      "detail": "Cover planning, execution, team coordination, friction management, and leadership. Be specific about what worked, what failed, and why."
+    }
+  ],
+  "cross_connections": [
+    {
+      "target_id": "IC2-C",
+      "target_name": "Discipline",
+      "description": "Execution discipline under sustained pressure is IC2's ultimate test"
+    },
+    {
+      "target_id": "4.3.3-C",
+      "target_name": "Team Dynamics",
+      "description": "Complex execution requires advanced team coordination"
+    },
+    {
+      "target_id": "4.3.2-C",
+      "target_name": "Decision-Making",
+      "description": "Execution under friction requires continuous real-time decisions"
+    },
+    {
+      "target_id": "4.1.4",
+      "target_name": "Entrepreneurship",
+      "description": "Business creation is sustained mission execution over months and years"
+    },
+    {
+      "target_id": "2.2",
+      "target_name": "Trades",
+      "description": "Physical build projects of significant scale test planning and execution simultaneously"
+    },
+    {
+      "target_id": "4.3.8-C",
+      "target_name": "Applied Leadership Capstone",
+      "description": "The capstone may embed mission planning and execution as its core"
+    }
+  ],
+  "content": {
+    "why_this_matters": "At Standing Ground, you plan and execute at a scale that tests everything simultaneously: multiple workstreams, multiple people, extended timelines, genuine uncertainty, and real consequences for success or failure. This is not a class project. It is the operational test of whether you can convert a complex goal into a real outcome under conditions where everything takes longer than planned, costs more than budgeted, and encounters problems you did not anticipate.\n\nThe relationship between planning and execution at Standing Ground is more nuanced than \"plan then execute.\" The best operators are both disciplined planners and skilled improvisers. The plan creates structure. Improvisation fills the gaps. The operator who can only plan is rigid. The operator who can only improvise is chaotic. Competence is both — and knowing when each is needed.",
+    "what_this_develops": "1. **Complex project planning** — multiple workstreams, multiple people, extended timelines, genuine uncertainty\n2. **Contingency planning** — identifying likely failure points and developing responses before they occur\n3. **Leading execution** — coordinating others' work while maintaining momentum through friction\n4. **Friction management** — sustaining progress despite continuous unexpected obstacles\n5. **The relationship between planning and improvisation** — knowing when to follow the plan and when to depart from it\n6. **Mission-critical execution** — projects where the outcome genuinely matters and failure has real consequences",
+    "core_content": "### Part 1: Complex Projects — Multiple Moving Parts\n\nA Standing Ground project is not a single person executing a single plan. It is multiple workstreams, multiple people, and multiple dependencies, all operating simultaneously over weeks or months. The complexity is not just additive — it is multiplicative. Each additional workstream and each additional person creates new dependencies, new communication requirements, and new failure points.\n\nPlanning a complex project requires thinking at multiple levels simultaneously. At the strategic level: what is the objective, and what are the major phases? At the operational level: what are the workstreams, and how do they relate to each other? At the tactical level: what are the specific tasks, assignments, and timelines?\n\nThe plan document for a complex project includes: the objective (specific and measurable), the major phases, the workstreams within each phase, the dependencies between workstreams, the resource requirements and allocation, the timeline with milestones, and the communication plan (who reports to whom, how often, about what).\n\nThe plan is not a script. It is a framework for decision-making. When conditions change — and they will — the framework tells you what to adjust and what to protect. The objective stays fixed unless the project itself needs to change direction. The phases and workstreams adjust based on reality. The timelines flex based on actual progress.\n\n### Part 2: Contingency Planning — Before It Goes Wrong\n\nFor every significant plan, identify the two to three most likely failure points. For each one, answer: \"What do we do if this happens?\"\n\nThe contingency plan is developed before the failure occurs, not in the moment of failure. In the moment, you are stressed, pressed for time, and emotionally reactive. Decisions made under those conditions are worse than decisions made calmly in advance. The contingency plan gives you a pre-thought response that you can execute immediately when the problem appears.\n\nContingencies should cover the most likely failures, not every possible failure. If your project depends on a key person, what happens if they cannot participate? If your timeline depends on a delivery, what happens if it is late? If your approach depends on an assumption, what happens if the assumption is wrong?\n\nThe pre-mortem (from 4.3.2) is the tool: before execution begins, assume the project has failed. What is the most likely reason? That reason is where your contingency plan goes.\n\n### Part 3: Leading Execution Through Friction\n\nFriction is the gap between the plan and reality. Everything takes longer than planned. Everything costs more than budgeted. Every task encounters obstacles that were not anticipated. People are late. Materials are wrong. The weather does not cooperate. A dependency that was supposed to be resolved is not.\n\nThis is not a sign that the plan was bad. It is the nature of execution in the real world. The skill is not avoiding friction — that is impossible. The skill is maintaining progress despite friction. Steady, persistent forward movement through continuous small obstacles.\n\nLeading execution through friction requires operational patience — the ability to solve the same category of problem for the third time this week without frustration degrading your judgment. It requires adaptive discipline — adjusting the plan continuously while maintaining the structure that keeps everyone aligned. And it requires energy management — protecting your capacity to lead through a long operation, not burning through everything in the first crisis.\n\nThe operators who perform best under sustained friction are not the most brilliant planners. They are the most persistent executors — the people who keep pushing, keep solving, keep adjusting, day after day, when the excitement of the plan has been replaced by the grind of execution.\n\n### Part 4: Plan and Improvise\n\nThere is a tension in execution between planning and improvisation that most people resolve by choosing one or the other. The pure planner sticks to the plan even when reality has made it obsolete. The pure improviser abandons the plan the moment anything unexpected happens and operates on instinct.\n\nBoth approaches fail. The pure planner executes a plan that no longer matches reality. The pure improviser makes a series of locally reasonable decisions that have no coherence — each individual choice makes sense, but the aggregate produces chaos because there is no guiding structure.\n\nThe competent operator does both: they plan rigorously and then improvise within the structure the plan provides. The plan establishes the objective, the phases, the major milestones, and the coordination framework. Within that structure, the operator improvises — making real-time decisions about how to accomplish each phase, adapting to obstacles, seizing unexpected opportunities.\n\nThe OODA loop — Observe, Orient, Decide, Act — describes this process at the tactical level. You observe what is happening. You orient — interpret what you observe in the context of your objective and plan. You decide — choose the response. You act. Then you observe the result of your action and cycle again. The operator who cycles through OODA faster and more accurately than the situation is changing stays ahead of the friction.\n\n### Part 5: When the Outcome Matters\n\nThe projects in this packet should have genuine stakes. Not simulated stakes. Genuine ones: the outcome matters to you, to your team, to your community, or to the real-world goal you are pursuing.\n\nMission-critical execution demands everything the previous packets have built: clear objectives, thorough planning, competent delegation, constant communication, adaptive replanning, emotional regulation under pressure, team coordination through friction, and the leadership character to hold the standard when exhaustion and frustration make lowering it attractive.\n\nThis may be part of your Multi-Year Creation Project, a community service effort, a real business operation, or a field exercise with genuine consequences. The specific domain matters less than the scale and the stakes: it must be complex enough to test simultaneous planning, coordination, and execution, and the outcome must matter enough that failure is consequential, not theoretical.\n\nThe after-action review of a mission-critical project is one of the most important learning experiences in this entire pillar. Conducted rigorously and honestly, it tells you — and the people who will evaluate your readiness — exactly where your planning, execution, and leadership capacity stands.",
+    "formative_practices": ""
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### 1. Complex Planning Quality\n**Developing well:** Plans are comprehensive — clear objectives, decomposed workstreams, identified dependencies, realistic timelines with buffers, contingency plans for likely failure points. Plans are documented and shared.\n\n**Developing slowly:** Plans are incomplete, unrealistic, or absent. The student begins complex projects without adequate planning. Contingency planning does not occur.\n\n### 2. Execution Under Friction\n**Developing well:** When obstacles appear, the student adapts — replanning, reallocating, solving problems — while maintaining forward progress and team cohesion. Friction is treated as normal, not as a crisis.\n\n**Developing slowly:** Friction produces paralysis (unable to adapt), panic (abandoning the plan entirely), or blame (attributing all problems to circumstances or people). Progress stalls under adversity.\n\n### 3. Mission-Critical Delivery\n**Developing well:** The project produces a real, measurable outcome. The outcome is evaluated against the original objective. The student can articulate what was delivered, what was not, and why.\n\n**Developing slowly:** Projects are incomplete, significantly below standard, or produce outputs that do not match the stated objective.",
+    "common_pitfalls": "",
+    "narration_evaluation": ""
+  }
+}

@@ -1,1 +1,141 @@
-{"id": "2.4.3-C", "title": "Weather & Risk", "pillar_id": "2.4", "pillar_name": "Survival, Fieldcraft & Practical Independence", "sub_domain_id": "2.4.3", "sub_domain_name": "Weather, Environment & Risk Assessment", "tier": "C", "tier_detail": "C (~ages 14+)", "domain": "Domain 2 — Physical & Practical Competence", "prerequisites": ["2.4.3-B", "IC1.1-C1", "2.4.2-C"], "books": {"required": [{"audience": "student", "title": "[Book]", "author": ""}, {"audience": "student", "title": "[Book]", "author": "Bruce Tremper"}, {"audience": "student", "title": "[Website] National Weather Service (weather.gov)", "author": ""}], "suggested": [{"audience": "student", "title": "[Book]", "author": "Laurence Gonzales"}, {"audience": "student", "title": "[Book]", "author": ""}], "supplementary": [{"audience": "student", "title": "[Course] AIARE Level 1 Avalanche Course", "author": ""}, {"audience": "student", "title": "[Book]", "author": "Atul Gawande"}]}, "competence_markers": [{"description": "You can read an NWS area forecast discussion and translate it into practical field risk assessment", "assessment_type": "behavioral"}, {"description": "You have delivered at least one pre-trip weather and risk brief to a group", "assessment_type": "behavioral"}, {"description": "You have assessed avalanche risk in avalanche terrain (or the primary environmental hazard in your region) and made terrain choices accordingly — OR have completed AIARE Level 1 or equivalent", "assessment_type": "behavioral"}, {"description": "You have led at least one post-incident analysis using structured methodology", "assessment_type": "behavioral"}, {"description": "You have taught risk management concepts to a group of novices, and they can apply the go/no-go framework after your teaching", "assessment_type": "behavioral"}, {"description": "You can explain the communication challenge of risk briefing and have practiced calibrating between paralysis and complacency", "assessment_type": "behavioral"}], "narration_prompts": [{"prompt": "Walk me through an NWS area forecast discussion.", "detail": "What information does it contain? How do you translate it into field decisions?"}, {"prompt": "Describe a post-incident analysis you conducted or observed.", "detail": "What happened? What biases were at work? What changed as a result?"}, {"prompt": "How do you communicate risk to a group without causing paralysis or complacency?", "detail": "What does a good risk brief look like?"}, {"prompt": "Explain the avalanche danger scale (or the primary environmental hazard in your region).", "detail": "How do you translate a danger rating into terrain choices?"}, {"prompt": "What is the most dangerous decision-making pattern in outdoor recreation?", "detail": "Why does it persist among experienced people?"}], "cross_connections": [{"target_id": "4.3", "target_name": "Leadership", "description": "Risk briefing, turnaround rule enforcement, post-incident analysis, and group communication under pressure are leadership functions. This packet is where 2.4 and 4.3 converge most directly."}, {"target_id": "IC3", "target_name": "Anti-Fragility", "description": "Post-incident analysis converts adverse experiences into learning. This is the anti-fragility mechanism — the group that analyzes its near-misses becomes stronger, not just luckier."}, {"target_id": "1.6", "target_name": "Science & Physical Reality", "description": "Weather is atmospheric physics. Avalanche mechanics are material science. Understanding the physical reality behind hazards produces better decisions than memorized rules."}, {"target_id": "2.4.6-C", "target_name": "Urban & Wilderness Survival", "description": "The risk management framework developed here applies directly to urban emergency scenarios. The decision-making biases are identical — normalization of deviance operates in a city infrastructure failure exactly as it does on a mountain."}], "content": {"why_this_matters": "You can read the sky, identify environmental medical threats, make go/no-go decisions, and recognize the biases that distort judgment under pressure. That framework has kept you safe.\n\nStanding Ground puts you in the leader's seat. You plan the expedition weather strategy. You assess avalanche terrain. You brief the group on risk. And when something goes wrong — when a near-miss occurs, when a decision was wrong in hindsight — you lead the post-incident analysis that converts the experience into lasting institutional knowledge.\n\nThis is where risk management becomes a leadership discipline, not just a personal skill.", "what_this_develops": "", "core_content": "### Part 1: Expedition Weather Planning\n\nProfessional weather assessment goes beyond cloud reading. Before a multi-day trip:\n\n**Synoptic analysis:** Read the NWS area forecast discussion for your region. This is the meteorologist's narrative analysis of the weather pattern — not the simplified forecast, but the reasoning behind it. It discusses pressure systems, fronts, jet stream position, moisture sources, and confidence levels. Learning to read AFDs takes practice but gives you the same information professionals use.\n\n**Mountain weather specifics:** If your trip involves mountain terrain, check mountain-specific forecasts. Mountains create their own weather: orographic lifting (moist air forced upward by terrain produces precipitation on the windward side), afternoon convection (sun heating mountain slopes creates updrafts that build thunderstorms), and wind acceleration through passes and over ridges.\n\n**Forecast degradation:** Weather forecasts are reasonably accurate out to 48 hours, moderately useful to 72 hours, and increasingly speculative beyond that. Plan the first two days with confidence. Plan day three with caution. Anything beyond day three is a planning assumption, not a plan.\n\n**The weather brief:** Before departure, brief your group: \"The forecast shows a cold front arriving Tuesday afternoon. Monday is clear and calm. Tuesday morning will be partly cloudy with increasing wind. By Tuesday afternoon, expect thunderstorms with potential for lightning and hail. Our exposed ridge section is planned for Monday. If we are delayed and face the ridge on Tuesday, we assess conditions at the base and apply the go/no-go framework.\"\n\n### Part 2: Avalanche Risk Assessment\n\nAvalanches kill more backcountry travelers than any other mountain hazard. If you travel in snow-covered mountain terrain, avalanche awareness is non-negotiable.\n\n**The three factors:**\n1. **Terrain:** Most avalanches occur on slopes between 30 and 45 degrees. Aspect (direction the slope faces) matters — lee slopes collect wind-deposited snow. Terrain traps (gullies, cliffs below, dense trees) increase consequence.\n2. **Snowpack:** The stability of the snow layers. Weak layers buried under heavy snow are the trigger mechanism. Snowpack assessment requires training (digging snow pits, identifying layer structure) beyond what this packet provides — the AIARE Level 1 course is the appropriate venue.\n3. **Weather:** Recent storm snow (new snow adds load), wind (deposits snow unevenly, creating slabs), temperature changes (warming weakens bonds) all affect avalanche likelihood.\n\n**The avalanche danger scale (1-5):**\n- 1 (Low) — generally safe conditions\n- 2 (Moderate) — heightened conditions on specific terrain features\n- 3 (Considerable) — dangerous conditions, careful route selection essential\n- 4 (High) — very dangerous, travel in avalanche terrain not recommended\n- 5 (Extreme) — avoid all avalanche terrain\n\n**Companion rescue:** If someone in your group is buried, you have approximately 15 minutes before the survival curve drops sharply. Every member of a backcountry skiing or snowshoeing group should carry a beacon, probe, and shovel, and know how to use them. This is AIARE Level 1 content.\n\n### Part 3: Flash Flood and Lightning Management\n\n**Flash floods:** Flash floods can occur from storms miles away with no local precipitation. They are the most dangerous in slot canyons, dry washes, and narrow drainages. Rules: never camp in a drainage or dry wash. If water begins to rise, move to high ground immediately. If you hear roaring or see debris-laden water, you have seconds.\n\n**Lightning:** At Standing Ground, lightning management extends beyond the 30-30 rule:\n- Exposed ridgelines, isolated trees, and open water are high-risk positions\n- The lightning crouch (squat on balls of feet, feet together, head down, ears covered) is a last resort if caught in the open\n- In a group, spread out — 50-100 feet between people prevents a single strike from hitting multiple victims\n- Ground current from a nearby strike can injure even if the lightning does not hit you directly\n\n### Part 4: Post-Incident Analysis\n\nAfter any close call, unexpected event, or decision that was wrong in hindsight, conduct structured analysis:\n\n1. **What happened?** Factual sequence of events, without interpretation or blame.\n2. **What factors were present?** Weather, terrain, group dynamics, fatigue, equipment, communication.\n3. **What cognitive biases were operating?** Was there normalization of deviance? Summit fever? Authority gradient? Sunk cost?\n4. **What decision points existed?** At what moments could a different decision have changed the outcome? What information was available at each point?\n5. **What changes result?** Specific, concrete changes to future planning, decision-making, or procedures.\n\nThis is the same methodology used in aviation (NTSB investigations), medicine (M&M conferences), and military operations (after-action reviews). It is not a blame exercise. It is a learning exercise. The group that conducts honest post-incident analysis after near-misses does not have to learn the same lessons from fatalities.\n\n### Part 5: Teaching Risk Management\n\nBriefing a group on risk is a communication challenge as much as a technical one:\n\n- **Too much fear = paralysis.** If the brief makes everyone terrified, they will be anxious, indecisive, and potentially more dangerous than if they were uninformed.\n- **Too little concern = complacency.** If the brief minimizes risk, the group will not take turnaround rules or safety protocols seriously.\n- **The target:** Calm, clear, specific information. \"Here are the hazards. Here is what we do about each one. Here is when we turn back. Questions?\"\n\nPractice this. The ability to communicate risk clearly is a skill that extends to every leadership context — from workplace safety to financial decisions to medical conversations.", "formative_practices": ""}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### Developing Well\nThe student reads NWS forecast discussions fluently and translates them into field-relevant risk assessments. Their pre-trip briefs are clear, specific, and appropriately calibrated. Post-incident analyses are honest, structured, and produce concrete changes. Their teaching is effective — novices can apply the framework after the session.\n\n### Developing Slowly\nWeather assessment is superficial (relying on forecast summaries rather than understanding the reasoning). Risk briefs are either too casual or too alarming. Post-incident analysis avoids hard truths. Teaching is disorganized or does not produce learner competence.\n\n### Diagnostic Questions\n- Has the student read enough NWS AFDs to develop fluency? (Five days is the minimum; ongoing reading is necessary.)\n- Has the student actually led a group in the field where risk decisions mattered?\n- Has the student conducted post-incident analysis on their OWN decisions, not just case studies of other people?", "common_pitfalls": "", "narration_evaluation": ""}}
+{
+  "id": "2.4.3-C",
+  "title": "Weather & Risk",
+  "pillar_id": "2.4",
+  "pillar_name": "Survival, Fieldcraft & Practical Independence",
+  "sub_domain_id": "2.4.3",
+  "sub_domain_name": "Weather, Environment & Risk Assessment",
+  "tier": "C",
+  "tier_detail": "C (~ages 14+)",
+  "domain": "Domain 2 — Physical & Practical Competence",
+  "prerequisites": [
+    "2.4.3-B",
+    "IC1.1-C1",
+    "2.4.2-C"
+  ],
+  "books": {
+    "required": [
+      {
+        "audience": "student",
+        "title": "[Book] Mountaineering: The Freedom of the Hills",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Book] Staying Alive in Avalanche Terrain",
+        "author": "Bruce Tremper"
+      },
+      {
+        "audience": "student",
+        "title": "[Website] National Weather Service (weather.gov)",
+        "author": ""
+      }
+    ],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[Book] Deep Survival",
+        "author": "Laurence Gonzales"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] Accidents in North American Mountaineering",
+        "author": "American Alpine Club, annual"
+      }
+    ],
+    "supplementary": [
+      {
+        "audience": "student",
+        "title": "[Course] AIARE Level 1 Avalanche Course",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Book] The Checklist Manifesto",
+        "author": "Atul Gawande"
+      }
+    ]
+  },
+  "competence_markers": [
+    {
+      "description": "You can read an NWS area forecast discussion and translate it into practical field risk assessment",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You have delivered at least one pre-trip weather and risk brief to a group",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You have assessed avalanche risk in avalanche terrain (or the primary environmental hazard in your region) and made terrain choices accordingly — OR have completed AIARE Level 1 or equivalent",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You have led at least one post-incident analysis using structured methodology",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You have taught risk management concepts to a group of novices, and they can apply the go/no-go framework after your teaching",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You can explain the communication challenge of risk briefing and have practiced calibrating between paralysis and complacency",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [
+    {
+      "prompt": "Walk me through an NWS area forecast discussion.",
+      "detail": "What information does it contain? How do you translate it into field decisions?"
+    },
+    {
+      "prompt": "Describe a post-incident analysis you conducted or observed.",
+      "detail": "What happened? What biases were at work? What changed as a result?"
+    },
+    {
+      "prompt": "How do you communicate risk to a group without causing paralysis or complacency?",
+      "detail": "What does a good risk brief look like?"
+    },
+    {
+      "prompt": "Explain the avalanche danger scale (or the primary environmental hazard in your region).",
+      "detail": "How do you translate a danger rating into terrain choices?"
+    },
+    {
+      "prompt": "What is the most dangerous decision-making pattern in outdoor recreation?",
+      "detail": "Why does it persist among experienced people?"
+    }
+  ],
+  "cross_connections": [
+    {
+      "target_id": "4.3",
+      "target_name": "Leadership",
+      "description": "Risk briefing, turnaround rule enforcement, post-incident analysis, and group communication under pressure are leadership functions. This packet is where 2.4 and 4.3 converge most directly."
+    },
+    {
+      "target_id": "IC3",
+      "target_name": "Anti-Fragility",
+      "description": "Post-incident analysis converts adverse experiences into learning. This is the anti-fragility mechanism — the group that analyzes its near-misses becomes stronger, not just luckier."
+    },
+    {
+      "target_id": "1.6",
+      "target_name": "Science & Physical Reality",
+      "description": "Weather is atmospheric physics. Avalanche mechanics are material science. Understanding the physical reality behind hazards produces better decisions than memorized rules."
+    },
+    {
+      "target_id": "2.4.6-C",
+      "target_name": "Urban & Wilderness Survival",
+      "description": "The risk management framework developed here applies directly to urban emergency scenarios. The decision-making biases are identical — normalization of deviance operates in a city infrastructure failure exactly as it does on a mountain."
+    }
+  ],
+  "content": {
+    "why_this_matters": "You can read the sky, identify environmental medical threats, make go/no-go decisions, and recognize the biases that distort judgment under pressure. That framework has kept you safe.\n\nStanding Ground puts you in the leader's seat. You plan the expedition weather strategy. You assess avalanche terrain. You brief the group on risk. And when something goes wrong — when a near-miss occurs, when a decision was wrong in hindsight — you lead the post-incident analysis that converts the experience into lasting institutional knowledge.\n\nThis is where risk management becomes a leadership discipline, not just a personal skill.",
+    "what_this_develops": "",
+    "core_content": "### Part 1: Expedition Weather Planning\n\nProfessional weather assessment goes beyond cloud reading. Before a multi-day trip:\n\n**Synoptic analysis:** Read the NWS area forecast discussion for your region. This is the meteorologist's narrative analysis of the weather pattern — not the simplified forecast, but the reasoning behind it. It discusses pressure systems, fronts, jet stream position, moisture sources, and confidence levels. Learning to read AFDs takes practice but gives you the same information professionals use.\n\n**Mountain weather specifics:** If your trip involves mountain terrain, check mountain-specific forecasts. Mountains create their own weather: orographic lifting (moist air forced upward by terrain produces precipitation on the windward side), afternoon convection (sun heating mountain slopes creates updrafts that build thunderstorms), and wind acceleration through passes and over ridges.\n\n**Forecast degradation:** Weather forecasts are reasonably accurate out to 48 hours, moderately useful to 72 hours, and increasingly speculative beyond that. Plan the first two days with confidence. Plan day three with caution. Anything beyond day three is a planning assumption, not a plan.\n\n**The weather brief:** Before departure, brief your group: \"The forecast shows a cold front arriving Tuesday afternoon. Monday is clear and calm. Tuesday morning will be partly cloudy with increasing wind. By Tuesday afternoon, expect thunderstorms with potential for lightning and hail. Our exposed ridge section is planned for Monday. If we are delayed and face the ridge on Tuesday, we assess conditions at the base and apply the go/no-go framework.\"\n\n### Part 2: Avalanche Risk Assessment\n\nAvalanches kill more backcountry travelers than any other mountain hazard. If you travel in snow-covered mountain terrain, avalanche awareness is non-negotiable.\n\n**The three factors:**\n1. **Terrain:** Most avalanches occur on slopes between 30 and 45 degrees. Aspect (direction the slope faces) matters — lee slopes collect wind-deposited snow. Terrain traps (gullies, cliffs below, dense trees) increase consequence.\n2. **Snowpack:** The stability of the snow layers. Weak layers buried under heavy snow are the trigger mechanism. Snowpack assessment requires training (digging snow pits, identifying layer structure) beyond what this packet provides — the AIARE Level 1 course is the appropriate venue.\n3. **Weather:** Recent storm snow (new snow adds load), wind (deposits snow unevenly, creating slabs), temperature changes (warming weakens bonds) all affect avalanche likelihood.\n\n**The avalanche danger scale (1-5):**\n- 1 (Low) — generally safe conditions\n- 2 (Moderate) — heightened conditions on specific terrain features\n- 3 (Considerable) — dangerous conditions, careful route selection essential\n- 4 (High) — very dangerous, travel in avalanche terrain not recommended\n- 5 (Extreme) — avoid all avalanche terrain\n\n**Companion rescue:** If someone in your group is buried, you have approximately 15 minutes before the survival curve drops sharply. Every member of a backcountry skiing or snowshoeing group should carry a beacon, probe, and shovel, and know how to use them. This is AIARE Level 1 content.\n\n### Part 3: Flash Flood and Lightning Management\n\n**Flash floods:** Flash floods can occur from storms miles away with no local precipitation. They are the most dangerous in slot canyons, dry washes, and narrow drainages. Rules: never camp in a drainage or dry wash. If water begins to rise, move to high ground immediately. If you hear roaring or see debris-laden water, you have seconds.\n\n**Lightning:** At Standing Ground, lightning management extends beyond the 30-30 rule:\n- Exposed ridgelines, isolated trees, and open water are high-risk positions\n- The lightning crouch (squat on balls of feet, feet together, head down, ears covered) is a last resort if caught in the open\n- In a group, spread out — 50-100 feet between people prevents a single strike from hitting multiple victims\n- Ground current from a nearby strike can injure even if the lightning does not hit you directly\n\n### Part 4: Post-Incident Analysis\n\nAfter any close call, unexpected event, or decision that was wrong in hindsight, conduct structured analysis:\n\n1. **What happened?** Factual sequence of events, without interpretation or blame.\n2. **What factors were present?** Weather, terrain, group dynamics, fatigue, equipment, communication.\n3. **What cognitive biases were operating?** Was there normalization of deviance? Summit fever? Authority gradient? Sunk cost?\n4. **What decision points existed?** At what moments could a different decision have changed the outcome? What information was available at each point?\n5. **What changes result?** Specific, concrete changes to future planning, decision-making, or procedures.\n\nThis is the same methodology used in aviation (NTSB investigations), medicine (M&M conferences), and military operations (after-action reviews). It is not a blame exercise. It is a learning exercise. The group that conducts honest post-incident analysis after near-misses does not have to learn the same lessons from fatalities.\n\n### Part 5: Teaching Risk Management\n\nBriefing a group on risk is a communication challenge as much as a technical one:\n\n- **Too much fear = paralysis.** If the brief makes everyone terrified, they will be anxious, indecisive, and potentially more dangerous than if they were uninformed.\n- **Too little concern = complacency.** If the brief minimizes risk, the group will not take turnaround rules or safety protocols seriously.\n- **The target:** Calm, clear, specific information. \"Here are the hazards. Here is what we do about each one. Here is when we turn back. Questions?\"\n\nPractice this. The ability to communicate risk clearly is a skill that extends to every leadership context — from workplace safety to financial decisions to medical conversations.",
+    "formative_practices": ""
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### Developing Well\nThe student reads NWS forecast discussions fluently and translates them into field-relevant risk assessments. Their pre-trip briefs are clear, specific, and appropriately calibrated. Post-incident analyses are honest, structured, and produce concrete changes. Their teaching is effective — novices can apply the framework after the session.\n\n### Developing Slowly\nWeather assessment is superficial (relying on forecast summaries rather than understanding the reasoning). Risk briefs are either too casual or too alarming. Post-incident analysis avoids hard truths. Teaching is disorganized or does not produce learner competence.\n\n### Diagnostic Questions\n- Has the student read enough NWS AFDs to develop fluency? (Five days is the minimum; ongoing reading is necessary.)\n- Has the student actually led a group in the field where risk decisions mattered?\n- Has the student conducted post-incident analysis on their OWN decisions, not just case studies of other people?",
+    "common_pitfalls": "",
+    "narration_evaluation": ""
+  }
+}

@@ -1,1 +1,161 @@
-{"id": "2.3.1-C", "title": "Food System Literacy", "pillar_id": "2.3", "pillar_name": "Home Economics, Stewardship & Domestic Competence", "sub_domain_id": "2.3.1", "sub_domain_name": "Food Systems, Cooking & Household Nutrition", "tier": "C", "tier_detail": "C (~ages 14+)", "domain": "Domain 2 — Physical & Practical Competence", "prerequisites": ["2.3.1-B2", "IC1.1-B1"], "books": {"required": [{"audience": "student", "title": "[Book]", "author": "Michael Pollan"}, {"audience": "student", "title": "[Book]", "author": "Mark Bittman"}, {"audience": "student", "title": "[Book]", "author": "Greene, Hertzberg, and Vaughan"}, {"audience": "student", "title": "[Book]", "author": "Sandor Ellix Katz"}], "suggested": [{"audience": "student", "title": "[Book]", "author": "Paul Greenberg"}, {"audience": "student", "title": "[Book]", "author": "Dan Barber"}, {"audience": "student", "title": "[Book]", "author": "Michael Pollan"}, {"audience": "student", "title": "[Book]", "author": "Lisa Bedford"}], "supplementary": [{"audience": "student", "title": "[Documentary]", "author": "Robert Kenner"}, {"audience": "student", "title": "[Book]", "author": "Sally Fallon"}, {"audience": "student", "title": "[Activity] Visit a food processing facility, distribution center, or industrial farm", "author": ""}]}, "competence_markers": [{"description": "The student can improvise meals from available ingredients without recipes, consistently producing nutritious and good food", "assessment_type": "behavioral"}, {"description": "The student can explain the food supply chain and identify its major vulnerabilities", "assessment_type": "behavioral"}, {"description": "The student maintains a stocked pantry and can articulate why specific items are kept", "assessment_type": "behavioral"}, {"description": "The student has completed a seasonal preservation project at meaningful scale (not a single jar — enough to supply the household for weeks)", "assessment_type": "behavioral"}, {"description": "The student can feed a household nutritiously under budget constraint and dietary restriction", "assessment_type": "behavioral"}, {"description": "The student can cook confidently in at least three culinary traditions beyond their own", "assessment_type": "behavioral"}, {"description": "The student has taught a younger student or family member to cook at least three meals", "assessment_type": "behavioral"}, {"description": "The student has completed the one-month capstone food plan with documented results", "assessment_type": "behavioral"}, {"description": "The student understands food as a carrier of cultural identity and can articulate this understanding", "assessment_type": "behavioral"}], "narration_prompts": [], "cross_connections": [{"target_id": "2.5", "target_name": "Regenerative Food Systems", "description": "The production side of food. A student working in both 2.3.1 and 2.5 understands the full cycle: grow, preserve, cook, eat."}, {"target_id": "2.4.5", "target_name": "Hunting, Fishing & Food Procurement", "description": "Field procurement of food connects to processing and preservation skills developed here."}, {"target_id": "4.1", "target_name": "Financial Independence", "description": "Food system understanding connects to economic systems thinking. A student who understands food supply chains understands something fundamental about how economies work."}, {"target_id": "1.2.3", "target_name": "Resources & Trade Routes", "description": "The geography of food production and distribution mirrors historical trade route patterns."}, {"target_id": "IC1", "target_name": "Character", "description": "Feeding people consistently, generously, and well — especially under constraint — is a daily expression of character."}, {"target_id": "IC2", "target_name": "Discipline", "description": "The one-month capstone requires sustained discipline over weeks, not a single burst of effort."}], "content": {"why_this_matters": "You can cook. You can plan. You can budget. You can preserve. Now the question changes: can you feed a household — reliably, nutritiously, affordably — under real-world constraints? And can you understand the system that puts food on your table well enough to make intelligent decisions when that system is disrupted?\n\nMost people take the food supply chain for granted. Food appears in stores. They buy it. They eat it. They do not think about the chain of farms, processing facilities, distribution networks, and transportation systems that makes this possible — or what happens when any link in that chain breaks. COVID demonstrated this in 2020: empty shelves, supply disruptions, price spikes. Natural disasters demonstrate it regionally every year. The person who understands the food system is not caught off guard by these events. They have reserves, they have skills, and they have the adaptability to feed their household regardless of what the grocery store looks like.\n\nThis packet makes you that person. You will also refine your cooking to the level where you can improvise meals without recipes, cook confidently across cuisines, scale for groups, adapt to dietary restrictions, and teach others. The capstone is a one-month household food plan under constraint — the proof that you can sustain a household.", "what_this_develops": "1. **Advanced cooking technique** — improvisation, multi-cuisine confidence, scaling, adaptation\n2. **Food system understanding** — the global supply chain, vulnerabilities, food security at personal and civilizational scales\n3. **Preservation at scale** — preserving a seasonal harvest, long-term storage planning\n4. **Nutrition under constraint** — feeding a household well when money is tight, ingredients are limited, or dietary restrictions apply\n5. **Food and culture** — food as a carrier of cultural identity, hospitality through food\n6. **Teaching ability** — the capacity to teach a younger student or family member to cook", "core_content": "### Part 1: Advanced Cooking — From Recipes to Improvisation\n\nThe goal is to cook without depending on recipes. This does not mean you never use them — even professional chefs use recipes for unfamiliar dishes. It means you understand cooking well enough to open a refrigerator, assess what is available, and produce a good meal without instructions.\n\n**How to develop this:**\n- **Master the mother sauces.** Five foundational sauces from classical French cooking — bechamel, veloute, espagnole, tomato, and hollandaise — form the basis of most Western sauces. Learn them. Understand what each is built from (roux + liquid, reduction, emulsion). From these five, hundreds of variations follow.\n- **Learn ratios, not recipes.** Bread is roughly 5 parts flour to 3 parts water. Vinaigrette is 3 parts oil to 1 part acid. Pasta dough is 3 parts flour to 2 parts egg. Stock is bones, water, aromatics, time. When you know the ratios, you can make these things from memory.\n- **Cook from what you have.** At least once per week, open the refrigerator and make a meal without a recipe. Use what needs to be used. This is the skill that prevents waste and develops creative confidence.\n- **Scale confidently.** Doubling a recipe is simple arithmetic. Cooking for 12 instead of 4 requires understanding which things scale linearly (ingredients) and which do not (cooking time, seasoning). A pot of soup for 12 does not need three times the salt of a pot for 4. Taste and adjust.\n\n### Part 2: The Food Supply Chain\n\nThe food you eat travels an average of 1,500 miles from farm to plate in the United States. Understanding how it gets there — and what can go wrong — is food literacy at the systems level.\n\n**The chain:** Farm → Processing → Distribution → Retail → Consumer. Each link has its own economics, vulnerabilities, and points of failure.\n\n- **Production:** American agriculture is dominated by large-scale industrial operations. A small number of very large farms produce the majority of food. This is efficient but fragile — a disease outbreak in concentrated animal operations, a drought in a major growing region, or a disruption in the supply of fertilizer or fuel can affect food availability nationally.\n- **Processing:** Most food is processed before it reaches you — milled, pasteurized, packaged, preserved. Processing facilities are concentrated in specific regions. A fire at a single meat processing plant in 2021 (JBS) temporarily reduced U.S. beef processing capacity by over 20%.\n- **Distribution:** Refrigerated trucks and trains move food across the country. Disruptions in transportation — fuel shortages, extreme weather, labor strikes — can empty store shelves in days. Most grocery stores carry only 3-5 days of inventory at any time.\n- **Retail:** Grocery stores operate on thin margins (1-3% profit). They depend on constant restocking from distribution. When supply chains break, the store cannot buffer the disruption.\n\n**What this means for you:** A household that depends entirely on the grocery store for food has a 3-5 day food supply. A household with a stocked pantry, preserved foods, a garden, and the skills to cook from basic ingredients has weeks or months of food security. This is not survivalism. It is common sense.\n\n### Part 3: Preservation at Scale\n\nAt Weathering Storms, you preserved food as a learning exercise. At Standing Ground, you preserve food as a household system.\n\n**Pantry building:** A well-stocked pantry is a buffer against disruption and a foundation for efficient cooking. Stock: rice, dried beans, pasta, canned tomatoes, canned fish, olive oil, flour, sugar, salt, vinegar, spices. These ingredients have long shelf lives and form the basis of hundreds of meals. Build the pantry gradually — add a few items with each shopping trip.\n\n**Seasonal preservation:** When produce is in season, it is abundant and cheap. Buy in quantity and preserve: freeze berries and vegetables, can tomatoes and pickles, make jams, dry herbs, ferment cabbage into sauerkraut. A single day of preservation in August can produce months of stored food.\n\n**Root cellar principles:** Even without a root cellar, understanding the principle matters. Cool, dark, dry storage extends the life of root vegetables (potatoes, carrots, onions, garlic, winter squash) for months. A basement corner, a garage shelf in winter, or a dedicated closet can serve the function.\n\n### Part 4: Nutrition Under Constraint\n\nFeeding a household well when money is tight or ingredients are limited is a skill that matters more than any fine-dining technique.\n\n**Budget-constrained nutrition:** Protein is usually the most expensive component of a meal. Eggs, dried beans, lentils, canned fish, chicken thighs, and ground meat are the most cost-effective protein sources. Rice, potatoes, and oats are the cheapest calorie sources. Cabbage, carrots, onions, and frozen vegetables provide micronutrients at low cost. A nutritionally complete diet is achievable at any budget level — it just requires knowledge and planning.\n\n**Dietary restriction adaptation:** Cooking for someone who cannot eat gluten, dairy, or specific allergens requires understanding what these ingredients do in cooking and what can substitute. Gluten provides structure in baked goods — rice flour, almond flour, and tapioca starch can substitute with recipe adjustments. Dairy provides fat and creaminess — coconut milk, olive oil, and nut-based alternatives can serve similar functions. The cook who understands the function of ingredients, not just the ingredients themselves, can adapt to any restriction.\n\n### Part 5: Food and Culture\n\nFood is identity made edible. Every culture has its staple foods, its celebration foods, its comfort foods, and its rules about what is eaten when and how. Understanding food as culture — not just nutrition — makes you a more complete cook and a more thoughtful person.\n\n**Your own tradition:** What are the foods of your family's cultural heritage? Can you prepare them? If your family has recipes passed down through generations, learn them. Write them down if they exist only in someone's memory. These recipes are a form of inheritance that disappears when no one learns them.\n\n**Other traditions:** By the end of this packet, you should be able to cook confidently in at least three culinary traditions beyond your own. Not approximations — real dishes, with appropriate ingredients and techniques. Cooking another culture's food with respect and skill is one of the most genuine forms of cultural engagement.\n\n**Hospitality:** In nearly every culture, feeding someone is an act of welcome, generosity, and care. The ability to host a meal — plan a menu, prepare the food, set a table, serve graciously, make guests feel welcome — is a social skill as much as a cooking skill.\n\n### Part 6: Teaching Others\n\nThe final proof of mastery is the ability to teach. If you can teach a younger sibling, a friend, or a Stretching Branches student to cook — not just hand them a recipe, but explain technique, diagnose problems, and build their confidence — you have internalized the skill deeply enough to transfer it.\n\nTeaching requires patience, clear explanation, and the ability to watch someone struggle without taking over. These are the same qualities your mentor has been developing in you throughout this curriculum. Now it is your turn.", "formative_practices": ""}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### 1. Improvisation Competence\n**Developing well:** The student opens the refrigerator and produces a balanced, good-tasting meal from what is available. They do not panic when a planned ingredient is missing. They understand flavor principles well enough to combine ingredients intuitively.\n\n**Developing slowly:** The student still depends on recipes for every meal. When ingredients are missing, they cannot adapt.\n\n### 2. Systems Understanding\n**Developing well:** The student can trace common foods through the supply chain and articulate vulnerabilities. They understand why a stocked pantry matters. They connect food security to broader resilience thinking.\n\n**Developing slowly:** The student treats food system knowledge as academic content rather than practical concern.\n\n### 3. Capstone Execution\n**Developing well:** The month-long plan is realistic, adaptive, and documented. Budget is tracked. Nutritional adequacy is demonstrated. Waste is minimized. The student self-evaluates honestly, naming both successes and failures.\n\n**Developing slowly:** The plan exists on paper but breaks down in execution. Documentation is incomplete. The student does not track or does not adapt.", "common_pitfalls": "", "narration_evaluation": ""}}
+{
+  "id": "2.3.1-C",
+  "title": "Food System Literacy",
+  "pillar_id": "2.3",
+  "pillar_name": "Home Economics, Stewardship & Domestic Competence",
+  "sub_domain_id": "2.3.1",
+  "sub_domain_name": "Food Systems, Cooking & Household Nutrition",
+  "tier": "C",
+  "tier_detail": "C (~ages 14+)",
+  "domain": "Domain 2 — Physical & Practical Competence",
+  "prerequisites": [
+    "2.3.1-B2",
+    "IC1.1-B1"
+  ],
+  "books": {
+    "required": [
+      {
+        "audience": "student",
+        "title": "[Book] The Omnivore's Dilemma",
+        "author": "Michael Pollan"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] How to Cook Everything",
+        "author": "Mark Bittman"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] Putting Food By",
+        "author": "Greene, Hertzberg, and Vaughan"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] The Art of Fermentation",
+        "author": "Sandor Ellix Katz"
+      }
+    ],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[Book] Four Fish: The Future of the Last Wild Food",
+        "author": "Paul Greenberg"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] The Third Plate: Field Notes on the Future of Food",
+        "author": "Dan Barber"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] Cooked: A Natural History of Transformation",
+        "author": "Michael Pollan"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] The Survival Mom",
+        "author": "Lisa Bedford"
+      }
+    ],
+    "supplementary": [
+      {
+        "audience": "student",
+        "title": "[Documentary] Food, Inc.",
+        "author": "directed by Robert Kenner"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] Nourishing Traditions",
+        "author": "Sally Fallon"
+      },
+      {
+        "audience": "student",
+        "title": "[Activity] Visit a food processing facility, distribution center, or industrial farm",
+        "author": ""
+      }
+    ]
+  },
+  "competence_markers": [
+    {
+      "description": "The student can improvise meals from available ingredients without recipes, consistently producing nutritious and good food",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can explain the food supply chain and identify its major vulnerabilities",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student maintains a stocked pantry and can articulate why specific items are kept",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student has completed a seasonal preservation project at meaningful scale (not a single jar — enough to supply the household for weeks)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can feed a household nutritiously under budget constraint and dietary restriction",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can cook confidently in at least three culinary traditions beyond their own",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student has taught a younger student or family member to cook at least three meals",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student has completed the one-month capstone food plan with documented results",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands food as a carrier of cultural identity and can articulate this understanding",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [],
+  "cross_connections": [
+    {
+      "target_id": "2.5",
+      "target_name": "Regenerative Food Systems",
+      "description": "The production side of food. A student working in both 2.3.1 and 2.5 understands the full cycle: grow, preserve, cook, eat."
+    },
+    {
+      "target_id": "2.4.5",
+      "target_name": "Hunting, Fishing & Food Procurement",
+      "description": "Field procurement of food connects to processing and preservation skills developed here."
+    },
+    {
+      "target_id": "4.1",
+      "target_name": "Financial Independence",
+      "description": "Food system understanding connects to economic systems thinking. A student who understands food supply chains understands something fundamental about how economies work."
+    },
+    {
+      "target_id": "1.2.3",
+      "target_name": "Resources & Trade Routes",
+      "description": "The geography of food production and distribution mirrors historical trade route patterns."
+    },
+    {
+      "target_id": "IC1",
+      "target_name": "Character",
+      "description": "Feeding people consistently, generously, and well — especially under constraint — is a daily expression of character."
+    },
+    {
+      "target_id": "IC2",
+      "target_name": "Discipline",
+      "description": "The one-month capstone requires sustained discipline over weeks, not a single burst of effort."
+    }
+  ],
+  "content": {
+    "why_this_matters": "You can cook. You can plan. You can budget. You can preserve. Now the question changes: can you feed a household — reliably, nutritiously, affordably — under real-world constraints? And can you understand the system that puts food on your table well enough to make intelligent decisions when that system is disrupted?\n\nMost people take the food supply chain for granted. Food appears in stores. They buy it. They eat it. They do not think about the chain of farms, processing facilities, distribution networks, and transportation systems that makes this possible — or what happens when any link in that chain breaks. COVID demonstrated this in 2020: empty shelves, supply disruptions, price spikes. Natural disasters demonstrate it regionally every year. The person who understands the food system is not caught off guard by these events. They have reserves, they have skills, and they have the adaptability to feed their household regardless of what the grocery store looks like.\n\nThis packet makes you that person. You will also refine your cooking to the level where you can improvise meals without recipes, cook confidently across cuisines, scale for groups, adapt to dietary restrictions, and teach others. The capstone is a one-month household food plan under constraint — the proof that you can sustain a household.",
+    "what_this_develops": "1. **Advanced cooking technique** — improvisation, multi-cuisine confidence, scaling, adaptation\n2. **Food system understanding** — the global supply chain, vulnerabilities, food security at personal and civilizational scales\n3. **Preservation at scale** — preserving a seasonal harvest, long-term storage planning\n4. **Nutrition under constraint** — feeding a household well when money is tight, ingredients are limited, or dietary restrictions apply\n5. **Food and culture** — food as a carrier of cultural identity, hospitality through food\n6. **Teaching ability** — the capacity to teach a younger student or family member to cook",
+    "core_content": "### Part 1: Advanced Cooking — From Recipes to Improvisation\n\nThe goal is to cook without depending on recipes. This does not mean you never use them — even professional chefs use recipes for unfamiliar dishes. It means you understand cooking well enough to open a refrigerator, assess what is available, and produce a good meal without instructions.\n\n**How to develop this:**\n- **Master the mother sauces.** Five foundational sauces from classical French cooking — bechamel, veloute, espagnole, tomato, and hollandaise — form the basis of most Western sauces. Learn them. Understand what each is built from (roux + liquid, reduction, emulsion). From these five, hundreds of variations follow.\n- **Learn ratios, not recipes.** Bread is roughly 5 parts flour to 3 parts water. Vinaigrette is 3 parts oil to 1 part acid. Pasta dough is 3 parts flour to 2 parts egg. Stock is bones, water, aromatics, time. When you know the ratios, you can make these things from memory.\n- **Cook from what you have.** At least once per week, open the refrigerator and make a meal without a recipe. Use what needs to be used. This is the skill that prevents waste and develops creative confidence.\n- **Scale confidently.** Doubling a recipe is simple arithmetic. Cooking for 12 instead of 4 requires understanding which things scale linearly (ingredients) and which do not (cooking time, seasoning). A pot of soup for 12 does not need three times the salt of a pot for 4. Taste and adjust.\n\n### Part 2: The Food Supply Chain\n\nThe food you eat travels an average of 1,500 miles from farm to plate in the United States. Understanding how it gets there — and what can go wrong — is food literacy at the systems level.\n\n**The chain:** Farm → Processing → Distribution → Retail → Consumer. Each link has its own economics, vulnerabilities, and points of failure.\n\n- **Production:** American agriculture is dominated by large-scale industrial operations. A small number of very large farms produce the majority of food. This is efficient but fragile — a disease outbreak in concentrated animal operations, a drought in a major growing region, or a disruption in the supply of fertilizer or fuel can affect food availability nationally.\n- **Processing:** Most food is processed before it reaches you — milled, pasteurized, packaged, preserved. Processing facilities are concentrated in specific regions. A fire at a single meat processing plant in 2021 (JBS) temporarily reduced U.S. beef processing capacity by over 20%.\n- **Distribution:** Refrigerated trucks and trains move food across the country. Disruptions in transportation — fuel shortages, extreme weather, labor strikes — can empty store shelves in days. Most grocery stores carry only 3-5 days of inventory at any time.\n- **Retail:** Grocery stores operate on thin margins (1-3% profit). They depend on constant restocking from distribution. When supply chains break, the store cannot buffer the disruption.\n\n**What this means for you:** A household that depends entirely on the grocery store for food has a 3-5 day food supply. A household with a stocked pantry, preserved foods, a garden, and the skills to cook from basic ingredients has weeks or months of food security. This is not survivalism. It is common sense.\n\n### Part 3: Preservation at Scale\n\nAt Weathering Storms, you preserved food as a learning exercise. At Standing Ground, you preserve food as a household system.\n\n**Pantry building:** A well-stocked pantry is a buffer against disruption and a foundation for efficient cooking. Stock: rice, dried beans, pasta, canned tomatoes, canned fish, olive oil, flour, sugar, salt, vinegar, spices. These ingredients have long shelf lives and form the basis of hundreds of meals. Build the pantry gradually — add a few items with each shopping trip.\n\n**Seasonal preservation:** When produce is in season, it is abundant and cheap. Buy in quantity and preserve: freeze berries and vegetables, can tomatoes and pickles, make jams, dry herbs, ferment cabbage into sauerkraut. A single day of preservation in August can produce months of stored food.\n\n**Root cellar principles:** Even without a root cellar, understanding the principle matters. Cool, dark, dry storage extends the life of root vegetables (potatoes, carrots, onions, garlic, winter squash) for months. A basement corner, a garage shelf in winter, or a dedicated closet can serve the function.\n\n### Part 4: Nutrition Under Constraint\n\nFeeding a household well when money is tight or ingredients are limited is a skill that matters more than any fine-dining technique.\n\n**Budget-constrained nutrition:** Protein is usually the most expensive component of a meal. Eggs, dried beans, lentils, canned fish, chicken thighs, and ground meat are the most cost-effective protein sources. Rice, potatoes, and oats are the cheapest calorie sources. Cabbage, carrots, onions, and frozen vegetables provide micronutrients at low cost. A nutritionally complete diet is achievable at any budget level — it just requires knowledge and planning.\n\n**Dietary restriction adaptation:** Cooking for someone who cannot eat gluten, dairy, or specific allergens requires understanding what these ingredients do in cooking and what can substitute. Gluten provides structure in baked goods — rice flour, almond flour, and tapioca starch can substitute with recipe adjustments. Dairy provides fat and creaminess — coconut milk, olive oil, and nut-based alternatives can serve similar functions. The cook who understands the function of ingredients, not just the ingredients themselves, can adapt to any restriction.\n\n### Part 5: Food and Culture\n\nFood is identity made edible. Every culture has its staple foods, its celebration foods, its comfort foods, and its rules about what is eaten when and how. Understanding food as culture — not just nutrition — makes you a more complete cook and a more thoughtful person.\n\n**Your own tradition:** What are the foods of your family's cultural heritage? Can you prepare them? If your family has recipes passed down through generations, learn them. Write them down if they exist only in someone's memory. These recipes are a form of inheritance that disappears when no one learns them.\n\n**Other traditions:** By the end of this packet, you should be able to cook confidently in at least three culinary traditions beyond your own. Not approximations — real dishes, with appropriate ingredients and techniques. Cooking another culture's food with respect and skill is one of the most genuine forms of cultural engagement.\n\n**Hospitality:** In nearly every culture, feeding someone is an act of welcome, generosity, and care. The ability to host a meal — plan a menu, prepare the food, set a table, serve graciously, make guests feel welcome — is a social skill as much as a cooking skill.\n\n### Part 6: Teaching Others\n\nThe final proof of mastery is the ability to teach. If you can teach a younger sibling, a friend, or a Stretching Branches student to cook — not just hand them a recipe, but explain technique, diagnose problems, and build their confidence — you have internalized the skill deeply enough to transfer it.\n\nTeaching requires patience, clear explanation, and the ability to watch someone struggle without taking over. These are the same qualities your mentor has been developing in you throughout this curriculum. Now it is your turn.",
+    "formative_practices": ""
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### 1. Improvisation Competence\n**Developing well:** The student opens the refrigerator and produces a balanced, good-tasting meal from what is available. They do not panic when a planned ingredient is missing. They understand flavor principles well enough to combine ingredients intuitively.\n\n**Developing slowly:** The student still depends on recipes for every meal. When ingredients are missing, they cannot adapt.\n\n### 2. Systems Understanding\n**Developing well:** The student can trace common foods through the supply chain and articulate vulnerabilities. They understand why a stocked pantry matters. They connect food security to broader resilience thinking.\n\n**Developing slowly:** The student treats food system knowledge as academic content rather than practical concern.\n\n### 3. Capstone Execution\n**Developing well:** The month-long plan is realistic, adaptive, and documented. Budget is tracked. Nutritional adequacy is demonstrated. Waste is minimized. The student self-evaluates honestly, naming both successes and failures.\n\n**Developing slowly:** The plan exists on paper but breaks down in execution. Documentation is incomplete. The student does not track or does not adapt.",
+    "common_pitfalls": "",
+    "narration_evaluation": ""
+  }
+}

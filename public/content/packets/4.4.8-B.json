@@ -1,1 +1,111 @@
-{"id": "4.4.8-B", "title": "Demonstrated Relationship Competence", "pillar_id": "4.4", "pillar_name": "Relationships, Sexual Integrity & Family Formation", "sub_domain_id": "4.4.8", "sub_domain_name": "Applied Relationship Competence (Capstone)", "tier": "B", "tier_detail": "B (~ages 8–14)", "domain": "Domain 4 — Operational & Social Mastery", "prerequisites": ["4.4.1-B", "4.4.2-B1", "4.4.3-B1", "4.4.5-B", "4.4.7-B"], "books": {"required": [], "suggested": [{"audience": "student", "title": "[Re-Read] Personal journal or narration records from Weathering Storms packets", "author": ""}, {"audience": "mentor", "title": "[For Mentor]", "author": "Christopher Peterson and Martin Seligman"}], "supplementary": []}, "competence_markers": [{"description": "The student maintains healthy, honest friendships — observed over time", "assessment_type": "behavioral"}, {"description": "The student demonstrates biological literacy with comfort and accuracy", "assessment_type": "behavioral"}, {"description": "The student can articulate their emerging masculine or feminine identity", "assessment_type": "behavioral"}, {"description": "The student demonstrates self-governance — imperfect but observably growing", "assessment_type": "behavioral"}, {"description": "The student actively and consistently contributes to their family", "assessment_type": "behavioral"}, {"description": "Growth areas have been identified and a plan for continued development exists", "assessment_type": "behavioral"}], "narration_prompts": [{"prompt": "Describe your friendships.", "detail": "Who are your closest friends? How have you navigated conflict? What have you learned about friendship through Tier B?"}, {"prompt": "How has your understanding of your own body and development changed?", "detail": "Can you discuss these topics comfortably and accurately?"}, {"prompt": "What kind of man or woman are you becoming?", "detail": "What virtues are you cultivating? Where are you strongest, and where do you need the most growth?"}, {"prompt": "Where is self-governance hardest for you?", "detail": "What structures do you have in place? Are you improving?"}, {"prompt": "How do you contribute to your family?", "detail": "What is your role? What would your family say about your contribution?"}], "cross_connections": [{"target_id": "IC1.1-B", "target_name": "Self-Governance", "description": "The self-governance evaluation in this capstone is IC1 applied specifically to the relational domain."}, {"target_id": "IC2", "target_name": "Discipline", "description": "The consistency of contribution, the maintenance of friendships, and the daily practice of self-governance are all discipline — IC2 in relational form."}, {"target_id": "4.4.8-C", "target_name": "Integrated Relational Portfolio", "description": "The Standing Ground capstone builds on this evaluation with the written Relational Philosophy Statement and the readiness assessment."}], "content": {"why_this_matters": "This is not a content packet. This is a capstone — a demonstration that the principles you have studied across 4.4 have actually changed how you live. Knowing the theory of friendship is different from maintaining real friendships. Understanding attachment theory is different from contributing consistently to your family. Being able to describe self-governance is different from governing yourself when no one is watching.\n\nThe capstone at Weathering Storms is behavioral, not academic. It evaluates what you do, not what you know. The question is simple and demanding: does your relational behavior consistently reflect the principles you have been taught?", "what_this_develops": "", "core_content": "", "formative_practices": ""}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### 1. Friendship Competence\n**Developing well:** The student maintains at least two meaningful friendships that have endured through difficulty. They can navigate conflict without ending the friendship. They demonstrate intentional selection — choosing friends based on character, not just proximity or popularity. They show loyalty under social pressure.\n**Developing slowly:** The student's friendships are shallow, frequently disrupted, or based entirely on convenience. They avoid conflict rather than navigating it. They follow social currents rather than making intentional choices.\n**Diagnostic:** Have you observed the student stand by a friend when it cost them something? Have you seen them navigate a genuine disagreement? These are the behavioral markers that matter.\n\n### 2. Biological Literacy\n**Developing well:** The student discusses puberty, development, and reproductive biology with comfort, accuracy, and appropriate seriousness. They do not giggle, avoid, or make crude jokes. They can serve as a resource for younger peers or siblings.\n**Developing slowly:** The student is still uncomfortable with the material — avoidant, embarrassed, or prone to treating it as joke fodder. They cannot discuss the material without significant prompting.\n**Diagnostic:** Ask the student to explain a basic concept from 4.4.2 (such as how puberty works or what hormones do) as if explaining it to a younger child. Comfort and accuracy in this exercise indicate development.\n\n### 3. Emerging Identity\n**Developing well:** The student can articulate, in their own words, what kind of man or woman they are becoming. Their behavior reflects their stated identity — there is coherence between what they say and what they do. They show appropriate respect for the opposite sex.\n**Developing slowly:** The student cannot articulate their emerging identity, or there is significant disconnect between their stated values and their observed behavior. They may parrot back curriculum language without having internalized it.\n**Diagnostic:** Ask: \"What kind of man/woman are you becoming?\" Listen for whether the answer is their own or a recitation. Then compare the answer to what you have observed. Coherence between words and behavior is the key indicator.\n\n### 4. Self-Governance\n**Developing well:** The student demonstrates integrity between public and private behavior. Their screen usage is intentional. They manage emotions with increasing skill. They have accountability structures and use them honestly. When they fail, they acknowledge it rather than hiding it.\n**Developing slowly:** There is significant gap between the student's public persona and their private behavior. Screen usage is compulsive. Emotional responses are poorly managed. Failures are hidden or minimized.\n**Diagnostic:** This is the hardest domain to evaluate because the most important behavior happens when you are not watching. Indicators: Does the student voluntarily report struggles or failures? Do their accountability partners report honest engagement? Is there consistency between what you observe and what the student self-reports?\n\n### 5. Family Contribution\n**Developing well:** The student consistently performs household tasks without reminders. They are kind to siblings. They notice family members' needs and respond. They participate in family activities willingly. They can describe their family's story and their role within it.\n**Developing slowly:** The student requires constant reminding for household tasks. Sibling relationships are characterized by conflict rather than care. Family activities are tolerated rather than embraced. The student sees themselves primarily as a recipient rather than a contributor.\n**Diagnostic:** You live with this student (or observe them frequently in the household). The evidence is daily. The question is not \"Has the student ever helped?\" but \"Is contribution a consistent pattern?\"", "common_pitfalls": "- **The student who self-assesses too harshly.** Some students are their own worst critics. Correct the distortion: \"You are being harder on yourself than the evidence supports. Let me tell you what I have actually observed.\"\n- **The student who self-assesses too generously.** Some students overestimate their development. Correct this gently but clearly: \"I appreciate your confidence, but what I have observed is a bit different. Let me share what I have seen.\"\n- **The student who becomes defensive.** If honest feedback triggers defensiveness, note it: \"The way you are responding right now — that defensiveness — is actually relevant to what we are discussing. Can you take a breath and hear what I am saying?\"", "narration_evaluation": ""}}
+{
+  "id": "4.4.8-B",
+  "title": "Demonstrated Relationship Competence",
+  "pillar_id": "4.4",
+  "pillar_name": "Relationships, Sexual Integrity & Family Formation",
+  "sub_domain_id": "4.4.8",
+  "sub_domain_name": "Applied Relationship Competence (Capstone)",
+  "tier": "B",
+  "tier_detail": "B (~ages 8–14)",
+  "domain": "Domain 4 — Operational & Social Mastery",
+  "prerequisites": [
+    "4.4.1-B",
+    "4.4.2-B1",
+    "4.4.3-B1",
+    "4.4.5-B",
+    "4.4.7-B"
+  ],
+  "books": {
+    "required": [],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[Re-Read] Personal journal or narration records from Weathering Storms packets",
+        "author": ""
+      },
+      {
+        "audience": "mentor",
+        "title": "[For Mentor] Character Strengths and Virtues",
+        "author": "Christopher Peterson and Martin Seligman"
+      }
+    ],
+    "supplementary": []
+  },
+  "competence_markers": [
+    {
+      "description": "The student maintains healthy, honest friendships — observed over time",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student demonstrates biological literacy with comfort and accuracy",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can articulate their emerging masculine or feminine identity",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student demonstrates self-governance — imperfect but observably growing",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student actively and consistently contributes to their family",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "Growth areas have been identified and a plan for continued development exists",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [
+    {
+      "prompt": "Describe your friendships.",
+      "detail": "Who are your closest friends? How have you navigated conflict? What have you learned about friendship through Tier B?"
+    },
+    {
+      "prompt": "How has your understanding of your own body and development changed?",
+      "detail": "Can you discuss these topics comfortably and accurately?"
+    },
+    {
+      "prompt": "What kind of man or woman are you becoming?",
+      "detail": "What virtues are you cultivating? Where are you strongest, and where do you need the most growth?"
+    },
+    {
+      "prompt": "Where is self-governance hardest for you?",
+      "detail": "What structures do you have in place? Are you improving?"
+    },
+    {
+      "prompt": "How do you contribute to your family?",
+      "detail": "What is your role? What would your family say about your contribution?"
+    }
+  ],
+  "cross_connections": [
+    {
+      "target_id": "IC1.1-B",
+      "target_name": "Self-Governance",
+      "description": "The self-governance evaluation in this capstone is IC1 applied specifically to the relational domain."
+    },
+    {
+      "target_id": "IC2",
+      "target_name": "Discipline",
+      "description": "The consistency of contribution, the maintenance of friendships, and the daily practice of self-governance are all discipline — IC2 in relational form."
+    },
+    {
+      "target_id": "4.4.8-C",
+      "target_name": "Integrated Relational Portfolio",
+      "description": "The Standing Ground capstone builds on this evaluation with the written Relational Philosophy Statement and the readiness assessment."
+    }
+  ],
+  "content": {
+    "why_this_matters": "This is not a content packet. This is a capstone — a demonstration that the principles you have studied across 4.4 have actually changed how you live. Knowing the theory of friendship is different from maintaining real friendships. Understanding attachment theory is different from contributing consistently to your family. Being able to describe self-governance is different from governing yourself when no one is watching.\n\nThe capstone at Weathering Storms is behavioral, not academic. It evaluates what you do, not what you know. The question is simple and demanding: does your relational behavior consistently reflect the principles you have been taught?",
+    "what_this_develops": "",
+    "core_content": "",
+    "formative_practices": ""
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### 1. Friendship Competence\n**Developing well:** The student maintains at least two meaningful friendships that have endured through difficulty. They can navigate conflict without ending the friendship. They demonstrate intentional selection — choosing friends based on character, not just proximity or popularity. They show loyalty under social pressure.\n**Developing slowly:** The student's friendships are shallow, frequently disrupted, or based entirely on convenience. They avoid conflict rather than navigating it. They follow social currents rather than making intentional choices.\n**Diagnostic:** Have you observed the student stand by a friend when it cost them something? Have you seen them navigate a genuine disagreement? These are the behavioral markers that matter.\n\n### 2. Biological Literacy\n**Developing well:** The student discusses puberty, development, and reproductive biology with comfort, accuracy, and appropriate seriousness. They do not giggle, avoid, or make crude jokes. They can serve as a resource for younger peers or siblings.\n**Developing slowly:** The student is still uncomfortable with the material — avoidant, embarrassed, or prone to treating it as joke fodder. They cannot discuss the material without significant prompting.\n**Diagnostic:** Ask the student to explain a basic concept from 4.4.2 (such as how puberty works or what hormones do) as if explaining it to a younger child. Comfort and accuracy in this exercise indicate development.\n\n### 3. Emerging Identity\n**Developing well:** The student can articulate, in their own words, what kind of man or woman they are becoming. Their behavior reflects their stated identity — there is coherence between what they say and what they do. They show appropriate respect for the opposite sex.\n**Developing slowly:** The student cannot articulate their emerging identity, or there is significant disconnect between their stated values and their observed behavior. They may parrot back curriculum language without having internalized it.\n**Diagnostic:** Ask: \"What kind of man/woman are you becoming?\" Listen for whether the answer is their own or a recitation. Then compare the answer to what you have observed. Coherence between words and behavior is the key indicator.\n\n### 4. Self-Governance\n**Developing well:** The student demonstrates integrity between public and private behavior. Their screen usage is intentional. They manage emotions with increasing skill. They have accountability structures and use them honestly. When they fail, they acknowledge it rather than hiding it.\n**Developing slowly:** There is significant gap between the student's public persona and their private behavior. Screen usage is compulsive. Emotional responses are poorly managed. Failures are hidden or minimized.\n**Diagnostic:** This is the hardest domain to evaluate because the most important behavior happens when you are not watching. Indicators: Does the student voluntarily report struggles or failures? Do their accountability partners report honest engagement? Is there consistency between what you observe and what the student self-reports?\n\n### 5. Family Contribution\n**Developing well:** The student consistently performs household tasks without reminders. They are kind to siblings. They notice family members' needs and respond. They participate in family activities willingly. They can describe their family's story and their role within it.\n**Developing slowly:** The student requires constant reminding for household tasks. Sibling relationships are characterized by conflict rather than care. Family activities are tolerated rather than embraced. The student sees themselves primarily as a recipient rather than a contributor.\n**Diagnostic:** You live with this student (or observe them frequently in the household). The evidence is daily. The question is not \"Has the student ever helped?\" but \"Is contribution a consistent pattern?\"",
+    "common_pitfalls": "- **The student who self-assesses too harshly.** Some students are their own worst critics. Correct the distortion: \"You are being harder on yourself than the evidence supports. Let me tell you what I have actually observed.\"\n- **The student who self-assesses too generously.** Some students overestimate their development. Correct this gently but clearly: \"I appreciate your confidence, but what I have observed is a bit different. Let me share what I have seen.\"\n- **The student who becomes defensive.** If honest feedback triggers defensiveness, note it: \"The way you are responding right now — that defensiveness — is actually relevant to what we are discussing. Can you take a breath and hear what I am saying?\"",
+    "narration_evaluation": ""
+  }
+}

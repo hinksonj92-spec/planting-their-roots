@@ -1,1 +1,167 @@
-{"id": "1.5.1-B1", "title": "Computational Fluency & Mental Arithmetic", "pillar_id": "1.5", "pillar_name": "Quantitative Sovereignty", "sub_domain_id": "1.5.1", "sub_domain_name": "Numerical Literacy & Estimation", "tier": "B", "tier_detail": "B (~ages 7–13)", "domain": "Domain 1 — Knowing the World", "prerequisites": ["1.5.1-A5", "IC1.1-B1"], "books": {"required": [{"audience": "student", "title": "[Curriculum Spine]", "author": ""}, {"audience": "student", "title": "A scientific calculator", "author": ""}, {"audience": "student", "title": "A notebook for mental math practice", "author": ""}], "suggested": [{"audience": "student", "title": "[Book]", "author": "Arthur Benjamin and Michael Shermer"}, {"audience": "student", "title": "[Book]", "author": "Hans Magnus Enzensberger"}, {"audience": "student", "title": "[Curriculum Support]", "author": ""}, {"audience": "student", "title": "[Online] Khan Academy — Arithmetic and Pre-Algebra sections", "author": ""}], "supplementary": [{"audience": "mentor", "title": "[For Mentor]", "author": "Liping Ma"}, {"audience": "student", "title": "A spreadsheet program (Google Sheets or Excel)", "author": ""}]}, "competence_markers": [{"description": "The student can perform mental arithmetic with two- and three-digit numbers using strategies (not just counting)", "assessment_type": "behavioral"}, {"description": "The student can add, subtract, multiply, and divide fractions with understanding", "assessment_type": "behavioral"}, {"description": "The student can calculate percentages mentally using the 10% method", "assessment_type": "behavioral"}, {"description": "The student understands and can apply ratios, rates, and proportions to real problems", "assessment_type": "behavioral"}, {"description": "The student understands compounding and can apply the Rule of 72", "assessment_type": "behavioral"}, {"description": "The student can convert units within and between metric and imperial systems", "assessment_type": "behavioral"}, {"description": "The student can perform Fermi estimation — breaking an unknown into estimable components", "assessment_type": "behavioral"}, {"description": "The student uses estimation as a check on all calculations, including fraction and decimal operations", "assessment_type": "behavioral"}], "narration_prompts": [{"prompt": "Show me how you would calculate 15% of $68 in your head.", "detail": "Walk me through each step."}, {"prompt": "Explain the Rule of 72.", "detail": "Why is it important? Give me two examples — one where compounding helps you and one where it hurts you."}, {"prompt": "What is a ratio?", "detail": "How is it different from a fraction? Give me a real-world example."}, {"prompt": "Estimate how many breaths you take in a year.", "detail": "Walk me through your reasoning step by step. (This is a Fermi estimation.)"}, {"prompt": "Explain how to divide fractions.", "detail": "Why does \"invert and multiply\" work? Show me with a picture or model."}, {"prompt": "Convert your height to centimeters, your weight to kilograms, and the distance to the nearest city to kilometers.", "detail": "How did you do each conversion?"}], "cross_connections": [{"target_id": "4.1", "target_name": "Financial Independence", "description": "Compounding, percentages, and rates are the mathematical backbone of all financial reasoning. This packet provides the tools; 4.1 provides the financial context."}, {"target_id": "1.6", "target_name": "Science", "description": "Unit conversions, rates, and proportional reasoning are essential for science. Speed, density, concentration, and dosage are all rates."}, {"target_id": "2.3.1", "target_name": "Kitchen Skills", "description": "Scaling recipes, calculating nutrition, and unit pricing are fraction and ratio applications."}, {"target_id": "2.4", "target_name": "Engineering & Making", "description": "Material calculations, unit conversions, and estimation are daily requirements in any building project."}, {"target_id": "1.5.5-B", "target_name": "Probability & Statistics", "description": "The percentage and ratio skills developed here feed directly into probability and data analysis."}], "content": {"why_this_matters": "You have built the foundations: counting, arithmetic, place value, fractions, decimals, and estimation. Now you develop fluency — the ability to calculate quickly, accurately, and flexibly, using mental strategies when possible and written methods when necessary.\n\nMental arithmetic is not about being a human calculator. It is about having fast enough access to quantitative reasoning that you can use it in real time — in conversations, in stores, in decisions. A person who needs paper and pencil to figure out a 20% tip, or who cannot tell whether a claimed statistic is plausible without a calculator, has a bottleneck between their brain and their numbers. This packet removes that bottleneck.\n\nThis packet also develops sophisticated fraction and decimal operations, percentage calculations, ratio and proportion reasoning, and the rule of 72 for compound growth estimation. These are the quantitative tools that an educated person uses daily — whether they realize it or not.", "what_this_develops": "1. **Mental arithmetic fluency** — fast, flexible calculation without paper or calculator\n2. **Fraction operations** — adding, subtracting, multiplying, and dividing fractions with unlike denominators\n3. **Decimal operations** — fluent calculation with decimals\n4. **Percentage calculations** — finding percentages, percentage increase/decrease, percentage of a whole\n5. **Ratio and proportion** — the quantitative language of comparison\n6. **Rates** — speed, price per unit, calories per serving, any quantity-per-quantity measurement\n7. **Compounding and the Rule of 72** — the most important quantitative concept for financial and growth reasoning\n8. **Unit conversions** — metric and imperial, moving between systems\n9. **Order-of-magnitude estimation** — rough calculation across many scales", "core_content": "### Part 1: Mental Arithmetic Strategies\n\nMental math is not about memorizing more facts. It is about using the structure of numbers to calculate efficiently.\n\n**Left-to-right calculation:** School teaches right-to-left (start with the ones). Mental math works better left-to-right (start with the biggest place values) because you get the estimate first.\n\n67 + 45: Think \"60 + 40 = 100, then 7 + 5 = 12, so 112.\" You had the approximate answer (100) immediately.\n\n**Compensation:** Adjust one number to make it easier, then compensate.\n- 298 + 157: Think \"300 + 157 = 457, minus 2 = 455.\" (Adding 2 to 298 to make 300, then subtracting 2.)\n- 47 x 5: Think \"47 x 10 ÷ 2 = 470 ÷ 2 = 235.\" (Multiplying by 10 and dividing by 2 is the same as multiplying by 5.)\n\n**Factoring for multiplication:**\n- 15 x 12: Think \"15 x 4 x 3 = 60 x 3 = 180.\" Or \"15 x 12 = 15 x 10 + 15 x 2 = 150 + 30 = 180.\"\n- 25 x 16: Think \"25 x 4 x 4 = 100 x 4 = 400.\"\n\n**The 10% method for percentages:**\nFind 10% first (move the decimal point one place left), then build from there.\n- 10% of $85 = $8.50\n- 20% of $85 = $17.00 (double the 10%)\n- 15% of $85 = $12.75 (10% + half of 10%)\n- 5% of $85 = $4.25 (half of 10%)\n- 1% of $85 = $0.85 (move the decimal two places left)\n\n**Practice:** Do 10–15 minutes of mental arithmetic daily. Start with addition and subtraction of two-digit numbers, progress to multiplication, then percentages. Use the calculator to check — not to solve.", "formative_practices": "### Study 1: Daily Mental Math [Ongoing — 10–15 minutes daily]\nPractice mental arithmetic using the strategies from Part 1. Gradually increase difficulty. Track progress.\n\n### Study 2: The Compounding Investigation [Mid-Packet]\nUsing a spreadsheet, model $1,000 invested at 3%, 6%, 9%, and 12% over 40 years. Create charts showing the growth curves. Write about what you observe.\n\n### Study 3: Unit Price Comparison [Ongoing]\nCompare unit prices of at least five products per grocery trip. Record findings. Over time, develop intuition for what things \"should\" cost.\n\n### Study 4: Fermi Estimation Weekly Challenge [Ongoing]\nOne Fermi estimation per week. Write up the reasoning, not just the answer. Share and discuss.\n\n### Study 5: Fraction and Percentage Real-World Application [Ongoing]\nFind fractions and percentages in news, cooking, sports, and daily life. Calculate with them. Explain what they mean."}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### 1. Mental Arithmetic\n**Developing well:** The student uses multiple mental strategies flexibly. They can calculate common percentages, do two-digit multiplication, and handle fraction estimation mentally. They explain strategies clearly.\n\n**Developing slowly:** Relies heavily on written procedures for calculations that could be done mentally. Cannot explain their calculation methods.\n\n### 2. Fraction Operations\n**Developing well:** All four operations with fractions are understood and can be performed. The student can explain why each procedure works, not just how to execute it.\n\n**Developing slowly:** Can execute procedures but makes frequent errors, especially with unlike denominators and division. Cannot explain why \"invert and multiply\" works.\n\n### 3. Compounding Understanding\n**Developing well:** The student can explain compounding, use the Rule of 72, and describe scenarios where compounding matters (savings, debt, growth). Can build a simple compound growth model in a spreadsheet.\n\n**Developing slowly:** Treats compounding as a formula to memorize rather than a concept to understand. Cannot apply the Rule of 72 to a novel situation.\n\n### 4. Order-of-Magnitude Estimation\n**Developing well:** The student can approach Fermi estimation problems systematically, breaking unknowns into estimable pieces. Reasoning is clear even if the answer is rough.\n\n**Developing slowly:** Guesses randomly at Fermi problems or says \"I have no idea.\" Cannot break a big question into smaller questions.", "common_pitfalls": "### Calculator Dependence\nThe calculator is a checking tool, not a calculating tool. If the student reaches for the calculator before thinking, the dependency is forming. Establish the rule: think first, check after.\n\n### Fraction Procedures Without Understanding\n\"Invert and multiply\" is efficient but opaque. If the student cannot explain why it works (dividing by a fraction asks \"how many of this fraction fit into that amount?\"), the procedure is memorized but not learned. Return to visual models.\n\n### Rushing Past Compounding\nCompounding deserves a week, not a day. Build multiple models. Discuss multiple contexts. The goal is visceral understanding, not formula mastery.", "narration_evaluation": ""}}
+{
+  "id": "1.5.1-B1",
+  "title": "Computational Fluency & Mental Arithmetic",
+  "pillar_id": "1.5",
+  "pillar_name": "Quantitative Sovereignty",
+  "sub_domain_id": "1.5.1",
+  "sub_domain_name": "Numerical Literacy & Estimation",
+  "tier": "B",
+  "tier_detail": "B (~ages 7–13)",
+  "domain": "Domain 1 — Knowing the World",
+  "prerequisites": [
+    "1.5.1-A5",
+    "IC1.1-B1"
+  ],
+  "books": {
+    "required": [
+      {
+        "audience": "student",
+        "title": "[Curriculum Spine] Singapore Math — Dimensions Math Grades 5–6 / Primary Mathematics 5A–6B",
+        "author": "** or **[Alternative] *Art of Problem Solving — Prealgebra*"
+      },
+      {
+        "audience": "student",
+        "title": "A scientific calculator",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "A notebook for mental math practice",
+        "author": ""
+      }
+    ],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[Book] Secrets of Mental Math",
+        "author": "Arthur Benjamin and Michael Shermer"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] The Number Devil",
+        "author": "Hans Magnus Enzensberger"
+      },
+      {
+        "audience": "student",
+        "title": "[Curriculum Support] Math Mammoth — Ratios, Proportions & Percent",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Online] Khan Academy — Arithmetic and Pre-Algebra sections",
+        "author": ""
+      }
+    ],
+    "supplementary": [
+      {
+        "audience": "mentor",
+        "title": "[For Mentor] Knowing and Teaching Elementary Mathematics",
+        "author": "Liping Ma"
+      },
+      {
+        "audience": "student",
+        "title": "A spreadsheet program (Google Sheets or Excel)",
+        "author": ""
+      }
+    ]
+  },
+  "competence_markers": [
+    {
+      "description": "The student can perform mental arithmetic with two- and three-digit numbers using strategies (not just counting)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can add, subtract, multiply, and divide fractions with understanding",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can calculate percentages mentally using the 10% method",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands and can apply ratios, rates, and proportions to real problems",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands compounding and can apply the Rule of 72",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can convert units within and between metric and imperial systems",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can perform Fermi estimation — breaking an unknown into estimable components",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student uses estimation as a check on all calculations, including fraction and decimal operations",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [
+    {
+      "prompt": "Show me how you would calculate 15% of $68 in your head.",
+      "detail": "Walk me through each step."
+    },
+    {
+      "prompt": "Explain the Rule of 72.",
+      "detail": "Why is it important? Give me two examples — one where compounding helps you and one where it hurts you."
+    },
+    {
+      "prompt": "What is a ratio?",
+      "detail": "How is it different from a fraction? Give me a real-world example."
+    },
+    {
+      "prompt": "Estimate how many breaths you take in a year.",
+      "detail": "Walk me through your reasoning step by step. (This is a Fermi estimation.)"
+    },
+    {
+      "prompt": "Explain how to divide fractions.",
+      "detail": "Why does \"invert and multiply\" work? Show me with a picture or model."
+    },
+    {
+      "prompt": "Convert your height to centimeters, your weight to kilograms, and the distance to the nearest city to kilometers.",
+      "detail": "How did you do each conversion?"
+    }
+  ],
+  "cross_connections": [
+    {
+      "target_id": "4.1",
+      "target_name": "Financial Independence",
+      "description": "Compounding, percentages, and rates are the mathematical backbone of all financial reasoning. This packet provides the tools; 4.1 provides the financial context."
+    },
+    {
+      "target_id": "1.6",
+      "target_name": "Science",
+      "description": "Unit conversions, rates, and proportional reasoning are essential for science. Speed, density, concentration, and dosage are all rates."
+    },
+    {
+      "target_id": "2.3.1",
+      "target_name": "Kitchen Skills",
+      "description": "Scaling recipes, calculating nutrition, and unit pricing are fraction and ratio applications."
+    },
+    {
+      "target_id": "2.4",
+      "target_name": "Engineering & Making",
+      "description": "Material calculations, unit conversions, and estimation are daily requirements in any building project."
+    },
+    {
+      "target_id": "1.5.5-B",
+      "target_name": "Probability & Statistics",
+      "description": "The percentage and ratio skills developed here feed directly into probability and data analysis."
+    }
+  ],
+  "content": {
+    "why_this_matters": "You have built the foundations: counting, arithmetic, place value, fractions, decimals, and estimation. Now you develop fluency — the ability to calculate quickly, accurately, and flexibly, using mental strategies when possible and written methods when necessary.\n\nMental arithmetic is not about being a human calculator. It is about having fast enough access to quantitative reasoning that you can use it in real time — in conversations, in stores, in decisions. A person who needs paper and pencil to figure out a 20% tip, or who cannot tell whether a claimed statistic is plausible without a calculator, has a bottleneck between their brain and their numbers. This packet removes that bottleneck.\n\nThis packet also develops sophisticated fraction and decimal operations, percentage calculations, ratio and proportion reasoning, and the rule of 72 for compound growth estimation. These are the quantitative tools that an educated person uses daily — whether they realize it or not.",
+    "what_this_develops": "1. **Mental arithmetic fluency** — fast, flexible calculation without paper or calculator\n2. **Fraction operations** — adding, subtracting, multiplying, and dividing fractions with unlike denominators\n3. **Decimal operations** — fluent calculation with decimals\n4. **Percentage calculations** — finding percentages, percentage increase/decrease, percentage of a whole\n5. **Ratio and proportion** — the quantitative language of comparison\n6. **Rates** — speed, price per unit, calories per serving, any quantity-per-quantity measurement\n7. **Compounding and the Rule of 72** — the most important quantitative concept for financial and growth reasoning\n8. **Unit conversions** — metric and imperial, moving between systems\n9. **Order-of-magnitude estimation** — rough calculation across many scales",
+    "core_content": "### Part 1: Mental Arithmetic Strategies\n\nMental math is not about memorizing more facts. It is about using the structure of numbers to calculate efficiently.\n\n**Left-to-right calculation:** School teaches right-to-left (start with the ones). Mental math works better left-to-right (start with the biggest place values) because you get the estimate first.\n\n67 + 45: Think \"60 + 40 = 100, then 7 + 5 = 12, so 112.\" You had the approximate answer (100) immediately.\n\n**Compensation:** Adjust one number to make it easier, then compensate.\n- 298 + 157: Think \"300 + 157 = 457, minus 2 = 455.\" (Adding 2 to 298 to make 300, then subtracting 2.)\n- 47 x 5: Think \"47 x 10 ÷ 2 = 470 ÷ 2 = 235.\" (Multiplying by 10 and dividing by 2 is the same as multiplying by 5.)\n\n**Factoring for multiplication:**\n- 15 x 12: Think \"15 x 4 x 3 = 60 x 3 = 180.\" Or \"15 x 12 = 15 x 10 + 15 x 2 = 150 + 30 = 180.\"\n- 25 x 16: Think \"25 x 4 x 4 = 100 x 4 = 400.\"\n\n**The 10% method for percentages:**\nFind 10% first (move the decimal point one place left), then build from there.\n- 10% of $85 = $8.50\n- 20% of $85 = $17.00 (double the 10%)\n- 15% of $85 = $12.75 (10% + half of 10%)\n- 5% of $85 = $4.25 (half of 10%)\n- 1% of $85 = $0.85 (move the decimal two places left)\n\n**Practice:** Do 10–15 minutes of mental arithmetic daily. Start with addition and subtraction of two-digit numbers, progress to multiplication, then percentages. Use the calculator to check — not to solve.",
+    "formative_practices": "### Study 1: Daily Mental Math [Ongoing — 10–15 minutes daily]\nPractice mental arithmetic using the strategies from Part 1. Gradually increase difficulty. Track progress.\n\n### Study 2: The Compounding Investigation [Mid-Packet]\nUsing a spreadsheet, model $1,000 invested at 3%, 6%, 9%, and 12% over 40 years. Create charts showing the growth curves. Write about what you observe.\n\n### Study 3: Unit Price Comparison [Ongoing]\nCompare unit prices of at least five products per grocery trip. Record findings. Over time, develop intuition for what things \"should\" cost.\n\n### Study 4: Fermi Estimation Weekly Challenge [Ongoing]\nOne Fermi estimation per week. Write up the reasoning, not just the answer. Share and discuss.\n\n### Study 5: Fraction and Percentage Real-World Application [Ongoing]\nFind fractions and percentages in news, cooking, sports, and daily life. Calculate with them. Explain what they mean."
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### 1. Mental Arithmetic\n**Developing well:** The student uses multiple mental strategies flexibly. They can calculate common percentages, do two-digit multiplication, and handle fraction estimation mentally. They explain strategies clearly.\n\n**Developing slowly:** Relies heavily on written procedures for calculations that could be done mentally. Cannot explain their calculation methods.\n\n### 2. Fraction Operations\n**Developing well:** All four operations with fractions are understood and can be performed. The student can explain why each procedure works, not just how to execute it.\n\n**Developing slowly:** Can execute procedures but makes frequent errors, especially with unlike denominators and division. Cannot explain why \"invert and multiply\" works.\n\n### 3. Compounding Understanding\n**Developing well:** The student can explain compounding, use the Rule of 72, and describe scenarios where compounding matters (savings, debt, growth). Can build a simple compound growth model in a spreadsheet.\n\n**Developing slowly:** Treats compounding as a formula to memorize rather than a concept to understand. Cannot apply the Rule of 72 to a novel situation.\n\n### 4. Order-of-Magnitude Estimation\n**Developing well:** The student can approach Fermi estimation problems systematically, breaking unknowns into estimable pieces. Reasoning is clear even if the answer is rough.\n\n**Developing slowly:** Guesses randomly at Fermi problems or says \"I have no idea.\" Cannot break a big question into smaller questions.",
+    "common_pitfalls": "### Calculator Dependence\nThe calculator is a checking tool, not a calculating tool. If the student reaches for the calculator before thinking, the dependency is forming. Establish the rule: think first, check after.\n\n### Fraction Procedures Without Understanding\n\"Invert and multiply\" is efficient but opaque. If the student cannot explain why it works (dividing by a fraction asks \"how many of this fraction fit into that amount?\"), the procedure is memorized but not learned. Return to visual models.\n\n### Rushing Past Compounding\nCompounding deserves a week, not a day. Build multiple models. Discuss multiple contexts. The goal is visceral understanding, not formula mastery.",
+    "narration_evaluation": ""
+  }
+}

@@ -1,1 +1,182 @@
-{"id": "1.5.1-A4", "title": "Multiplication & Division Foundations", "pillar_id": "1.5", "pillar_name": "Quantitative Sovereignty", "sub_domain_id": "1.5.1", "sub_domain_name": "Numerical Literacy & Estimation", "tier": "A", "tier_detail": "A (~ages 4–9)", "domain": "Domain 1 — Knowing the World", "prerequisites": ["1.5.1-A3", "IC1.1-A1"], "books": {"required": [{"audience": "student", "title": "Physical objects for grouping", "author": ""}, {"audience": "student", "title": "[Curriculum Spine]", "author": ""}, {"audience": "student", "title": "Grid paper", "author": ""}, {"audience": "student", "title": "A multiplication chart (up to 12 x 12)", "author": ""}, {"audience": "student", "title": "Measuring tape and a ruler", "author": ""}], "suggested": [{"audience": "student", "title": "[Read Aloud]", "author": "Paul Giganti Jr."}, {"audience": "student", "title": "[Read Aloud]", "author": "Greg Tang"}, {"audience": "student", "title": "[Game]", "author": ""}, {"audience": "student", "title": "[Curriculum Support]", "author": "Kate Snow"}, {"audience": "student", "title": "[Game]", "author": ""}], "supplementary": [{"audience": "mentor", "title": "[For Mentor]", "author": "Marilyn Burns"}, {"audience": "student", "title": "Cuisenaire rods", "author": ""}]}, "competence_markers": [{"description": "The student understands multiplication as equal groups, arrays, repeated addition, and scaling", "assessment_type": "behavioral"}, {"description": "The student understands division as fair sharing and grouping", "assessment_type": "behavioral"}, {"description": "The student can demonstrate the inverse relationship between multiplication and division through fact families", "assessment_type": "behavioral"}, {"description": "The student knows the multiplication table through 10x10 with understanding (strategies, not just memorization)", "assessment_type": "behavioral"}, {"description": "The student is developing fluency with multiplication facts (reliable access, moving toward automaticity)", "assessment_type": "behavioral"}, {"description": "The student understands remainders in division and can interpret them in context", "assessment_type": "behavioral"}, {"description": "The student estimates products before calculating", "assessment_type": "behavioral"}, {"description": "The student can apply multiplication and division to real-world problems: area, scaling, unit pricing", "assessment_type": "behavioral"}, {"description": "The student can explain their reasoning, not just produce answers", "assessment_type": "behavioral"}], "narration_prompts": [{"prompt": "What does 6 x 4 mean?", "detail": "Show me with objects. Explain it in at least two ways (equal groups, array, repeated addition)."}, {"prompt": "How are multiplication and division related?", "detail": "Give me a fact family and explain how all four facts connect."}, {"prompt": "How would you estimate 8 x 23 without calculating exactly?", "detail": "Walk me through your thinking."}, {"prompt": "Tell me about a time this week when multiplication or division was useful in real life.", "detail": "5. **What patterns do you see in the multiplication table?** Pick your favorite pattern and explain it."}, {"prompt": "What is a remainder?", "detail": "Give me an example of division with a remainder and explain what the remainder means in a real situation."}], "cross_connections": [{"target_id": "2.3.1-A", "target_name": "Kitchen Skills", "description": "Scaling recipes is multiplication; unit pricing is division. The kitchen remains the best math classroom."}, {"target_id": "1.5.3-A1", "target_name": "Measurement Tools & Physical Dimensions", "description": "Area calculation (length x width) is multiplication applied to space."}, {"target_id": "4.1-A", "target_name": "Financial Literacy", "description": "Unit pricing, bulk buying, saving over time — all multiplication and division."}, {"target_id": "2.4-A", "target_name": "Engineering & Making", "description": "Calculating materials for building projects (number of boards, number of screws) is multiplication and division in action."}, {"target_id": "1.5.1-A5", "target_name": "Fractions, Decimals & Applied Estimation", "description": "Fractions are intimately connected to division (1/4 of 20 = 20 ÷ 4 = 5)."}], "content": {"why_this_matters": "You already know addition: combining groups. Multiplication is a special kind of addition — adding the same number over and over. If you have 4 bags with 6 apples in each bag, you could add 6 + 6 + 6 + 6 = 24. Or you could multiply: 4 x 6 = 24. Multiplication is a shortcut for repeated addition, and it is one of the most useful tools in arithmetic because the real world is full of equal groups.\n\nDivision is the inverse of multiplication, just as subtraction is the inverse of addition. If you have 24 apples and want to share them equally among 4 people, each person gets 6. That is division: 24 ÷ 4 = 6. Division answers the question: if I split this into equal groups, how many are in each group? Or: how many groups of this size can I make?\n\nTogether, multiplication and division are how you handle equal groups, rates, areas, and scaling — all of which appear constantly in real life. The price of 7 items at $3 each. The number of tiles needed to cover a floor. The servings in a recipe doubled for a party. The miles you travel in 4 hours at 55 miles per hour. All multiplication and division.\n\nAnd as always: estimate first. If someone says 8 x 7 = 63, your estimation sense should tell you: \"8 times 7 should be close to 8 times 8 which is 64, so 63 is probably wrong but close — let me check.\" (The correct answer is 56.)", "what_this_develops": "1. **Multiplication as repeated addition and as equal groups** — the conceptual foundation\n2. **The multiplication table** — not memorized by rote but built through understanding of patterns\n3. **The commutative property** — 3 x 7 = 7 x 3, and why\n4. **Division as the inverse of multiplication** — fair sharing and grouping\n5. **The relationship between multiplication and division** — fact families again\n6. **Estimation with multiplication** — before calculating, estimate the product\n7. **Real-world applications** — area, arrays, rates, scaling recipes, unit pricing", "core_content": "### Part 1: What Multiplication Really Means\n\nMultiplication has several meanings, all connected:\n\n**Equal groups.** 4 groups of 3 means: 3 + 3 + 3 + 3 = 12. We write this as 4 x 3 = 12. The first number tells how many groups. The second number tells how many are in each group.\n\n**Practice:** Make 4 groups of 3 beans. Count the total. Now make 3 groups of 4 beans. Count the total. You get 12 both ways. This is the commutative property: 4 x 3 = 3 x 4. The order does not change the result.\n\n**Arrays.** An array is a rectangular arrangement of rows and columns. 4 rows of 3 dots:\n```\n● ● ●\n● ● ●\n● ● ●\n● ● ●\n```\nCount them: 12. This is 4 x 3 = 12. Now turn the page sideways — you see 3 rows of 4. Same dots, same total. This is why 4 x 3 = 3 x 4 — because the same array can be read either way.\n\n**Practice:** Draw arrays on grid paper for different multiplication facts. 5 x 6 is 5 rows of 6 squares. Color them in. Count them. The array makes multiplication visible.\n\n**Repeated addition.** 5 x 4 means 4 + 4 + 4 + 4 + 4 = 20. Every multiplication is repeated addition, but multiplication is the more efficient notation. You would not want to write 100 x 3 as 3 + 3 + 3 + 3... one hundred times.\n\n**Scaling.** If you have a piece of string 5 inches long and you want one 3 times as long, you need 3 x 5 = 15 inches. This is multiplication as scaling — making something larger by a factor.", "formative_practices": "### Study 1: Array Art [Early in the Packet]\nCreate artwork using arrays on grid paper. Each array represents a multiplication fact. Label them. Build a poster of \"Array City\" where buildings are arrays of different sizes.\n\n### Study 2: The Multiplication Table Build [Ongoing]\nGradually fill in a blank multiplication table using the strategies from Part 2. The goal is for the student to fill it in through understanding, not copying.\n\n### Study 3: Kitchen Multiplication [Ongoing]\nScale recipes up and down. Calculate unit prices at the grocery store. Measure and calculate area in cooking (the surface area of a baking sheet, the number of cookies that fit in rows).\n\n### Study 4: Real-World Division [Mid-Packet]\nFind division problems in daily life: sharing snacks equally, dividing a collection into groups, figuring out how many trips are needed to carry supplies, calculating how many weeks until a date.\n\n### Study 5: The Commutative Property Investigation [Mid-Packet]\nIs 3 x 7 really the same as 7 x 3? Build both arrays. Count both groups. The student proves the commutative property to themselves through physical evidence."}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### 1. Conceptual Understanding of Multiplication\n**Developing well:** The student can represent any multiplication fact in multiple ways: as equal groups, as an array, as repeated addition, and as a scaling statement. They understand the commutative property and can explain why 3 x 7 = 7 x 3 using an array.\n\n**Developing slowly:** The student can produce correct products for memorized facts but cannot represent what the multiplication means. Cannot draw an array or form groups for a given fact.\n\n**Diagnostic questions:** Has the student built enough arrays physically? Can they explain what 4 x 6 means without just saying \"twenty-four\"?\n\n### 2. Multiplication Fluency\n**Developing well:** The student knows most facts to 10x10 and can derive any fact they do not immediately recall using a strategy (doubling, using a known fact as a springboard). Automaticity is developing through game play and real-world application.\n\n**Developing slowly:** Relies entirely on counting or finger-based strategies for all facts. No strategies have been internalized.\n\n**Diagnostic questions:** Does the student know their doubles (x2 facts)? Their x5 and x10 facts? If not, start there — these anchor facts make the strategies possible.\n\n### 3. Division Understanding\n**Developing well:** The student can solve division problems by fair sharing or grouping. They understand remainders as \"leftovers\" and can interpret them in context. They connect division to multiplication through fact families.\n\n**Developing slowly:** Cannot perform division without guidance. Does not see the connection to multiplication.\n\n**Diagnostic questions:** Has the student physically dealt objects into piles enough times? This physical experience is essential. Also: can they use a known multiplication fact to solve a division problem? If 4 x 6 = 24, can they immediately say 24 ÷ 6 = 4?\n\n### 4. Real-World Application\n**Developing well:** The student spontaneously recognizes multiplication and division situations in daily life: shopping, cooking, building, measuring.\n\n**Developing slowly:** Multiplication and division are \"school math\" that the student does not connect to real situations.\n\n**Diagnostic questions:** Are you embedding multiplication and division in daily life? \"How many total wheels on 4 cars?\" \"If we split this pizza 8 ways, how many slices each?\"", "common_pitfalls": "### Rote Memorization Before Understanding\nDrilling multiplication facts before the student understands what multiplication means produces students who can recite but cannot think multiplicatively. Build understanding first. Fluency follows.\n\n### Neglecting Division\nIt is tempting to spend 80% of the time on multiplication and rush through division. Division is equally important and needs significant practice time.\n\n### Ignoring the Estimation Step\nBefore every multiplication: estimate. This continues to be the most valuable habit in the entire pillar.\n\n### The \"Times Tables Song\" Trap\nSongs and chants can help with memorization, but they are not substitutes for understanding. A student who can sing \"six times seven is forty-two\" but cannot explain what that means or draw an array has memorized a song, not learned a mathematical concept.", "narration_evaluation": ""}}
+{
+  "id": "1.5.1-A4",
+  "title": "Multiplication & Division Foundations",
+  "pillar_id": "1.5",
+  "pillar_name": "Quantitative Sovereignty",
+  "sub_domain_id": "1.5.1",
+  "sub_domain_name": "Numerical Literacy & Estimation",
+  "tier": "A",
+  "tier_detail": "A (~ages 4–9)",
+  "domain": "Domain 1 — Knowing the World",
+  "prerequisites": [
+    "1.5.1-A3",
+    "IC1.1-A1"
+  ],
+  "books": {
+    "required": [
+      {
+        "audience": "student",
+        "title": "[Curriculum Spine] Singapore Math — Dimensions Math Grade 3 / Primary Mathematics 3A",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Curriculum Spine]",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "Grid paper",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "A multiplication chart (up to 12 x 12)",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "Measuring tape and a ruler",
+        "author": ""
+      }
+    ],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[Read Aloud] Each Orange Had 8 Slices",
+        "author": "Paul Giganti Jr"
+      },
+      {
+        "audience": "student",
+        "title": "[Read Aloud] The Best of Times",
+        "author": "Greg Tang"
+      },
+      {
+        "audience": "student",
+        "title": "[Game] Array City",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Curriculum Support] Multiplication Facts That Stick",
+        "author": "Kate Snow"
+      },
+      {
+        "audience": "student",
+        "title": "[Game] Monopoly Jr.",
+        "author": ""
+      }
+    ],
+    "supplementary": [
+      {
+        "audience": "mentor",
+        "title": "[For Mentor] About Teaching Mathematics",
+        "author": "Marilyn Burns"
+      },
+      {
+        "audience": "student",
+        "title": "Cuisenaire rods",
+        "author": ""
+      }
+    ]
+  },
+  "competence_markers": [
+    {
+      "description": "The student understands multiplication as equal groups, arrays, repeated addition, and scaling",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands division as fair sharing and grouping",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can demonstrate the inverse relationship between multiplication and division through fact families",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student knows the multiplication table through 10x10 with understanding (strategies, not just memorization)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student is developing fluency with multiplication facts (reliable access, moving toward automaticity)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands remainders in division and can interpret them in context",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student estimates products before calculating",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can apply multiplication and division to real-world problems: area, scaling, unit pricing",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can explain their reasoning, not just produce answers",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [
+    {
+      "prompt": "What does 6 x 4 mean?",
+      "detail": "Show me with objects. Explain it in at least two ways (equal groups, array, repeated addition)."
+    },
+    {
+      "prompt": "How are multiplication and division related?",
+      "detail": "Give me a fact family and explain how all four facts connect."
+    },
+    {
+      "prompt": "How would you estimate 8 x 23 without calculating exactly?",
+      "detail": "Walk me through your thinking."
+    },
+    {
+      "prompt": "Tell me about a time this week when multiplication or division was useful in real life.",
+      "detail": "5. **What patterns do you see in the multiplication table?** Pick your favorite pattern and explain it."
+    },
+    {
+      "prompt": "What is a remainder?",
+      "detail": "Give me an example of division with a remainder and explain what the remainder means in a real situation."
+    }
+  ],
+  "cross_connections": [
+    {
+      "target_id": "2.3.1-A",
+      "target_name": "Kitchen Skills",
+      "description": "Scaling recipes is multiplication; unit pricing is division. The kitchen remains the best math classroom."
+    },
+    {
+      "target_id": "1.5.3-A1",
+      "target_name": "Measurement Tools & Physical Dimensions",
+      "description": "Area calculation (length x width) is multiplication applied to space."
+    },
+    {
+      "target_id": "4.1-A",
+      "target_name": "Financial Literacy",
+      "description": "Unit pricing, bulk buying, saving over time — all multiplication and division."
+    },
+    {
+      "target_id": "2.4-A",
+      "target_name": "Engineering & Making",
+      "description": "Calculating materials for building projects (number of boards, number of screws) is multiplication and division in action."
+    },
+    {
+      "target_id": "1.5.1-A5",
+      "target_name": "Fractions, Decimals & Applied Estimation",
+      "description": "Fractions are intimately connected to division (1/4 of 20 = 20 ÷ 4 = 5)."
+    }
+  ],
+  "content": {
+    "why_this_matters": "You already know addition: combining groups. Multiplication is a special kind of addition — adding the same number over and over. If you have 4 bags with 6 apples in each bag, you could add 6 + 6 + 6 + 6 = 24. Or you could multiply: 4 x 6 = 24. Multiplication is a shortcut for repeated addition, and it is one of the most useful tools in arithmetic because the real world is full of equal groups.\n\nDivision is the inverse of multiplication, just as subtraction is the inverse of addition. If you have 24 apples and want to share them equally among 4 people, each person gets 6. That is division: 24 ÷ 4 = 6. Division answers the question: if I split this into equal groups, how many are in each group? Or: how many groups of this size can I make?\n\nTogether, multiplication and division are how you handle equal groups, rates, areas, and scaling — all of which appear constantly in real life. The price of 7 items at $3 each. The number of tiles needed to cover a floor. The servings in a recipe doubled for a party. The miles you travel in 4 hours at 55 miles per hour. All multiplication and division.\n\nAnd as always: estimate first. If someone says 8 x 7 = 63, your estimation sense should tell you: \"8 times 7 should be close to 8 times 8 which is 64, so 63 is probably wrong but close — let me check.\" (The correct answer is 56.)",
+    "what_this_develops": "1. **Multiplication as repeated addition and as equal groups** — the conceptual foundation\n2. **The multiplication table** — not memorized by rote but built through understanding of patterns\n3. **The commutative property** — 3 x 7 = 7 x 3, and why\n4. **Division as the inverse of multiplication** — fair sharing and grouping\n5. **The relationship between multiplication and division** — fact families again\n6. **Estimation with multiplication** — before calculating, estimate the product\n7. **Real-world applications** — area, arrays, rates, scaling recipes, unit pricing",
+    "core_content": "### Part 1: What Multiplication Really Means\n\nMultiplication has several meanings, all connected:\n\n**Equal groups.** 4 groups of 3 means: 3 + 3 + 3 + 3 = 12. We write this as 4 x 3 = 12. The first number tells how many groups. The second number tells how many are in each group.\n\n**Practice:** Make 4 groups of 3 beans. Count the total. Now make 3 groups of 4 beans. Count the total. You get 12 both ways. This is the commutative property: 4 x 3 = 3 x 4. The order does not change the result.\n\n**Arrays.** An array is a rectangular arrangement of rows and columns. 4 rows of 3 dots:\n```\n● ● ●\n● ● ●\n● ● ●\n● ● ●\n```\nCount them: 12. This is 4 x 3 = 12. Now turn the page sideways — you see 3 rows of 4. Same dots, same total. This is why 4 x 3 = 3 x 4 — because the same array can be read either way.\n\n**Practice:** Draw arrays on grid paper for different multiplication facts. 5 x 6 is 5 rows of 6 squares. Color them in. Count them. The array makes multiplication visible.\n\n**Repeated addition.** 5 x 4 means 4 + 4 + 4 + 4 + 4 = 20. Every multiplication is repeated addition, but multiplication is the more efficient notation. You would not want to write 100 x 3 as 3 + 3 + 3 + 3... one hundred times.\n\n**Scaling.** If you have a piece of string 5 inches long and you want one 3 times as long, you need 3 x 5 = 15 inches. This is multiplication as scaling — making something larger by a factor.",
+    "formative_practices": "### Study 1: Array Art [Early in the Packet]\nCreate artwork using arrays on grid paper. Each array represents a multiplication fact. Label them. Build a poster of \"Array City\" where buildings are arrays of different sizes.\n\n### Study 2: The Multiplication Table Build [Ongoing]\nGradually fill in a blank multiplication table using the strategies from Part 2. The goal is for the student to fill it in through understanding, not copying.\n\n### Study 3: Kitchen Multiplication [Ongoing]\nScale recipes up and down. Calculate unit prices at the grocery store. Measure and calculate area in cooking (the surface area of a baking sheet, the number of cookies that fit in rows).\n\n### Study 4: Real-World Division [Mid-Packet]\nFind division problems in daily life: sharing snacks equally, dividing a collection into groups, figuring out how many trips are needed to carry supplies, calculating how many weeks until a date.\n\n### Study 5: The Commutative Property Investigation [Mid-Packet]\nIs 3 x 7 really the same as 7 x 3? Build both arrays. Count both groups. The student proves the commutative property to themselves through physical evidence."
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### 1. Conceptual Understanding of Multiplication\n**Developing well:** The student can represent any multiplication fact in multiple ways: as equal groups, as an array, as repeated addition, and as a scaling statement. They understand the commutative property and can explain why 3 x 7 = 7 x 3 using an array.\n\n**Developing slowly:** The student can produce correct products for memorized facts but cannot represent what the multiplication means. Cannot draw an array or form groups for a given fact.\n\n**Diagnostic questions:** Has the student built enough arrays physically? Can they explain what 4 x 6 means without just saying \"twenty-four\"?\n\n### 2. Multiplication Fluency\n**Developing well:** The student knows most facts to 10x10 and can derive any fact they do not immediately recall using a strategy (doubling, using a known fact as a springboard). Automaticity is developing through game play and real-world application.\n\n**Developing slowly:** Relies entirely on counting or finger-based strategies for all facts. No strategies have been internalized.\n\n**Diagnostic questions:** Does the student know their doubles (x2 facts)? Their x5 and x10 facts? If not, start there — these anchor facts make the strategies possible.\n\n### 3. Division Understanding\n**Developing well:** The student can solve division problems by fair sharing or grouping. They understand remainders as \"leftovers\" and can interpret them in context. They connect division to multiplication through fact families.\n\n**Developing slowly:** Cannot perform division without guidance. Does not see the connection to multiplication.\n\n**Diagnostic questions:** Has the student physically dealt objects into piles enough times? This physical experience is essential. Also: can they use a known multiplication fact to solve a division problem? If 4 x 6 = 24, can they immediately say 24 ÷ 6 = 4?\n\n### 4. Real-World Application\n**Developing well:** The student spontaneously recognizes multiplication and division situations in daily life: shopping, cooking, building, measuring.\n\n**Developing slowly:** Multiplication and division are \"school math\" that the student does not connect to real situations.\n\n**Diagnostic questions:** Are you embedding multiplication and division in daily life? \"How many total wheels on 4 cars?\" \"If we split this pizza 8 ways, how many slices each?\"",
+    "common_pitfalls": "### Rote Memorization Before Understanding\nDrilling multiplication facts before the student understands what multiplication means produces students who can recite but cannot think multiplicatively. Build understanding first. Fluency follows.\n\n### Neglecting Division\nIt is tempting to spend 80% of the time on multiplication and rush through division. Division is equally important and needs significant practice time.\n\n### Ignoring the Estimation Step\nBefore every multiplication: estimate. This continues to be the most valuable habit in the entire pillar.\n\n### The \"Times Tables Song\" Trap\nSongs and chants can help with memorization, but they are not substitutes for understanding. A student who can sing \"six times seven is forty-two\" but cannot explain what that means or draw an array has memorized a song, not learned a mathematical concept.",
+    "narration_evaluation": ""
+  }
+}

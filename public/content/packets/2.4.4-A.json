@@ -1,1 +1,147 @@
-{"id": "2.4.4-A", "title": "First Aid, Trauma & Field Medicine", "pillar_id": "2.4", "pillar_name": "Survival, Fieldcraft & Practical Independence", "sub_domain_id": "2.4.4", "sub_domain_name": "First Aid, Trauma & Medical Response", "tier": "A", "tier_detail": "A (~ages 4–9)", "domain": "Domain 2 — Physical & Practical Competence", "prerequisites": ["IC1.1-A1"], "books": {"required": [{"audience": "student", "title": "[Book]", "author": "the American Red Cross"}, {"audience": "student", "title": "[Course] A child-oriented first aid introduction", "author": ""}], "suggested": [{"audience": "student", "title": "[Book]", "author": "Denise Long"}, {"audience": "student", "title": "[Video] Red Cross — \"First Aid for Kids\"", "author": ""}], "supplementary": [{"audience": "student", "title": "[Book]", "author": "Stan and Jan Berenstain"}, {"audience": "student", "title": "[Video] Sesame Street — First Aid clips", "author": ""}]}, "competence_markers": [{"description": "You can simulate a 911 call effectively — stating the emergency, your location, and relevant details without freezing", "assessment_type": "behavioral"}, {"description": "You apply direct pressure to a simulated bleeding wound immediately, firmly, and without hesitation", "assessment_type": "behavioral"}, {"description": "You can demonstrate the Heimlich maneuver hand position and thrust motion", "assessment_type": "behavioral"}, {"description": "You can correctly sort at least 8 out of 10 injury scenarios as minor or serious", "assessment_type": "behavioral"}, {"description": "You know what CPR is and when it is needed (formal training comes in Weathering Storms)", "assessment_type": "behavioral"}, {"description": "You know where your family's first aid kit is and can identify the basic contents", "assessment_type": "behavioral"}, {"description": "You can walk through a complete emergency scenario response using STOP", "assessment_type": "behavioral"}], "narration_prompts": [{"prompt": "When should you call 911?", "detail": "Give three examples of real emergencies."}, {"prompt": "How do you stop bleeding?", "detail": "Describe the steps. Why is it important to press hard and not lift the cloth?"}, {"prompt": "Explain the Heimlich maneuver.", "detail": "When do you use it? What do you do?"}, {"prompt": "Describe the difference between a minor injury and a serious one.", "detail": "Give examples of each. What do you do for each?"}, {"prompt": "What is CPR?", "detail": "What does it do? When is it needed?"}, {"prompt": "If you found someone hurt, what would you do first?", "detail": "Walk through your thinking using STOP."}], "cross_connections": [{"target_id": "IC1.1-A1", "target_name": "Habits, Routines & First Self-Control", "description": "Following emergency procedures without hesitation is a self-discipline skill. The student who practices until 911 calling and pressure application are automatic has translated IC1.1 habits into life-saving capability."}, {"target_id": "2.4.2-A", "target_name": "Navigation & Wayfinding", "description": "Knowing your location is essential for calling 911. The address memorization and urban navigation from 2.4.2-A are directly applicable."}, {"target_id": "2.4.1-A", "target_name": "Fire, Shelter & Water", "description": "Burns from fire, hypothermia from water exposure — the medical consequences of 2.4.1 skills failing are addressed here."}, {"target_id": "IC3", "target_name": "Mental Resilience", "description": "Staying calm when someone is hurt is emotional regulation under pressure. The student who practices emergency scenarios in low-stakes conditions builds the calm they need for real emergencies."}, {"target_id": "2.3.5", "target_name": "Care of Dependents", "description": "Home care of the sick and injured begins with the basic medical awareness developed here."}], "content": {"why_this_matters": "Someday, someone near you will be hurt. Maybe it will be a small injury — a cut or a scrape. Maybe it will be something serious — someone choking, someone bleeding badly, someone who has stopped breathing. In that moment, what you know and what you do will matter more than almost anything else you have ever learned.\n\nMost people freeze when they see someone hurt. They stand there. They do not know what to do, so they do nothing. You are going to be different. You are going to know how to call for help, how to stop bleeding, how to help someone who is choking, and how to tell the difference between a minor injury and a serious one. You will not know everything — that comes later. But you will know enough to do something useful, and doing something useful when others are frozen is one of the most valuable things a human being can do.", "what_this_develops": "", "core_content": "### Part 1: Calling for Help — The Most Important Skill\n\nThe single most important emergency skill for a young person is knowing how to get help.\n\n**When to call 911:**\n- Someone is not breathing or not conscious\n- Someone is bleeding a lot and it will not stop\n- Someone is choking and cannot breathe\n- Someone has a serious injury (broken bone, deep wound, head injury)\n- There is a fire\n- Someone is in danger they cannot escape\n\n**What to say:**\n1. \"I need help.\" (State the emergency.)\n2. \"I am at [your location].\" (Your address, the name of the park, the intersection, any details that help rescuers find you.)\n3. \"Someone is [describe what happened].\" (Choking, bleeding, unconscious, etc.)\n4. Answer any questions the operator asks.\n5. Do NOT hang up until the operator tells you to.\n\n**Practice this.** Your mentor will pretend to be a 911 operator and you will practice the call. You should be able to state the emergency and your location clearly, without freezing or forgetting.\n\n**Know your address.** Memorize your full home address: number, street, city, state. Know the address or name of places you go regularly — school, church, a friend's house, the park. If you do not know where you are, describe what you see: \"I'm near the big playground in the park on Oak Street.\"\n\n### Part 2: Stopping Bleeding\n\nBlood looks scary. It is red and there is often a lot of it. But you can help.\n\n**The rule is simple: pressure stops bleeding.**\n\n1. Find a clean cloth — a shirt, a towel, a bandana, whatever is available\n2. Press it firmly on the wound\n3. Press HARD. Harder than you think. Gentle pressing does not stop bleeding.\n4. Hold the pressure. Do not lift the cloth to check. That lets the bleeding restart.\n5. If blood soaks through, add more cloth on top. Do not remove the first layer.\n6. Keep pressing until help arrives\n\n**You will practice this.** Your mentor will simulate a wound (red paint or food coloring on an arm or leg) and you will apply pressure. The point is to eliminate hesitation. When you see blood — real or simulated — your response should be immediate: grab cloth, apply pressure.\n\n**Being comfortable around blood is a skill.** Some people feel sick or faint when they see blood. If that is you, the practice will help. Repeated exposure to simulated wounds reduces the response. The first time is the hardest. By the fifth time, you will be focused on the wound, not on the blood.\n\n### Part 3: The Heimlich Maneuver — Helping a Choking Person\n\nChoking happens when food or an object blocks the airway. The person cannot breathe. This is a true emergency — without air, brain damage begins in minutes.\n\n**How to tell someone is choking:**\n- They grab their throat (the universal choking sign)\n- They cannot speak or make only weak sounds\n- They cannot cough effectively\n- Their face may turn red, then blue\n\n**If the person CAN cough forcefully:** Encourage them to keep coughing. A strong cough can clear the airway. Do not hit them on the back or interfere — a strong cough is doing the job.\n\n**If the person CANNOT cough, speak, or breathe — perform the Heimlich maneuver:**\n\n1. Stand behind the person\n2. Wrap your arms around their waist\n3. Make a fist with one hand and place it just above their belly button, below the ribcage\n4. Grab your fist with your other hand\n5. Pull sharply inward and upward — a quick, hard thrust\n6. Repeat until the object comes out or the person can breathe\n\n**For someone larger than you:** You can still do this. Stand on something if needed. The thrust direction is inward and upward. Use your whole body.\n\n**Practice this on a training dummy or with your mentor coaching your hand position.** You will not practice full-force thrusts on a person, but you will learn the hand placement and motion so it is automatic.\n\n### Part 4: When Is It Serious?\n\nPart of first aid is knowing the difference between \"put a bandage on it\" and \"get an adult now.\"\n\n**Minor — you can help:**\n- Small cuts and scrapes (clean, bandage, done)\n- Bumps and bruises (ice, rest)\n- Splinters (remove with tweezers, clean)\n- Bee stings (remove stinger, ice, watch for allergic reaction)\n\n**Serious — get an adult immediately:**\n- Bleeding that will not stop with pressure\n- A person who is unconscious or confused\n- Difficulty breathing\n- Suspected broken bones (the limb is at an odd angle, severe pain, cannot move it)\n- Head injury with confusion, vomiting, or loss of consciousness\n- Burns larger than the palm of the hand\n- Allergic reactions (swelling of face or throat, difficulty breathing)\n- Any injury where you are not sure — when in doubt, get help\n\n**The rule: if you think it might be serious, treat it as serious.** Overreacting to a minor injury wastes a little time. Underreacting to a serious injury can cost a life.\n\n### Part 5: CPR Awareness\n\nCPR (Cardiopulmonary Resuscitation) is what you do when someone's heart has stopped beating and they are not breathing. It keeps blood and oxygen flowing to the brain until professional help arrives.\n\n**At your age, you need to know that CPR exists and what it looks like:**\n- The rescuer pushes hard and fast on the center of the person's chest (compressions)\n- This manually pumps blood through the body\n- The rate is fast — about 100-120 pushes per minute (the tempo of the song \"Stayin' Alive\")\n- It is tiring — even adults fatigue after a few minutes\n\n**You do not need to perform CPR at this tier.** Formal CPR certification begins at age 10-12 in Weathering Storms. But you need to know: if you see someone collapse and stop breathing, the right response is to call 911 and tell them \"someone is not breathing.\" If an adult nearby knows CPR, they should start immediately.\n\n### Part 6: Staying Calm — STOP in Emergencies\n\nThe STOP protocol from 2.4.2 applies here:\n\n**S — Stop.** Do not rush in without thinking. A panicked helper can make things worse.\n**T — Think.** What is happening? What do I know how to do? What help is available?\n**O — Observe.** Is the scene safe? (Do not become a second victim.) What is the person's condition?\n**P — Plan.** Call for help. Apply the skill you know. Keep the person calm.\n\nIn any emergency, the calm person is the useful person.", "formative_practices": ""}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### 1. 911 Call\n**Developing well:** The student picks up a phone (real or pretend), dials 911, states the emergency clearly, provides location accurately, describes the situation, and stays on the line. They do this smoothly across multiple simulated scenarios.\n\n**Developing slowly:** The student freezes, forgets their address, cannot describe the emergency, or hangs up before the \"operator\" says to.\n\n**Diagnostic:** Practice more frequently. Use different scenarios each time. If the student consistently forgets their address, that needs separate memorization work.\n\n### 2. Pressure on Bleeding\n**Developing well:** Response is immediate — within seconds of seeing the simulated wound, the student has grabbed cloth and is applying firm pressure. They press hard enough and hold without checking.\n\n**Developing slowly:** The student hesitates, presses too lightly, or lifts the cloth to look. They may be uncomfortable with simulated blood.\n\n**Diagnostic:** If squeamishness is the issue, start with less realistic simulations and increase realism gradually. The skill is pressing hard and holding — practice the mechanical action first, add realism second.\n\n### 3. Heimlich Maneuver\n**Developing well:** The student places their fist correctly (above navel, below ribcage) and demonstrates the inward-and-upward thrust motion. On a pillow or dummy, the thrust is firm and correctly directed.\n\n**Developing slowly:** Fist placement is wrong (too low or too high). Thrust is outward instead of inward-and-upward. The student cannot describe when to use it versus when to let the person cough.\n\n### 4. Serious vs. Minor Judgment\n**Developing well:** The student correctly categorizes most scenarios and errs on the side of \"serious\" when uncertain. They articulate the principle: \"When in doubt, get help.\"\n\n**Developing slowly:** The student calls everything serious (overcautious but acceptable — better than undercautious) or calls serious things minor (dangerous — needs calibration).", "common_pitfalls": "", "narration_evaluation": ""}}
+{
+  "id": "2.4.4-A",
+  "title": "First Aid, Trauma & Field Medicine",
+  "pillar_id": "2.4",
+  "pillar_name": "Survival, Fieldcraft & Practical Independence",
+  "sub_domain_id": "2.4.4",
+  "sub_domain_name": "First Aid, Trauma & Medical Response",
+  "tier": "A",
+  "tier_detail": "A (~ages 4–9)",
+  "domain": "Domain 2 — Physical & Practical Competence",
+  "prerequisites": [
+    "IC1.1-A1"
+  ],
+  "books": {
+    "required": [
+      {
+        "audience": "student",
+        "title": "[Book] First Aid for Children Fast",
+        "author": "the American Red Cross"
+      },
+      {
+        "audience": "student",
+        "title": "[Course] A child-oriented first aid introduction",
+        "author": ""
+      }
+    ],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[Book] Survivor Kid",
+        "author": "Denise Long"
+      },
+      {
+        "audience": "student",
+        "title": "[Video] Red Cross — \"First Aid for Kids\"",
+        "author": ""
+      }
+    ],
+    "supplementary": [
+      {
+        "audience": "student",
+        "title": "[Book] The Berenstain Bears Go to the Doctor",
+        "author": "Stan and Jan Berenstain"
+      },
+      {
+        "audience": "student",
+        "title": "[Video] Sesame Street — First Aid clips",
+        "author": ""
+      }
+    ]
+  },
+  "competence_markers": [
+    {
+      "description": "You can simulate a 911 call effectively — stating the emergency, your location, and relevant details without freezing",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You apply direct pressure to a simulated bleeding wound immediately, firmly, and without hesitation",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You can demonstrate the Heimlich maneuver hand position and thrust motion",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You can correctly sort at least 8 out of 10 injury scenarios as minor or serious",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You know what CPR is and when it is needed (formal training comes in Weathering Storms)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You know where your family's first aid kit is and can identify the basic contents",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "You can walk through a complete emergency scenario response using STOP",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [
+    {
+      "prompt": "When should you call 911?",
+      "detail": "Give three examples of real emergencies."
+    },
+    {
+      "prompt": "How do you stop bleeding?",
+      "detail": "Describe the steps. Why is it important to press hard and not lift the cloth?"
+    },
+    {
+      "prompt": "Explain the Heimlich maneuver.",
+      "detail": "When do you use it? What do you do?"
+    },
+    {
+      "prompt": "Describe the difference between a minor injury and a serious one.",
+      "detail": "Give examples of each. What do you do for each?"
+    },
+    {
+      "prompt": "What is CPR?",
+      "detail": "What does it do? When is it needed?"
+    },
+    {
+      "prompt": "If you found someone hurt, what would you do first?",
+      "detail": "Walk through your thinking using STOP."
+    }
+  ],
+  "cross_connections": [
+    {
+      "target_id": "IC1.1-A1",
+      "target_name": "Habits, Routines & First Self-Control",
+      "description": "Following emergency procedures without hesitation is a self-discipline skill. The student who practices until 911 calling and pressure application are automatic has translated IC1.1 habits into life-saving capability."
+    },
+    {
+      "target_id": "2.4.2-A",
+      "target_name": "Navigation & Wayfinding",
+      "description": "Knowing your location is essential for calling 911. The address memorization and urban navigation from 2.4.2-A are directly applicable."
+    },
+    {
+      "target_id": "2.4.1-A",
+      "target_name": "Fire, Shelter & Water",
+      "description": "Burns from fire, hypothermia from water exposure — the medical consequences of 2.4.1 skills failing are addressed here."
+    },
+    {
+      "target_id": "IC3",
+      "target_name": "Mental Resilience",
+      "description": "Staying calm when someone is hurt is emotional regulation under pressure. The student who practices emergency scenarios in low-stakes conditions builds the calm they need for real emergencies."
+    },
+    {
+      "target_id": "2.3.5",
+      "target_name": "Care of Dependents",
+      "description": "Home care of the sick and injured begins with the basic medical awareness developed here."
+    }
+  ],
+  "content": {
+    "why_this_matters": "Someday, someone near you will be hurt. Maybe it will be a small injury — a cut or a scrape. Maybe it will be something serious — someone choking, someone bleeding badly, someone who has stopped breathing. In that moment, what you know and what you do will matter more than almost anything else you have ever learned.\n\nMost people freeze when they see someone hurt. They stand there. They do not know what to do, so they do nothing. You are going to be different. You are going to know how to call for help, how to stop bleeding, how to help someone who is choking, and how to tell the difference between a minor injury and a serious one. You will not know everything — that comes later. But you will know enough to do something useful, and doing something useful when others are frozen is one of the most valuable things a human being can do.",
+    "what_this_develops": "",
+    "core_content": "### Part 1: Calling for Help — The Most Important Skill\n\nThe single most important emergency skill for a young person is knowing how to get help.\n\n**When to call 911:**\n- Someone is not breathing or not conscious\n- Someone is bleeding a lot and it will not stop\n- Someone is choking and cannot breathe\n- Someone has a serious injury (broken bone, deep wound, head injury)\n- There is a fire\n- Someone is in danger they cannot escape\n\n**What to say:**\n1. \"I need help.\" (State the emergency.)\n2. \"I am at [your location].\" (Your address, the name of the park, the intersection, any details that help rescuers find you.)\n3. \"Someone is [describe what happened].\" (Choking, bleeding, unconscious, etc.)\n4. Answer any questions the operator asks.\n5. Do NOT hang up until the operator tells you to.\n\n**Practice this.** Your mentor will pretend to be a 911 operator and you will practice the call. You should be able to state the emergency and your location clearly, without freezing or forgetting.\n\n**Know your address.** Memorize your full home address: number, street, city, state. Know the address or name of places you go regularly — school, church, a friend's house, the park. If you do not know where you are, describe what you see: \"I'm near the big playground in the park on Oak Street.\"\n\n### Part 2: Stopping Bleeding\n\nBlood looks scary. It is red and there is often a lot of it. But you can help.\n\n**The rule is simple: pressure stops bleeding.**\n\n1. Find a clean cloth — a shirt, a towel, a bandana, whatever is available\n2. Press it firmly on the wound\n3. Press HARD. Harder than you think. Gentle pressing does not stop bleeding.\n4. Hold the pressure. Do not lift the cloth to check. That lets the bleeding restart.\n5. If blood soaks through, add more cloth on top. Do not remove the first layer.\n6. Keep pressing until help arrives\n\n**You will practice this.** Your mentor will simulate a wound (red paint or food coloring on an arm or leg) and you will apply pressure. The point is to eliminate hesitation. When you see blood — real or simulated — your response should be immediate: grab cloth, apply pressure.\n\n**Being comfortable around blood is a skill.** Some people feel sick or faint when they see blood. If that is you, the practice will help. Repeated exposure to simulated wounds reduces the response. The first time is the hardest. By the fifth time, you will be focused on the wound, not on the blood.\n\n### Part 3: The Heimlich Maneuver — Helping a Choking Person\n\nChoking happens when food or an object blocks the airway. The person cannot breathe. This is a true emergency — without air, brain damage begins in minutes.\n\n**How to tell someone is choking:**\n- They grab their throat (the universal choking sign)\n- They cannot speak or make only weak sounds\n- They cannot cough effectively\n- Their face may turn red, then blue\n\n**If the person CAN cough forcefully:** Encourage them to keep coughing. A strong cough can clear the airway. Do not hit them on the back or interfere — a strong cough is doing the job.\n\n**If the person CANNOT cough, speak, or breathe — perform the Heimlich maneuver:**\n\n1. Stand behind the person\n2. Wrap your arms around their waist\n3. Make a fist with one hand and place it just above their belly button, below the ribcage\n4. Grab your fist with your other hand\n5. Pull sharply inward and upward — a quick, hard thrust\n6. Repeat until the object comes out or the person can breathe\n\n**For someone larger than you:** You can still do this. Stand on something if needed. The thrust direction is inward and upward. Use your whole body.\n\n**Practice this on a training dummy or with your mentor coaching your hand position.** You will not practice full-force thrusts on a person, but you will learn the hand placement and motion so it is automatic.\n\n### Part 4: When Is It Serious?\n\nPart of first aid is knowing the difference between \"put a bandage on it\" and \"get an adult now.\"\n\n**Minor — you can help:**\n- Small cuts and scrapes (clean, bandage, done)\n- Bumps and bruises (ice, rest)\n- Splinters (remove with tweezers, clean)\n- Bee stings (remove stinger, ice, watch for allergic reaction)\n\n**Serious — get an adult immediately:**\n- Bleeding that will not stop with pressure\n- A person who is unconscious or confused\n- Difficulty breathing\n- Suspected broken bones (the limb is at an odd angle, severe pain, cannot move it)\n- Head injury with confusion, vomiting, or loss of consciousness\n- Burns larger than the palm of the hand\n- Allergic reactions (swelling of face or throat, difficulty breathing)\n- Any injury where you are not sure — when in doubt, get help\n\n**The rule: if you think it might be serious, treat it as serious.** Overreacting to a minor injury wastes a little time. Underreacting to a serious injury can cost a life.\n\n### Part 5: CPR Awareness\n\nCPR (Cardiopulmonary Resuscitation) is what you do when someone's heart has stopped beating and they are not breathing. It keeps blood and oxygen flowing to the brain until professional help arrives.\n\n**At your age, you need to know that CPR exists and what it looks like:**\n- The rescuer pushes hard and fast on the center of the person's chest (compressions)\n- This manually pumps blood through the body\n- The rate is fast — about 100-120 pushes per minute (the tempo of the song \"Stayin' Alive\")\n- It is tiring — even adults fatigue after a few minutes\n\n**You do not need to perform CPR at this tier.** Formal CPR certification begins at age 10-12 in Weathering Storms. But you need to know: if you see someone collapse and stop breathing, the right response is to call 911 and tell them \"someone is not breathing.\" If an adult nearby knows CPR, they should start immediately.\n\n### Part 6: Staying Calm — STOP in Emergencies\n\nThe STOP protocol from 2.4.2 applies here:\n\n**S — Stop.** Do not rush in without thinking. A panicked helper can make things worse.\n**T — Think.** What is happening? What do I know how to do? What help is available?\n**O — Observe.** Is the scene safe? (Do not become a second victim.) What is the person's condition?\n**P — Plan.** Call for help. Apply the skill you know. Keep the person calm.\n\nIn any emergency, the calm person is the useful person.",
+    "formative_practices": ""
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### 1. 911 Call\n**Developing well:** The student picks up a phone (real or pretend), dials 911, states the emergency clearly, provides location accurately, describes the situation, and stays on the line. They do this smoothly across multiple simulated scenarios.\n\n**Developing slowly:** The student freezes, forgets their address, cannot describe the emergency, or hangs up before the \"operator\" says to.\n\n**Diagnostic:** Practice more frequently. Use different scenarios each time. If the student consistently forgets their address, that needs separate memorization work.\n\n### 2. Pressure on Bleeding\n**Developing well:** Response is immediate — within seconds of seeing the simulated wound, the student has grabbed cloth and is applying firm pressure. They press hard enough and hold without checking.\n\n**Developing slowly:** The student hesitates, presses too lightly, or lifts the cloth to look. They may be uncomfortable with simulated blood.\n\n**Diagnostic:** If squeamishness is the issue, start with less realistic simulations and increase realism gradually. The skill is pressing hard and holding — practice the mechanical action first, add realism second.\n\n### 3. Heimlich Maneuver\n**Developing well:** The student places their fist correctly (above navel, below ribcage) and demonstrates the inward-and-upward thrust motion. On a pillow or dummy, the thrust is firm and correctly directed.\n\n**Developing slowly:** Fist placement is wrong (too low or too high). Thrust is outward instead of inward-and-upward. The student cannot describe when to use it versus when to let the person cough.\n\n### 4. Serious vs. Minor Judgment\n**Developing well:** The student correctly categorizes most scenarios and errs on the side of \"serious\" when uncertain. They articulate the principle: \"When in doubt, get help.\"\n\n**Developing slowly:** The student calls everything serious (overcautious but acceptable — better than undercautious) or calls serious things minor (dangerous — needs calibration).",
+    "common_pitfalls": "",
+    "narration_evaluation": ""
+  }
+}

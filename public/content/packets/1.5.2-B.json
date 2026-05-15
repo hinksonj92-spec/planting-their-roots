@@ -1,1 +1,182 @@
-{"id": "1.5.2-B", "title": "Algebra & Functions: The Language of Patterns", "pillar_id": "1.5", "pillar_name": "Quantitative Sovereignty", "sub_domain_id": "1.5.2", "sub_domain_name": "Algebra & Functions", "tier": "B", "tier_detail": "B (~ages 7–13)", "domain": "Domain 1 — Knowing the World", "prerequisites": ["1.5.1-B1", "1.5.2-A2", "1.5.1-A5", "IC1.1-B1"], "books": {"required": [{"audience": "student", "title": "[Curriculum Spine]", "author": ""}, {"audience": "student", "title": "Graph paper", "author": ""}, {"audience": "student", "title": "A graphing tool", "author": ""}, {"audience": "student", "title": "A notebook for algebraic exploration", "author": ""}], "suggested": [{"audience": "student", "title": "[Book]", "author": "G. Arnell Williams"}, {"audience": "student", "title": "[Book]", "author": "Paul Hoffman"}, {"audience": "student", "title": "[Online] Khan Academy — Algebra 1", "author": ""}, {"audience": "student", "title": "[Online] Desmos Activity Builder", "author": ""}], "supplementary": [{"audience": "mentor", "title": "[For Mentor]", "author": "Barbara Oakley"}]}, "competence_markers": [{"description": "The student understands variables as representations of quantities and can write algebraic expressions for real situations", "assessment_type": "behavioral"}, {"description": "The student can solve one-variable linear equations reliably, with estimation before and checking after", "assessment_type": "behavioral"}, {"description": "The student understands functions as input-output relationships and can create function tables", "assessment_type": "behavioral"}, {"description": "The student can graph linear functions and interpret slope and intercept in context", "assessment_type": "behavioral"}, {"description": "The student understands the critical distinction between linear and exponential growth and can identify which applies in a given situation", "assessment_type": "behavioral"}, {"description": "The student can solve systems of two linear equations algebraically and graphically", "assessment_type": "behavioral"}, {"description": "The student can model a real-world situation algebraically — identifying variables, writing the equation, and solving", "assessment_type": "behavioral"}, {"description": "The student uses Desmos or equivalent to visualize functions and verify algebraic work", "assessment_type": "behavioral"}, {"description": "The student estimates answers before solving and checks answers against common sense after solving", "assessment_type": "behavioral"}], "narration_prompts": [{"prompt": "What is a variable?", "detail": "Why is it useful to use a letter instead of a specific number?"}, {"prompt": "Explain how to solve an equation.", "detail": "What is the basic principle? Walk me through a specific example."}, {"prompt": "What is the difference between linear and exponential growth?", "detail": "Why does this matter for money? For populations?"}, {"prompt": "Take a situation from your daily life and model it algebraically.", "detail": "What are the variables? What is the equation? Solve it."}, {"prompt": "What is a function?", "detail": "Give me a real-world example and show me its graph. What does the shape of the graph tell you?"}, {"prompt": "Explain a system of equations.", "detail": "When would you need two equations instead of one? Give me a real example."}, {"prompt": "Show me two graphs: one linear, one exponential.", "detail": "When does the exponential surpass the linear? Why does this always happen eventually?"}], "cross_connections": [{"target_id": "4.1", "target_name": "Financial Independence", "description": "Compound interest is exponential growth. Linear vs. exponential is the difference between a savings account and a mattress. Algebraic modeling is essential for financial projections."}, {"target_id": "1.5.1-C", "target_name": "Numerical Literacy & Estimation Mastery", "description": "The Fermi estimation and compounding work in 1.5.1-C requires the algebraic fluency developed here."}, {"target_id": "1.6", "target_name": "Science & Physical Reality", "description": "Nearly every scientific law is an algebraic relationship: F = ma, V = IR, E = mc^2. This packet gives the student the language to read science mathematically."}, {"target_id": "1.5.3-B", "target_name": "Geometry & Spatial Reasoning", "description": "Coordinate geometry — the intersection of algebra and geometry — connects the graphing skills here to the spatial reasoning in 1.5.3."}, {"target_id": "1.5.5", "target_name": "Probability, Statistics & Data Integrity", "description": "Statistical models and trend lines are algebraic functions fitted to data."}, {"target_id": "2.4", "target_name": "Engineering & Making", "description": "Every construction budget, material estimate, and project timeline can be modeled algebraically."}], "content": {"why_this_matters": "Until now, your mathematics has used specific numbers: 3 + 5 = 8, the room is 12 feet long, the volume is 27 cubic units. Algebra introduces a profound idea: you can reason about numbers without knowing what they are.\n\nWhen you write 3 + x = 7, you are saying \"there is a number, I do not know what it is, but I know that when I add 3 to it, I get 7.\" You can figure out what x must be: 4. That is algebra — the art of reasoning about unknown quantities using the relationships between them.\n\nBut algebra is far more than finding x. It is the language of patterns. Every relationship between quantities — how far you travel depends on how fast you go and how long you drive; how much you earn depends on your hourly rate and how many hours you work; how fast a population grows depends on its current size and its growth rate — can be expressed in algebraic form. Once expressed, the relationship can be analyzed, graphed, predicted from, and optimized.\n\nThis is the packet where mathematics becomes abstract — where letters stand for numbers, where equations describe the real world, and where the ability to model a situation mathematically becomes a power tool for understanding everything from household budgets to scientific laws to business decisions. The abstraction is not a retreat from reality. It is a more powerful way of engaging with reality.", "what_this_develops": "1. **Variables as representations of quantities** — understanding that a letter stands for a number (or a range of numbers) and that this is powerful, not confusing\n2. **Expressions, equations, and inequalities** — the grammar of algebra\n3. **Solving equations** — the disciplined process of isolating the unknown\n4. **Functions as input-output machines** — a systematic relationship between two quantities\n5. **Linear functions and their graphs** — the most common pattern: constant rate of change\n6. **Exponential functions** — the most important pattern: growth proportional to current size\n7. **Systems of equations** — when two constraints must be satisfied simultaneously\n8. **Algebraic modeling** — converting a real-world situation into mathematical form\n9. **Graphing as visualization** — seeing the shape of a relationship", "core_content": "### Part 1: Variables — Letters That Stand for Numbers\n\nA variable is a letter that represents a number. That is all. It is not mysterious or advanced. It is a shorthand.\n\nIf you earn $12 per hour, and you work for some number of hours, your total pay is 12 times the number of hours. In algebra: pay = 12h, where h is the number of hours worked. The letter h stands for whatever number of hours you actually work. If h = 5, your pay is $60. If h = 8, your pay is $96. The relationship is the same; the specific numbers change.\n\n**Why variables are powerful:** Without variables, you would need a separate calculation for every possible number of hours. With variables, one expression (12h) covers all of them. This is the power of abstraction: one statement that captures infinite specific cases.\n\n**Practice:**\n- You are saving $15 per week. Write an expression for your total savings after w weeks. How much after 10 weeks? After 26 weeks?\n- A rectangle has a length of 8 and a width of w. Write an expression for its area. Its perimeter. If the perimeter is 30, what is w?\n- You have d dollars and you spend $4.50 on lunch. Write an expression for how much you have left.", "formative_practices": "### Study 1: The Variable Introduction [Early in Packet]\nWork through Part 1, writing algebraic expressions for real situations. The goal is comfort with letters representing numbers — this should feel natural, not threatening.\n\n### Study 2: Equation-Solving Practice [Ongoing]\nWork through equations of increasing complexity using Art of Problem Solving or equivalent. Always estimate before solving. Always check afterward.\n\n### Study 3: The Linear vs. Exponential Investigation [Mid-Packet — Key Activity]\nGraph linear and exponential functions side by side. Build a savings model (linear) and an investment model (exponential). See where they diverge. This is the most important visual in the packet.\n\n### Study 4: The Modeling Challenge [Late Packet]\nChoose three real situations from your life. For each, identify the variables, write the function, and solve a specific question. Present your models to your mentor.\n\n### Study 5: The Systems Challenge [Late Packet]\nWork through the systems problems in Part 8. For each, solve algebraically AND graphically (using Desmos). See that the algebraic solution matches the intersection on the graph.\n\n### Study 6: The Exponential Exploration [Mid-to-Late Packet]\nThe rice-and-chessboard problem, the social media sharing problem, and at least one financial example. Calculate the numbers. Express surprise at how large they get. This emotional reaction to exponential growth is part of the learning — it recalibrates your intuition.\n\n### Study 7: The Big Graph [End of Packet]\nGraph y = x, y = x^2, y = x^3, y = 2^x, and y = 10^x on the same axes. Zoom out to see how they behave for large x. Discuss: why does exponential always win in the long run?"}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### 1. Variable Comfort\n**Developing well:** The student treats variables as natural — a letter that stands for a number, no more mysterious than a pronoun standing for a person. Can write expressions for real situations without prompting.\n\n**Developing slowly:** Variables feel alien or frightening. The student can perform procedures with variables but does not understand what the variable represents.\n\n**Diagnostic questions:** Have you consistently connected variables to real quantities? Does the student define their variables (\"let h = hours worked\") before using them?\n\n### 2. Equation Solving\n**Developing well:** Solves linear equations reliably. Estimates first, checks after. Can explain why each step is valid (maintains the balance). Recognizes when an equation has been set up incorrectly because the answer does not match the estimate.\n\n**Developing slowly:** Follows memorized steps without understanding. Cannot explain why you add or subtract from both sides. Does not check answers.\n\n### 3. Function Understanding\n**Developing well:** Understands a function as a consistent input-output relationship. Can create function tables, graph functions, and interpret graphs as stories. Can identify slope and intercept and explain what they mean in context.\n\n**Developing slowly:** Can fill in a function table but does not understand why the relationship is consistent. Cannot interpret a graph beyond reading coordinates.\n\n### 4. Linear vs. Exponential\n**Developing well:** Can immediately identify whether a growth process is linear or exponential. Understands viscerally that exponential growth is deceptive — slow at first, then overwhelming. Can apply this to financial and real-world examples.\n\n**Developing slowly:** Can define both but confuses them in practice. Does not have the gut-level sense of how exponential growth differs from linear.\n\n### 5. Modeling\n**Developing well:** Given a real situation, can identify the variables, write the equation, and solve. Can explain why the model fits the situation and check the answer against reality.\n\n**Developing slowly:** Can solve equations given to them but cannot set up an equation from a word problem or real situation.", "common_pitfalls": "### Procedures Without Meaning\nThe most common failure in algebra instruction. The student can execute \"subtract 5 from both sides, divide by 3\" but cannot explain why or set up the equation in the first place. Every procedure must be connected to a reason. \"We subtract 5 from both sides because we need to isolate the term with x, and subtracting the same thing from both sides keeps the equation balanced — like removing the same weight from both sides of a scale.\"\n\n### Skipping the Linear-Exponential Comparison\nThis is the most important concept in the packet and the most commonly undertaught. If you rush through it, the student misses the single insight that has the most impact on their financial and quantitative literacy. Spend significant time on it. Graph both. Build spreadsheet models. Calculate real scenarios. Return to it repeatedly.\n\n### Not Graphing Enough\nGraphs make algebra visible. A student who solves equations but never graphs is missing half the understanding. Use Desmos for every function. The visual intuition that graphing builds — that steeper means faster growth, that curves bend, that intersection means two equations agree — is essential.\n\n### Math Anxiety at the Abstract Transition\nSome students who were confident with arithmetic become anxious when letters appear. This is common and addressable. The solution is not to slow down — it is to ground the abstraction in reality. A student who is told \"let x equal the number of hours you work\" and then calculates their own pay is not anxious about x. A student who is told \"simplify 3x + 2x\" with no context might be.", "narration_evaluation": "### Prompt 1: What Is a Variable?\n**Strong:** Explains that a variable is a letter representing a quantity, gives a real example, and explains why this is useful (one expression covers many specific cases).\n**Weak:** \"It is a letter in math.\" No meaning attached.\n\n### Prompt 3: Linear vs. Exponential\n**Strong:** Clear explanation of the difference (constant addition vs. constant multiplication). Gives a financial example that shows why exponential is more powerful over time. May reference the Rule of 72 or the rice-and-chessboard problem. Shows genuine understanding of why this matters.\n**Weak:** \"Linear is a straight line and exponential is a curve.\" Definitions without meaning or application.\n\n### Prompt 4: Real-Life Algebraic Model\n**Strong:** Takes a genuine situation (not a textbook problem), identifies variables clearly, writes a correct equation, solves it, and checks whether the answer makes sense in context.\n**Weak:** Can solve a given equation but cannot set one up from a real situation."}}
+{
+  "id": "1.5.2-B",
+  "title": "Algebra & Functions: The Language of Patterns",
+  "pillar_id": "1.5",
+  "pillar_name": "Quantitative Sovereignty",
+  "sub_domain_id": "1.5.2",
+  "sub_domain_name": "Algebra & Functions",
+  "tier": "B",
+  "tier_detail": "B (~ages 7–13)",
+  "domain": "Domain 1 — Knowing the World",
+  "prerequisites": [
+    "1.5.1-B1",
+    "1.5.2-A2",
+    "1.5.1-A5",
+    "IC1.1-B1"
+  ],
+  "books": {
+    "required": [
+      {
+        "audience": "student",
+        "title": "[Curriculum Spine] Art of Problem Solving — Introduction to Algebra",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "Graph paper",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "A graphing tool",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "A notebook for algebraic exploration",
+        "author": ""
+      }
+    ],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[Book] Algebra the Beautiful",
+        "author": "G. Arnell Williams"
+      },
+      {
+        "audience": "student",
+        "title": "[Book] The Man Who Loved Only Numbers",
+        "author": "Paul Hoffman"
+      },
+      {
+        "audience": "student",
+        "title": "[Online] Khan Academy — Algebra 1",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Online] Desmos Activity Builder",
+        "author": ""
+      }
+    ],
+    "supplementary": [
+      {
+        "audience": "mentor",
+        "title": "[For Mentor] A Mind for Numbers",
+        "author": "Barbara Oakley"
+      }
+    ]
+  },
+  "competence_markers": [
+    {
+      "description": "The student understands variables as representations of quantities and can write algebraic expressions for real situations",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can solve one-variable linear equations reliably, with estimation before and checking after",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands functions as input-output relationships and can create function tables",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can graph linear functions and interpret slope and intercept in context",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands the critical distinction between linear and exponential growth and can identify which applies in a given situation",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can solve systems of two linear equations algebraically and graphically",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can model a real-world situation algebraically — identifying variables, writing the equation, and solving",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student uses Desmos or equivalent to visualize functions and verify algebraic work",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student estimates answers before solving and checks answers against common sense after solving",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [
+    {
+      "prompt": "What is a variable?",
+      "detail": "Why is it useful to use a letter instead of a specific number?"
+    },
+    {
+      "prompt": "Explain how to solve an equation.",
+      "detail": "What is the basic principle? Walk me through a specific example."
+    },
+    {
+      "prompt": "What is the difference between linear and exponential growth?",
+      "detail": "Why does this matter for money? For populations?"
+    },
+    {
+      "prompt": "Take a situation from your daily life and model it algebraically.",
+      "detail": "What are the variables? What is the equation? Solve it."
+    },
+    {
+      "prompt": "What is a function?",
+      "detail": "Give me a real-world example and show me its graph. What does the shape of the graph tell you?"
+    },
+    {
+      "prompt": "Explain a system of equations.",
+      "detail": "When would you need two equations instead of one? Give me a real example."
+    },
+    {
+      "prompt": "Show me two graphs: one linear, one exponential.",
+      "detail": "When does the exponential surpass the linear? Why does this always happen eventually?"
+    }
+  ],
+  "cross_connections": [
+    {
+      "target_id": "4.1",
+      "target_name": "Financial Independence",
+      "description": "Compound interest is exponential growth. Linear vs. exponential is the difference between a savings account and a mattress. Algebraic modeling is essential for financial projections."
+    },
+    {
+      "target_id": "1.5.1-C",
+      "target_name": "Numerical Literacy & Estimation Mastery",
+      "description": "The Fermi estimation and compounding work in 1.5.1-C requires the algebraic fluency developed here."
+    },
+    {
+      "target_id": "1.6",
+      "target_name": "Science & Physical Reality",
+      "description": "Nearly every scientific law is an algebraic relationship: F = ma, V = IR, E = mc^2. This packet gives the student the language to read science mathematically."
+    },
+    {
+      "target_id": "1.5.3-B",
+      "target_name": "Geometry & Spatial Reasoning",
+      "description": "Coordinate geometry — the intersection of algebra and geometry — connects the graphing skills here to the spatial reasoning in 1.5.3."
+    },
+    {
+      "target_id": "1.5.5",
+      "target_name": "Probability, Statistics & Data Integrity",
+      "description": "Statistical models and trend lines are algebraic functions fitted to data."
+    },
+    {
+      "target_id": "2.4",
+      "target_name": "Engineering & Making",
+      "description": "Every construction budget, material estimate, and project timeline can be modeled algebraically."
+    }
+  ],
+  "content": {
+    "why_this_matters": "Until now, your mathematics has used specific numbers: 3 + 5 = 8, the room is 12 feet long, the volume is 27 cubic units. Algebra introduces a profound idea: you can reason about numbers without knowing what they are.\n\nWhen you write 3 + x = 7, you are saying \"there is a number, I do not know what it is, but I know that when I add 3 to it, I get 7.\" You can figure out what x must be: 4. That is algebra — the art of reasoning about unknown quantities using the relationships between them.\n\nBut algebra is far more than finding x. It is the language of patterns. Every relationship between quantities — how far you travel depends on how fast you go and how long you drive; how much you earn depends on your hourly rate and how many hours you work; how fast a population grows depends on its current size and its growth rate — can be expressed in algebraic form. Once expressed, the relationship can be analyzed, graphed, predicted from, and optimized.\n\nThis is the packet where mathematics becomes abstract — where letters stand for numbers, where equations describe the real world, and where the ability to model a situation mathematically becomes a power tool for understanding everything from household budgets to scientific laws to business decisions. The abstraction is not a retreat from reality. It is a more powerful way of engaging with reality.",
+    "what_this_develops": "1. **Variables as representations of quantities** — understanding that a letter stands for a number (or a range of numbers) and that this is powerful, not confusing\n2. **Expressions, equations, and inequalities** — the grammar of algebra\n3. **Solving equations** — the disciplined process of isolating the unknown\n4. **Functions as input-output machines** — a systematic relationship between two quantities\n5. **Linear functions and their graphs** — the most common pattern: constant rate of change\n6. **Exponential functions** — the most important pattern: growth proportional to current size\n7. **Systems of equations** — when two constraints must be satisfied simultaneously\n8. **Algebraic modeling** — converting a real-world situation into mathematical form\n9. **Graphing as visualization** — seeing the shape of a relationship",
+    "core_content": "### Part 1: Variables — Letters That Stand for Numbers\n\nA variable is a letter that represents a number. That is all. It is not mysterious or advanced. It is a shorthand.\n\nIf you earn $12 per hour, and you work for some number of hours, your total pay is 12 times the number of hours. In algebra: pay = 12h, where h is the number of hours worked. The letter h stands for whatever number of hours you actually work. If h = 5, your pay is $60. If h = 8, your pay is $96. The relationship is the same; the specific numbers change.\n\n**Why variables are powerful:** Without variables, you would need a separate calculation for every possible number of hours. With variables, one expression (12h) covers all of them. This is the power of abstraction: one statement that captures infinite specific cases.\n\n**Practice:**\n- You are saving $15 per week. Write an expression for your total savings after w weeks. How much after 10 weeks? After 26 weeks?\n- A rectangle has a length of 8 and a width of w. Write an expression for its area. Its perimeter. If the perimeter is 30, what is w?\n- You have d dollars and you spend $4.50 on lunch. Write an expression for how much you have left.",
+    "formative_practices": "### Study 1: The Variable Introduction [Early in Packet]\nWork through Part 1, writing algebraic expressions for real situations. The goal is comfort with letters representing numbers — this should feel natural, not threatening.\n\n### Study 2: Equation-Solving Practice [Ongoing]\nWork through equations of increasing complexity using Art of Problem Solving or equivalent. Always estimate before solving. Always check afterward.\n\n### Study 3: The Linear vs. Exponential Investigation [Mid-Packet — Key Activity]\nGraph linear and exponential functions side by side. Build a savings model (linear) and an investment model (exponential). See where they diverge. This is the most important visual in the packet.\n\n### Study 4: The Modeling Challenge [Late Packet]\nChoose three real situations from your life. For each, identify the variables, write the function, and solve a specific question. Present your models to your mentor.\n\n### Study 5: The Systems Challenge [Late Packet]\nWork through the systems problems in Part 8. For each, solve algebraically AND graphically (using Desmos). See that the algebraic solution matches the intersection on the graph.\n\n### Study 6: The Exponential Exploration [Mid-to-Late Packet]\nThe rice-and-chessboard problem, the social media sharing problem, and at least one financial example. Calculate the numbers. Express surprise at how large they get. This emotional reaction to exponential growth is part of the learning — it recalibrates your intuition.\n\n### Study 7: The Big Graph [End of Packet]\nGraph y = x, y = x^2, y = x^3, y = 2^x, and y = 10^x on the same axes. Zoom out to see how they behave for large x. Discuss: why does exponential always win in the long run?"
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### 1. Variable Comfort\n**Developing well:** The student treats variables as natural — a letter that stands for a number, no more mysterious than a pronoun standing for a person. Can write expressions for real situations without prompting.\n\n**Developing slowly:** Variables feel alien or frightening. The student can perform procedures with variables but does not understand what the variable represents.\n\n**Diagnostic questions:** Have you consistently connected variables to real quantities? Does the student define their variables (\"let h = hours worked\") before using them?\n\n### 2. Equation Solving\n**Developing well:** Solves linear equations reliably. Estimates first, checks after. Can explain why each step is valid (maintains the balance). Recognizes when an equation has been set up incorrectly because the answer does not match the estimate.\n\n**Developing slowly:** Follows memorized steps without understanding. Cannot explain why you add or subtract from both sides. Does not check answers.\n\n### 3. Function Understanding\n**Developing well:** Understands a function as a consistent input-output relationship. Can create function tables, graph functions, and interpret graphs as stories. Can identify slope and intercept and explain what they mean in context.\n\n**Developing slowly:** Can fill in a function table but does not understand why the relationship is consistent. Cannot interpret a graph beyond reading coordinates.\n\n### 4. Linear vs. Exponential\n**Developing well:** Can immediately identify whether a growth process is linear or exponential. Understands viscerally that exponential growth is deceptive — slow at first, then overwhelming. Can apply this to financial and real-world examples.\n\n**Developing slowly:** Can define both but confuses them in practice. Does not have the gut-level sense of how exponential growth differs from linear.\n\n### 5. Modeling\n**Developing well:** Given a real situation, can identify the variables, write the equation, and solve. Can explain why the model fits the situation and check the answer against reality.\n\n**Developing slowly:** Can solve equations given to them but cannot set up an equation from a word problem or real situation.",
+    "common_pitfalls": "### Procedures Without Meaning\nThe most common failure in algebra instruction. The student can execute \"subtract 5 from both sides, divide by 3\" but cannot explain why or set up the equation in the first place. Every procedure must be connected to a reason. \"We subtract 5 from both sides because we need to isolate the term with x, and subtracting the same thing from both sides keeps the equation balanced — like removing the same weight from both sides of a scale.\"\n\n### Skipping the Linear-Exponential Comparison\nThis is the most important concept in the packet and the most commonly undertaught. If you rush through it, the student misses the single insight that has the most impact on their financial and quantitative literacy. Spend significant time on it. Graph both. Build spreadsheet models. Calculate real scenarios. Return to it repeatedly.\n\n### Not Graphing Enough\nGraphs make algebra visible. A student who solves equations but never graphs is missing half the understanding. Use Desmos for every function. The visual intuition that graphing builds — that steeper means faster growth, that curves bend, that intersection means two equations agree — is essential.\n\n### Math Anxiety at the Abstract Transition\nSome students who were confident with arithmetic become anxious when letters appear. This is common and addressable. The solution is not to slow down — it is to ground the abstraction in reality. A student who is told \"let x equal the number of hours you work\" and then calculates their own pay is not anxious about x. A student who is told \"simplify 3x + 2x\" with no context might be.",
+    "narration_evaluation": "### Prompt 1: What Is a Variable?\n**Strong:** Explains that a variable is a letter representing a quantity, gives a real example, and explains why this is useful (one expression covers many specific cases).\n**Weak:** \"It is a letter in math.\" No meaning attached.\n\n### Prompt 3: Linear vs. Exponential\n**Strong:** Clear explanation of the difference (constant addition vs. constant multiplication). Gives a financial example that shows why exponential is more powerful over time. May reference the Rule of 72 or the rice-and-chessboard problem. Shows genuine understanding of why this matters.\n**Weak:** \"Linear is a straight line and exponential is a curve.\" Definitions without meaning or application.\n\n### Prompt 4: Real-Life Algebraic Model\n**Strong:** Takes a genuine situation (not a textbook problem), identifies variables clearly, writes a correct equation, solves it, and checks whether the answer makes sense in context.\n**Weak:** Can solve a given equation but cannot set one up from a real situation."
+  }
+}

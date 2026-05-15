@@ -1,1 +1,200 @@
-{"id": "1.5.3-A1", "title": "Patterns, Sequences & Simple Unknowns", "pillar_id": "1.5", "pillar_name": "Quantitative Sovereignty", "sub_domain_id": "1.5.3", "sub_domain_name": "Geometry & Spatial Reasoning", "tier": "A", "tier_detail": "A (~ages 4–7)", "domain": "Domain 1 — Knowing the World", "prerequisites": ["IC1.1-A1", "1.5.1-A1", "1.5.2-A1"], "books": {"required": [{"audience": "student", "title": "Pattern blocks", "author": ""}, {"audience": "student", "title": "Colored beads, buttons, or cubes", "author": ""}, {"audience": "student", "title": "Grid paper", "author": ""}, {"audience": "student", "title": "[Curriculum Spine] Singapore Math — Dimensions Math K–1", "author": ""}], "suggested": [{"audience": "student", "title": "[Read Aloud]", "author": "Trudy Harris"}, {"audience": "student", "title": "[Read Aloud]", "author": "Sarah C. Campbell"}, {"audience": "student", "title": "[Read Aloud]", "author": "Marilyn Burns"}, {"audience": "student", "title": "[Read Aloud]", "author": "Ann Tompert"}, {"audience": "student", "title": "A tangram set", "author": ""}, {"audience": "student", "title": "Attribute blocks", "author": ""}], "supplementary": [{"audience": "mentor", "title": "[For Mentor]", "author": "Fosnot and Dolk"}, {"audience": "student", "title": "Geoboard and rubber bands", "author": ""}]}, "competence_markers": [{"description": "The student can identify, describe, and extend repeating patterns (AB, ABC, ABB, and more complex)", "assessment_type": "behavioral"}, {"description": "The student can identify and extend growing number patterns (add 1, add 2, add 5, double)", "assessment_type": "behavioral"}, {"description": "The student can create original patterns and explain the rule clearly", "assessment_type": "behavioral"}, {"description": "The student can recognize and name basic shapes (circle, triangle, square, rectangle, hexagon, octagon)", "assessment_type": "behavioral"}, {"description": "The student understands symmetry and can identify lines of symmetry in shapes and objects", "assessment_type": "behavioral"}, {"description": "The student can solve simple unknown problems ([ ] + 3 = 8) consistently and with growing confidence", "assessment_type": "behavioral"}, {"description": "The student can sort objects by different properties and explain their sorting rule", "assessment_type": "behavioral"}, {"description": "The student uses spatial vocabulary accurately (above, below, left, right, between, inside, outside)", "assessment_type": "behavioral"}, {"description": "The student finds patterns in the natural world and can describe them", "assessment_type": "behavioral"}, {"description": "The student has encountered the Fibonacci sequence and found it in nature", "assessment_type": "behavioral"}], "narration_prompts": [{"prompt": "Tell me about a pattern you found today.", "detail": "What is the rule? Is it repeating or growing?"}, {"prompt": "What is a growing pattern?", "detail": "Give me an example. How is it different from a repeating pattern?"}, {"prompt": "Where do you see patterns in nature?", "detail": "Tell me about one and explain what makes it a pattern."}, {"prompt": "Show me a shape with symmetry.", "detail": "Where is the line of symmetry? How do you know?"}, {"prompt": "I am thinking of a mystery number.", "detail": "When I add 5, I get 12. What is my number? Now make up a mystery number problem for me."}, {"prompt": "Why are triangles strong?", "detail": "Can you push a triangle out of shape? What about a square? (Try it with straws or sticks.)"}, {"prompt": "Sort this collection two different ways.", "detail": "What property did you sort by each time? Why does the same collection look different when sorted differently?"}], "cross_connections": [{"target_id": "1.5.1", "target_name": "A1/A2 — Numerical Literacy & Estimation", "description": "Skip counting (2s, 5s, 10s) is a growing number pattern. The patterns here deepen and extend the number patterns from 1.5.1."}, {"target_id": "1.5.2-A1", "target_name": "Measurement Tools & Physical Dimensions", "description": "Shapes have measurable properties (side lengths, perimeters). Measurement connects to geometry through shape."}, {"target_id": "3.2.1-A", "target_name": "The Writing Process", "description": "Describing patterns in words builds both mathematical and verbal communication skills."}, {"target_id": "2.4.1-A", "target_name": "Fire, Shelter & Water", "description": "Shelters use shapes and patterns — repeating patterns in construction (bricks, logs, stones) and structural shapes (triangles for strength)."}, {"target_id": "1.1.1-A", "target_name": "Foundations of Civilization", "description": "Ancient civilizations used patterns in art, architecture, and mathematics. Mesopotamian tile patterns, Egyptian pyramids (triangles), Roman arches. Patterns connect mathematics to human history."}, {"target_id": "1.5.3-A2", "target_name": "Input-Output Machines & Graphing", "description": "The patterns and unknowns in this packet lead directly to the function concept in A2."}], "content": {"why_this_matters": "Look at the world around you. The tiles on a floor repeat. The bricks in a wall follow a pattern. The petals on a flower come in specific numbers. The seasons cycle. Day follows night. Patterns are everywhere, and the ability to see them, describe them, and use them to predict what comes next is one of the most powerful things your brain can do.\n\nThis packet is about training your pattern-seeing eye. You will learn to find patterns in colors, shapes, numbers, and movements. You will learn to describe patterns with rules — \"every other one is red\" or \"add two each time.\" And you will take your first step into one of the most exciting ideas in all of mathematics: the unknown. \"I have 3 cookies. I need 7. How many more do I need?\" That \"how many more\" is an unknown — a number you do not know yet but can figure out using what you do know.\n\nPatterns and unknowns are the seeds of algebra and geometry. In later packets, patterns will become functions and formulas. Unknowns will become variables and equations. Shapes made from patterns will become the geometric structures you study in depth. But all of it starts here, with your eyes open, looking at the world, and asking: \"What is the rule?\"", "what_this_develops": "1. **Pattern recognition** — seeing repetition and structure in colors, shapes, sounds, numbers, and nature\n2. **Pattern description** — stating the rule that generates a pattern\n3. **Pattern extension** — predicting what comes next based on the rule\n4. **Pattern creation** — making original patterns and explaining the rule\n5. **Growing patterns** — patterns where something changes (not just repeats) in a predictable way\n6. **Simple unknowns** — the idea that a number can be missing from a statement and you can figure out what it is\n7. **Shape recognition and classification** — circles, triangles, squares, rectangles, and other basic shapes\n8. **Symmetry** — the concept that something looks the same on both sides of a line\n9. **Spatial vocabulary** — above, below, beside, between, inside, outside, left, right, near, far", "core_content": "### Part 1: Repeating Patterns — What Comes Next?\n\nA repeating pattern is something that follows a rule and cycles back to the beginning.\n\n**Simple AB patterns:**\n- Red, blue, red, blue, red, blue... What comes next? Red.\n- Circle, square, circle, square, circle... What comes next? Circle.\n- Clap, stomp, clap, stomp, clap... What comes next? Stomp.\n\nThe rule is: alternate between two things. We call this an AB pattern.\n\n**ABC patterns:**\n- Red, blue, green, red, blue, green, red, blue, green... What comes next? Red.\n- Triangle, circle, square, triangle, circle, square... What comes next? Triangle.\n\nThe rule is: cycle through three things. This is an ABC pattern.\n\n**More complex repeating patterns:**\n- ABB: red, blue, blue, red, blue, blue, red, blue, blue...\n- AABB: red, red, blue, blue, red, red, blue, blue...\n- ABBC: red, blue, blue, green, red, blue, blue, green...\n\n**Practice — Pattern Making:**\n- Use colored beads or blocks to create an AB pattern. Then an ABC pattern. Then an ABB pattern. Can your mentor figure out the rule?\n- Your mentor creates a pattern. You identify the rule and continue it.\n- Find a repeating pattern in your house (tiles, wallpaper, fabric, bricks). What is the rule?\n\n**Practice — Pattern in Sound and Movement:**\n- Clap-snap-clap-snap... (AB in sound)\n- Jump-jump-spin-jump-jump-spin... (AAB in movement)\n- Create a pattern using sounds or movements. Teach it to someone else.", "formative_practices": "### Study 1: Daily Pattern Spotting [Ongoing — Backbone of the Packet]\nEach day, find at least one pattern in the world around you and describe it. Is it repeating or growing? What is the rule? Record it in your journal with a drawing or description.\n\n### Study 2: The Pattern Block Exploration [Early in Packet]\nSpend at least three sessions playing freely with pattern blocks. Make designs. Notice which shapes fit together and which do not. Discover tessellations (tilings) naturally. Take photographs or draw your designs.\n\n### Study 3: The Fibonacci Hunt [Mid-Packet]\nRead *Growing Patterns* together. Then go on a Fibonacci hunt: count petals on flowers, spirals on pine cones, and branches on plants. Record your findings. How many Fibonacci numbers did you find?\n\n### Study 4: The Shape Hunt [Mid-Packet]\nComplete the shape hunt from Part 4. For each shape found, discuss: Why was this shape used here? Is it strong? Does it fit together with other shapes? Is it easy to make?\n\n### Study 5: Symmetry Art [Mid-to-Late Packet]\nCreate a symmetric artwork: paint one half, fold the paper, and press. Or draw half a design on one side of a fold line and complete the other half. Display the art and identify the line of symmetry.\n\n### Study 6: Mystery Number Games [Ongoing]\nPlay mystery number games at least three times per week. Start with addition unknowns, then subtraction, then multiplication. Gradually increase difficulty. The student should become fluent at these — fast and confident.\n\n### Study 7: The Growing Pattern Project [Late Packet]\nDesign an original growing pattern using blocks, drawings, or numbers. Build the first five steps. Record how many blocks (or units) are in each step. State the rule. Predict step 10 without building all the intermediate steps."}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### 1. Pattern Recognition and Extension\n**Developing well:** The student can identify the rule in AB, ABC, ABB, and more complex patterns. Can extend patterns confidently. Can create original patterns and explain the rule. Notices patterns in the environment without prompting.\n\n**Developing slowly:** Can extend simple AB patterns but struggles with more complex ones. Does not notice patterns spontaneously.\n\n**Diagnostic questions:** Has the student had enough hands-on pattern-making practice? (Dozens of patterns built, not two or three.) Have you pointed out patterns in daily life regularly?\n\n### 2. Growing Patterns\n**Developing well:** Can continue number sequences (add 1, add 2, double) and explain the rule. Can build growing patterns with blocks and predict future steps.\n\n**Developing slowly:** Can continue simple sequences by adding 1 but not more complex rules. Cannot articulate the rule — extends by \"feel\" rather than understanding.\n\n**Diagnostic questions:** Has the student built growing patterns physically? The physical act of adding one more row to a growing staircase makes the rule visible.\n\n### 3. Shape Recognition\n**Developing well:** Names basic shapes confidently. Can find them in the environment. Understands shape properties (triangles have 3 sides, squares have 4 equal sides).\n\n**Developing slowly:** Confuses shapes or only recognizes them in standard orientations (a triangle \"must\" have a flat bottom). Cannot identify shapes in real-world objects.\n\n**Diagnostic questions:** Have you shown shapes in many orientations? A triangle tilted or inverted is still a triangle. Rigid orientation expectations come from worksheets, not reality.\n\n### 4. Simple Unknowns\n**Developing well:** Solves mystery number problems quickly and confidently. Can create their own problems. Uses the concept naturally: \"I need 4 more to get to 10.\"\n\n**Developing slowly:** Cannot solve even simple missing-addend problems. Guesses randomly rather than reasoning.\n\n**Diagnostic questions:** Are the numbers appropriate for the student's arithmetic level? If they are still mastering addition to 10, mystery number problems should use small numbers. Are you asking these casually and frequently, or only during formal practice?\n\n### 5. Symmetry\n**Developing well:** Can identify lines of symmetry in shapes and objects. Can complete a symmetric drawing. Finds symmetry in nature and the built environment.\n\n**Developing slowly:** Cannot identify lines of symmetry even in simple shapes. May confuse symmetry with \"looking nice.\"\n\n**Diagnostic questions:** Has the student done the fold-and-cut activity? The physical act of folding makes symmetry tangible.", "common_pitfalls": "### Patterns Only on Paper\nPatterns drawn on worksheets are thin. Patterns built with blocks, sung as songs, clapped as rhythms, found in brickwork, and discovered in flower petals are rich. Prioritize physical and environmental patterns over paper ones.\n\n### Rushing Past Repeating to Growing\nRepeating patterns (AB, ABC) must be solid before growing patterns. A student who cannot identify and extend repeating patterns reliably will struggle with the additional cognitive load of growing patterns.\n\n### Correcting Instead of Questioning\nWhen the student extends a pattern incorrectly, ask: \"Tell me the rule you are following.\" They may have a valid alternative rule. If their rule is truly wrong, guide them to discover it: \"Hmm, the pattern goes red-blue-red-blue. What comes after blue each time?\"\n\n### Neglecting Spatial Vocabulary\nPosition words (above, below, left, right, between) seem basic but are critical for later geometric reasoning. A student who cannot follow \"place the triangle above the square, to the left of the circle\" will struggle with geometric constructions. Practice these words daily in real contexts.\n\n### Making Fibonacci a Test\nThe Fibonacci sequence is introduced for wonder. \"Isn't it amazing that flowers follow this pattern?\" is the right tone. \"What is the eighth Fibonacci number?\" is the wrong tone for this age.", "narration_evaluation": "### Prompt 1: A Pattern Found Today\n**Strong:** Describes a specific pattern with the rule clearly stated. \"The tiles go white-black-white-black — it is an AB pattern.\" May show excitement about finding it.\n**Weak:** \"I saw a pattern.\" No specifics.\n\n### Prompt 2: Growing vs. Repeating\n**Strong:** Explains that repeating patterns cycle (same thing over and over) while growing patterns change in a predictable way (each step is bigger). Gives an example of each.\n**Weak:** Cannot distinguish between the two types.\n\n### Prompt 5: Mystery Number\n**Strong:** Solves the problem quickly and explains reasoning. Can create a mystery number problem for the mentor. Shows understanding that the unknown can be figured out from the known.\n**Weak:** Guesses without reasoning. Cannot create their own problem.\n\n### Prompt 6: Triangles Are Strong\n**Strong:** Has tested this physically — pushed on a triangle shape and a square shape and noticed that the triangle holds while the square collapses into a parallelogram. Can describe the difference.\n**Weak:** Has not tested it. No physical understanding."}}
+{
+  "id": "1.5.3-A1",
+  "title": "Patterns, Sequences & Simple Unknowns",
+  "pillar_id": "1.5",
+  "pillar_name": "Quantitative Sovereignty",
+  "sub_domain_id": "1.5.3",
+  "sub_domain_name": "Geometry & Spatial Reasoning",
+  "tier": "A",
+  "tier_detail": "A (~ages 4–7)",
+  "domain": "Domain 1 — Knowing the World",
+  "prerequisites": [
+    "IC1.1-A1",
+    "1.5.1-A1",
+    "1.5.2-A1"
+  ],
+  "books": {
+    "required": [
+      {
+        "audience": "student",
+        "title": "[Curriculum Spine] Singapore Math — Dimensions Math K–1",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "Colored beads, buttons, or cubes",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "Grid paper",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Curriculum Spine] Singapore Math — Dimensions Math K–1",
+        "author": ""
+      }
+    ],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[Read Aloud] Pattern Fish",
+        "author": "Trudy Harris"
+      },
+      {
+        "audience": "student",
+        "title": "[Read Aloud] Growing Patterns: Fibonacci Numbers in Nature",
+        "author": "Sarah C. Campbell"
+      },
+      {
+        "audience": "student",
+        "title": "[Read Aloud] The Greedy Triangle",
+        "author": "Marilyn Burns"
+      },
+      {
+        "audience": "student",
+        "title": "[Read Aloud] Grandfather Tang's Story",
+        "author": "Ann Tompert"
+      },
+      {
+        "audience": "student",
+        "title": "A tangram set",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "Attribute blocks",
+        "author": ""
+      }
+    ],
+    "supplementary": [
+      {
+        "audience": "mentor",
+        "title": "[For Mentor] Young Mathematicians at Work: Constructing Number Sense, Addition, and Subtraction",
+        "author": "Fosnot and Dolk"
+      },
+      {
+        "audience": "student",
+        "title": "Geoboard and rubber bands",
+        "author": ""
+      }
+    ]
+  },
+  "competence_markers": [
+    {
+      "description": "The student can identify, describe, and extend repeating patterns (AB, ABC, ABB, and more complex)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can identify and extend growing number patterns (add 1, add 2, add 5, double)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can create original patterns and explain the rule clearly",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can recognize and name basic shapes (circle, triangle, square, rectangle, hexagon, octagon)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands symmetry and can identify lines of symmetry in shapes and objects",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can solve simple unknown problems ([ ] + 3 = 8) consistently and with growing confidence",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can sort objects by different properties and explain their sorting rule",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student uses spatial vocabulary accurately (above, below, left, right, between, inside, outside)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student finds patterns in the natural world and can describe them",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student has encountered the Fibonacci sequence and found it in nature",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [
+    {
+      "prompt": "Tell me about a pattern you found today.",
+      "detail": "What is the rule? Is it repeating or growing?"
+    },
+    {
+      "prompt": "What is a growing pattern?",
+      "detail": "Give me an example. How is it different from a repeating pattern?"
+    },
+    {
+      "prompt": "Where do you see patterns in nature?",
+      "detail": "Tell me about one and explain what makes it a pattern."
+    },
+    {
+      "prompt": "Show me a shape with symmetry.",
+      "detail": "Where is the line of symmetry? How do you know?"
+    },
+    {
+      "prompt": "I am thinking of a mystery number.",
+      "detail": "When I add 5, I get 12. What is my number? Now make up a mystery number problem for me."
+    },
+    {
+      "prompt": "Why are triangles strong?",
+      "detail": "Can you push a triangle out of shape? What about a square? (Try it with straws or sticks.)"
+    },
+    {
+      "prompt": "Sort this collection two different ways.",
+      "detail": "What property did you sort by each time? Why does the same collection look different when sorted differently?"
+    }
+  ],
+  "cross_connections": [
+    {
+      "target_id": "1.5.1",
+      "target_name": "A1/A2 — Numerical Literacy & Estimation",
+      "description": "Skip counting (2s, 5s, 10s) is a growing number pattern. The patterns here deepen and extend the number patterns from 1.5.1."
+    },
+    {
+      "target_id": "1.5.2-A1",
+      "target_name": "Measurement Tools & Physical Dimensions",
+      "description": "Shapes have measurable properties (side lengths, perimeters). Measurement connects to geometry through shape."
+    },
+    {
+      "target_id": "3.2.1-A",
+      "target_name": "The Writing Process",
+      "description": "Describing patterns in words builds both mathematical and verbal communication skills."
+    },
+    {
+      "target_id": "2.4.1-A",
+      "target_name": "Fire, Shelter & Water",
+      "description": "Shelters use shapes and patterns — repeating patterns in construction (bricks, logs, stones) and structural shapes (triangles for strength)."
+    },
+    {
+      "target_id": "1.1.1-A",
+      "target_name": "Foundations of Civilization",
+      "description": "Ancient civilizations used patterns in art, architecture, and mathematics. Mesopotamian tile patterns, Egyptian pyramids (triangles), Roman arches. Patterns connect mathematics to human history."
+    },
+    {
+      "target_id": "1.5.3-A2",
+      "target_name": "Input-Output Machines & Graphing",
+      "description": "The patterns and unknowns in this packet lead directly to the function concept in A2."
+    }
+  ],
+  "content": {
+    "why_this_matters": "Look at the world around you. The tiles on a floor repeat. The bricks in a wall follow a pattern. The petals on a flower come in specific numbers. The seasons cycle. Day follows night. Patterns are everywhere, and the ability to see them, describe them, and use them to predict what comes next is one of the most powerful things your brain can do.\n\nThis packet is about training your pattern-seeing eye. You will learn to find patterns in colors, shapes, numbers, and movements. You will learn to describe patterns with rules — \"every other one is red\" or \"add two each time.\" And you will take your first step into one of the most exciting ideas in all of mathematics: the unknown. \"I have 3 cookies. I need 7. How many more do I need?\" That \"how many more\" is an unknown — a number you do not know yet but can figure out using what you do know.\n\nPatterns and unknowns are the seeds of algebra and geometry. In later packets, patterns will become functions and formulas. Unknowns will become variables and equations. Shapes made from patterns will become the geometric structures you study in depth. But all of it starts here, with your eyes open, looking at the world, and asking: \"What is the rule?\"",
+    "what_this_develops": "1. **Pattern recognition** — seeing repetition and structure in colors, shapes, sounds, numbers, and nature\n2. **Pattern description** — stating the rule that generates a pattern\n3. **Pattern extension** — predicting what comes next based on the rule\n4. **Pattern creation** — making original patterns and explaining the rule\n5. **Growing patterns** — patterns where something changes (not just repeats) in a predictable way\n6. **Simple unknowns** — the idea that a number can be missing from a statement and you can figure out what it is\n7. **Shape recognition and classification** — circles, triangles, squares, rectangles, and other basic shapes\n8. **Symmetry** — the concept that something looks the same on both sides of a line\n9. **Spatial vocabulary** — above, below, beside, between, inside, outside, left, right, near, far",
+    "core_content": "### Part 1: Repeating Patterns — What Comes Next?\n\nA repeating pattern is something that follows a rule and cycles back to the beginning.\n\n**Simple AB patterns:**\n- Red, blue, red, blue, red, blue... What comes next? Red.\n- Circle, square, circle, square, circle... What comes next? Circle.\n- Clap, stomp, clap, stomp, clap... What comes next? Stomp.\n\nThe rule is: alternate between two things. We call this an AB pattern.\n\n**ABC patterns:**\n- Red, blue, green, red, blue, green, red, blue, green... What comes next? Red.\n- Triangle, circle, square, triangle, circle, square... What comes next? Triangle.\n\nThe rule is: cycle through three things. This is an ABC pattern.\n\n**More complex repeating patterns:**\n- ABB: red, blue, blue, red, blue, blue, red, blue, blue...\n- AABB: red, red, blue, blue, red, red, blue, blue...\n- ABBC: red, blue, blue, green, red, blue, blue, green...\n\n**Practice — Pattern Making:**\n- Use colored beads or blocks to create an AB pattern. Then an ABC pattern. Then an ABB pattern. Can your mentor figure out the rule?\n- Your mentor creates a pattern. You identify the rule and continue it.\n- Find a repeating pattern in your house (tiles, wallpaper, fabric, bricks). What is the rule?\n\n**Practice — Pattern in Sound and Movement:**\n- Clap-snap-clap-snap... (AB in sound)\n- Jump-jump-spin-jump-jump-spin... (AAB in movement)\n- Create a pattern using sounds or movements. Teach it to someone else.",
+    "formative_practices": "### Study 1: Daily Pattern Spotting [Ongoing — Backbone of the Packet]\nEach day, find at least one pattern in the world around you and describe it. Is it repeating or growing? What is the rule? Record it in your journal with a drawing or description.\n\n### Study 2: The Pattern Block Exploration [Early in Packet]\nSpend at least three sessions playing freely with pattern blocks. Make designs. Notice which shapes fit together and which do not. Discover tessellations (tilings) naturally. Take photographs or draw your designs.\n\n### Study 3: The Fibonacci Hunt [Mid-Packet]\nRead *Growing Patterns* together. Then go on a Fibonacci hunt: count petals on flowers, spirals on pine cones, and branches on plants. Record your findings. How many Fibonacci numbers did you find?\n\n### Study 4: The Shape Hunt [Mid-Packet]\nComplete the shape hunt from Part 4. For each shape found, discuss: Why was this shape used here? Is it strong? Does it fit together with other shapes? Is it easy to make?\n\n### Study 5: Symmetry Art [Mid-to-Late Packet]\nCreate a symmetric artwork: paint one half, fold the paper, and press. Or draw half a design on one side of a fold line and complete the other half. Display the art and identify the line of symmetry.\n\n### Study 6: Mystery Number Games [Ongoing]\nPlay mystery number games at least three times per week. Start with addition unknowns, then subtraction, then multiplication. Gradually increase difficulty. The student should become fluent at these — fast and confident.\n\n### Study 7: The Growing Pattern Project [Late Packet]\nDesign an original growing pattern using blocks, drawings, or numbers. Build the first five steps. Record how many blocks (or units) are in each step. State the rule. Predict step 10 without building all the intermediate steps."
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### 1. Pattern Recognition and Extension\n**Developing well:** The student can identify the rule in AB, ABC, ABB, and more complex patterns. Can extend patterns confidently. Can create original patterns and explain the rule. Notices patterns in the environment without prompting.\n\n**Developing slowly:** Can extend simple AB patterns but struggles with more complex ones. Does not notice patterns spontaneously.\n\n**Diagnostic questions:** Has the student had enough hands-on pattern-making practice? (Dozens of patterns built, not two or three.) Have you pointed out patterns in daily life regularly?\n\n### 2. Growing Patterns\n**Developing well:** Can continue number sequences (add 1, add 2, double) and explain the rule. Can build growing patterns with blocks and predict future steps.\n\n**Developing slowly:** Can continue simple sequences by adding 1 but not more complex rules. Cannot articulate the rule — extends by \"feel\" rather than understanding.\n\n**Diagnostic questions:** Has the student built growing patterns physically? The physical act of adding one more row to a growing staircase makes the rule visible.\n\n### 3. Shape Recognition\n**Developing well:** Names basic shapes confidently. Can find them in the environment. Understands shape properties (triangles have 3 sides, squares have 4 equal sides).\n\n**Developing slowly:** Confuses shapes or only recognizes them in standard orientations (a triangle \"must\" have a flat bottom). Cannot identify shapes in real-world objects.\n\n**Diagnostic questions:** Have you shown shapes in many orientations? A triangle tilted or inverted is still a triangle. Rigid orientation expectations come from worksheets, not reality.\n\n### 4. Simple Unknowns\n**Developing well:** Solves mystery number problems quickly and confidently. Can create their own problems. Uses the concept naturally: \"I need 4 more to get to 10.\"\n\n**Developing slowly:** Cannot solve even simple missing-addend problems. Guesses randomly rather than reasoning.\n\n**Diagnostic questions:** Are the numbers appropriate for the student's arithmetic level? If they are still mastering addition to 10, mystery number problems should use small numbers. Are you asking these casually and frequently, or only during formal practice?\n\n### 5. Symmetry\n**Developing well:** Can identify lines of symmetry in shapes and objects. Can complete a symmetric drawing. Finds symmetry in nature and the built environment.\n\n**Developing slowly:** Cannot identify lines of symmetry even in simple shapes. May confuse symmetry with \"looking nice.\"\n\n**Diagnostic questions:** Has the student done the fold-and-cut activity? The physical act of folding makes symmetry tangible.",
+    "common_pitfalls": "### Patterns Only on Paper\nPatterns drawn on worksheets are thin. Patterns built with blocks, sung as songs, clapped as rhythms, found in brickwork, and discovered in flower petals are rich. Prioritize physical and environmental patterns over paper ones.\n\n### Rushing Past Repeating to Growing\nRepeating patterns (AB, ABC) must be solid before growing patterns. A student who cannot identify and extend repeating patterns reliably will struggle with the additional cognitive load of growing patterns.\n\n### Correcting Instead of Questioning\nWhen the student extends a pattern incorrectly, ask: \"Tell me the rule you are following.\" They may have a valid alternative rule. If their rule is truly wrong, guide them to discover it: \"Hmm, the pattern goes red-blue-red-blue. What comes after blue each time?\"\n\n### Neglecting Spatial Vocabulary\nPosition words (above, below, left, right, between) seem basic but are critical for later geometric reasoning. A student who cannot follow \"place the triangle above the square, to the left of the circle\" will struggle with geometric constructions. Practice these words daily in real contexts.\n\n### Making Fibonacci a Test\nThe Fibonacci sequence is introduced for wonder. \"Isn't it amazing that flowers follow this pattern?\" is the right tone. \"What is the eighth Fibonacci number?\" is the wrong tone for this age.",
+    "narration_evaluation": "### Prompt 1: A Pattern Found Today\n**Strong:** Describes a specific pattern with the rule clearly stated. \"The tiles go white-black-white-black — it is an AB pattern.\" May show excitement about finding it.\n**Weak:** \"I saw a pattern.\" No specifics.\n\n### Prompt 2: Growing vs. Repeating\n**Strong:** Explains that repeating patterns cycle (same thing over and over) while growing patterns change in a predictable way (each step is bigger). Gives an example of each.\n**Weak:** Cannot distinguish between the two types.\n\n### Prompt 5: Mystery Number\n**Strong:** Solves the problem quickly and explains reasoning. Can create a mystery number problem for the mentor. Shows understanding that the unknown can be figured out from the known.\n**Weak:** Guesses without reasoning. Cannot create their own problem.\n\n### Prompt 6: Triangles Are Strong\n**Strong:** Has tested this physically — pushed on a triangle shape and a square shape and noticed that the triangle holds while the square collapses into a parallelogram. Can describe the difference.\n**Weak:** Has not tested it. No physical understanding."
+  }
+}

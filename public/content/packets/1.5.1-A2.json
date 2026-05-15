@@ -1,1 +1,222 @@
-{"id": "1.5.1-A2", "title": "Addition & Subtraction to Fluency", "pillar_id": "1.5", "pillar_name": "Quantitative Sovereignty", "sub_domain_id": "1.5.1", "sub_domain_name": "Numerical Literacy & Estimation", "tier": "A", "tier_detail": "A (~ages 4–9)", "domain": "Domain 1 — Knowing the World", "prerequisites": ["1.5.1-A1", "IC1.1-A1"], "books": {"required": [{"audience": "student", "title": "Physical manipulatives", "author": ""}, {"audience": "student", "title": "[Curriculum Spine]", "author": ""}, {"audience": "student", "title": "Ten-frames", "author": ""}, {"audience": "student", "title": "A number line (0–20 minimum, 0–100 ideal)", "author": ""}, {"audience": "student", "title": "Dice and playing cards", "author": ""}, {"audience": "student", "title": "A hundreds chart", "author": ""}], "suggested": [{"audience": "student", "title": "[Read Aloud]", "author": "Brian Cleary"}, {"audience": "student", "title": "[Game]", "author": ""}, {"audience": "student", "title": "[Game]", "author": ""}, {"audience": "student", "title": "Cuisenaire rods", "author": ""}, {"audience": "student", "title": "[Curriculum Support]", "author": ""}, {"audience": "student", "title": "Dominoes", "author": ""}], "supplementary": [{"audience": "mentor", "title": "[For Mentor]", "author": "John Van de Walle"}, {"audience": "mentor", "title": "[For Mentor]", "author": "Kate Snow"}, {"audience": "student", "title": "Balance scale", "author": ""}]}, "competence_markers": [{"description": "The student understands addition as combining, increasing, and moving forward on the number line", "assessment_type": "behavioral"}, {"description": "The student understands subtraction as removal, decrease, finding the difference, and moving backward on the number line", "assessment_type": "behavioral"}, {"description": "The student can demonstrate the inverse relationship: given an addition fact, produce both subtraction facts (and vice versa)", "assessment_type": "behavioral"}, {"description": "The student knows the bonds of 10 reliably (this is the highest-priority fluency target)", "assessment_type": "behavioral"}, {"description": "The student uses at least two mental strategies (counting on, doubles, making ten, thinking addition) appropriately", "assessment_type": "behavioral"}, {"description": "The student can solve simple story problems involving addition and subtraction", "assessment_type": "behavioral"}, {"description": "The student can create their own story problems", "assessment_type": "behavioral"}, {"description": "The student estimates sums and differences before calculating, as a consistent habit", "assessment_type": "behavioral"}, {"description": "Addition and subtraction facts to 10 are fluent (reliable access, not necessarily instant recall)", "assessment_type": "behavioral"}, {"description": "Addition and subtraction facts to 20 are developing (strategies are available even if not yet fluent)", "assessment_type": "behavioral"}, {"description": "The student understands the equals sign as \"is the same as,\" not \"the answer is\"", "assessment_type": "behavioral"}, {"description": "The student can explain their thinking when solving problems — not just give the answer, but describe the reasoning", "assessment_type": "behavioral"}], "narration_prompts": [{"prompt": "Show me with objects what 7 + 5 means.", "detail": "Then tell me: how did you figure out the answer? What strategy did you use?"}, {"prompt": "What is the difference between addition and subtraction?", "detail": "How are they related? Give me an example of how they are opposites."}, {"prompt": "Tell me all four facts in a fact family.", "detail": "Pick any three numbers that work and tell me all four equations. How do you know they are all true?"}, {"prompt": "What are the bonds of 10?", "detail": "Tell me as many pairs as you can that add up to 10. Why are these important?"}, {"prompt": "Make up a story problem that uses addition.", "detail": "Now make up one that uses subtraction. Solve both of them and explain your thinking."}, {"prompt": "What is your estimate for 8 + 9?", "detail": "How did you estimate? Now solve it. Were you close? What strategy did you use to solve it?"}, {"prompt": "When do you use addition and subtraction in real life?", "detail": "Give me three examples from this week."}], "cross_connections": [{"target_id": "2.3.1-A", "target_name": "Kitchen Skills & Cooking Foundations", "description": "Every recipe requires addition (combining ingredients) and subtraction (how much more do I need? how much is left?). The kitchen is the most natural addition and subtraction laboratory available."}, {"target_id": "4.1-A", "target_name": "Financial Literacy Foundations", "description": "If connected to early money handling, addition and subtraction are how money works: earning adds, spending subtracts, and the balance is the result. Even simple allowance tracking is addition and subtraction practice."}, {"target_id": "2.4.1-A", "target_name": "Fire, Shelter & Water", "description": "Building projects require counting materials and figuring out how many more are needed — classic addition and subtraction situations."}, {"target_id": "1.5.1-A3", "target_name": "Place Value & Multi-Digit Arithmetic", "description": "The next packet extends addition and subtraction to larger numbers using place value. The bonds of 10 and mental strategies from this packet are the foundation."}, {"target_id": "1.5.1-A4", "target_name": "Multiplication & Division Foundations", "description": "Multiplication is repeated addition. The student who deeply understands addition will see multiplication as a natural extension, not a new mystery."}, {"target_id": "1.5.9-A", "target_name": "Trade-offs, Choices & Consequences", "description": "Addition and subtraction model the most basic trade-off: when you gain something, it adds; when you give something up, it subtracts. The arithmetic of choice begins here."}], "content": {"why_this_matters": "You already know how to count. You can look at a group of things and tell how many there are. Now you are going to learn what happens when groups get bigger and smaller — when you put things together and when you take things apart.\n\nAddition is combining. If you have three rocks and you find four more rocks, you have seven rocks. That is addition: 3 + 4 = 7. But the equation is just the shorthand. The reality is three rocks plus four rocks equals seven rocks. The numbers represent real things.\n\nSubtraction is removing. If you have seven rocks and you give away four, you have three left. That is subtraction: 7 - 4 = 3. Again, the equation is shorthand for what actually happens to the rocks.\n\nHere is the key idea: **addition and subtraction are opposites.** They undo each other. If you add four and then subtract four, you are back where you started. This is not a coincidence — it is a structural relationship that will matter all through mathematics. Understanding that addition and subtraction are inverse operations — that they are mirror images of each other — is more important than memorizing any particular addition fact.\n\nAnd here is another key idea: **estimation still comes first.** Before you add 23 and 14, estimate: is the answer closer to 20 or 40 or 60? If you do the addition and get 97, your estimate tells you instantly: something went wrong. This habit, started in A1, continues here and never stops.", "what_this_develops": "1. **Conceptual understanding of addition** — combining groups, increasing quantities, moving forward on the number line\n2. **Conceptual understanding of subtraction** — removing from groups, decreasing quantities, moving backward on the number line, finding the difference between two quantities\n3. **The inverse relationship** — addition and subtraction undo each other\n4. **Number bonds** — the specific pairs that make key numbers (bonds of 10 are the most important: 1+9, 2+8, 3+7, 4+6, 5+5)\n5. **Addition and subtraction facts to 20** — known with fluency (not speed, but reliable access)\n6. **Mental strategies** — counting on, counting back, making ten, doubles, near-doubles\n7. **Story problems** — translating real situations into addition and subtraction and back again\n8. **The continued estimation habit** — estimating sums and differences before calculating", "core_content": "### Part 1: What Addition Really Means\n\nAddition has several meanings, and all of them are real:\n\n**Combining.** You have a group of 5 beans and a group of 3 beans. Push them together. Count the combined group. You have 8 beans. This is addition as combining: 5 + 3 = 8.\n\n**Practice:** Make two groups of objects. Estimate the total before combining. Combine them. Count. How close was your estimate?\n\n**Increasing.** You have 6 blocks. Someone gives you 2 more. Now you have 8 blocks. This is addition as increase: 6 + 2 = 8. The starting amount got bigger.\n\n**Practice:** Build a tower of blocks. Add more blocks. How tall is it now?\n\n**Counting on.** You are on number 4 on the number line. Jump forward 3 spaces. Where do you land? On 7. This is addition as movement forward: 4 + 3 = 7.\n\n**Practice on the number line:** Start at different numbers. Jump forward different amounts. Where do you land? The number line makes addition visible — you can see the distance you moved and the place you landed.\n\n**The plus sign (+) and the equals sign (=):**\nThe plus sign means \"combined with\" or \"and.\" The equals sign means \"is the same amount as.\" So 5 + 3 = 8 means \"five combined with three is the same amount as eight.\" This is not a command to \"do something.\" It is a statement about reality: these two quantities are the same.\n\nThis is an important point that many students miss: **the equals sign does not mean \"the answer is.\"** It means \"is the same as.\" This understanding becomes critical later in algebra. Plant it now.\n\n**Practice:** Use a balance scale if you have one. Put 5 beans on one side and 3 beans. Put 8 beans on the other side. The scale balances. 5 + 3 = 8 means \"5 and 3 together weigh the same as 8.\" The equals sign is a statement about balance.", "formative_practices": "### Study 1: Ongoing Estimation Practice [Daily — Backbone of the Packet]\nContinue the Estimation Jar from A1, but now add a twist: put two groups in the jar (marked with different colors or separated by a divider). Estimate each group, then estimate the total. Count each group, add them, and compare to the estimate.\n\n### Study 2: Fact Family Construction [Early in the Packet]\nChoose three numbers that form a fact family (like 3, 5, 8). Build all four facts with physical objects. Write all four equations. Draw a picture that shows the relationship. Do this for at least ten different fact families over the course of the packet.\n\n### Study 3: Kitchen Addition and Subtraction [Ongoing]\nCooking provides constant addition and subtraction opportunities: \"We need 3 eggs for the cake and 2 eggs for breakfast. How many eggs do we need total?\" \"There were 12 cookies. We ate 5. How many are left?\" \"The recipe needs 2 cups of flour. I already added 1. How much more?\"\n\n### Study 4: The Bonds of 10 Mastery [Mid-Packet]\nDedicated practice with the ten-frame until bonds of 10 are automatic. This is the one area where genuine fluency (not just understanding) is critical before advancing. The bonds of 10 are used in virtually every mental math strategy from here forward.\n\n### Study 5: Story Problem Creation [Mid-to-Late Packet]\nThe student creates their own story problems for a family member to solve. This requires the student to think about what addition and subtraction mean in context — a much deeper understanding than solving someone else's problem.\n\n### Study 6: The Zero Investigation [Mid-Packet]\nWhat happens when you add zero? 5 + 0 = ? What about 0 + 5? What happens when you subtract zero? 7 - 0 = ? Why? What happens when you subtract a number from itself? 9 - 9 = ? Why? Zero is special in both operations. Explore this through examples and discussion."}, "mentor_guide": {"formation_environment": "", "competence_evaluation": "### 1. Conceptual Understanding of Operations\n**Developing well:** The student can explain what addition means (\"putting groups together,\" \"getting more\") and what subtraction means (\"taking away,\" \"finding how many more\") using their own words. They can demonstrate both operations with physical objects. They understand the inverse relationship.\n\n**Developing slowly:** The student can produce correct answers to simple problems but cannot explain what the operations mean. When asked to \"show me with objects,\" they are confused.\n\n**Diagnostic questions:** Have you spent enough time with physical manipulatives before introducing written arithmetic? A student who jumps to symbols too early often appears to understand but has a shallow, fragile grasp.\n\n### 2. Bonds of 10\n**Developing well:** The student can produce all bonds of 10 quickly and reliably. When shown 7 beans on a ten-frame, they immediately know 3 spaces are empty. They use \"making ten\" as a strategy in addition problems.\n\n**Developing slowly:** The student must count to find bonds of 10. The ten-frame does not trigger automatic knowledge.\n\n**Diagnostic questions:** Has the student had enough physical practice with ten-frames? This is a case where sheer volume of practice matters — not drill, but repeated experience with ten-frames across many days. Most students need weeks of daily ten-frame interaction before bonds of 10 become automatic.\n\n### 3. Mental Strategies\n**Developing well:** The student uses multiple strategies flexibly — counting on for small additions, doubles for matching numbers, making ten for sums above 10. They can describe which strategy they used and why.\n\n**Developing slowly:** The student counts from 1 for every addition problem, regardless of the numbers. No strategies have been internalized.\n\n**Diagnostic questions:** Have you explicitly named and modeled the strategies? Students do not always discover strategies independently — they benefit from seeing the strategies demonstrated and then practicing them. Have you asked \"how did you figure that out?\" regularly? This question prompts strategy awareness.\n\n### 4. Story Problem Competence\n**Developing well:** The student can solve simple story problems and can create their own. They identify whether a situation calls for addition or subtraction. They estimate before solving.\n\n**Developing slowly:** The student looks for \"key words\" (like \"altogether\" means add) rather than understanding the situation. They cannot create their own problems.\n\n**Diagnostic questions:** Are the story problems connected to the student's real life? A problem about a child buying toys at a store they have never visited is more abstract than a problem about cookies in their own kitchen. Make it real.\n\n### 5. The Estimation Habit\n**Developing well:** The student estimates before calculating without being prompted. Estimates are reasonable — in the right general range, getting closer over time.\n\n**Developing slowly:** The student calculates without estimating, or provides estimates only when specifically asked.\n\n**Diagnostic questions:** Are you estimating yourself, aloud, before calculations? The most powerful way to install this habit is modeling it consistently.", "common_pitfalls": "### Flash Card Drills as Primary Practice\nFlash cards can be useful as a brief warm-up or assessment tool, but they should never be the primary way facts are practiced. The primary practice is games, real-world application, and strategic problem-solving. A student who \"knows\" 8 + 7 = 15 because they have seen the flash card 500 times but cannot explain why — that student has memorized, not learned.\n\n### Teaching Subtraction as a Separate Topic\nAddition and subtraction should be taught together from the beginning, as inverse operations. The student who learns addition for six weeks and then starts subtraction has missed the fundamental connection. Fact families (3 + 5 = 8, 5 + 3 = 8, 8 - 3 = 5, 8 - 5 = 3) should be introduced as soon as the student understands basic addition.\n\n### Correcting Strategies\nIf a student solves 6 + 7 by counting on fingers, do not tell them they are \"doing it wrong.\" They are using a strategy that works. Your job is to help them develop more efficient strategies — not by banning finger counting, but by introducing alternatives: \"That works! Here is another way — what is 6 + 6? Twelve. And 7 is one more than 6, so...\" The more efficient strategy replaces the less efficient one naturally, through demonstrated usefulness.\n\n### Neglecting Subtraction\nAddition is easier and more intuitive for most students. It is tempting to spend most of the time on addition and rush through subtraction. Resist this. Subtraction is harder precisely because it requires more practice. Give it equal time, and always frame it as \"the other side of the same coin\" — the inverse of addition.\n\n### Skipping the Estimation Step\nUnder time pressure, it is easy to skip the estimation step: \"Just add them.\" Never skip it. The five seconds spent estimating before every calculation builds the habit that will, years from now, protect this person from accepting a nonsensical answer to an important problem.", "narration_evaluation": "### Prompt 1: Show 7 + 5 with Objects\n**Strong:** The student builds two groups, pushes them together, counts the total, and can describe what they did. May use a strategy: \"I started at 7 and counted on 5.\" May use making ten: \"7 + 3 = 10, then 2 more = 12.\"\n**Weak:** Cannot demonstrate with objects, or counts from 1 rather than using any strategy.\n\n### Prompt 2: Difference Between Addition and Subtraction\n**Strong:** Clear explanation of both operations with examples. States that they are opposites — that they undo each other. May give a fact family as an example.\n**Weak:** \"Addition is plus and subtraction is minus.\" No conceptual explanation.\n\n### Prompt 3: Fact Family\n**Strong:** Chooses three numbers, states all four facts, and can explain why they are all true. May demonstrate with objects.\n**Weak:** Can state two facts (the addition pair) but not the subtraction pair, or vice versa.\n\n### Prompt 4: Bonds of 10\n**Strong:** Lists most or all bonds of 10 quickly. May use a strategy to generate them: \"0 and 10, 1 and 9, 2 and 8...\" or visualize them on a ten-frame.\n**Weak:** Can only produce 5+5 and perhaps one or two others. Must count to find each bond.\n\n### Prompt 5: Story Problem Creation\n**Strong:** Creates a coherent story problem that clearly requires addition or subtraction. The context makes sense. Solves it correctly with explanation.\n**Weak:** Cannot create a story problem, or creates one where the math does not match the story.\n\n### Prompt 6: Estimation and Strategy\n**Strong:** Provides a reasonable estimate (\"about 16 or 17\"), explains the estimation reasoning, solves the problem, names the strategy used, and compares the answer to the estimate.\n**Weak:** Cannot estimate, or solves the problem without any strategy awareness.\n\n### Prompt 7: Real-Life Examples\n**Strong:** Multiple specific examples from actual daily life — shopping, cooking, playing, building.\n**Weak:** Can only offer generic or hypothetical examples."}}
+{
+  "id": "1.5.1-A2",
+  "title": "Addition & Subtraction to Fluency",
+  "pillar_id": "1.5",
+  "pillar_name": "Quantitative Sovereignty",
+  "sub_domain_id": "1.5.1",
+  "sub_domain_name": "Numerical Literacy & Estimation",
+  "tier": "A",
+  "tier_detail": "A (~ages 4–9)",
+  "domain": "Domain 1 — Knowing the World",
+  "prerequisites": [
+    "1.5.1-A1",
+    "IC1.1-A1"
+  ],
+  "books": {
+    "required": [
+      {
+        "audience": "student",
+        "title": "[Curriculum Spine] Singapore Math — Dimensions Math Grade 1 / Primary Mathematics 1A and 1B",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Curriculum Spine]",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "Ten-frames",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "A number line (0–20 minimum, 0–100 ideal)",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "Dice and playing cards",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "A hundreds chart",
+        "author": ""
+      }
+    ],
+    "suggested": [
+      {
+        "audience": "student",
+        "title": "[Read Aloud] The Action of Subtraction",
+        "author": "Brian Cleary"
+      },
+      {
+        "audience": "student",
+        "title": "[Game] Shut the Box",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Game] Yahtzee Jr.",
+        "author": "or standard *Yahtzee*"
+      },
+      {
+        "audience": "student",
+        "title": "[Curriculum Support] Math Mammoth — Add & Subtract 1 and 2",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "[Curriculum Support]",
+        "author": ""
+      },
+      {
+        "audience": "student",
+        "title": "Dominoes",
+        "author": ""
+      }
+    ],
+    "supplementary": [
+      {
+        "audience": "mentor",
+        "title": "[For Mentor] Teaching Student-Centered Mathematics, Grades K–3",
+        "author": "John Van de Walle"
+      },
+      {
+        "audience": "mentor",
+        "title": "[For Mentor] Addition Facts That Stick",
+        "author": "and *Subtraction Facts That Stick* by Kate Snow"
+      },
+      {
+        "audience": "student",
+        "title": "Balance scale",
+        "author": ""
+      }
+    ]
+  },
+  "competence_markers": [
+    {
+      "description": "The student understands addition as combining, increasing, and moving forward on the number line",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands subtraction as removal, decrease, finding the difference, and moving backward on the number line",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can demonstrate the inverse relationship: given an addition fact, produce both subtraction facts (and vice versa)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student knows the bonds of 10 reliably (this is the highest-priority fluency target)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student uses at least two mental strategies (counting on, doubles, making ten, thinking addition) appropriately",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can solve simple story problems involving addition and subtraction",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can create their own story problems",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student estimates sums and differences before calculating, as a consistent habit",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "Addition and subtraction facts to 10 are fluent (reliable access, not necessarily instant recall)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "Addition and subtraction facts to 20 are developing (strategies are available even if not yet fluent)",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student understands the equals sign as \"is the same as,\" not \"the answer is\"",
+      "assessment_type": "behavioral"
+    },
+    {
+      "description": "The student can explain their thinking when solving problems — not just give the answer, but describe the reasoning",
+      "assessment_type": "behavioral"
+    }
+  ],
+  "narration_prompts": [
+    {
+      "prompt": "Show me with objects what 7 + 5 means.",
+      "detail": "Then tell me: how did you figure out the answer? What strategy did you use?"
+    },
+    {
+      "prompt": "What is the difference between addition and subtraction?",
+      "detail": "How are they related? Give me an example of how they are opposites."
+    },
+    {
+      "prompt": "Tell me all four facts in a fact family.",
+      "detail": "Pick any three numbers that work and tell me all four equations. How do you know they are all true?"
+    },
+    {
+      "prompt": "What are the bonds of 10?",
+      "detail": "Tell me as many pairs as you can that add up to 10. Why are these important?"
+    },
+    {
+      "prompt": "Make up a story problem that uses addition.",
+      "detail": "Now make up one that uses subtraction. Solve both of them and explain your thinking."
+    },
+    {
+      "prompt": "What is your estimate for 8 + 9?",
+      "detail": "How did you estimate? Now solve it. Were you close? What strategy did you use to solve it?"
+    },
+    {
+      "prompt": "When do you use addition and subtraction in real life?",
+      "detail": "Give me three examples from this week."
+    }
+  ],
+  "cross_connections": [
+    {
+      "target_id": "2.3.1-A",
+      "target_name": "Kitchen Skills & Cooking Foundations",
+      "description": "Every recipe requires addition (combining ingredients) and subtraction (how much more do I need? how much is left?). The kitchen is the most natural addition and subtraction laboratory available."
+    },
+    {
+      "target_id": "4.1-A",
+      "target_name": "Financial Literacy Foundations",
+      "description": "If connected to early money handling, addition and subtraction are how money works: earning adds, spending subtracts, and the balance is the result. Even simple allowance tracking is addition and subtraction practice."
+    },
+    {
+      "target_id": "2.4.1-A",
+      "target_name": "Fire, Shelter & Water",
+      "description": "Building projects require counting materials and figuring out how many more are needed — classic addition and subtraction situations."
+    },
+    {
+      "target_id": "1.5.1-A3",
+      "target_name": "Place Value & Multi-Digit Arithmetic",
+      "description": "The next packet extends addition and subtraction to larger numbers using place value. The bonds of 10 and mental strategies from this packet are the foundation."
+    },
+    {
+      "target_id": "1.5.1-A4",
+      "target_name": "Multiplication & Division Foundations",
+      "description": "Multiplication is repeated addition. The student who deeply understands addition will see multiplication as a natural extension, not a new mystery."
+    },
+    {
+      "target_id": "1.5.9-A",
+      "target_name": "Trade-offs, Choices & Consequences",
+      "description": "Addition and subtraction model the most basic trade-off: when you gain something, it adds; when you give something up, it subtracts. The arithmetic of choice begins here."
+    }
+  ],
+  "content": {
+    "why_this_matters": "You already know how to count. You can look at a group of things and tell how many there are. Now you are going to learn what happens when groups get bigger and smaller — when you put things together and when you take things apart.\n\nAddition is combining. If you have three rocks and you find four more rocks, you have seven rocks. That is addition: 3 + 4 = 7. But the equation is just the shorthand. The reality is three rocks plus four rocks equals seven rocks. The numbers represent real things.\n\nSubtraction is removing. If you have seven rocks and you give away four, you have three left. That is subtraction: 7 - 4 = 3. Again, the equation is shorthand for what actually happens to the rocks.\n\nHere is the key idea: **addition and subtraction are opposites.** They undo each other. If you add four and then subtract four, you are back where you started. This is not a coincidence — it is a structural relationship that will matter all through mathematics. Understanding that addition and subtraction are inverse operations — that they are mirror images of each other — is more important than memorizing any particular addition fact.\n\nAnd here is another key idea: **estimation still comes first.** Before you add 23 and 14, estimate: is the answer closer to 20 or 40 or 60? If you do the addition and get 97, your estimate tells you instantly: something went wrong. This habit, started in A1, continues here and never stops.",
+    "what_this_develops": "1. **Conceptual understanding of addition** — combining groups, increasing quantities, moving forward on the number line\n2. **Conceptual understanding of subtraction** — removing from groups, decreasing quantities, moving backward on the number line, finding the difference between two quantities\n3. **The inverse relationship** — addition and subtraction undo each other\n4. **Number bonds** — the specific pairs that make key numbers (bonds of 10 are the most important: 1+9, 2+8, 3+7, 4+6, 5+5)\n5. **Addition and subtraction facts to 20** — known with fluency (not speed, but reliable access)\n6. **Mental strategies** — counting on, counting back, making ten, doubles, near-doubles\n7. **Story problems** — translating real situations into addition and subtraction and back again\n8. **The continued estimation habit** — estimating sums and differences before calculating",
+    "core_content": "### Part 1: What Addition Really Means\n\nAddition has several meanings, and all of them are real:\n\n**Combining.** You have a group of 5 beans and a group of 3 beans. Push them together. Count the combined group. You have 8 beans. This is addition as combining: 5 + 3 = 8.\n\n**Practice:** Make two groups of objects. Estimate the total before combining. Combine them. Count. How close was your estimate?\n\n**Increasing.** You have 6 blocks. Someone gives you 2 more. Now you have 8 blocks. This is addition as increase: 6 + 2 = 8. The starting amount got bigger.\n\n**Practice:** Build a tower of blocks. Add more blocks. How tall is it now?\n\n**Counting on.** You are on number 4 on the number line. Jump forward 3 spaces. Where do you land? On 7. This is addition as movement forward: 4 + 3 = 7.\n\n**Practice on the number line:** Start at different numbers. Jump forward different amounts. Where do you land? The number line makes addition visible — you can see the distance you moved and the place you landed.\n\n**The plus sign (+) and the equals sign (=):**\nThe plus sign means \"combined with\" or \"and.\" The equals sign means \"is the same amount as.\" So 5 + 3 = 8 means \"five combined with three is the same amount as eight.\" This is not a command to \"do something.\" It is a statement about reality: these two quantities are the same.\n\nThis is an important point that many students miss: **the equals sign does not mean \"the answer is.\"** It means \"is the same as.\" This understanding becomes critical later in algebra. Plant it now.\n\n**Practice:** Use a balance scale if you have one. Put 5 beans on one side and 3 beans. Put 8 beans on the other side. The scale balances. 5 + 3 = 8 means \"5 and 3 together weigh the same as 8.\" The equals sign is a statement about balance.",
+    "formative_practices": "### Study 1: Ongoing Estimation Practice [Daily — Backbone of the Packet]\nContinue the Estimation Jar from A1, but now add a twist: put two groups in the jar (marked with different colors or separated by a divider). Estimate each group, then estimate the total. Count each group, add them, and compare to the estimate.\n\n### Study 2: Fact Family Construction [Early in the Packet]\nChoose three numbers that form a fact family (like 3, 5, 8). Build all four facts with physical objects. Write all four equations. Draw a picture that shows the relationship. Do this for at least ten different fact families over the course of the packet.\n\n### Study 3: Kitchen Addition and Subtraction [Ongoing]\nCooking provides constant addition and subtraction opportunities: \"We need 3 eggs for the cake and 2 eggs for breakfast. How many eggs do we need total?\" \"There were 12 cookies. We ate 5. How many are left?\" \"The recipe needs 2 cups of flour. I already added 1. How much more?\"\n\n### Study 4: The Bonds of 10 Mastery [Mid-Packet]\nDedicated practice with the ten-frame until bonds of 10 are automatic. This is the one area where genuine fluency (not just understanding) is critical before advancing. The bonds of 10 are used in virtually every mental math strategy from here forward.\n\n### Study 5: Story Problem Creation [Mid-to-Late Packet]\nThe student creates their own story problems for a family member to solve. This requires the student to think about what addition and subtraction mean in context — a much deeper understanding than solving someone else's problem.\n\n### Study 6: The Zero Investigation [Mid-Packet]\nWhat happens when you add zero? 5 + 0 = ? What about 0 + 5? What happens when you subtract zero? 7 - 0 = ? Why? What happens when you subtract a number from itself? 9 - 9 = ? Why? Zero is special in both operations. Explore this through examples and discussion."
+  },
+  "mentor_guide": {
+    "formation_environment": "",
+    "competence_evaluation": "### 1. Conceptual Understanding of Operations\n**Developing well:** The student can explain what addition means (\"putting groups together,\" \"getting more\") and what subtraction means (\"taking away,\" \"finding how many more\") using their own words. They can demonstrate both operations with physical objects. They understand the inverse relationship.\n\n**Developing slowly:** The student can produce correct answers to simple problems but cannot explain what the operations mean. When asked to \"show me with objects,\" they are confused.\n\n**Diagnostic questions:** Have you spent enough time with physical manipulatives before introducing written arithmetic? A student who jumps to symbols too early often appears to understand but has a shallow, fragile grasp.\n\n### 2. Bonds of 10\n**Developing well:** The student can produce all bonds of 10 quickly and reliably. When shown 7 beans on a ten-frame, they immediately know 3 spaces are empty. They use \"making ten\" as a strategy in addition problems.\n\n**Developing slowly:** The student must count to find bonds of 10. The ten-frame does not trigger automatic knowledge.\n\n**Diagnostic questions:** Has the student had enough physical practice with ten-frames? This is a case where sheer volume of practice matters — not drill, but repeated experience with ten-frames across many days. Most students need weeks of daily ten-frame interaction before bonds of 10 become automatic.\n\n### 3. Mental Strategies\n**Developing well:** The student uses multiple strategies flexibly — counting on for small additions, doubles for matching numbers, making ten for sums above 10. They can describe which strategy they used and why.\n\n**Developing slowly:** The student counts from 1 for every addition problem, regardless of the numbers. No strategies have been internalized.\n\n**Diagnostic questions:** Have you explicitly named and modeled the strategies? Students do not always discover strategies independently — they benefit from seeing the strategies demonstrated and then practicing them. Have you asked \"how did you figure that out?\" regularly? This question prompts strategy awareness.\n\n### 4. Story Problem Competence\n**Developing well:** The student can solve simple story problems and can create their own. They identify whether a situation calls for addition or subtraction. They estimate before solving.\n\n**Developing slowly:** The student looks for \"key words\" (like \"altogether\" means add) rather than understanding the situation. They cannot create their own problems.\n\n**Diagnostic questions:** Are the story problems connected to the student's real life? A problem about a child buying toys at a store they have never visited is more abstract than a problem about cookies in their own kitchen. Make it real.\n\n### 5. The Estimation Habit\n**Developing well:** The student estimates before calculating without being prompted. Estimates are reasonable — in the right general range, getting closer over time.\n\n**Developing slowly:** The student calculates without estimating, or provides estimates only when specifically asked.\n\n**Diagnostic questions:** Are you estimating yourself, aloud, before calculations? The most powerful way to install this habit is modeling it consistently.",
+    "common_pitfalls": "### Flash Card Drills as Primary Practice\nFlash cards can be useful as a brief warm-up or assessment tool, but they should never be the primary way facts are practiced. The primary practice is games, real-world application, and strategic problem-solving. A student who \"knows\" 8 + 7 = 15 because they have seen the flash card 500 times but cannot explain why — that student has memorized, not learned.\n\n### Teaching Subtraction as a Separate Topic\nAddition and subtraction should be taught together from the beginning, as inverse operations. The student who learns addition for six weeks and then starts subtraction has missed the fundamental connection. Fact families (3 + 5 = 8, 5 + 3 = 8, 8 - 3 = 5, 8 - 5 = 3) should be introduced as soon as the student understands basic addition.\n\n### Correcting Strategies\nIf a student solves 6 + 7 by counting on fingers, do not tell them they are \"doing it wrong.\" They are using a strategy that works. Your job is to help them develop more efficient strategies — not by banning finger counting, but by introducing alternatives: \"That works! Here is another way — what is 6 + 6? Twelve. And 7 is one more than 6, so...\" The more efficient strategy replaces the less efficient one naturally, through demonstrated usefulness.\n\n### Neglecting Subtraction\nAddition is easier and more intuitive for most students. It is tempting to spend most of the time on addition and rush through subtraction. Resist this. Subtraction is harder precisely because it requires more practice. Give it equal time, and always frame it as \"the other side of the same coin\" — the inverse of addition.\n\n### Skipping the Estimation Step\nUnder time pressure, it is easy to skip the estimation step: \"Just add them.\" Never skip it. The five seconds spent estimating before every calculation builds the habit that will, years from now, protect this person from accepting a nonsensical answer to an important problem.",
+    "narration_evaluation": "### Prompt 1: Show 7 + 5 with Objects\n**Strong:** The student builds two groups, pushes them together, counts the total, and can describe what they did. May use a strategy: \"I started at 7 and counted on 5.\" May use making ten: \"7 + 3 = 10, then 2 more = 12.\"\n**Weak:** Cannot demonstrate with objects, or counts from 1 rather than using any strategy.\n\n### Prompt 2: Difference Between Addition and Subtraction\n**Strong:** Clear explanation of both operations with examples. States that they are opposites — that they undo each other. May give a fact family as an example.\n**Weak:** \"Addition is plus and subtraction is minus.\" No conceptual explanation.\n\n### Prompt 3: Fact Family\n**Strong:** Chooses three numbers, states all four facts, and can explain why they are all true. May demonstrate with objects.\n**Weak:** Can state two facts (the addition pair) but not the subtraction pair, or vice versa.\n\n### Prompt 4: Bonds of 10\n**Strong:** Lists most or all bonds of 10 quickly. May use a strategy to generate them: \"0 and 10, 1 and 9, 2 and 8...\" or visualize them on a ten-frame.\n**Weak:** Can only produce 5+5 and perhaps one or two others. Must count to find each bond.\n\n### Prompt 5: Story Problem Creation\n**Strong:** Creates a coherent story problem that clearly requires addition or subtraction. The context makes sense. Solves it correctly with explanation.\n**Weak:** Cannot create a story problem, or creates one where the math does not match the story.\n\n### Prompt 6: Estimation and Strategy\n**Strong:** Provides a reasonable estimate (\"about 16 or 17\"), explains the estimation reasoning, solves the problem, names the strategy used, and compares the answer to the estimate.\n**Weak:** Cannot estimate, or solves the problem without any strategy awareness.\n\n### Prompt 7: Real-Life Examples\n**Strong:** Multiple specific examples from actual daily life — shopping, cooking, playing, building.\n**Weak:** Can only offer generic or hypothetical examples."
+  }
+}
