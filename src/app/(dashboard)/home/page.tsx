@@ -578,7 +578,7 @@ export default function HomePage() {
     : isPhase0 && isGraduated
     ? 'Graduated from Planting Roots'
     : isOlderKid
-    ? `${getEvergreenPhaseLabel(evergreenPhase)} · Ages ${getEvergreenPhaseAges(evergreenPhase)}`
+    ? `${getEvergreenPhaseLabel(evergreenPhase)} · ${getEvergreenPhaseAges(evergreenPhase)}`
     : '';
 
   return (
