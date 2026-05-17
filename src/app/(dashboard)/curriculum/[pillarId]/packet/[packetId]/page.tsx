@@ -187,10 +187,8 @@ function PacketContentView({ params }: { params: Promise<{ pillarId: string; pac
       setPrereqCheck(check);
       setLockStatus(getPacketLockStatus(activeChild.id, pid));
       setPacketStatus(getPacketStatus(activeChild.id, pid));
-      // Only record view if unlocked
-      if (check.unlocked) {
-        viewPacket(activeChild.id, pid);
-      }
+      // Always record view — no gating
+      viewPacket(activeChild.id, pid);
     }
   }, [activeChild, packetId]);
 
@@ -275,15 +273,15 @@ function PacketContentView({ params }: { params: Promise<{ pillarId: string; pac
         )}
       </div>
 
-      {/* Locked banner */}
-      {lockStatus === 'locked' && prereqCheck && (
-        <div className="p-4 rounded-xl bg-border-light/50 border border-border">
+      {/* Prerequisite info banner — informational, not blocking */}
+      {prereqCheck && prereqCheck.missing.length > 0 && (
+        <div className="p-4 rounded-xl bg-brand-light/20 border border-brand/10">
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-lg">🔒</span>
-            <p className="text-sm font-semibold text-foreground">This packet is locked</p>
+            <span className="text-lg">💡</span>
+            <p className="text-sm font-semibold text-foreground">Suggested prerequisites</p>
           </div>
           <p className="text-xs text-secondary mb-3">
-            Complete the prerequisites below to unlock this packet.
+            These packets build foundational knowledge for this one. You can do them first or dive right in.
           </p>
           {/* Progress bar */}
           <div className="w-full h-2 bg-border rounded-full overflow-hidden mb-2">
@@ -293,34 +291,32 @@ function PacketContentView({ params }: { params: Promise<{ pillarId: string; pac
             />
           </div>
           <p className="text-[10px] text-muted mb-3">
-            {prereqCheck.satisfied.length} of {prereqCheck.satisfied.length + prereqCheck.missing.length} prerequisites completed ({prereqCheck.progressPct}%)
+            {prereqCheck.satisfied.length} of {prereqCheck.satisfied.length + prereqCheck.missing.length} suggested prerequisites completed ({prereqCheck.progressPct}%)
           </p>
-          {prereqCheck.missing.length > 0 && (
-            <div className="space-y-1.5">
-              <p className="text-[10px] text-muted uppercase font-semibold tracking-wide">Still needed:</p>
-              {prereqCheck.missing.map(pre => {
-                const prePacket = getPacket(pre);
-                return (
-                  <Link
-                    key={pre}
-                    href={prePacket ? `/curriculum/${encodeURIComponent(prePacket.pillar_id)}/packet/${encodeURIComponent(pre)}?tier=${tier}` : '#'}
-                    className="flex items-center gap-2 p-2 rounded-lg bg-card border border-border hover:border-brand/30 transition-colors"
-                  >
-                    <span className="text-xs">📋</span>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-medium text-foreground truncate">
-                        {prePacket?.title || pre}
-                      </p>
-                      <p className="text-[10px] text-muted font-mono">{pre}</p>
-                    </div>
-                    <svg className="w-3 h-3 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                );
-              })}
-            </div>
-          )}
+          <div className="space-y-1.5">
+            <p className="text-[10px] text-muted uppercase font-semibold tracking-wide">Suggested first:</p>
+            {prereqCheck.missing.map(pre => {
+              const prePacket = getPacket(pre);
+              return (
+                <Link
+                  key={pre}
+                  href={prePacket ? `/curriculum/${encodeURIComponent(prePacket.pillar_id)}/packet/${encodeURIComponent(pre)}?tier=${tier}` : '#'}
+                  className="flex items-center gap-2 p-2 rounded-lg bg-card border border-border hover:border-brand/30 transition-colors"
+                >
+                  <span className="text-xs">📋</span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-medium text-foreground truncate">
+                      {prePacket?.title || pre}
+                    </p>
+                    <p className="text-[10px] text-muted font-mono">{pre}</p>
+                  </div>
+                  <svg className="w-3 h-3 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       )}
 
@@ -533,7 +529,7 @@ function PacketContentView({ params }: { params: Promise<{ pillarId: string; pac
             </div>
           )}
           {/* Mark Complete / Undo toggle */}
-          {activeChild && lockStatus !== 'locked' && (
+          {activeChild && (
             <div className="pt-2 space-y-3">
               <button
                 onClick={() => {

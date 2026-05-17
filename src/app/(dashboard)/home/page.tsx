@@ -481,7 +481,7 @@ function OlderKidHero({ child, phase }: { child: Child; phase: number }) {
             </div>
             {prereqDash.lockedCount > 0 && (
               <p className="text-[10px] text-muted">
-                🔒 {prereqDash.lockedCount} packets locked — complete prerequisites to unlock
+                💡 {prereqDash.lockedCount} packets have suggested prerequisites
               </p>
             )}
           </div>

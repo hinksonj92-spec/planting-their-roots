@@ -139,12 +139,12 @@ export function getAllPacketsForTier(tier: string): string[] {
 }
 
 /** Find the next unfinished packet for a child at a given phase.
- *  Now prereq-aware: only returns unlocked packets. */
+ *  Uses prereq engine for recommendations but never blocks access. */
 export function getNextPacket(childId: string, phase: number): string | null {
   const tier = phaseToTier(phase);
   const progress = loadProgress(childId);
 
-  // First: resume last viewed if it's not completed AND still unlocked
+  // First: resume last viewed if it's not completed
   if (progress.lastViewedPacket) {
     const status = progress.packets[progress.lastViewedPacket];
     if (status === 'in_progress') {
@@ -161,7 +161,16 @@ export function getNextPacket(childId: string, phase: number): string | null {
     return recommended[0].packet.id;
   }
 
-  // Fallback: all done or everything locked
+  // Fallback: find any not-started packet in tier order
+  const allPackets = getAllPacketsForTier(tier);
+  for (const id of allPackets) {
+    const s = progress.packets[id];
+    if (!s || s === 'not_started') {
+      return id;
+    }
+  }
+
+  // All done
   return null;
 }
 

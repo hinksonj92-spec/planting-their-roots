@@ -53,7 +53,7 @@ function PillarContent({ params }: { params: Promise<{ pillarId: string }> }) {
       case 'completed': return '✅';
       case 'in_progress': return '📖';
       case 'unlocked': return '🔓';
-      case 'locked': return '🔒';
+      case 'locked': return '📋'; // informational only, not blocking
       default: return '';
     }
   }
@@ -105,21 +105,18 @@ function PillarContent({ params }: { params: Promise<{ pillarId: string }> }) {
               <div className="space-y-2">
                 {focusPackets.map(packet => {
                   const ls = activeChild ? lockStatuses[packet.id] : undefined;
-                  const isLocked = ls === 'locked';
+                  const hasPrereqs = ls === 'locked' && packet.prerequisites.length > 0;
 
                   return (
                     <Link
                       key={packet.id}
-                      href={isLocked ? '#' : `/curriculum/${encodeURIComponent(pillar.id)}/packet/${encodeURIComponent(packet.id)}?tier=${tier}`}
-                      onClick={isLocked ? (e: React.MouseEvent) => e.preventDefault() : undefined}
+                      href={`/curriculum/${encodeURIComponent(pillar.id)}/packet/${encodeURIComponent(packet.id)}?tier=${tier}`}
                       className={`block p-3 rounded-xl border transition-colors ${
-                        isLocked
-                          ? 'border-border bg-border-light/30 opacity-60 cursor-not-allowed'
-                          : ls === 'completed'
-                            ? 'border-brand/30 bg-brand-light/10 hover:border-brand/50'
-                            : ls === 'in_progress'
-                              ? 'border-brand/40 hover:border-brand/60'
-                              : 'border-border hover:border-brand/30'
+                        ls === 'completed'
+                          ? 'border-brand/30 bg-brand-light/10 hover:border-brand/50'
+                          : ls === 'in_progress'
+                            ? 'border-brand/40 hover:border-brand/60'
+                            : 'border-border hover:border-brand/30'
                       }`}
                     >
                       <div className="flex items-start justify-between">
@@ -128,24 +125,22 @@ function PillarContent({ params }: { params: Promise<{ pillarId: string }> }) {
                             <span className="text-sm mt-0.5 shrink-0" title={ls}>{statusIcon(ls)}</span>
                           )}
                           <div className="min-w-0">
-                            <p className={`text-sm font-medium ${isLocked ? 'text-muted' : 'text-foreground'}`}>{packet.title}</p>
+                            <p className="text-sm font-medium text-foreground">{packet.title}</p>
                             <p className="text-xs text-muted mt-0.5 font-mono">{packet.id}</p>
                           </div>
                         </div>
-                        {!isLocked && (
-                          <svg className="w-4 h-4 text-muted mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                          </svg>
-                        )}
+                        <svg className="w-4 h-4 text-muted mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
-                      {!isLocked && packet.competence_markers.length > 0 && (
+                      {packet.competence_markers.length > 0 && (
                         <p className="text-xs text-secondary mt-1.5 line-clamp-2 pl-7">
                           {packet.competence_markers[0]}
                         </p>
                       )}
-                      {isLocked && packet.prerequisites.length > 0 && (
+                      {hasPrereqs && (
                         <div className="flex gap-1 mt-1.5 flex-wrap pl-7">
-                          <span className="text-[10px] text-muted">Requires:</span>
+                          <span className="text-[10px] text-muted">Suggested first:</span>
                           {packet.prerequisites.slice(0, 3).map(pre => (
                             <span key={pre} className="text-[10px] px-1.5 py-0.5 bg-border-light rounded font-mono text-muted">
                               {pre}
