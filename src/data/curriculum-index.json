@@ -4174,8 +4174,7 @@
       "domain_raw": "Domain 1 \u2014 Knowing the World",
       "prerequisites": [
         "1.5.1-B2",
-        "IC1.1-C",
-        "1.5.1-C"
+        "IC1.1-C"
       ],
       "competence_markers": [
         "The student can perform Fermi estimations \u2014 breaking unknown quantities into estimable components and arriving at order-of-magnitude answers",
@@ -12132,8 +12131,7 @@
       "domain_raw": "Domain 4 \u2014 Operational & Social Mastery",
       "prerequisites": [
         "4.2.3-B",
-        "1.7.5-B",
-        "4.2.3-C"
+        "1.7.5-B"
       ],
       "competence_markers": []
     },
@@ -13950,9 +13948,7 @@
       "tier": "A",
       "tier_detail": "A (~ages 4\u20139)",
       "domain_raw": "Inner Core",
-      "prerequisites": [
-        "IC1.1-A1"
-      ],
+      "prerequisites": [],
       "competence_markers": [
         "They follow their daily routine without adult prompting on most days (not all \u2014 most; consistency is the trend, not perfection)",
         "They complete tasks fully \u2014 cleanup included \u2014 before moving to the next activity",
@@ -14053,7 +14049,6 @@
         "IC1.1-B1",
         "IC1.1-B2",
         "IC1.1-A1",
-        "IC1.1-C1",
         "3.2.2-B"
       ],
       "competence_markers": [
@@ -14078,8 +14073,7 @@
       "tier_detail": "A (~ages 4\u20139)",
       "domain_raw": "Inner Core",
       "prerequisites": [
-        "IC1.1-A1",
-        "IC1.2-A"
+        "IC1.1-A1"
       ],
       "competence_markers": [
         "The student can name at least five virtues and give an example of each from a story or real life",
@@ -14130,8 +14124,7 @@
       "prerequisites": [
         "IC1.2-B",
         "IC1.1-C",
-        "3.2.2-B",
-        "IC1.2-C"
+        "3.2.2-B"
       ],
       "competence_markers": [
         "The student can analyze moral tradeoffs in writing with genuine sophistication \u2014 identifying competing goods, applying multiple frameworks, reaching reasoned conclusions, and acknowledging what is lost",
@@ -14156,8 +14149,7 @@
       "tier_detail": "A (~ages 4-9)",
       "domain_raw": "Inner Core",
       "prerequisites": [
-        "IC1.1-A1",
-        "IC1.3-A"
+        "IC1.1-A1"
       ],
       "competence_markers": [
         "They tell the truth about mistakes and misbehavior without needing to be caught first \u2014 voluntarily, as their first response",
@@ -14234,7 +14226,6 @@
       "domain_raw": "Inner Core",
       "prerequisites": [
         "IC1.1-A1",
-        "IC1.4-A",
         "IC1.3-A"
       ],
       "competence_markers": [
@@ -14291,8 +14282,7 @@
         "IC1.4-B",
         "IC1.1-C1",
         "IC1.3-C",
-        "3.2.2-B",
-        "IC1.4-C"
+        "3.2.2-B"
       ],
       "competence_markers": [
         "The student can process moral injury without defaulting to numbing, self-destruction, or projection \u2014 they can sit with the full truth of what they did and use it as material for growth",
@@ -14318,8 +14308,7 @@
       "tier_detail": "A (~ages 4-9)",
       "domain_raw": "Inner Core",
       "prerequisites": [
-        "IC1.1-A1",
-        "IC1.5-A"
+        "IC1.1-A1"
       ],
       "competence_markers": [
         "They complete their assigned household tasks daily without prompting \u2014 contribution is a habit, not an event",
@@ -14451,8 +14440,7 @@
         "IC1.6-B",
         "IC1.1-B1",
         "IC1.1-C1",
-        "3.2.2-B",
-        "IC1.6-C"
+        "3.2.2-B"
       ],
       "competence_markers": [
         "The student maintains daily journaling with depth and honesty \u2014 entries reveal genuine self-knowledge, not performance",
@@ -14478,8 +14466,7 @@
       "tier_detail": "A (~ages 4\u20139)",
       "domain_raw": "Inner Core",
       "prerequisites": [
-        "IC1.1-A1",
-        "IC2.1-A"
+        "IC1.1-A1"
       ],
       "competence_markers": [
         "They follow the daily rhythm \u2014 wake time, meal times, chore times, bedtime \u2014 consistently, without adult enforcement on most days",
@@ -14505,8 +14492,7 @@
       "prerequisites": [
         "IC2.1-A",
         "IC1.1-A1",
-        "IC1.1-B1",
-        "IC2.1-B"
+        "IC1.1-B1"
       ],
       "competence_markers": [
         "The student builds their own daily plan \u2014 listing tasks, estimating times, sequencing, and time-blocking \u2014 without adult assistance on most days",
@@ -14534,7 +14520,6 @@
         "IC2.1-B",
         "IC1.1-C1",
         "IC1.1-B",
-        "IC2.1-C",
         "IC1.1-A1"
       ],
       "competence_markers": [
@@ -14699,8 +14684,7 @@
         "IC1.1-C1",
         "IC2.1-C",
         "IC2.2-C",
-        "3.2.2-B",
-        "IC2.3-C"
+        "3.2.2-B"
       ],
       "competence_markers": [
         "They sustain deep work sessions of 2-4 hours, producing high-quality output, on a regular basis (minimum 3-4 sessions per week)",
@@ -14753,8 +14737,7 @@
       "prerequisites": [
         "IC2.4-A",
         "IC1.1-B1",
-        "IC2.1-B",
-        "IC2.4-B"
+        "IC2.1-B"
       ],
       "competence_markers": [
         "They plan multi-week projects in writing \u2014 with phases, steps, time estimates, and milestones \u2014 before beginning work",
@@ -14810,8 +14793,7 @@
       "domain_raw": "Inner Core",
       "prerequisites": [
         "IC1.1-A1",
-        "IC2.2-A",
-        "IC2.5-A"
+        "IC2.2-A"
       ],
       "competence_markers": [
         "They clean and put away tools after every use without being reminded \u2014 this is automatic, not prompted",
@@ -14837,8 +14819,7 @@
       "prerequisites": [
         "IC2.5-A",
         "IC1.1-B1",
-        "IC2.2-B",
-        "IC2.5-B"
+        "IC2.2-B"
       ],
       "competence_markers": [
         "They can explain how reputation is built and lost, with real examples \u2014 not just reciting the concept, but demonstrating understanding through application",
@@ -14865,8 +14846,7 @@
         "IC2.5-B",
         "IC1.1-C1",
         "IC2.4-C",
-        "IC2.2-C",
-        "IC2.5-C"
+        "IC2.2-C"
       ],
       "competence_markers": [
         "They maintain a craft portfolio that accurately represents their capability and shows development over time",
@@ -14890,8 +14870,7 @@
       "tier_detail": "A (~ages 4\u20139)",
       "domain_raw": "Inner Core",
       "prerequisites": [
-        "IC1.1-A1",
-        "IC3.1-A"
+        "IC1.1-A1"
       ],
       "competence_markers": [
         "They can name their emotions with specificity beyond \"mad,\" \"sad,\" and \"happy\" \u2014 using words like frustrated, disappointed, embarrassed, worried, overwhelmed",
@@ -14917,8 +14896,7 @@
       "prerequisites": [
         "IC3.1-A",
         "IC1.1-B1",
-        "IC1.1-B",
-        "IC3.1-B"
+        "IC1.1-B"
       ],
       "competence_markers": [
         "They can identify their primary emotional triggers and describe the pattern each one follows",
@@ -14946,8 +14924,7 @@
       "prerequisites": [
         "IC3.1-B",
         "IC1.1-C1",
-        "IC3.3-B",
-        "IC3.1-C"
+        "IC3.3-B"
       ],
       "competence_markers": [
         "They remain steady under genuine criticism \u2014 receiving negative feedback without defensive collapse, dismissive deflection, or counter-attack; they evaluate the content honestly and respond deliberately",
@@ -14974,8 +14951,7 @@
       "domain_raw": "Inner Core",
       "prerequisites": [
         "IC1.1-A1",
-        "IC3.1-A",
-        "IC3.2-A"
+        "IC3.1-A"
       ],
       "competence_markers": [
         "The child can identify basic body signals when asked \u2014 heart rate, breathing, muscle tension, stomach sensation \u2014 and describe them in their own words",
@@ -15001,8 +14977,7 @@
         "IC3.2-A",
         "IC3.1-A",
         "IC1.1-A1",
-        "IC3.1-B",
-        "IC3.2-B"
+        "IC3.1-B"
       ],
       "competence_markers": [
         "The student can explain the stress response (fight/flight/freeze) in their own words, accurately describing what is happening physiologically",
@@ -15030,8 +15005,7 @@
         "IC3.2-B",
         "IC3.1-B",
         "IC1.1-C1",
-        "IC3.4-B",
-        "IC3.2-C"
+        "IC3.4-B"
       ],
       "competence_markers": [
         "The student can deploy tactical breathing during active stress events (not just before or after) and demonstrates measurable arousal management",
